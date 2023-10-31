@@ -26,9 +26,9 @@ void decipher(unsigned int num_rounds, uint32_t v[2], uint32_t const key[4]) {
 }
 
 void main(){
-    uint32_t v[] = {0xFFFFFFFE, 0xFFFFFFFE}; //input
+    uint32_t v[] = {11111111, 234567890}; //input
     uint32_t w, x;
-    uint32_t key[] = {1234, 5678, 8901, 2345}; //key
+    uint32_t key[] = {0x63728ABC, 0xFAD8D612, 0x62891623, 0xAAAAAAAA}; //key
     
     encipher(64, v, key);
     for(int i = 0; i < 2; i++) printf("%zu ", v[i]);
