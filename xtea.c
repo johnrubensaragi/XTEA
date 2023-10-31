@@ -26,7 +26,7 @@ void decipher(unsigned int num_rounds, uint32_t v[2], uint32_t const key[4]) {
 }
 
 void main(){
-    uint32_t v[] = {0xFFFFFFFE, 0xFFFFFFFE} //input
+    uint32_t v[] = {0xFFFFFFFE, 0xFFFFFFFE}; //input
     uint32_t w, x;
     uint32_t key[] = {1234, 5678, 8901, 2345}; //key
     
