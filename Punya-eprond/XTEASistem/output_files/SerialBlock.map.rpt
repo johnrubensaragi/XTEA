@@ -1,0 +1,841 @@
+Analysis & Synthesis report for SerialBlock
+Mon Nov 20 01:25:41 2023
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst
+ 15. Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst|SerialReader:serialreader_inst
+ 16. Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst|SerialSender:serialsender_inst
+ 17. Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst
+ 18. Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst
+ 19. Port Connectivity Checks: "SerialBlock:serialblock_inst"
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Nov 20 01:25:41 2023           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; SerialBlock                                     ;
+; Top-level Entity Name              ; DummyTopLevel                                   ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 35                                              ;
+;     Total combinational functions  ; 32                                              ;
+;     Dedicated logic registers      ; 24                                              ;
+; Total registers                    ; 24                                              ;
+; Total pins                         ; 4                                               ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                                      ; DummyTopLevel      ; SerialBlock        ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                     ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                                              ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; ClockDiv.vhd                     ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/ClockDiv.vhd       ;         ;
+; DummyTopLevel.vhd                ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/DummyTopLevel.vhd  ;         ;
+; speed_select.vhd                 ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/speed_select.vhd   ;         ;
+; SerialSender.vhd                 ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialSender.vhd   ;         ;
+; SerialReader.vhd                 ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialReader.vhd   ;         ;
+; SerialBlock.vhd                  ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialBlock.vhd    ;         ;
+; PulseGenerator.vhd               ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/PulseGenerator.vhd ;         ;
+; my_uart_tx.vhd                   ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_tx.vhd     ;         ;
+; my_uart_top.vhd                  ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_top.vhd    ;         ;
+; my_uart_rx.vhd                   ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_rx.vhd     ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 35          ;
+;                                             ;             ;
+; Total combinational functions               ; 32          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 16          ;
+;     -- 3 input functions                    ; 2           ;
+;     -- <=2 input functions                  ; 14          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 20          ;
+;     -- arithmetic mode                      ; 12          ;
+;                                             ;             ;
+; Total registers                             ; 24          ;
+;     -- Dedicated logic registers            ; 24          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 4           ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 24          ;
+; Total fan-out                               ; 185         ;
+; Average fan-out                             ; 2.89        ;
++---------------------------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                               ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                             ; Library Name ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
+; |DummyTopLevel                       ; 32 (0)            ; 24 (0)       ; 0           ; 0            ; 0       ; 0         ; 4    ; 0            ; |DummyTopLevel                                                                                  ; work         ;
+;    |SerialBlock:serialblock_inst|    ; 32 (0)            ; 24 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst                                                     ; work         ;
+;       |my_uart_top:my_uart_top_inst| ; 32 (0)            ; 24 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst                        ; work         ;
+;          |my_uart_tx:transmitter|    ; 12 (12)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter ; work         ;
+;          |speed_select:speed_tx|     ; 20 (20)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_tx  ; work         ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state                                                                                                                                    ;
++------------------------+-------------------+------------------------+------------------+-------------------+------------------------+-----------------------+------------------------+-----------------+---------------+--------------+
+; Name                   ; c_state.read_data ; c_state.read_startdata ; c_state.read_key ; c_state.read_mode ; c_state.read_whitedata ; c_state.read_whitekey ; c_state.read_whitemode ; c_state.read_kw ; c_state.start ; c_state.idle ;
++------------------------+-------------------+------------------------+------------------+-------------------+------------------------+-----------------------+------------------------+-----------------+---------------+--------------+
+; c_state.idle           ; 0                 ; 0                      ; 0                ; 0                 ; 0                      ; 0                     ; 0                      ; 0               ; 0             ; 0            ;
+; c_state.start          ; 0                 ; 0                      ; 0                ; 0                 ; 0                      ; 0                     ; 0                      ; 0               ; 1             ; 1            ;
+; c_state.read_kw        ; 0                 ; 0                      ; 0                ; 0                 ; 0                      ; 0                     ; 0                      ; 1               ; 0             ; 1            ;
+; c_state.read_whitemode ; 0                 ; 0                      ; 0                ; 0                 ; 0                      ; 0                     ; 1                      ; 0               ; 0             ; 1            ;
+; c_state.read_whitekey  ; 0                 ; 0                      ; 0                ; 0                 ; 0                      ; 1                     ; 0                      ; 0               ; 0             ; 1            ;
+; c_state.read_whitedata ; 0                 ; 0                      ; 0                ; 0                 ; 1                      ; 0                     ; 0                      ; 0               ; 0             ; 1            ;
+; c_state.read_mode      ; 0                 ; 0                      ; 0                ; 1                 ; 0                      ; 0                     ; 0                      ; 0               ; 0             ; 1            ;
+; c_state.read_key       ; 0                 ; 0                      ; 1                ; 0                 ; 0                      ; 0                     ; 0                      ; 0               ; 0             ; 1            ;
+; c_state.read_startdata ; 0                 ; 1                      ; 0                ; 0                 ; 0                      ; 0                     ; 0                      ; 0               ; 0             ; 1            ;
+; c_state.read_data      ; 1                 ; 0                      ; 0                ; 0                 ; 0                      ; 0                     ; 0                      ; 0               ; 0             ; 1            ;
++------------------------+-------------------+------------------------+------------------+-------------------+------------------------+-----------------------+------------------------+-----------------+---------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                    ;
++--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+; Register name                                                                                                ; Reason for Removal                                     ;
++--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|bps_start_r~en              ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|bps_start_r~en                 ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|sender_enable                                                                   ; Merged with SerialBlock:serialblock_inst|reader_enable ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[0..7]                            ; Stuck at GND due to stuck port data_in                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[0..7]             ; Stuck at GND due to stuck port data_in                 ;
+; SerialBlock:serialblock_inst|sender_start                                                                    ; Stuck at GND due to stuck port data_in                 ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|n_state                                          ; Stuck at GND due to stuck port data_in                 ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|c_state                                          ; Stuck at GND due to stuck port data_in                 ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|data_counter[0..2]                               ; Stuck at GND due to stuck port clock_enable            ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_enable                                     ; Stuck at GND due to stuck port clock_enable            ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_reset                                      ; Stuck at GND due to stuck port clock_enable            ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|pulse_reset1  ; Stuck at GND due to stuck port data_in                 ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|pulse_out     ; Stuck at GND due to stuck port clock_enable            ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[0..3] ; Stuck at GND due to stuck port clock_enable            ;
+; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out                                                  ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[0..30]                                             ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|reader_finish                                                                   ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|reader_start                                                                    ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|reader_enable                                                                   ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[0..7]                ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|reader_trigger                                                                  ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|receive_c                                                                       ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_int_i                       ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[0]                ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|clk_bps_r                    ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[0..3]                      ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[1..7]             ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx0                      ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx1                      ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx2                      ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx3                      ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[0..12]                   ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|bps_start_r                    ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.idle                                     ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.start                                    ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_kw                                  ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_whitemode                           ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_whitekey                            ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_whitedata                           ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_mode                                ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_key                                 ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_startdata                           ; Lost fanout                                            ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_data                                ; Lost fanout                                            ;
+; Total Number of Removed Registers = 120                                                                      ;                                                        ;
++--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                             ;
++----------------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                ; Reason for Removal        ; Registers Removed due to This Register                                                                       ;
++----------------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
+; SerialBlock:serialblock_inst|sender_start                                                    ; Stuck at GND              ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|n_state,                                         ;
+;                                                                                              ; due to stuck port data_in ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|c_state,                                         ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|data_counter[2],                                 ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|data_counter[1],                                 ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|data_counter[0],                                 ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_enable,                                    ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_reset,                                     ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|pulse_reset1, ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|pulse_out,    ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[3],   ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[2],   ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[1],   ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[0],   ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|reader_enable,                                                                  ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|reader_trigger,                                                                 ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_whitedata,                          ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_data                                ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[0]   ; Lost Fanouts              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[0],               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|clk_bps_r,                   ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[0],                        ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[12],                     ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[11],                     ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[10],                     ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[9],                      ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[8],                      ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[7],                      ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[6],                      ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[5],                      ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[4],                      ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[3],                      ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[2],                      ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[1],                      ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[0],                      ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|bps_start_r                    ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|bps_start_r~en ; Lost Fanouts              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[3],                        ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[2],                        ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[1],                        ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx0,                     ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx1,                     ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx2,                     ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx3                      ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[0]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[0],               ;
+;                                                                                              ; due to stuck port data_in ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out,                                                 ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[30],                                               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[29],                                               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[28],                                               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[27],                                               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[26]                                                ;
+; SerialBlock:serialblock_inst|reader_finish                                                   ; Lost Fanouts              ; SerialBlock:serialblock_inst|receive_c,                                                                      ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_int_i                       ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[1]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[1]                ;
+;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[2]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[2]                ;
+;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[3]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[3]                ;
+;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[4]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[4]                ;
+;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[5]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[5]                ;
+;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[6]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[6]                ;
+;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[7]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[7]                ;
+;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[7]   ; Lost Fanouts              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[7]                ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[6]   ; Lost Fanouts              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[6]                ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[5]   ; Lost Fanouts              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[5]                ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[4]   ; Lost Fanouts              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[4]                ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[3]   ; Lost Fanouts              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[3]                ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[2]   ; Lost Fanouts              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[2]                ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[1]   ; Lost Fanouts              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[1]                ;
++----------------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 24    ;
+; Number of registers using Synchronous Clear  ; 13    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 23    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                          ;
++---------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                           ; Fan out ;
++---------------------------------------------------------------------------------------------+---------+
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|rs232_tx_r ; 2       ;
+; Total number of inverted registers = 1                                                      ;         ;
++---------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|num[3] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[2]    ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state                     ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; No         ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Selector156                 ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Selector64                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; data_length    ; 64    ; Signed Integer                                   ;
+; address_length ; 10    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst|SerialReader:serialreader_inst ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; data_length    ; 64    ; Signed Integer                                                                  ;
+; address_length ; 10    ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst|SerialSender:serialsender_inst ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; data_length    ; 64    ; Signed Integer                                                                  ;
+; address_length ; 10    ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                               ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------+
+; pulse_width    ; 10    ; Signed Integer                                                                                                     ;
+; pulse_max      ; 16    ; Signed Integer                                                                                                     ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst ;
++-----------------+----------+---------------------------------------------------------------------+
+; Parameter Name  ; Value    ; Type                                                                ;
++-----------------+----------+---------------------------------------------------------------------+
+; div_frequency   ; 9600     ; Signed Integer                                                      ;
+; clock_frequency ; 50000000 ; Signed Integer                                                      ;
++-----------------+----------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SerialBlock:serialblock_inst"                                                                 ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; serial_running ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; serial_done    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; error_out      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; store_address  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; store_data     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Nov 20 01:25:36 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off XTEASistem -c SerialBlock
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file clockdiv.vhd
+    Info (12022): Found design unit 1: ClockDiv-behavioral
+    Info (12023): Found entity 1: ClockDiv
+Info (12021): Found 2 design units, including 1 entities, in source file dummytoplevel.vhd
+    Info (12022): Found design unit 1: DummyTopLevel-behavioral
+    Info (12023): Found entity 1: DummyTopLevel
+Info (12021): Found 2 design units, including 1 entities, in source file speed_select.vhd
+    Info (12022): Found design unit 1: speed_select-RTL
+    Info (12023): Found entity 1: speed_select
+Info (12021): Found 2 design units, including 1 entities, in source file serialsender.vhd
+    Info (12022): Found design unit 1: SerialSender-behavioral
+    Info (12023): Found entity 1: SerialSender
+Info (12021): Found 2 design units, including 1 entities, in source file serialreader.vhd
+    Info (12022): Found design unit 1: SerialReader-behavioral
+    Info (12023): Found entity 1: SerialReader
+Info (12021): Found 2 design units, including 1 entities, in source file serialblock.vhd
+    Info (12022): Found design unit 1: SerialBlock-behavioral
+    Info (12023): Found entity 1: SerialBlock
+Info (12021): Found 2 design units, including 1 entities, in source file pulsegenerator.vhd
+    Info (12022): Found design unit 1: PulseGenerator-behavioral
+    Info (12023): Found entity 1: PulseGenerator
+Info (12021): Found 2 design units, including 1 entities, in source file my_uart_tx.vhd
+    Info (12022): Found design unit 1: my_uart_tx-RTL
+    Info (12023): Found entity 1: my_uart_tx
+Info (12021): Found 2 design units, including 1 entities, in source file my_uart_top.vhd
+    Info (12022): Found design unit 1: my_uart_top-structural
+    Info (12023): Found entity 1: my_uart_top
+Info (12021): Found 2 design units, including 1 entities, in source file my_uart_rx.vhd
+    Info (12022): Found design unit 1: my_uart_rx-RTL
+    Info (12023): Found entity 1: my_uart_rx
+Info (12127): Elaborating entity "DummyTopLevel" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(33): object "serial_running" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(33): object "serial_done" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(34): object "error_out" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(35): object "store_data" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(36): object "store_address" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at DummyTopLevel.vhd(37): used implicit default value for signal "send_data" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DummyTopLevel.vhd(38): used implicit default value for signal "send_start" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "SerialBlock" for hierarchy "SerialBlock:serialblock_inst"
+Info (12128): Elaborating entity "SerialReader" for hierarchy "SerialBlock:serialblock_inst|SerialReader:serialreader_inst"
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(35): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(53): signal "reader_enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(59): signal "temp_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(60): signal "temp_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(61): signal "temp_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(64): signal "done_mode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(64): signal "done_key" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(64): signal "done_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(75): signal "c_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(78): signal "reader_start" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(83): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(85): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(86): signal "c_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(93): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(93): signal "done_mode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(95): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(95): signal "done_key" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(97): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(97): signal "done_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(105): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(115): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(125): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(134): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(135): signal "temp_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(136): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(139): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(140): signal "temp_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(141): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(150): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(151): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(152): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(155): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(159): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(163): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(164): signal "temp_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(165): signal "temp_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(170): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(171): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(172): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(173): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(174): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(175): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(176): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(177): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(178): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(180): signal "temp_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(180): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(181): signal "temp_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(182): signal "temp_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(186): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(187): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(188): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(189): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(190): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(191): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(192): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(193): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(195): signal "temp_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(195): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(196): signal "temp_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(205): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(214): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(215): signal "temp_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(219): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(220): signal "temp_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(221): signal "temp_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(225): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(226): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(227): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(228): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(229): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(230): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(231): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(232): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(234): signal "temp_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(234): signal "reader_data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(235): signal "temp_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(236): signal "temp_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at SerialReader.vhd(49): inferring latch(es) for signal or variable "reader_data_out", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at SerialReader.vhd(49): inferring latch(es) for signal or variable "reader_address_out", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at SerialReader.vhd(49): inferring latch(es) for signal or variable "reader_done", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at SerialReader.vhd(49): inferring latch(es) for signal or variable "error_out", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at SerialReader.vhd(49): inferring latch(es) for signal or variable "n_state", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at SerialReader.vhd(49): inferring latch(es) for signal or variable "temp_address", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at SerialReader.vhd(49): inferring latch(es) for signal or variable "counter", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at SerialReader.vhd(49): inferring latch(es) for signal or variable "done_mode", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at SerialReader.vhd(49): inferring latch(es) for signal or variable "done_key", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at SerialReader.vhd(49): inferring latch(es) for signal or variable "temp_data", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at SerialReader.vhd(49): inferring latch(es) for signal or variable "done_data", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "done_data" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[0]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[1]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[2]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[3]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[4]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[5]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[6]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[7]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[8]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[9]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[10]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[11]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[12]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[13]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[14]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[15]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[16]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[17]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[18]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[19]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[20]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[21]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[22]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[23]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[24]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[25]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[26]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[27]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[28]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[29]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[30]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[31]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[32]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[33]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[34]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[35]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[36]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[37]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[38]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[39]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[40]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[41]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[42]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[43]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[44]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[45]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[46]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[47]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[48]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[49]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[50]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[51]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[52]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[53]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[54]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[55]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[56]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[57]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[58]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[59]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[60]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[61]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[62]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_data[63]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "done_key" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "done_mode" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "counter[0]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "counter[1]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "counter[2]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "counter[3]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_address[0]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_address[1]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_address[2]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_address[3]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_address[4]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_address[5]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_address[6]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_address[7]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_address[8]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "temp_address[9]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "n_state.read_data" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "n_state.read_startdata" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "n_state.read_key" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "n_state.read_mode" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "n_state.read_whitedata" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "n_state.read_whitekey" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "n_state.read_whitemode" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "n_state.read_kw" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "n_state.start" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "n_state.idle" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "error_out[0]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "error_out[1]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_done" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_address_out[0]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_address_out[1]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_address_out[2]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_address_out[3]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_address_out[4]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_address_out[5]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_address_out[6]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_address_out[7]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_address_out[8]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_address_out[9]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[0]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[1]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[2]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[3]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[4]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[5]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[6]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[7]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[8]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[9]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[10]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[11]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[12]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[13]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[14]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[15]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[16]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[17]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[18]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[19]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[20]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[21]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[22]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[23]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[24]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[25]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[26]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[27]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[28]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[29]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[30]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[31]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[32]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[33]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[34]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[35]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[36]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[37]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[38]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[39]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[40]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[41]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[42]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[43]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[44]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[45]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[46]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[47]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[48]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[49]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[50]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[51]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[52]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[53]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[54]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[55]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[56]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[57]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[58]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[59]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[60]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[61]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[62]" at SerialReader.vhd(49)
+Info (10041): Inferred latch for "reader_data_out[63]" at SerialReader.vhd(49)
+Info (12128): Elaborating entity "SerialSender" for hierarchy "SerialBlock:serialblock_inst|SerialSender:serialsender_inst"
+Warning (10492): VHDL Process Statement warning at SerialSender.vhd(54): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "PulseGenerator" for hierarchy "SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst"
+Warning (10492): VHDL Process Statement warning at PulseGenerator.vhd(31): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at PulseGenerator.vhd(34): signal "pulse_enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "my_uart_top" for hierarchy "SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst"
+Info (12128): Elaborating entity "speed_select" for hierarchy "SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx"
+Info (12128): Elaborating entity "my_uart_rx" for hierarchy "SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver"
+Info (12128): Elaborating entity "my_uart_tx" for hierarchy "SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter"
+Info (12128): Elaborating entity "ClockDiv" for hierarchy "SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst"
+Warning (10542): VHDL Variable Declaration warning at ClockDiv.vhd(18): used initial value expression for variable "div" because variable was never assigned a value
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|bps_start" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|bps_start" feeding internal logic into a wire
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 89 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "rs232_rx"
+Info (21057): Implemented 39 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 35 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 105 warnings
+    Info: Peak virtual memory: 4682 megabytes
+    Info: Processing ended: Mon Nov 20 01:25:41 2023
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:03
+
+
