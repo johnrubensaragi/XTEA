@@ -114,7 +114,7 @@ begin
 					if(mode = '0') then
 						d_out <= add(v1, add(sl4(v0) xor sr5(v0), v0) xor (add(sum, ksn311(key, sum)))) & v0;
 					else
-						d_out <= v1 & sub(v0, add(sl4(v1) xor sr5(v1), v1) xor (add(sum, ksn311(key, sum))));
+						d_out <= v1 & sub(v0, add(sl4(v1) xor sr5(v1), v1) xor (add(sum, ksn3(key, sum))));
 					end if;
 					s <= init;
 				else
