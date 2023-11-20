@@ -1,11 +1,14 @@
-|DummyTopLevel
+|TestSender
 clock => SerialBlock:serialblock_inst.clock
+clock => PulseGenerator:pulse10_inst.clock
+clock => ClockDiv:clockdiv_inst.clock
 nreset => SerialBlock:serialblock_inst.nreset
+nreset => PulseGenerator:pulse10_inst.nreset
 rs232_rx => SerialBlock:serialblock_inst.rs232_rx
 rs232_tx <= SerialBlock:serialblock_inst.rs232_tx
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst
+|TestSender|SerialBlock:serialblock_inst
 clock => SerialReader:serialreader_inst.clock
 clock => sender_enable.CLK
 clock => reader_enable.CLK
@@ -169,7 +172,7 @@ rs232_rx => my_uart_top:my_uart_top_inst.rs232_rx
 rs232_tx <= my_uart_top:my_uart_top_inst.rs232_tx
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst
+|TestSender|SerialBlock:serialblock_inst|SerialReader:serialreader_inst
 clock => c_state~11.DATAIN
 nreset => c_state~13.DATAIN
 reader_enable => c_state.OUTPUTSELECT
@@ -628,7 +631,7 @@ reader_data_out[62] <= reader_data_out[62]$latch.DB_MAX_OUTPUT_PORT_TYPE
 reader_data_out[63] <= reader_data_out[63]$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|SerialSender:serialsender_inst
+|TestSender|SerialBlock:serialblock_inst|SerialSender:serialsender_inst
 clock => PulseGenerator:pulsegenerator_inst.clock
 clock => c_state.CLK
 nreset => PulseGenerator:pulsegenerator_inst.nreset
@@ -726,7 +729,7 @@ sender_data_out[6] <= sender_data_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 sender_data_out[7] <= sender_data_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst
+|TestSender|SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst
 clock => pulse_reset1.CLK
 clock => pulse_out~reg0.CLK
 clock => counter[0].CLK
@@ -751,7 +754,7 @@ pulse_reset => result_signal.IN1
 pulse_out <= pulse_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst
+|TestSender|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst
 clock => speed_select:speed_rx.clk
 clock => speed_select:speed_tx.clk
 clock => my_uart_rx:receiver.clk
@@ -782,7 +785,7 @@ rs232_rx => my_uart_rx:receiver.rs232_rx
 rs232_tx <= my_uart_tx:transmitter.rs232_tx
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx
+|TestSender|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx
 clk => clk_bps_r.CLK
 clk => cnt[0].CLK
 clk => cnt[1].CLK
@@ -816,7 +819,7 @@ bps_start => process_0.IN1
 clk_bps <= clk_bps_r.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_tx
+|TestSender|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_tx
 clk => clk_bps_r.CLK
 clk => cnt[0].CLK
 clk => cnt[1].CLK
@@ -850,7 +853,7 @@ bps_start => process_0.IN1
 clk_bps <= clk_bps_r.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver
+|TestSender|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver
 clk => rx_data_r[0].CLK
 clk => rx_data_r[1].CLK
 clk => rx_data_r[2].CLK
@@ -945,7 +948,7 @@ rx_data[7] <= rx_data_r[7].DB_MAX_OUTPUT_PORT_TYPE
 rx_int <= rx_int_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter
+|TestSender|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter
 clk => rs232_tx_r.CLK
 clk => num[0].CLK
 clk => num[1].CLK
@@ -1001,7 +1004,68 @@ clk_bps => rs232_tx_r.OUTPUTSELECT
 bps_start <= bps_start_r.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst
+|TestSender|SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst
+clock => div_out~reg0.CLK
+clock => count[0].CLK
+clock => count[1].CLK
+clock => count[2].CLK
+clock => count[3].CLK
+clock => count[4].CLK
+clock => count[5].CLK
+clock => count[6].CLK
+clock => count[7].CLK
+clock => count[8].CLK
+clock => count[9].CLK
+clock => count[10].CLK
+clock => count[11].CLK
+clock => count[12].CLK
+clock => count[13].CLK
+clock => count[14].CLK
+clock => count[15].CLK
+clock => count[16].CLK
+clock => count[17].CLK
+clock => count[18].CLK
+clock => count[19].CLK
+clock => count[20].CLK
+clock => count[21].CLK
+clock => count[22].CLK
+clock => count[23].CLK
+clock => count[24].CLK
+clock => count[25].CLK
+clock => count[26].CLK
+clock => count[27].CLK
+clock => count[28].CLK
+clock => count[29].CLK
+clock => count[30].CLK
+div_out <= div_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TestSender|PulseGenerator:pulse10_inst
+clock => pulse_reset1.CLK
+clock => pulse_out~reg0.CLK
+clock => counter[0].CLK
+clock => counter[1].CLK
+clock => counter[2].CLK
+clock => counter[3].CLK
+nreset => pulse_out~reg0.ACLR
+nreset => counter[0].ACLR
+nreset => counter[1].ACLR
+nreset => counter[2].ACLR
+nreset => counter[3].ACLR
+nreset => pulse_reset1.ENA
+pulse_enable => pulse_reset1.OUTPUTSELECT
+pulse_enable => counter[3].ENA
+pulse_enable => counter[2].ENA
+pulse_enable => counter[1].ENA
+pulse_enable => counter[0].ENA
+pulse_enable => pulse_out~reg0.ENA
+pulse_reset => result_signal.IN1
+pulse_reset => pulse_reset1.DATAB
+pulse_reset => result_signal.IN1
+pulse_out <= pulse_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TestSender|ClockDiv:clockdiv_inst
 clock => div_out~reg0.CLK
 clock => count[0].CLK
 clock => count[1].CLK

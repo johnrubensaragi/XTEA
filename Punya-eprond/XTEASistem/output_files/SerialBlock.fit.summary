@@ -1,7 +1,7 @@
-Fitter Status : Successful - Mon Nov 20 01:25:51 2023
+Fitter Status : Successful - Mon Nov 20 22:56:23 2023
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : SerialBlock
-Top-level Entity Name : DummyTopLevel
+Top-level Entity Name : TestSender
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final

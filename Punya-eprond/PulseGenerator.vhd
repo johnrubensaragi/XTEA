@@ -39,14 +39,16 @@ begin
                 pulse_reset1 <= pulse_reset;
                 if both_edge(pulse_reset, pulse_reset1) then
                     counter <= 0;
+                elsif (counter < pulse_width) then
+                    counter <= counter + 1;
                 end if;
 
                 if (counter < pulse_width) then
-                    counter <= counter + 1;
                     pulse_out <= '1';
                 else
                     pulse_out <= '0';
                 end if;
+                
             end if;
         end if;
     end process main;

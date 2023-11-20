@@ -1,0 +1,554 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do SerialBlock_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/TestSender.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity TestSender
+# -- Compiling architecture behavioral of TestSender
+# vcom -93 -work work {C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialBlock.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity SerialBlock
+# -- Compiling architecture behavioral of SerialBlock
+# vcom -93 -work work {C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/PulseGenerator.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity PulseGenerator
+# -- Compiling architecture behavioral of PulseGenerator
+# vcom -93 -work work {C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_tx.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity my_uart_tx
+# -- Compiling architecture RTL of my_uart_tx
+# vcom -93 -work work {C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_top.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity my_uart_top
+# -- Compiling architecture structural of my_uart_top
+# vcom -93 -work work {C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_rx.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity my_uart_rx
+# -- Compiling architecture RTL of my_uart_rx
+# vcom -93 -work work {C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/ClockDiv.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity ClockDiv
+# -- Compiling architecture behavioral of ClockDiv
+# vcom -93 -work work {C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialSender.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity SerialSender
+# -- Compiling architecture behavioral of SerialSender
+# vcom -93 -work work {C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialReader.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity SerialReader
+# -- Compiling architecture behavioral of SerialReader
+# ** Warning: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialReader.vhd(116): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
+# 
+# ** Warning: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialReader.vhd(126): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
+# 
+# vcom -93 -work work {C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/speed_select.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity speed_select
+# -- Compiling architecture RTL of speed_select
+# 
+vsim work.testsender
+# vsim work.testsender 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading work.testsender(behavioral)
+# Loading work.serialblock(behavioral)
+# Loading work.serialreader(behavioral)
+# Loading work.serialsender(behavioral)
+# Loading work.pulsegenerator(behavioral)
+# Loading work.my_uart_top(structural)
+# Loading work.speed_select(rtl)
+# Loading work.my_uart_rx(rtl)
+# Loading work.my_uart_tx(rtl)
+# Loading work.clockdiv(behavioral)
+add wave -position insertpoint  \
+sim:/testsender/clock \
+sim:/testsender/nreset \
+sim:/testsender/rs232_rx \
+sim:/testsender/rs232_tx \
+sim:/testsender/serial_running \
+sim:/testsender/serial_done \
+sim:/testsender/error_out \
+sim:/testsender/store_data \
+sim:/testsender/store_address \
+sim:/testsender/send_data \
+sim:/testsender/send_start \
+sim:/testsender/send_counter \
+sim:/testsender/serial_done_buffer \
+sim:/testsender/pulse10_reset \
+sim:/testsender/pulse10_out \
+sim:/testsender/lame_clock \
+sim:/testsender/clock_frequency \
+sim:/testsender/clock_period \
+sim:/testsender/data_length \
+sim:/testsender/address_length
+force -freeze sim:/testsender/clock 0 0, 1 {50 ps} -r 100
+run
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 50 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 50 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 2950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 3950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 4950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 6950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 7950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 8950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9050 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9150 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9250 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9350 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9450 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9550 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9650 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9750 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9850 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/receiver
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 9950 ps  Iteration: 0  Instance: /testsender/serialblock_inst/my_uart_top_inst/transmitter
+restart
+force -freeze sim:/testsender/clock 0 0, 1 {50 ps} -r 100
+force -freeze sim:/testsender/nreset {} 0
+# ** Error: (vsim-4026) Value "" does not represent a literal of the enumeration type.
+# ** Error: (vsim-4011) Invalid force value: {} 0.
+# 
+force -freeze sim:/testsender/nreset 0 0
+run
+run
+force -freeze sim:/testsender/nreset 1 0
+run

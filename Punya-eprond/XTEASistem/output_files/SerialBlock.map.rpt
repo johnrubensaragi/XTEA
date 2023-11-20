@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SerialBlock
-Mon Nov 20 01:25:41 2023
+Mon Nov 20 22:56:17 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,7 +13,7 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state
+  8. State Machine - |TestSender|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state
   9. Registers Removed During Synthesis
  10. Removed Registers Triggering Further Register Optimizations
  11. General Register Statistics
@@ -24,9 +24,13 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  16. Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst|SerialSender:serialsender_inst
  17. Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst
  18. Parameter Settings for User Entity Instance: SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst
- 19. Port Connectivity Checks: "SerialBlock:serialblock_inst"
- 20. Elapsed Time Per Partition
- 21. Analysis & Synthesis Messages
+ 19. Parameter Settings for User Entity Instance: PulseGenerator:pulse10_inst
+ 20. Parameter Settings for User Entity Instance: ClockDiv:clockdiv_inst
+ 21. Port Connectivity Checks: "ClockDiv:clockdiv_inst"
+ 22. Port Connectivity Checks: "PulseGenerator:pulse10_inst"
+ 23. Port Connectivity Checks: "SerialBlock:serialblock_inst"
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
 
 
 
@@ -52,10 +56,10 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 20 01:25:41 2023           ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 20 22:56:17 2023           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; SerialBlock                                     ;
-; Top-level Entity Name              ; DummyTopLevel                                   ;
+; Top-level Entity Name              ; TestSender                                      ;
 ; Family                             ; Cyclone IV E                                    ;
 ; Total logic elements               ; 35                                              ;
 ;     Total combinational functions  ; 32                                              ;
@@ -75,7 +79,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP4CE6E22C8        ;                    ;
-; Top-level entity name                                                      ; DummyTopLevel      ; SerialBlock        ;
+; Top-level entity name                                                      ; TestSender         ; SerialBlock        ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -173,22 +177,22 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                     ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                                              ; Library ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; ClockDiv.vhd                     ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/ClockDiv.vhd       ;         ;
-; DummyTopLevel.vhd                ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/DummyTopLevel.vhd  ;         ;
-; speed_select.vhd                 ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/speed_select.vhd   ;         ;
-; SerialSender.vhd                 ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialSender.vhd   ;         ;
-; SerialReader.vhd                 ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialReader.vhd   ;         ;
-; SerialBlock.vhd                  ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialBlock.vhd    ;         ;
-; PulseGenerator.vhd               ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/PulseGenerator.vhd ;         ;
-; my_uart_tx.vhd                   ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_tx.vhd     ;         ;
-; my_uart_top.vhd                  ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_top.vhd    ;         ;
-; my_uart_rx.vhd                   ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_rx.vhd     ;         ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                           ;
++----------------------------------+-----------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                                                                                                              ; Library ;
++----------------------------------+-----------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; TestSender.vhd                   ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/TestSender.vhd     ;         ;
+; SerialBlock.vhd                  ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialBlock.vhd    ;         ;
+; PulseGenerator.vhd               ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/PulseGenerator.vhd ;         ;
+; my_uart_tx.vhd                   ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_tx.vhd     ;         ;
+; my_uart_top.vhd                  ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_top.vhd    ;         ;
+; my_uart_rx.vhd                   ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/my_uart_rx.vhd     ;         ;
+; ClockDiv.vhd                     ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/ClockDiv.vhd       ;         ;
+; SerialSender.vhd                 ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialSender.vhd   ;         ;
+; SerialReader.vhd                 ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/SerialReader.vhd   ;         ;
+; speed_select.vhd                 ; yes             ; Auto-Found VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/speed_select.vhd   ;         ;
++----------------------------------+-----------------+-----------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -221,23 +225,23 @@ applicable agreement for further details.
 +---------------------------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                               ;
-+--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                             ; Library Name ;
-+--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
-; |DummyTopLevel                       ; 32 (0)            ; 24 (0)       ; 0           ; 0            ; 0       ; 0         ; 4    ; 0            ; |DummyTopLevel                                                                                  ; work         ;
-;    |SerialBlock:serialblock_inst|    ; 32 (0)            ; 24 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst                                                     ; work         ;
-;       |my_uart_top:my_uart_top_inst| ; 32 (0)            ; 24 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst                        ; work         ;
-;          |my_uart_tx:transmitter|    ; 12 (12)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter ; work         ;
-;          |speed_select:speed_tx|     ; 20 (20)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_tx  ; work         ;
-+--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                            ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                          ; Library Name ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
+; |TestSender                          ; 32 (0)            ; 24 (0)       ; 0           ; 0            ; 0       ; 0         ; 4    ; 0            ; |TestSender                                                                                  ; work         ;
+;    |SerialBlock:serialblock_inst|    ; 32 (0)            ; 24 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TestSender|SerialBlock:serialblock_inst                                                     ; work         ;
+;       |my_uart_top:my_uart_top_inst| ; 32 (0)            ; 24 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TestSender|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst                        ; work         ;
+;          |my_uart_tx:transmitter|    ; 12 (12)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TestSender|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter ; work         ;
+;          |speed_select:speed_tx|     ; 20 (20)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TestSender|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_tx  ; work         ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state                                                                                                                                    ;
+; State Machine - |TestSender|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state                                                                                                                                       ;
 +------------------------+-------------------+------------------------+------------------+-------------------+------------------------+-----------------------+------------------------+-----------------+---------------+--------------+
 ; Name                   ; c_state.read_data ; c_state.read_startdata ; c_state.read_key ; c_state.read_mode ; c_state.read_whitedata ; c_state.read_whitekey ; c_state.read_whitemode ; c_state.read_kw ; c_state.start ; c_state.idle ;
 +------------------------+-------------------+------------------------+------------------+-------------------+------------------------+-----------------------+------------------------+-----------------+---------------+--------------+
@@ -254,56 +258,59 @@ Encoding Type:  One-Hot
 +------------------------+-------------------+------------------------+------------------+-------------------+------------------------+-----------------------+------------------------+-----------------+---------------+--------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                    ;
-+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
-; Register name                                                                                                ; Reason for Removal                                     ;
-+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|bps_start_r~en              ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|bps_start_r~en                 ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|sender_enable                                                                   ; Merged with SerialBlock:serialblock_inst|reader_enable ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[0..7]                            ; Stuck at GND due to stuck port data_in                 ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[0..7]             ; Stuck at GND due to stuck port data_in                 ;
-; SerialBlock:serialblock_inst|sender_start                                                                    ; Stuck at GND due to stuck port data_in                 ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|n_state                                          ; Stuck at GND due to stuck port data_in                 ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|c_state                                          ; Stuck at GND due to stuck port data_in                 ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|data_counter[0..2]                               ; Stuck at GND due to stuck port clock_enable            ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_enable                                     ; Stuck at GND due to stuck port clock_enable            ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_reset                                      ; Stuck at GND due to stuck port clock_enable            ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|pulse_reset1  ; Stuck at GND due to stuck port data_in                 ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|pulse_out     ; Stuck at GND due to stuck port clock_enable            ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[0..3] ; Stuck at GND due to stuck port clock_enable            ;
-; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out                                                  ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[0..30]                                             ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|reader_finish                                                                   ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|reader_start                                                                    ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|reader_enable                                                                   ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[0..7]                ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|reader_trigger                                                                  ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|receive_c                                                                       ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_int_i                       ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[0]                ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|clk_bps_r                    ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[0..3]                      ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[1..7]             ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx0                      ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx1                      ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx2                      ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx3                      ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[0..12]                   ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|bps_start_r                    ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.idle                                     ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.start                                    ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_kw                                  ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_whitemode                           ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_whitekey                            ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_whitedata                           ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_mode                                ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_key                                 ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_startdata                           ; Lost fanout                                            ;
-; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_data                                ; Lost fanout                                            ;
-; Total Number of Removed Registers = 120                                                                      ;                                                        ;
-+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                         ;
++--------------------------------------------------------------------------------------------------------------+---------------------------------------------+
+; Register name                                                                                                ; Reason for Removal                          ;
++--------------------------------------------------------------------------------------------------------------+---------------------------------------------+
+; SerialBlock:serialblock_inst|sender_enable                                                                   ; Stuck at VCC due to stuck port data_in      ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|bps_start_r~en              ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|bps_start_r~en                 ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|sender_start                                                                    ; Stuck at GND due to stuck port data_in      ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_done                                      ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[7]                               ; Stuck at GND due to stuck port data_in      ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[7]                ; Stuck at GND due to stuck port data_in      ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|n_state                                          ; Stuck at GND due to stuck port data_in      ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|c_state                                          ; Stuck at GND due to stuck port data_in      ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_enable                                     ; Stuck at GND due to stuck port clock_enable ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_reset                                      ; Stuck at GND due to stuck port clock_enable ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|pulse_reset1  ; Stuck at GND due to stuck port data_in      ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[0..6]                            ; Stuck at GND due to stuck port clock_enable ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|data_counter[0..2]                               ; Stuck at GND due to stuck port clock_enable ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|pulse_out     ; Stuck at GND due to stuck port clock_enable ;
+; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[0..3] ; Stuck at GND due to stuck port clock_enable ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[0..6]             ; Stuck at GND due to stuck port data_in      ;
+; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out                                                  ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[0..30]                                             ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|reader_finish                                                                   ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|reader_start                                                                    ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|reader_enable                                                                   ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[0..7]                ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|reader_trigger                                                                  ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|receive_c                                                                       ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_int_i                       ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[0]                ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|clk_bps_r                    ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[0..3]                      ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[1..7]             ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx0                      ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx1                      ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx2                      ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx3                      ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[0..12]                   ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|bps_start_r                    ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.idle                                     ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.start                                    ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_kw                                  ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_whitemode                           ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_whitekey                            ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_whitedata                           ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_mode                                ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_key                                 ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_startdata                           ; Lost fanout                                 ;
+; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_data                                ; Lost fanout                                 ;
+; Total Number of Removed Registers = 121                                                                      ;                                             ;
++--------------------------------------------------------------------------------------------------------------+---------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -311,19 +318,32 @@ Encoding Type:  One-Hot
 +----------------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
 ; Register name                                                                                ; Reason for Removal        ; Registers Removed due to This Register                                                                       ;
 +----------------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
-; SerialBlock:serialblock_inst|sender_start                                                    ; Stuck at GND              ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|n_state,                                         ;
-;                                                                                              ; due to stuck port data_in ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|c_state,                                         ;
+; SerialBlock:serialblock_inst|sender_enable                                                   ; Stuck at VCC              ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|c_state,                                         ;
+;                                                                                              ; due to stuck port data_in ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_enable,                                    ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_reset,                                     ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|pulse_reset1, ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[6],                              ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[5],                              ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[4],                              ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[3],                              ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[2],                              ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[1],                              ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[0],                              ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|data_counter[2],                                 ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|data_counter[1],                                 ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|data_counter[0],                                 ;
-;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_enable,                                    ;
-;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|pulse_reset,                                     ;
-;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|pulse_reset1, ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|pulse_out,    ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[3],   ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[2],   ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[1],   ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[0],   ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[6],               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[5],               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[4],               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[3],               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[2],               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[1],               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[0],               ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|reader_enable,                                                                  ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|reader_trigger,                                                                 ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state.read_whitedata,                          ;
@@ -345,6 +365,14 @@ Encoding Type:  One-Hot
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[1],                      ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx|cnt[0],                      ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|bps_start_r                    ;
+; SerialBlock:serialblock_inst|sender_start                                                    ; Stuck at GND              ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_done,                                     ;
+;                                                                                              ; due to stuck port data_in ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|n_state,                                         ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out,                                                 ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[30],                                               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[29],                                               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[28],                                               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[27],                                               ;
+;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[26]                                                ;
 ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|bps_start_r~en ; Lost Fanouts              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[3],                        ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[2],                        ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[1],                        ;
@@ -352,27 +380,8 @@ Encoding Type:  One-Hot
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx1,                     ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx2,                     ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rs232_rx3                      ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[0]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[0],               ;
-;                                                                                              ; due to stuck port data_in ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out,                                                 ;
-;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[30],                                               ;
-;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[29],                                               ;
-;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[28],                                               ;
-;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[27],                                               ;
-;                                                                                              ;                           ; SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|count[26]                                                ;
 ; SerialBlock:serialblock_inst|reader_finish                                                   ; Lost Fanouts              ; SerialBlock:serialblock_inst|receive_c,                                                                      ;
 ;                                                                                              ;                           ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_int_i                       ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[1]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[1]                ;
-;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[2]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[2]                ;
-;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[3]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[3]                ;
-;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[4]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[4]                ;
-;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[5]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[5]                ;
-;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
-; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[6]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[6]                ;
-;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
 ; SerialBlock:serialblock_inst|SerialSender:serialsender_inst|sender_data_out[7]               ; Stuck at GND              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|tx_data_i[7]                ;
 ;                                                                                              ; due to stuck port data_in ;                                                                                                              ;
 ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_data_r[7]   ; Lost Fanouts              ; SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|rx_temp_data[7]                ;
@@ -410,17 +419,17 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|num[3] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[2]    ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state                     ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; No         ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Selector156                 ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Selector64                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TestSender|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|num[3] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TestSender|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[2]    ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |TestSender|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state                     ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; No         ; |TestSender|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Selector156                 ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |TestSender|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Selector64                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------+
@@ -478,6 +487,48 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PulseGenerator:pulse10_inst ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; pulse_width    ; 10    ; Signed Integer                                  ;
+; pulse_max      ; 16    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ClockDiv:clockdiv_inst ;
++-----------------+----------+----------------------------------------+
+; Parameter Name  ; Value    ; Type                                   ;
++-----------------+----------+----------------------------------------+
+; div_frequency   ; 1        ; Signed Integer                         ;
+; clock_frequency ; 50000000 ; Signed Integer                         ;
++-----------------+----------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ClockDiv:clockdiv_inst"                                                                ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; div_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PulseGenerator:pulse10_inst"                                                                ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; pulse_enable ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; pulse_reset  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; pulse_out    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "SerialBlock:serialblock_inst"                                                                 ;
 +----------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -486,6 +537,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; serial_running ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; serial_done    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; error_out      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; send_start     ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; store_address  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; store_data     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +----------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -496,7 +548,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -506,24 +558,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Nov 20 01:25:36 2023
+    Info: Processing started: Mon Nov 20 22:56:14 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off XTEASistem -c SerialBlock
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file clockdiv.vhd
-    Info (12022): Found design unit 1: ClockDiv-behavioral
-    Info (12023): Found entity 1: ClockDiv
-Info (12021): Found 2 design units, including 1 entities, in source file dummytoplevel.vhd
-    Info (12022): Found design unit 1: DummyTopLevel-behavioral
-    Info (12023): Found entity 1: DummyTopLevel
-Info (12021): Found 2 design units, including 1 entities, in source file speed_select.vhd
-    Info (12022): Found design unit 1: speed_select-RTL
-    Info (12023): Found entity 1: speed_select
-Info (12021): Found 2 design units, including 1 entities, in source file serialsender.vhd
-    Info (12022): Found design unit 1: SerialSender-behavioral
-    Info (12023): Found entity 1: SerialSender
-Info (12021): Found 2 design units, including 1 entities, in source file serialreader.vhd
-    Info (12022): Found design unit 1: SerialReader-behavioral
-    Info (12023): Found entity 1: SerialReader
+Info (12021): Found 2 design units, including 1 entities, in source file testsender.vhd
+    Info (12022): Found design unit 1: TestSender-behavioral
+    Info (12023): Found entity 1: TestSender
 Info (12021): Found 2 design units, including 1 entities, in source file serialblock.vhd
     Info (12022): Found design unit 1: SerialBlock-behavioral
     Info (12023): Found entity 1: SerialBlock
@@ -539,14 +579,64 @@ Info (12021): Found 2 design units, including 1 entities, in source file my_uart
 Info (12021): Found 2 design units, including 1 entities, in source file my_uart_rx.vhd
     Info (12022): Found design unit 1: my_uart_rx-RTL
     Info (12023): Found entity 1: my_uart_rx
-Info (12127): Elaborating entity "DummyTopLevel" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(33): object "serial_running" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(33): object "serial_done" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(34): object "error_out" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(35): object "store_data" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(36): object "store_address" assigned a value but never read
-Warning (10541): VHDL Signal Declaration warning at DummyTopLevel.vhd(37): used implicit default value for signal "send_data" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at DummyTopLevel.vhd(38): used implicit default value for signal "send_start" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12021): Found 2 design units, including 1 entities, in source file clockdiv.vhd
+    Info (12022): Found design unit 1: ClockDiv-behavioral
+    Info (12023): Found entity 1: ClockDiv
+Info (12021): Found 2 design units, including 1 entities, in source file serialsender.vhd
+    Info (12022): Found design unit 1: SerialSender-behavioral
+    Info (12023): Found entity 1: SerialSender
+Info (12021): Found 2 design units, including 1 entities, in source file serialreader.vhd
+    Info (12022): Found design unit 1: SerialReader-behavioral
+    Info (12023): Found entity 1: SerialReader
+Info (12127): Elaborating entity "TestSender" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at TestSender.vhd(57): object "serial_running" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TestSender.vhd(58): object "error_out" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TestSender.vhd(59): object "store_data" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TestSender.vhd(60): object "store_address" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TestSender.vhd(70): object "lame_clock" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at TestSender.vhd(130): signal "serial_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TestSender.vhd(132): signal "serial_done_buffer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TestSender.vhd(132): signal "serial_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TestSender.vhd(133): signal "pulse10_reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TestSender.vhd(134): signal "pulse10_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TestSender.vhd(135): signal "send_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TestSender.vhd(138): signal "send_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at TestSender.vhd(126): inferring latch(es) for signal or variable "pulse10_reset", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at TestSender.vhd(126): inferring latch(es) for signal or variable "send_start", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at TestSender.vhd(126): inferring latch(es) for signal or variable "send_counter", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "send_counter[0]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[1]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[2]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[3]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[4]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[5]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[6]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[7]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[8]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[9]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[10]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[11]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[12]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[13]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[14]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[15]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[16]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[17]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[18]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[19]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[20]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[21]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[22]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[23]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[24]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[25]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[26]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[27]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[28]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[29]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_counter[30]" at TestSender.vhd(126)
+Info (10041): Inferred latch for "send_start" at TestSender.vhd(126)
+Info (10041): Inferred latch for "pulse10_reset" at TestSender.vhd(126)
 Info (12128): Elaborating entity "SerialBlock" for hierarchy "SerialBlock:serialblock_inst"
 Info (12128): Elaborating entity "SerialReader" for hierarchy "SerialBlock:serialblock_inst|SerialReader:serialreader_inst"
 Warning (10492): VHDL Process Statement warning at SerialReader.vhd(35): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
@@ -812,10 +902,15 @@ Info (12128): Elaborating entity "PulseGenerator" for hierarchy "SerialBlock:ser
 Warning (10492): VHDL Process Statement warning at PulseGenerator.vhd(31): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at PulseGenerator.vhd(34): signal "pulse_enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "my_uart_top" for hierarchy "SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst"
+Warning (12125): Using design file speed_select.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: speed_select-RTL
+    Info (12023): Found entity 1: speed_select
 Info (12128): Elaborating entity "speed_select" for hierarchy "SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx"
 Info (12128): Elaborating entity "my_uart_rx" for hierarchy "SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver"
 Info (12128): Elaborating entity "my_uart_tx" for hierarchy "SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter"
 Info (12128): Elaborating entity "ClockDiv" for hierarchy "SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst"
+Warning (10542): VHDL Variable Declaration warning at ClockDiv.vhd(18): used initial value expression for variable "div" because variable was never assigned a value
+Info (12128): Elaborating entity "ClockDiv" for hierarchy "ClockDiv:clockdiv_inst"
 Warning (10542): VHDL Variable Declaration warning at ClockDiv.vhd(18): used initial value expression for variable "div" because variable was never assigned a value
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13049): Converted tri-state buffer "SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|bps_start" feeding internal logic into a wire
@@ -823,7 +918,7 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 89 registers lost all their fanouts during netlist optimizations.
+Info (17049): 90 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
@@ -832,10 +927,10 @@ Info (21057): Implemented 39 device resources after synthesis - the final resour
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 1 output pins
     Info (21061): Implemented 35 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 105 warnings
-    Info: Peak virtual memory: 4682 megabytes
-    Info: Processing ended: Mon Nov 20 01:25:41 2023
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:03
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 115 warnings
+    Info: Peak virtual memory: 4685 megabytes
+    Info: Processing ended: Mon Nov 20 22:56:17 2023
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:01
 
 
