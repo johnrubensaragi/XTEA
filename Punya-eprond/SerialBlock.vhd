@@ -21,7 +21,7 @@ entity SerialBlock is
 end SerialBlock;
 
 architecture behavioral of SerialBlock is
-    constant clock_frequency : natural := 50000000; -- 50 MHz
+    constant clock_frequency : natural := 50e6; -- 50 MHz
     constant serial_frequency : natural := 115200 ; -- 115.2 kbps
 
     component SerialReader is
@@ -189,6 +189,7 @@ begin
             elsif (sender_done = '1') then
                 sender_start <= '0';
             end if;
+            
         end if;
     end process sender_controller;
 
@@ -214,18 +215,15 @@ begin
                 serial_running <= '1';
             elsif (send_start = '1') then
                 serial_running <= '1';
-            elsif (reader_done = '1') then
+            elsif (reader_start = '0') then
                 serial_running <= '0';
-            elsif (sender_done = '1') then
-                serial_running <= '0';
-            else
+            elsif (sender_start = '0') then
                 serial_running <= '0';
             end if;
 
             -- to disable reader and sender if error
             if (internal_error = "01" or internal_error = "10") then
                 reader_enable <= '0';
-                sender_enable <= '0';
             else
                 reader_enable <= '1';
                 sender_enable <= '1';

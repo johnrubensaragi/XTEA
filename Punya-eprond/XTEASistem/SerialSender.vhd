@@ -49,7 +49,7 @@ begin
     
     sender_trigger <= not pulse_out;
 
-    next_state : process(clock)
+    change_state : process(clock)
     begin
         if (nreset = '0') then
             c_state <= idle;
@@ -58,7 +58,7 @@ begin
                 c_state <= n_state;
             end if;
         end if;
-    end process next_state;
+    end process change_state;
 
     sender_fsm : process(serial_clock)
     begin
