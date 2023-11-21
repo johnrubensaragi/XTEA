@@ -76,7 +76,7 @@ begin
                     when idle =>
                         -- only start if it is started
                         if (reader_start = '1') then
-                            n_state <= start;
+                            n_state <= read_kw;
                         end if;
 
                     when start =>
@@ -101,7 +101,7 @@ begin
                             n_state <= idle;
                         end if;
 
-                    when read_whitemode =>
+                    when read_whitemode => -- read whitespace
                         if (reader_data_in = "00100000") then -- ASCII " "
                             temp_address <= (others => '0');
                             counter <= "0000";
@@ -111,7 +111,7 @@ begin
                             n_state <= idle;
                         end if;
 
-                    when read_whitekey =>
+                    when read_whitekey => -- read whitespace
                         if (reader_data_in = "00100000") then -- ASCII " "
                             temp_address <= (0 => '1', others => '0');
                             counter <= "0000";
@@ -121,7 +121,7 @@ begin
                             n_state <= idle;
                         end if;
 
-                    when read_whitedata =>
+                    when read_whitedata => -- read whitespace
                         if (reader_data_in = "00100000") then -- ASCII " "
                             temp_address <= (1|0 => '1', others => '0');
                             n_state <= read_startdata;
@@ -130,7 +130,7 @@ begin
                             n_state <= idle;
                         end if;
 
-                    when read_mode =>
+                    when read_mode => -- read input mode
                         if (reader_data_in = "00110000") then -- ASCII "0"
                             reader_address_out <= temp_address;
                             reader_data_out <= empty_data(63 downto 8) & reader_data_in;
@@ -146,7 +146,7 @@ begin
                             n_state <= idle;
                         end if;
 
-                    when read_key =>
+                    when read_key => -- read input key
                         counter <= counter + 1;
                         if (counter = "0000") then
                             if (reader_data_in = "00101101") then -- ASCII "-"
@@ -201,7 +201,7 @@ begin
                             end if;
                         end if;
 
-                    when read_startdata =>
+                    when read_startdata => -- read start data keyword (")
                         if (reader_data_in = "00100010") then -- ASCII (")
                             counter <= "0000";
                             n_state <= read_data;
@@ -210,7 +210,7 @@ begin
                             n_state <= idle;
                         end if;
 
-                    when read_data =>
+                    when read_data => -- read input data
                         counter <= counter + 1;
                         if (temp_address = "0000000000") then
                             error_out <= "10";

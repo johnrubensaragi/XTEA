@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Nov 20 22:56:17 2023
-Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Analysis & Synthesis Status : Successful - Tue Nov 21 13:45:49 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : SerialBlock
-Top-level Entity Name : TestSender
+Top-level Entity Name : DummySerial
 Family : Cyclone IV E
-Total logic elements : 35
-    Total combinational functions : 32
-    Dedicated logic registers : 24
-Total registers : 24
-Total pins : 4
+Total logic elements : 112
+    Total combinational functions : 108
+    Dedicated logic registers : 78
+Total registers : 78
+Total pins : 16
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

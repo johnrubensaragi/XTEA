@@ -9,7 +9,9 @@ entity DummyTopLevel is
         nreset : in std_logic;
         rs232_rx : in std_logic;
         rs232_tx : out std_logic;
-        keys : in std_logic_vector(3 downto 0)
+        keys : in std_logic_vector(3 downto 0);
+        leds : in std_logic_vector(3 downto 0);
+        switch : in std_logic_vector(3 downto 0)
     );
 end DummyTopLevel;
 
@@ -34,7 +36,7 @@ architecture behavioral of DummyTopLevel is
         );
     end component SerialBlock;  
 
-    component XTEABlock is
+    component XTEA is
         port(
             clock, nreset : in std_logic;
             xtea_key : in std_logic_vector(127 downto 0);
@@ -44,7 +46,7 @@ architecture behavioral of DummyTopLevel is
             xtea_output : out std_logic_vector(63 downto 0);
             xtea_done : out std_logic
         );
-    end component XTEABlock;
+    end component XTEA;
 
     component SRAM is
         generic (data_length, address_length : integer);
@@ -90,12 +92,13 @@ architecture behavioral of DummyTopLevel is
     signal ccounter_out : natural range 0 to (ccounter_max-1);
 
     -- Serial block inout
-    signal serial_running, serial_done : std_logic;
+    signal serial_running, serial_done, serial_done_buffer : std_logic;
     signal error_out : std_logic_vector(1 downto 0);
     signal store_data : std_logic_vector((data_length-1) downto 0);
     signal store_address : std_logic_vector((address_length-1) downto 0);
     signal send_data : std_logic_vector((data_length-1) downto 0);
     signal send_start : std_logic;
+    signal send_counter : integer range -8 to 7 := -1;
 
     -- SRAM inout
     signal memory_read, memory_write : std_logic_vector((data_length-1) downto 0);
@@ -106,6 +109,8 @@ architecture behavioral of DummyTopLevel is
     signal xtea_input, xtea_output : std_logic_vector((data_length-1) downto 0);
     signal xtea_key : std_logic_vector(127 downto 0);
     signal xtea_mode, xtea_start, xtea_done : std_logic;
+
+    signal enable_switch : std_logic;
 
     type states is (idle, reading_serial, sending_error, setup_xtea1, setup_xtea2, setup_xtea3, starting_xtea,
                     processing_xtea, storing_xtea, reading_results, sending_results);
@@ -122,25 +127,11 @@ architecture behavioral of DummyTopLevel is
         return res_v;
     end function;
 
-    procedure send_text(text_input : string) is
-        constant text_vector : std_logic_vector((8*text_input'length-1) downto 0) := to_slv(text_input);
-    begin
-        for num in text_input'range loop
-            if (num mod 8 = 0) then
-                send_data <= text_vector((text_vector'length-(64*((num/8)-1))-1) downto text_vector'length-(64*(num/8)));
-                pulse10_reset <= not pulse10_reset;
-                send_start <= pulse10_out;
-                wait until rising_edge(serial_done);
-            end if;
-        end loop;
-        send_start <= 'Z';
-    end procedure;
-
 begin
     serialblock_inst: SerialBlock
     generic map (
-        data_length    => 64,
-        address_length => 10
+        data_length    => data_length,
+        address_length => address_length
     )
     port map (
         clock          => clock,
@@ -156,7 +147,7 @@ begin
         rs232_tx       => rs232_tx
     );
 
-    xteablock_inst: XTEABlock
+    xteablock_inst: XTEA
     port map (
         clock       => clock,
         nreset      => nreset,
@@ -208,6 +199,8 @@ begin
         count  => ccounter_out
     );
 
+    enable_switch <= switch(3);
+
     change_state: process(clock)
     begin
         if (nreset = '0') then
@@ -223,11 +216,15 @@ begin
         constant error_text1 : string := "Error type 1: System cannot recognize input format      ";
         constant error_text2 : string := "Error type 2: Storage system exceeded  ";
         constant error_text3 : string := "Error type 3: System is still busy      ";
+        constant error_vector1 : std_logic_vector((8*error_text1'length-1) downto 0) := to_slv(error_text1);
+        constant error_vector2 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
+        constant error_vector3 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
     begin
         case controller_cstate is
             when idle =>
+                send_counter <= -1;
                 if (error_out /= "01" and error_out /= "10") then
-                    if (serial_running = '1') then
+                    if (serial_running = '1' and enable_switch = '1') then
                         controller_nstate <= reading_serial;
                     end if;
                 end if;
@@ -248,17 +245,48 @@ begin
                     enable_write <= '0';
                 end if;
 
-            when sending_error =>
+            when sending_error => -- send error message based on types
+                serial_done_buffer <= serial_done;
+                send_start <= pulse10_out;
 
-                -- send error based on types
-                if (serial_running = '0') then
-                    if (error_out = "01") then
-                        send_text(error_text1);
-                        controller_nstate <= idle;
-                    elsif (error_out = "10") then
-                        send_text(error_text2);
-                        controller_nstate <= idle;
+                -- send error message for wrong format
+                if (error_out = "01") then
+                    
+                    -- send every 8 characters of the text
+                    if (send_counter >= 0 and send_counter <= (error_text1'length/8 - 1)) then
+                        send_data <= error_vector1((error_vector1'length-(64*send_counter)-1) downto error_vector1'length-(64*(send_counter+1)));
                     end if;
+
+                    -- give pulse to start sending every time is done
+                    if (serial_done_buffer = '0' and serial_done = '1') then
+                        if (send_counter < (error_text1'length/8 - 1)) then
+                            pulse10_reset <= not pulse10_reset;
+                            send_counter <= send_counter + 1;
+                        else
+                            controller_nstate <= idle;
+                            send_start <= 'Z';
+                        end if;
+                    end if;
+
+                -- send error message for max storage exceeded
+                elsif (error_out = "10") then
+                    
+                    -- send every 8 characters of the text
+                    if (send_counter >= 0 and send_counter <= (error_text2'length/8 - 1)) then
+                        send_data <= error_vector2((error_vector2'length-(64*send_counter)-1) downto error_vector2'length-(64*(send_counter+1)));
+                    end if;
+
+                    -- give pulse to start sending every time is done
+                    if (serial_done_buffer = '0' and serial_done = '1') then
+                        if (send_counter < (error_text2'length/8 - 1)) then
+                            pulse10_reset <= not pulse10_reset;
+                            send_counter <= send_counter + 1;
+                        else
+                            controller_nstate <= idle;
+                            send_start <= 'Z';
+                        end if;
+                    end if;
+
                 end if;
 
             when setup_xtea1 => -- setup xtea mode
@@ -298,11 +326,11 @@ begin
                 -- wait for 5 clock cycles before next state
                 if (ccounter_out = 5) then
                     ccounter_reset <= not ccounter_reset;
-                    memory_address <= (1, 0 => '1', others => '0');
+                    memory_address <= (1|0 => '1', others => '0');
                     controller_nstate <= starting_xtea;
                 end if;
 
-            when starting_xtea =>
+            when starting_xtea => -- read xtea input
                 if (memory_read /= empty_data or memory_address /= "0000000000") then
                     xtea_input <= memory_read;
                     pulse10_reset <= not pulse10_reset;
@@ -317,17 +345,17 @@ begin
                 else
                     xtea_start <= 'Z';
                     ccounter_reset <= not ccounter_reset;
-                    memory_address <= (1, 0 => '1', others => '0');
+                    memory_address <= (1|0 => '1', others => '0');
                     controller_nstate <= reading_results;
                 end if;
 
-            when processing_xtea =>
+            when processing_xtea => -- process encrypt/decrypt
                 if (xtea_done = '1') then
                     ccounter_reset <= not ccounter_reset;
                     controller_nstate <= storing_xtea;
                 end if;
 
-            when storing_xtea =>
+            when storing_xtea => -- store xtea output
                 enable_write <= '1';
                 memory_write <= xtea_output;
 
@@ -340,7 +368,7 @@ begin
                     controller_nstate <= processing_xtea;
                 end if;
 
-            when reading_results =>
+            when reading_results => -- read each results
                 if (memory_read /= empty_data or memory_address /= "0000000000") then
                     send_data <= memory_read;
                     pulse10_reset <= not pulse10_reset;
@@ -360,7 +388,7 @@ begin
                     controller_nstate <= idle;
                 end if;
 
-            when sending_results =>
+            when sending_results => -- send each results through serial
                 if (serial_done = '1') then
                     ccounter_reset <= not ccounter_reset;
                     memory_address <= memory_address + 1;
@@ -368,5 +396,7 @@ begin
                 end if;
 
         end case;
+
     end process fsm_controller;
+
 end architecture;

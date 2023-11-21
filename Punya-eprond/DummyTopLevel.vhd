@@ -9,7 +9,9 @@ entity DummyTopLevel is
         nreset : in std_logic;
         rs232_rx : in std_logic;
         rs232_tx : out std_logic;
-        keys : in std_logic_vector(3 downto 0)
+        keys : in std_logic_vector(3 downto 0);
+        leds : in std_logic_vector(3 downto 0);
+        switch : in std_logic_vector(3 downto 0)
     );
 end DummyTopLevel;
 
@@ -34,7 +36,7 @@ architecture behavioral of DummyTopLevel is
         );
     end component SerialBlock;  
 
-    component XTEABlock is
+    component XTEA is
         port(
             clock, nreset : in std_logic;
             xtea_key : in std_logic_vector(127 downto 0);
@@ -44,7 +46,7 @@ architecture behavioral of DummyTopLevel is
             xtea_output : out std_logic_vector(63 downto 0);
             xtea_done : out std_logic
         );
-    end component XTEABlock;
+    end component XTEA;
 
     component SRAM is
         generic (data_length, address_length : integer);
@@ -108,6 +110,8 @@ architecture behavioral of DummyTopLevel is
     signal xtea_key : std_logic_vector(127 downto 0);
     signal xtea_mode, xtea_start, xtea_done : std_logic;
 
+    signal enable_switch : std_logic;
+
     type states is (idle, reading_serial, sending_error, setup_xtea1, setup_xtea2, setup_xtea3, starting_xtea,
                     processing_xtea, storing_xtea, reading_results, sending_results);
     signal controller_cstate, controller_nstate : states;
@@ -126,8 +130,8 @@ architecture behavioral of DummyTopLevel is
 begin
     serialblock_inst: SerialBlock
     generic map (
-        data_length    => 64,
-        address_length => 10
+        data_length    => data_length,
+        address_length => address_length
     )
     port map (
         clock          => clock,
@@ -143,7 +147,7 @@ begin
         rs232_tx       => rs232_tx
     );
 
-    xteablock_inst: XTEABlock
+    xteablock_inst: XTEA
     port map (
         clock       => clock,
         nreset      => nreset,
@@ -195,6 +199,8 @@ begin
         count  => ccounter_out
     );
 
+    enable_switch <= switch(3);
+
     change_state: process(clock)
     begin
         if (nreset = '0') then
@@ -218,7 +224,7 @@ begin
             when idle =>
                 send_counter <= -1;
                 if (error_out /= "01" and error_out /= "10") then
-                    if (serial_running = '1') then
+                    if (serial_running = '1' and enable_switch = '1') then
                         controller_nstate <= reading_serial;
                     end if;
                 end if;
@@ -320,7 +326,7 @@ begin
                 -- wait for 5 clock cycles before next state
                 if (ccounter_out = 5) then
                     ccounter_reset <= not ccounter_reset;
-                    memory_address <= (1, 0 => '1', others => '0');
+                    memory_address <= (1|0 => '1', others => '0');
                     controller_nstate <= starting_xtea;
                 end if;
 
@@ -339,7 +345,7 @@ begin
                 else
                     xtea_start <= 'Z';
                     ccounter_reset <= not ccounter_reset;
-                    memory_address <= (1, 0 => '1', others => '0');
+                    memory_address <= (1|0 => '1', others => '0');
                     controller_nstate <= reading_results;
                 end if;
 
@@ -390,5 +396,7 @@ begin
                 end if;
 
         end case;
+
     end process fsm_controller;
+
 end architecture;

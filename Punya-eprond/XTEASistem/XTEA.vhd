@@ -52,6 +52,7 @@ architecture behavioral of XTEA is
         elsif (sum(1 downto 0) = "01") then return subkey(1);
         elsif (sum(1 downto 0) = "10") then return subkey(2);
         elsif (sum(1 downto 0) = "11") then return subkey(3);
+        else return subkey(0);
         end if;
     end function rand_key;
 

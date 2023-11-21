@@ -61,13 +61,11 @@ architecture behavioral of TestSender is
     signal send_data : std_logic_vector((data_length-1) downto 0);
     signal send_start : std_logic;
 
-    signal send_counter : natural := 0;
+    signal send_counter : integer range -8 to 7 := -1;
     signal serial_done_buffer : std_logic;
 
     signal pulse10_reset : std_logic := '0';
     signal pulse10_out : std_logic;
-
-    signal lame_clock : bit;
 
     function to_slv(str : string) return std_logic_vector is
         alias str_norm : string(str'length downto 1) is str;
@@ -113,29 +111,24 @@ begin
       pulse_out    => pulse10_out
     );
 
-    clockdiv_inst: ClockDiv
-    generic map (
-      div_frequency   => 1,
-      clock_frequency => clock_frequency
-    )
-    port map (
-      clock   => clock,
-      div_out => lame_clock
-    );
-
     process(clock)
         constant text_input : string := "Aku adalah seorang Kapiten      ";
         constant text_vector : std_logic_vector((8*text_input'length-1) downto 0) := to_slv(text_input);
     begin
         serial_done_buffer <= serial_done;
+        send_start <= pulse10_out;
         
-        if (serial_done_buffer = '0' and serial_done = '1') then
-            pulse10_reset <= not pulse10_reset;
-            send_start <= pulse10_out;
-            send_counter <= send_counter + 1;
+        if (send_counter >= 0 and send_counter <= (text_input'length/8 - 1)) then
+            send_data <= text_vector((text_vector'length-(64*send_counter)-1) downto text_vector'length-(64*(send_counter+1)));
         end if;
 
-        send_data <= text_vector((text_vector'length-(64*send_counter)-1) downto text_vector'length-(64*(send_counter+1)));
+        if (serial_done_buffer = '0' and serial_done = '1') then
+            if (send_counter < (text_input'length/8 - 1)) then
+                pulse10_reset <= not pulse10_reset;
+                send_counter <= send_counter + 1;
+            end if;
+        end if;
+
 
     end process;
 
