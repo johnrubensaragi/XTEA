@@ -1,0 +1,217 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller
+Econtrolfsm
+Z1 w1700647815
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z6 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/controlFSM.vhd
+Z7 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/controlFSM.vhd
+l0
+L6
+VS:ZiZA953[UBg]O?]>Ej@0
+!s100 @UCJEbIAbC:VllT`U:T2R1
+Z8 OV;C;10.6d;65
+32
+Z9 !s110 1700647819
+!i10b 1
+Z10 !s108 1700647819.000000
+Z11 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/controlFSM.vhd|
+Z12 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/controlFSM.vhd|
+!i113 1
+Z13 o-work work
+Z14 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 10 controlfsm 0 22 S:ZiZA953[UBg]O?]>Ej@0
+l61
+L38
+VQ6QXhJSMNBG;SiJm1E1Nf3
+!s100 9Bb33R6[f]<c?81PI1ICB1
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Ecounter
+Z15 w1700647699
+R2
+R4
+R5
+R0
+Z16 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/counter.vhd
+Z17 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/counter.vhd
+l0
+L5
+VnO66A`?<D]5VGC9M=GS>A0
+!s100 `?C>;TZkc[S6A2;9`3AWO2
+R8
+32
+R9
+!i10b 1
+R10
+Z18 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/counter.vhd|
+Z19 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/counter.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R2
+R4
+R5
+DEx4 work 7 counter 0 22 nO66A`?<D]5VGC9M=GS>A0
+l22
+L20
+V^`k`V;?MWL^YhbiBUkjK72
+!s100 MNd1gIl2mb0PbB1Y4eJD;1
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Esram2d
+Z20 w1700649231
+R3
+R4
+R5
+R0
+Z21 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/sram2d.vhd
+Z22 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/sram2d.vhd
+l0
+L5
+VM>D20SeB7jZU:CCgV2P=P3
+!s100 akd_A1[?me[XL]m;Cfibk2
+R8
+32
+Z23 !s110 1700649245
+!i10b 1
+Z24 !s108 1700649245.000000
+Z25 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/sram2d.vhd|
+Z26 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/sram2d.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R3
+R4
+R5
+Z27 DEx4 work 6 sram2d 0 22 M>D20SeB7jZU:CCgV2P=P3
+l30
+L21
+V;9YRH@R;OJc2W3e?Lj19K0
+!s100 6WQfze5jT;AmD;B@YQoIk1
+R8
+32
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 1
+R13
+R14
+Etop
+Z28 w1700558404
+R3
+R4
+R5
+R0
+Z29 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd
+Z30 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd
+l0
+L5
+V[6dhNjcmnTZ_V@z0FYcWW2
+!s100 kIMKT]N3XTCi1l3`43@f13
+R8
+32
+Z31 !s110 1700647820
+!i10b 1
+R10
+Z32 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd|
+Z33 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R3
+R4
+R5
+DEx4 work 3 top 0 22 [6dhNjcmnTZ_V@z0FYcWW2
+l110
+L26
+Vje=@5i_24:izT1NMbD3AY0
+!s100 f>>EBA`V4E_D6zF8jzZ@m3
+R8
+32
+R31
+!i10b 1
+R10
+R32
+R33
+!i113 1
+R13
+R14
+Extea
+Z34 w1700539820
+R2
+R4
+R5
+R0
+Z35 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/xtea.vhd
+Z36 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/xtea.vhd
+l0
+L5
+VI]ZIXnO]gDaLNA>1WWV]W3
+!s100 6ooW:Ha?EB9;7eHnb5K:m3
+R8
+32
+R31
+!i10b 1
+Z37 !s108 1700647820.000000
+Z38 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/xtea.vhd|
+Z39 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/xtea.vhd|
+!i113 1
+R13
+R14
+Aarc
+R2
+R4
+R5
+DEx4 work 4 xtea 0 22 I]ZIXnO]gDaLNA>1WWV]W3
+l80
+L17
+VXK;hLdF7bIOi@7NZzIDee1
+!s100 5ljI0W26Ii2fnmfXXB@FK2
+R8
+32
+R31
+!i10b 1
+R37
+R38
+R39
+!i113 1
+R13
+R14
