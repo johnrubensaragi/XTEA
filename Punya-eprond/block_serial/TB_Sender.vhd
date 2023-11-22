@@ -17,13 +17,13 @@ architecture sim of TB_Sender is
     signal nreset : std_logic := '1';
     signal error_out : std_logic_vector(1 downto 0) := (others => '0');
 
-    signal serial_running, serial_done : std_logic;
+    signal serial_running, send_done, read_done : std_logic;
     signal store_address : std_logic_vector((address_length - 1 ) downto 0);
     signal store_data : std_logic_vector((data_length - 1) downto 0);
     signal send_data : std_logic_vector((data_length - 1) downto 0);
     signal send_start : std_logic;
 
-    signal rs232_rx, rs232_tx : std_logic := '0';
+    signal rs232_rx, rs232_tx : std_logic := '1';
 
     signal text_vector : std_logic_vector((8 * text_input'length - 1) downto 0);
 
@@ -41,17 +41,18 @@ architecture sim of TB_Sender is
 begin
     serialblock_inst: entity work.SerialBlock
     generic map (
-    data_length    => data_length,
-    address_length => address_length
+        data_length    => data_length,
+        address_length => address_length
     )
     port map (
         clock          => clock,
         nreset         => nreset,
         serial_running => serial_running,
-        serial_done    => serial_done,
+        read_done      => read_done,
+        send_done      => send_done,
+        send_start     => send_start,
         error_out      => error_out,
         send_data      => send_data,
-        send_start     => send_start,
         store_address  => store_address,
         store_data     => store_data,
         rs232_rx       => rs232_rx,
@@ -73,7 +74,7 @@ begin
                 send_start <= '1';
                 wait for period;
                 send_start <= '0';
-                wait until rising_edge(serial_done);
+                wait until rising_edge(send_done);
             end if;
         end loop;
         wait;

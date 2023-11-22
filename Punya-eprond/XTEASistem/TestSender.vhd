@@ -49,8 +49,8 @@ architecture behavioral of TestSender is
     component ClockDiv is
         generic(div_frequency, clock_frequency : natural);
         port(
-            clock: in std_logic;
-            div_out: buffer bit
+            clock_in: in std_logic;
+            clock_out: out std_logic
         );
     end component ClockDiv;
 

@@ -25,10 +25,11 @@ architecture behavioral of DummySerial is
             clock : in std_logic;
             nreset : in std_logic;
             serial_running: out std_logic;
-            serial_done : out std_logic;
+            read_done : out std_logic;
+            send_done : out std_logic;
+            send_start : in std_logic;
             error_out : out std_logic_vector(1 downto 0);
             send_data : in std_logic_vector((data_length-1) downto 0);
-            send_start : in std_logic;
             store_address : out std_logic_vector((address_length-1) downto 0);
             store_data : out std_logic_vector((data_length-1) downto 0);
             rs232_rx : in std_logic;
@@ -83,8 +84,8 @@ architecture behavioral of DummySerial is
     end component ClockCounter;
 
     -- Pulse gen inout
-    signal pulse10_reset : std_logic := '0';
-    signal pulse10_out : std_logic;
+    signal sender_pulse_trigger, sender_pulse_enable : std_logic := '0';
+    signal sender_pulse : std_logic;
 
     -- Clock counter inout
     constant ccounter_max : natural := 16;
@@ -92,17 +93,17 @@ architecture behavioral of DummySerial is
     signal ccounter_out : natural range 0 to (ccounter_max-1);
 
     -- Serial block inout
-    signal serial_running, serial_done, serial_done_buffer : std_logic;
+    signal serial_running, read_done, send_done, send_done_buffer : std_logic;
     signal error_out : std_logic_vector(1 downto 0);
     signal store_data : std_logic_vector((data_length-1) downto 0);
     signal store_address : std_logic_vector((address_length-1) downto 0);
     signal send_data : std_logic_vector((data_length-1) downto 0);
     signal send_start : std_logic;
-    signal send_counter : integer range -8 to 7 := -1;
+    signal send_counter : natural range 0 to 7 := 0;
 
     -- SRAM inout
-    signal memory_read, memory_write : std_logic_vector((data_length-1) downto 0);
-    signal memory_address : std_logic_vector((address_length-1) downto 0);
+    signal memory_read, memory_write : std_logic_vector((data_length-1) downto 0) := (others => '0');
+    signal memory_address : std_logic_vector((address_length-1) downto 0) := (others => '0');
     signal enable_read, enable_write : std_logic := '0';
 
     -- XTEA block inout
@@ -128,6 +129,7 @@ architecture behavioral of DummySerial is
     end function;
 
 begin
+
     serialblock_inst: SerialBlock
     generic map (
         data_length    => data_length,
@@ -137,10 +139,11 @@ begin
         clock          => clock,
         nreset         => nreset,
         serial_running => serial_running,
-        serial_done    => serial_done,
+        read_done      => read_done,
+        send_done      => send_done,
+        send_start     => send_start,
         error_out      => error_out,
         send_data      => send_data,
-        send_start     => send_start,
         store_address  => store_address,
         store_data     => store_data,
         rs232_rx       => rs232_rx,
@@ -174,7 +177,7 @@ begin
         memory_read    => memory_read
     );
 
-    pulse10clock_int: PulseGenerator
+    spulse10clock_int: PulseGenerator
     generic map (
       pulse_width => 10,
       pulse_max   => 16
@@ -182,9 +185,9 @@ begin
     port map (
       clock        => clock,
       nreset       => nreset,
-      pulse_enable => '1',
-      pulse_reset  => pulse10_reset,
-      pulse_out    => pulse10_out
+      pulse_enable => sender_pulse_enable,
+      pulse_reset  => sender_pulse_trigger,
+      pulse_out    => sender_pulse
     );
 
     clockcounter_inst: ClockCounter
@@ -202,6 +205,8 @@ begin
     enable_switch <= switch(3);
     continue_key <= keys(3);
 
+    send_start <= sender_pulse;
+
     change_state: process(clock)
     begin
         if (nreset = '0') then
@@ -215,117 +220,126 @@ begin
         constant empty_data : std_logic_vector((data_length - 1) downto 0) := x"0000000000000000";
         constant default_key : std_logic_vector(127 downto 0) := x"6c7bd673045e9d5c29ac6c25db7a3191";
         constant error_text1 : string := "Error type 1: System cannot recognize input format      ";
-        constant error_text2 : string := "Error type 2: Storage system exceeded  ";
+        constant error_text2 : string := "Error type 2: Storage system exceeded   ";
         constant error_text3 : string := "Error type 3: System is still busy      ";
         constant error_vector1 : std_logic_vector((8*error_text1'length-1) downto 0) := to_slv(error_text1);
         constant error_vector2 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
         constant error_vector3 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
     begin
+        if rising_edge(clock) then
         case controller_cstate is
-            when idle =>
-                send_counter <= -1;
-                if (error_out /= "01" and error_out /= "10") then
-                    if (serial_running = '1') then
-                        controller_nstate <= reading_serial;
-                    end if;
+        when idle =>
+            send_counter <= 0;
+            sender_pulse_enable <= '0';
+            ccounter_enable <= '0';
+            if (error_out /= "01" and error_out /= "10") then
+                if (serial_running = '1') then
+                    controller_nstate <= reading_serial;
                 end if;
+            end if;
 
-            when reading_serial =>
-                enable_write <= '1';
-                memory_address <= store_address;
-                memory_write <= store_data;
+        when reading_serial =>
+            enable_write <= '1';
+            memory_address <= store_address;
+            memory_write <= store_data;
 
-                -- start send error if error
-                if (error_out = "01" or error_out = "10") then
-                    controller_nstate <= sending_error;
+            -- start send error if error
+            if (error_out = "01" or error_out = "10") then
+                controller_nstate <= sending_error;
+                enable_write <= '0';
+
+            -- wait until reading is done
+            elsif (read_done = '1') then
+                if (continue_key = '0') then
+                    memory_address <= (1|0 => '1', others => '0');
+                    controller_nstate <= reading_results;
+                    ccounter_enable <= '1';
                     enable_write <= '0';
+                end if;
+            end if;
 
-                -- wait until reading is done
-                elsif (serial_done = '1') then
-                    if (continue_key = '0') then
-                        memory_address <= (1|0 => '1', others => '0');
-                        controller_nstate <= reading_results;
-                        enable_write <= '0';
+        when sending_error => -- send error message based on types
+            send_done_buffer <= send_done;
+            sender_pulse_enable <= '1';
+
+            -- send error message for wrong format
+            if (error_out = "01") then
+                
+                -- send every 8 characters of the text
+                if (send_counter >= 0 and send_counter <= (error_text1'length/8 - 1)) then
+                    send_data <= error_vector1((error_vector1'length-(64*send_counter)-1) downto error_vector1'length-(64*(send_counter+1)));
+                end if;
+
+                -- give pulse to start sending every 8 characters
+                if (send_done_buffer = '0' and send_done = '1') then
+                    if (send_counter < (error_text1'length/8 - 1)) then
+                        sender_pulse_trigger <= not sender_pulse_trigger;
+                        send_counter <= send_counter + 1;
+                    else
+                        controller_nstate <= idle;
                     end if;
                 end if;
 
-            when sending_error => -- send error message based on types
-                serial_done_buffer <= serial_done;
-                send_start <= pulse10_out;
-
-                -- send error message for wrong format
-                if (error_out = "01") then
-                    
-                    -- send every 8 characters of the text
-                    if (send_counter >= 0 and send_counter <= (error_text1'length/8 - 1)) then
-                        send_data <= error_vector1((error_vector1'length-(64*send_counter)-1) downto error_vector1'length-(64*(send_counter+1)));
-                    end if;
-
-                    -- give pulse to start sending every time is done
-                    if (serial_done_buffer = '0' and serial_done = '1') then
-                        if (send_counter < (error_text1'length/8 - 1)) then
-                            pulse10_reset <= not pulse10_reset;
-                            send_counter <= send_counter + 1;
-                        else
-                            controller_nstate <= idle;
-                            send_start <= 'Z';
-                        end if;
-                    end if;
-
-                -- send error message for max storage exceeded
-                elsif (error_out = "10") then
-                    
-                    -- send every 8 characters of the text
-                    if (send_counter >= 0 and send_counter <= (error_text2'length/8 - 1)) then
-                        send_data <= error_vector2((error_vector2'length-(64*send_counter)-1) downto error_vector2'length-(64*(send_counter+1)));
-                    end if;
-
-                    -- give pulse to start sending every time is done
-                    if (serial_done_buffer = '0' and serial_done = '1') then
-                        if (send_counter < (error_text2'length/8 - 1)) then
-                            pulse10_reset <= not pulse10_reset;
-                            send_counter <= send_counter + 1;
-                        else
-                            controller_nstate <= idle;
-                            send_start <= 'Z';
-                        end if;
-                    end if;
-
+            -- send error message for max storage exceeded
+            elsif (error_out = "10") then
+                
+                -- send every 8 characters of the text
+                if (send_counter >= 0 and send_counter <= (error_text2'length/8 - 1)) then
+                    send_data <= error_vector2((error_vector2'length-(64*send_counter)-1) downto error_vector2'length-(64*(send_counter+1)));
                 end if;
 
-            when reading_results => -- read each results
-                if (memory_read /= empty_data or memory_address /= "0000000000") then
-                    send_data <= memory_read;
-                    pulse10_reset <= not pulse10_reset;
-                    send_start <= pulse10_out;
-
-                    -- wait for 5 clock cycles before next state
-                    if (ccounter_out = 5) then
-                        ccounter_reset <= not ccounter_reset;
-                        enable_read <= '0';
-                        controller_nstate <= processing_xtea;
+                -- give pulse to start sending every 8 characters
+                if (send_done_buffer = '0' and send_done = '1') then
+                    if (send_counter < (error_text2'length/8 - 1)) then
+                        sender_pulse_trigger <= not sender_pulse_trigger;
+                        send_counter <= send_counter + 1;
+                    else
+                        controller_nstate <= idle;
                     end if;
-                else
-                    send_start <= 'Z';
+                end if;
+
+            end if;
+
+        when reading_results => -- read each results
+            if (memory_read /= empty_data and memory_address /= "0000000000") then
+                send_data <= memory_read;
+                ccounter_enable <= '1';
+                enable_read <= '1';
+                sender_pulse_enable <= '1';
+
+                -- trigger the pulse to start the sending
+                if (ccounter_out = 5) then
+                    sender_pulse_trigger <= not sender_pulse_trigger;
+                end if;
+
+                -- wait for 5 clock cycles before next state
+                if (ccounter_out >= 5) then
                     ccounter_reset <= not ccounter_reset;
                     ccounter_enable <= '0';
-                    memory_address <= (others => '0');
-                    controller_nstate <= idle;
+                    enable_read <= '0';
+                    controller_nstate <= sending_results;
                 end if;
+            else
+                ccounter_reset <= not ccounter_reset;
+                ccounter_enable <= '0';
+                enable_read <= '0';
+                controller_nstate <= idle;
+            end if;
 
-            when sending_results => -- send each results through serial
-                if (serial_done = '1') then
-                    ccounter_reset <= not ccounter_reset;
-                    memory_address <= memory_address + 1;
-                    controller_nstate <= reading_results;
-                end if;
+        when sending_results => -- send each results through serial
+            send_done_buffer <= send_done;
+            if (send_done_buffer = '0' and send_done = '1') then
+                memory_address <= memory_address + 1;
+                controller_nstate <= reading_results;
+            end if;
 
-            when others => controller_nstate <= idle;
+        when others => controller_nstate <= idle;
 
         end case;
+        end if;
 
     end process fsm_controller;
 
-    leds <= memory_address;
+    leds <= not memory_address;
 
 end architecture;

@@ -87,14 +87,14 @@ end process;
 				if(clk_bps = '1') then
 						num <= num + "0001";
 						case num is
-								when "0001" =>  rx_temp_data(0) <= rs232_rx;	--//0bit
-								when "0010" =>  rx_temp_data(1) <= rs232_rx;	--//1bit
-								when "0011" =>  rx_temp_data(2) <= rs232_rx;	--//2bit
-								when "0100" =>  rx_temp_data(3) <= rs232_rx;	--//3bit
-								when "0101" =>  rx_temp_data(4) <= rs232_rx;	--//4bit
-								when "0110" =>  rx_temp_data(5) <= rs232_rx;	--//5bit
-								when "0111" =>  rx_temp_data(6) <= rs232_rx;	--//6bit
-								when "1000" =>  rx_temp_data(7) <= rs232_rx;	--//7bit
+									when "0001" =>  rx_temp_data(0) <= rs232_rx;	--//0bit
+									when "0010" =>  rx_temp_data(1) <= rs232_rx;	--//1bit
+									when "0011" =>  rx_temp_data(2) <= rs232_rx;	--//2bit
+									when "0100" =>  rx_temp_data(3) <= rs232_rx;	--//3bit
+									when "0101" =>  rx_temp_data(4) <= rs232_rx;	--//4bit
+									when "0110" =>  rx_temp_data(5) <= rs232_rx;	--//5bit
+									when "0111" =>  rx_temp_data(6) <= rs232_rx;	--//6bit
+									when "1000" =>  rx_temp_data(7) <= rs232_rx;	--//7bit
 								when others =>  
 						end case;
 --					end;

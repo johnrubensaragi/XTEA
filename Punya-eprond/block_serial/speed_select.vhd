@@ -29,8 +29,8 @@ end entity;
 architecture RTL of speed_select is
 	signal cnt : integer range 0 to 8191; -- (2^13)-1
 
-	constant BPS_PARA: integer :=		433; -- 115200
-	constant BPS_PARA_2: integer :=		216; -- 115200
+	constant BPS_PARA: integer :=		5207; -- 9600
+	constant BPS_PARA_2: integer :=		2603; -- 9600
 
 	signal clk_bps_r : std_logic;			
 	signal uart_ctrl : std_logic_vector(2 downto 0) ; 

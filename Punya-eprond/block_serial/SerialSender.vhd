@@ -8,7 +8,7 @@ entity SerialSender is
     port(
         clock : in std_logic;
         nreset : in std_logic;
-        serial_clock :  in bit;
+        sender_clock :  in std_logic;
         sender_enable : in std_logic;
         sender_start : in std_logic;
         sender_trigger : out std_logic := '1';
@@ -60,9 +60,12 @@ begin
         end if;
     end process change_state;
 
-    sender_fsm : process(serial_clock)
+    sender_fsm : process(sender_clock)
     begin
-        if serial_clock'event and serial_clock = '1' then
+        if (nreset = '0') then
+            sender_done <= '0';
+            sender_data_out <= (others => '0');
+        elsif sender_clock'event and sender_clock = '1' then
             case c_state is
                 when idle =>
                     if (sender_start = '1') then

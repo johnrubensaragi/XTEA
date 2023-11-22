@@ -32,12 +32,15 @@ begin
         if (nreset = '0') then
             counter <= 0;
         elsif rising_edge(clock) then
-            if (enable = '1') then
                 creset1 <= creset;
-                counter <= counter + 1;
-                if both_edge(creset, creset1) then
+                if both_edge(creset, creset1) or (counter = (count_max-1)) then
                     counter <= 0;
-                end if;
+                else
+                    if (enable = '1') then
+                        counter <= counter + 1;
+                    else
+                        counter <= counter;
+                    end if;
             end if;
         end if;
     end process;

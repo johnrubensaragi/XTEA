@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Tue Nov 21 14:17:58 2023
+Analysis & Synthesis Status : Successful - Wed Nov 22 17:28:09 2023
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : DummySerial
-Top-level Entity Name : DummySerial
+Top-level Entity Name : DummyTopLevel
 Family : Cyclone IV E
-Total logic elements : 112
-    Total combinational functions : 108
-    Dedicated logic registers : 78
-Total registers : 78
+Total logic elements : 3,750
+    Total combinational functions : 2,583
+    Dedicated logic registers : 1,656
+Total registers : 1656
 Total pins : 16
 Total virtual pins : 0
 Total memory bits : 0

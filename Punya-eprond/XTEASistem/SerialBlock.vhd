@@ -9,10 +9,11 @@ entity SerialBlock is
         clock : in std_logic;
         nreset : in std_logic;
         serial_running: out std_logic;
-        serial_done : out std_logic;
+        read_done : out std_logic;
+        send_done : out std_logic;
+        send_start : in std_logic;
         error_out : out std_logic_vector(1 downto 0);
         send_data : in std_logic_vector((data_length-1) downto 0);
-        send_start : in std_logic;
         store_address : out std_logic_vector((address_length-1) downto 0);
         store_data : out std_logic_vector((data_length-1) downto 0);
         rs232_rx : in std_logic;
@@ -22,7 +23,7 @@ end SerialBlock;
 
 architecture behavioral of SerialBlock is
     constant clock_frequency : natural := 50e6; -- 50 MHz
-    constant serial_frequency : natural := 115200 ; -- 115.2 kbps
+    constant baud_rate : natural := 9600 ; -- 9600 bps
 
     component SerialReader is
         generic(data_length, address_length : natural);
@@ -46,7 +47,7 @@ architecture behavioral of SerialBlock is
         port(
             clock : in std_logic;
             nreset : in std_logic;
-            serial_clock :  in bit;
+            sender_clock :  in std_logic;
             sender_enable : in std_logic;
             sender_trigger : out std_logic;
             sender_start : in std_logic;
@@ -72,8 +73,8 @@ architecture behavioral of SerialBlock is
     component ClockDiv is
         generic(div_frequency, clock_frequency : natural);
         port(
-            clock: in std_logic;
-            div_out: buffer bit
+            clock_in: in std_logic;
+            clock_out: out std_logic
         );
     end component ClockDiv;
 
@@ -81,13 +82,14 @@ architecture behavioral of SerialBlock is
     signal reader_trigger, reader_enable, reader_start : std_logic;
     signal reader_finish, reader_done : std_logic;
     signal receive, receive_c : std_logic;
-    
+    signal reader_clock : std_logic;
+
     signal internal_error : std_logic_vector(1 downto 0) := "00";
 
     signal uart_send : std_logic_vector(7 downto 0);
     signal sender_trigger, sender_enable, sender_start : std_logic;
     signal sender_done : std_logic;
-    signal serial_clock : bit;
+    signal sender_clock : std_logic;
 
 begin
     serialreader_inst: SerialReader
@@ -117,7 +119,7 @@ begin
     port map (
         clock           => clock,
         nreset          => nreset,
-        serial_clock    => serial_clock,
+        sender_clock    => sender_clock,
         sender_enable   => sender_enable,
         sender_trigger  => sender_trigger,
         sender_start   => sender_start,
@@ -138,21 +140,31 @@ begin
         rs232_tx     => rs232_tx
     );
 
-    clockdiv_inst: ClockDiv
+    sclockdiv_inst: ClockDiv
     generic map (
-        div_frequency   => serial_frequency/12, -- slow frequency for serial
+        div_frequency   => baud_rate/12, -- slow frequency for sender
         clock_frequency => clock_frequency
     )
     port map (
-        clock   => clock,
-        div_out => serial_clock
+        clock_in   => clock,
+        clock_out  => sender_clock
+    );
+    
+    rclockdiv_inst: ClockDiv
+    generic map (
+        div_frequency   => baud_rate*4, -- slow frequency for reader
+        clock_frequency => clock_frequency
+    )
+    port map (
+        clock_in   => clock,
+        clock_out  => reader_clock
     );
 
     error_out <= internal_error;
 
-    reader_controller : process(clock)
+    reader_controller : process(reader_clock)
     begin
-        if rising_edge(clock) then
+        if (reader_clock'event and reader_clock = '1') then
             receive_c <= receive;
         
             -- to trigger the reader every data change
@@ -193,15 +205,20 @@ begin
         end if;
     end process sender_controller;
 
-    done_check : process(serial_clock)
+    done_check : process(sender_clock)
     begin
-        if serial_clock'event and serial_clock = '1' then
+        if (sender_clock'event and sender_clock = '1') then
+
             if (sender_done = '1') then
-                serial_done <= '1';
-            elsif (reader_done = '1') then
-                serial_done <= '1';
+                send_done <= '1';
             else
-                serial_done <= '0';
+                send_done <= '0';
+            end if;
+
+            if (reader_done = '1') then
+                read_done <= '1';
+            else
+                read_done <= '0';
             end if;
         end if;
     end process done_check;
@@ -213,7 +230,7 @@ begin
             -- to check reader or sender is running
             if (reader_start = '1') then
                 serial_running <= '1';
-            elsif (send_start = '1') then
+            elsif (sender_start = '1') then
                 serial_running <= '1';
             elsif (reader_start = '0') then
                 serial_running <= '0';

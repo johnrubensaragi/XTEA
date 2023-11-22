@@ -15,8 +15,8 @@ entity SerialReader is
         reader_done : out std_logic := '0';
         error_out : out std_logic_vector(1 downto 0) := "00";
         reader_data_in : in std_logic_vector(7 downto 0);
-        reader_address_out : out std_logic_vector((address_length-1) downto 0);
-        reader_data_out : out std_logic_vector((data_length - 1) downto 0)
+        reader_address_out : out std_logic_vector((address_length-1) downto 0) := (others => '0');
+        reader_data_out : out std_logic_vector((data_length - 1) downto 0) := (others => '0')
     );
 end SerialReader;
 
@@ -34,6 +34,7 @@ begin
     begin
         if (nreset = '0') then
             c_state <= idle;
+
         elsif rising_edge(clock) then
             if (reader_enable = '1') then
                 -- if not yet started or already finished put on idle
@@ -46,11 +47,22 @@ begin
         end if;
     end process next_state;
 
-    reader_fsm : process(reader_trigger, reader_finish)
+    reader_fsm : process(reader_trigger, reader_finish, nreset)
         constant default_key : std_logic_vector(127 downto 0) := x"6c7bd673045e9d5c29ac6c25db7a3191";
         constant empty_data : std_logic_vector((data_length-1) downto 0) := x"0000000000000000";
     begin
-        if (reader_enable = '1') then
+        if (nreset = '0') then
+            reader_done <= '0';
+            reader_address_out <= (others => '0');
+            reader_data_out <= (others => '0');
+            temp_data <= (others => '0');
+            temp_address <= (others => '0');
+            error_out <= "00";
+            done_mode <= '0';
+            done_key <= '0';
+            done_data <= '0';
+
+        elsif (reader_enable = '1') then
 
             -- check things when finished
             if (reader_finish = '1') then 
@@ -78,6 +90,8 @@ begin
                         if (reader_start = '1') then
                             n_state <= read_kw;
                         end if;
+
+                        reader_done <= '0';
 
                     when start =>
                         if (reader_data_in = "00101101") then -- ASCII "-"

@@ -1,946 +1,639 @@
 m255
 K4
 z2
-!s11e MIXED_VERSIONS
+!s11e vcom 2020.1 2020.02, Feb 28 2020
 13
 !s112 1.1
 !i10d 8192
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/irfan/Documents/VHDLCodes/TubesSisdig
+Z0 dC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond
 Eclockcounter
-Z1 w1700485815
+Z1 w1700625828
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z4 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 506
-Z7 dC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond
-Z8 8clockcounter.vhd
-Z9 Fclockcounter.vhd
+!i122 0
+R0
+Z7 8ClockCounter.vhd
+Z8 FClockCounter.vhd
 l0
 L6 1
-VgMY;6R<c>kK0kh@Ci42DZ2
-!s100 R[j>;kQ=`XA=1GHNM;oBX1
-Z10 OV;C;2020.1;71
+Voo5RXj]G6OggGSjUSMz_N3
+!s100 N[`o^RJgMfT2F2UFE;?g03
+Z9 OV;C;2020.1;71
 32
-Z11 !s110 1700485820
+Z10 !s110 1700648489
 !i10b 1
-Z12 !s108 1700485820.000000
-Z13 !s90 -reportprogress|300|clockcounter.vhd|tester.vhd|
-Z14 !s107 tester.vhd|clockcounter.vhd|
+Z11 !s108 1700648489.000000
+Z12 !s90 -reportprogress|300|ClockCounter.vhd|ClockDiv.vhd|PulseGenerator.vhd|speed_select.vhd|my_uart_rx.vhd|my_uart_tx.vhd|my_uart_top.vhd|SRAM.vhd|XTEA.vhd|SerialReader.vhd|SerialSender.vhd|SerialBlock.vhd|DummySerial.vhd|DummyTopLevel.vhd|
+Z13 !s107 DummyTopLevel.vhd|DummySerial.vhd|SerialBlock.vhd|SerialSender.vhd|SerialReader.vhd|XTEA.vhd|SRAM.vhd|my_uart_top.vhd|my_uart_tx.vhd|my_uart_rx.vhd|speed_select.vhd|PulseGenerator.vhd|ClockDiv.vhd|ClockCounter.vhd|
 !i113 1
-Z15 tExplicit 1 CvgOpt 0
+Z14 tExplicit 1 CvgOpt 0
 Abehavioral
 R2
 R3
 R4
 R5
 R6
-Z16 DEx4 work 12 clockcounter 0 22 gMY;6R<c>kK0kh@Ci42DZ2
-!i122 506
-l27
-L15 26
-VJbPKj`ARP37aE@V:^ILK]2
-!s100 QX=Dc6lNW;78AAUMLT4i?0
-R10
+DEx4 work 12 clockcounter 0 22 oo5RXj]G6OggGSjUSMz_N3
+!i122 0
+l29
+L17 33
+V3E4z2a_Yz:;`8zJ:47aP=3
+!s100 PhBUa_i3]DPJjhd2VI1Mi0
+R9
 32
-R11
+R10
 !i10b 1
+R11
 R12
 R13
+!i113 1
 R14
-!i113 1
-R15
 Eclockdiv
-Z17 w1700418325
+Z15 w1700622039
 R3
 R4
 R5
 R6
-!i122 508
-R7
-Z18 8ClockDiv.vhd
-Z19 FClockDiv.vhd
+!i122 0
+R0
+Z16 8ClockDiv.vhd
+Z17 FClockDiv.vhd
 l0
 L6 1
-VSJBo4f=K?FZeCn`cfBlHS2
-!s100 B0jEQ@2d>aAQ[^mGASifL3
-R10
+VnWKD`43]k28[ELkBZ?Reb2
+!s100 Cf8?I5aLMSmoNnQ?4H6732
+R9
 32
-Z20 !s110 1700496216
+R10
 !i10b 1
-Z21 !s108 1700496216.000000
-Z22 !s90 -reportprogress|300|ClockDiv.vhd|PulseGenerator.vhd|
-Z23 !s107 PulseGenerator.vhd|ClockDiv.vhd|
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Abehavioral
 R3
 R4
 R5
 R6
-DEx4 work 8 clockdiv 0 22 SJBo4f=K?FZeCn`cfBlHS2
-!i122 508
-l15
-L14 25
-V_dDPV@>Vo?Z8kAFlgUVGT3
-!s100 5C_`7;`4=0QH:HUP0T8Ng2
-R10
+DEx4 work 8 clockdiv 0 22 nWKD`43]k28[ELkBZ?Reb2
+!i122 0
+l16
+L14 19
+V?V@XgXEng4iP1:RGlJJ1^2
+!s100 2zh5>7JM0<I2]kj_FcZ6F0
+R9
 32
-R20
+R10
 !i10b 1
-R21
-R22
-R23
+R11
+R12
+R13
 !i113 1
-R15
+R14
+Edummyserial
+Z18 w1700627103
+R2
+R3
+R4
+R5
+R6
+!i122 0
+R0
+Z19 8DummySerial.vhd
+Z20 FDummySerial.vhd
+l0
+L6 1
+VDhOzjmWm7aaiQe3GiGMQP3
+!s100 WLoo7IfAK=bTCe25zaoQC3
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
+Abehavioral
+R2
+R3
+R4
+R5
+R6
+DEx4 work 11 dummyserial 0 22 DhOzjmWm7aaiQe3GiGMQP3
+!i122 0
+l131
+L18 328
+V8YAJ:S5?bR_FE_84Q?dB:2
+!s100 ZBM;F<[hF?7c?g:5R7OcN0
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
 Edummytoplevel
-Z24 w1700418284
+Z21 w1700628836
+R2
 R3
 R4
 R5
 R6
-!i122 472
-R7
-Z25 8C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/DummyTopLevel.vhd
-Z26 FC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/DummyTopLevel.vhd
+!i122 0
+R0
+Z22 8DummyTopLevel.vhd
+Z23 FDummyTopLevel.vhd
 l0
 L6 1
-V52XK0PlgWz7_3KFkT]VdA2
-!s100 L9AToI0iHaT2QIkz;hAoK0
-R10
+VaTDaC7eUPA7E?bbD9nKAg1
+!s100 5CVNjZaJFAQBbFK]aYW;h2
+R9
 32
-Z27 !s110 1700418458
+R10
 !i10b 1
-Z28 !s108 1700418458.000000
-Z29 !s90 -reportprogress|300|-work|work|C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/DummyTopLevel.vhd|
-Z30 !s107 C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/DummyTopLevel.vhd|
+R11
+R12
+R13
 !i113 1
-Z31 o-work work
-R15
+R14
 Abehavioral
+R2
 R3
 R4
 R5
 R6
-DEx4 work 13 dummytoplevel 0 22 52XK0PlgWz7_3KFkT]VdA2
-!i122 472
-l40
-L15 45
-VWUWaAoBg_df_NfKF_c3@D0
-!s100 YBA^fl92aHzEQMo[Pm_JL2
-R10
+Z24 DEx4 work 13 dummytoplevel 0 22 aTDaC7eUPA7E?bbD9nKAg1
+!i122 0
+l133
+L18 442
+V^UHdh0mngdjQ2B:aCNPa[0
+!s100 iY:Y1n]6KU3am:1A@oM[F1
+R9
 32
-R27
+R10
 !i10b 1
-R28
-R29
-R30
+R11
+R12
+R13
 !i113 1
-R31
-R15
+R14
 Emy_uart_rx
-Z32 w1700486747
+Z25 w1700577489
 R2
 R5
 R6
-!i122 507
-R7
-Z33 8my_uart_rx.vhd
-Z34 Fmy_uart_rx.vhd
+!i122 0
+R0
+Z26 8my_uart_rx.vhd
+Z27 Fmy_uart_rx.vhd
 l0
 L7 1
 V0TCYVXm]WShTXQMiV8[400
 !s100 BR5G>Kb[bfZCan4QCTz1g3
-R10
+R9
 32
-Z35 !s110 1700496204
+R10
 !i10b 1
-Z36 !s108 1700496203.000000
-Z37 !s90 -reportprogress|300|TestSender.vhd|SerialBlock.vhd|SerialSender.vhd|SerialReader.vhd|my_uart_rx.vhd|my_uart_top.vhd|my_uart_tx.vhd|
-Z38 !s107 my_uart_tx.vhd|my_uart_top.vhd|my_uart_rx.vhd|SerialReader.vhd|SerialSender.vhd|SerialBlock.vhd|TestSender.vhd|
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Artl
 R2
 R5
 R6
 DEx4 work 10 my_uart_rx 0 22 0TCYVXm]WShTXQMiV8[400
-!i122 507
+!i122 0
 l34
 L21 93
-V7<fC:YaiCRgiKQ>O8PeCZ0
-!s100 jeN:bJb6SfccoOGETakhM1
-R10
+Vh;4L;I8OLd`N`h944nTTI0
+!s100 @L5C0oD9CnMV1gIBF2j]o3
+R9
 32
-R35
+R10
 !i10b 1
-R36
-R37
-R38
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Emy_uart_top
-Z39 w1700401330
+Z28 w1700401330
 R5
 R6
-!i122 507
-R7
-Z40 8my_uart_top.vhd
-Z41 Fmy_uart_top.vhd
+!i122 0
+R0
+Z29 8my_uart_top.vhd
+Z30 Fmy_uart_top.vhd
 l0
 L10 1
 VUHDFk3@11BW`oj;DGQ2Tg3
 !s100 a5K4m?MbEYIlT5`NjI<ek1
-R10
+R9
 32
-R35
+R10
 !i10b 1
-R36
-R37
-R38
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Astructural
 R5
 R6
 DEx4 work 11 my_uart_top 0 22 UHDFk3@11BW`oj;DGQ2Tg3
-!i122 507
+!i122 0
 l66
 L28 81
 VG>G==b86Mb0K_cEg@R@BI0
 !s100 0_RN9m@UDL6=;A:O^DUEi0
-R10
+R9
 32
-R35
+R10
 !i10b 1
-R36
-R37
-R38
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Emy_uart_tx
-Z42 w1700120227
+Z31 w1700120227
 R2
 R5
 R6
-!i122 507
-R7
-Z43 8my_uart_tx.vhd
-Z44 Fmy_uart_tx.vhd
+!i122 0
+R0
+Z32 8my_uart_tx.vhd
+Z33 Fmy_uart_tx.vhd
 l0
 L9 1
 VdScW920NngY06c]>:eR`=0
 !s100 @?@W3i7I^j:Th;QSTWePz3
-R10
+R9
 32
-R35
+R10
 !i10b 1
-R36
-R37
-R38
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Artl
 R2
 R5
 R6
 DEx4 work 10 my_uart_tx 0 22 dScW920NngY06c]>:eR`=0
-!i122 507
+!i122 0
 l32
 L23 91
 VZRh8zXaV66Xd@?Od3nZSG2
 !s100 ?1gJ[ORYTN=A5G6i5za`b3
-R10
+R9
 32
-R35
+R10
 !i10b 1
-R36
-R37
-R38
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Epulsegenerator
-Z45 w1700486136
+Z34 w1700486136
 R3
 R4
 R5
 R6
-!i122 508
-R7
-Z46 8PulseGenerator.vhd
-Z47 FPulseGenerator.vhd
+!i122 0
+R0
+Z35 8PulseGenerator.vhd
+Z36 FPulseGenerator.vhd
 l0
 L6 1
 VZIhz6kP1CF>dI=hRANAm61
 !s100 cUKmmGQg2=h@TcX1QBR150
-R10
+R9
 32
-R20
+R10
 !i10b 1
-R21
-R22
-R23
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Abehavioral
 R3
 R4
 R5
 R6
 DEx4 work 14 pulsegenerator 0 22 ZIhz6kP1CF>dI=hRANAm61
-!i122 508
+!i122 0
 l28
 L17 39
 VN5RbBeGF<8_`mVZb=`];R0
 !s100 iF<^ZOP1M1jPN:6VB2PQP3
-R10
+R9
 32
-R20
-!i10b 1
-R21
-R22
-R23
-!i113 1
-R15
-Ereadserialtest
-Z48 w1699621800
-R2
-R3
-R4
-R5
-R6
-!i122 5
-R0
-Z49 8ReadSerialTest.vhd
-Z50 FReadSerialTest.vhd
-l0
-L6 1
-VdeoNHz`l2SQf8D`<QKLjd1
-!s100 @BndeznclILd2LEAgjaS92
 R10
-32
-Z51 !s110 1699621803
 !i10b 1
-Z52 !s108 1699621802.000000
-Z53 !s90 -reportprogress|300|ReadSerialTest.vhd|SRAM.vhd|
-Z54 !s107 SRAM.vhd|ReadSerialTest.vhd|
+R11
+R12
+R13
 !i113 1
-R15
-Abehavioral
-R2
-R3
-R4
-R5
-R6
-DEx4 work 14 readserialtest 0 22 deoNHz`l2SQf8D`<QKLjd1
-!i122 5
-l30
-L20 200
-V8E3jOen>DlCSoDHz^XZSl0
-!s100 XPIfm5YeoJe^@NQmI14o[2
-R10
-32
-R51
-!i10b 1
-R52
-R53
-R54
-!i113 1
-R15
+R14
 Eserialblock
-Z55 w1700489069
+Z37 w1700629084
 R3
 R4
 R5
 R6
-!i122 507
-R7
-Z56 8SerialBlock.vhd
-Z57 FSerialBlock.vhd
+!i122 0
+R0
+Z38 8SerialBlock.vhd
+Z39 FSerialBlock.vhd
 l0
 L6 1
-VO_7XBS?0<:BmZMn[RGdRT1
-!s100 SMBEgna[0Q`JcHPA?[8UG2
-R10
+V<acB2YT]2jjmnDgF06lX40
+!s100 ]4Le5iUTDOXTN62Hbme9m1
+R9
 32
-R35
+R10
 !i10b 1
-R36
-R37
-R38
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Abehavioral
 R3
 R4
 R5
 R6
-DEx4 work 11 serialblock 0 22 O_7XBS?0<:BmZMn[RGdRT1
-!i122 507
-l92
-L23 213
-VK9j7JSRbX1682`LjPQ^2>2
-!s100 86<Z_Xj``YD]YBV6>MjR[3
-R10
+DEx4 work 11 serialblock 0 22 <acB2YT]2jjmnDgF06lX40
+!i122 0
+l94
+L24 229
+VaOl;l[HM97k@0ff>FbblJ2
+!s100 Tg>^BPD[OUmL[cla41<Vi3
+R9
 32
-R35
+R10
 !i10b 1
-R36
-R37
-R38
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Eserialreader
-Z58 w1700416186
+Z40 w1700587680
 R3
 R4
 R5
 R6
-!i122 507
-R7
-Z59 8SerialReader.vhd
-Z60 FSerialReader.vhd
+!i122 0
+R0
+Z41 8SerialReader.vhd
+Z42 FSerialReader.vhd
 l0
 L6 1
-VSlbzERcJCj__n=^Uj>cMd3
-!s100 na48<S[D4n94lSzl5@JK20
-R10
+VzE_1]Z^KW0`KmhDI__=7j3
+!s100 Z[ZFkT2<2aEoTb9AM_^2g2
+R9
 32
-R35
+R10
 !i10b 1
-R36
-R37
-R38
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Abehavioral
 R3
 R4
 R5
 R6
-DEx4 work 12 serialreader 0 22 SlbzERcJCj__n=^Uj>cMd3
-!i122 507
+DEx4 work 12 serialreader 0 22 zE_1]Z^KW0`KmhDI__=7j3
+!i122 0
 l32
-L23 228
-VB@f5ML=h09=bgRK_?dG1b0
-!s100 i9BP>2S6UcTbQ4=zU@@K]1
-R10
+L23 242
+V>YQ@coa:RNUa[6`beTmz63
+!s100 :>gkz2n6fJQU_9_Ydo@Y@3
+R9
 32
-R35
+R10
 !i10b 1
-R36
-R37
-R38
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Eserialsender
-Z61 w1700489042
+Z43 w1700589472
 R3
 R4
 R5
 R6
-!i122 507
-R7
-Z62 8SerialSender.vhd
-Z63 FSerialSender.vhd
+!i122 0
+R0
+Z44 8SerialSender.vhd
+Z45 FSerialSender.vhd
 l0
 L6 1
-VR5^>>z2RE_1;L=a@QL;MD3
-!s100 0JVH>9;c_bjPaePJQNo?:2
-R10
+VA5?iWkYPmDgl4W__Qzj5e1
+!s100 7O7RLGU`2952Ea;YNC=i11
+R9
 32
-R35
+R10
 !i10b 1
-R36
-R37
-R38
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Abehavioral
 R3
 R4
 R5
 R6
-DEx4 work 12 serialsender 0 22 R5^>>z2RE_1;L=a@QL;MD3
-!i122 507
+DEx4 work 12 serialsender 0 22 A5?iWkYPmDgl4W__Qzj5e1
+!i122 0
 l36
-L21 75
-VaScN:5bLB91Z7kSQ4LiIJ3
-!s100 jk47D[8F^6:W^^M[nF4zA3
-R10
+L21 78
+V90M4_Hc6?RneHj^nDYnR32
+!s100 gll^V^F4hMh=V^6ZXA^DA2
+R9
 32
-R35
+R10
 !i10b 1
-R36
-R37
-R38
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Espeed_select
-Z64 w1700412511
+Z46 w1700581470
 R5
 R6
-!i122 480
-R7
-Z65 8C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/speed_select.vhd
-Z66 FC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/speed_select.vhd
+!i122 0
+R0
+Z47 8speed_select.vhd
+Z48 Fspeed_select.vhd
 l0
 L6 1
-VC=7In[?0S_<?@<dHi?nQK1
+VmTUZbhZnaL8oD^GM=Ea]R1
 !s100 _Uh99P<j1=f8hYSgdP6?O0
-R10
+R9
 32
-Z67 !s110 1700418460
+R10
 !i10b 1
-Z68 !s108 1700418460.000000
-Z69 !s90 -reportprogress|300|-work|work|C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/speed_select.vhd|
-Z70 !s107 C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/speed_select.vhd|
+R11
+R12
+R13
 !i113 1
-R31
-R15
+R14
 Artl
 R5
 R6
-DEx4 work 12 speed_select 0 22 C=7In[?0S_<?@<dHi?nQK1
-!i122 480
+DEx4 work 12 speed_select 0 22 mTUZbhZnaL8oD^GM=Ea]R1
+!i122 0
 l37
 L29 33
-VMObHKG<zl880]niI6YjU_3
-!s100 1d::eYZ;k7l;bYc_C5OR12
-R10
+VVn7LQ5idT4?Se518RC=fF3
+!s100 :kMGKGJQcR2RgD7BP7@j`3
+R9
 32
-R67
+R10
 !i10b 1
-R68
-R69
-R70
+R11
+R12
+R13
 !i113 1
-R31
-R15
+R14
 Esram
-Z71 w1699890010
+Z49 w1699890010
 R2
 R3
 R4
 R5
 R6
-!i122 481
-R7
-Z72 8C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/SRAM.vhd
-Z73 FC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/SRAM.vhd
+!i122 0
+R0
+Z50 8SRAM.vhd
+Z51 FSRAM.vhd
 l0
 L6 1
-Vg3O]W5U]ENW7DdkNLgH=:1
+VjM`W9cPn<o7;gJ4`;K@Xe3
 !s100 H[NW2jKH<@L=;GMXc198;3
-R10
+R9
 32
-Z74 !s110 1700418461
+R10
 !i10b 1
-R68
-Z75 !s90 -reportprogress|300|-work|work|C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/SRAM.vhd|
-Z76 !s107 C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/SRAM.vhd|
+R11
+R12
+R13
 !i113 1
-R31
-R15
+R14
 Abehavioral
 R2
 R3
 R4
 R5
 R6
-DEx4 work 4 sram 0 22 g3O]W5U]ENW7DdkNLgH=:1
-!i122 481
+DEx4 work 4 sram 0 22 jM`W9cPn<o7;gJ4`;K@Xe3
+!i122 0
 l21
 L18 19
-VWm[cP1bfVg>z0VRHm2g1=3
+VVchUVE:TjNEY@LOa]EWHj3
 !s100 eS[Cff5Xec6]Vc]GGHlU^2
-R10
+R9
 32
-R74
+R10
 !i10b 1
-R68
-R75
-R76
-!i113 1
-R31
-R15
-Etb_reader
-Z77 w1700417346
-R2
-R3
-R4
-R5
-R6
-!i122 482
-R7
-Z78 8C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/TB_Reader.vhd
-Z79 FC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/TB_Reader.vhd
-l0
-L6 1
-Vk[J<4@Te@b>jV02ElP1Aa3
-!s100 ;faFa<=2H_bF8H40kbo[20
-R10
-32
-R74
-!i10b 1
-Z80 !s108 1700418461.000000
-Z81 !s90 -reportprogress|300|-work|work|C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/TB_Reader.vhd|
-Z82 !s107 C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/TB_Reader.vhd|
-!i113 1
-R31
-R15
-Asim
-DEx4 work 12 serialreader 0 22 1RlEVamNW:<lczm@fVjg11
-R2
-R3
-R4
-R5
-R6
-DEx4 work 9 tb_reader 0 22 k[J<4@Te@b>jV02ElP1Aa3
-!i122 482
-l46
-L9 84
-VJ]2hdnbQ[m[C9B60aE<@=3
-!s100 Wi^Ui5[Ue_QXZNk4Q=V7C3
-R10
-32
-R74
-!i10b 1
-R80
-R81
-R82
-!i113 1
-R31
-R15
-Etb_serial
-Z83 w1700418845
-R2
-R3
-R4
-R5
-R6
-!i122 491
-R7
-Z84 8TB_Serial.vhd
-Z85 FTB_Serial.vhd
-l0
-L6 1
-VZ;>^7h:b?noIbWSSN64ib3
-!s100 UDQZ>e<P@1l1A95?N7RVe2
-R10
-32
-Z86 !s110 1700418848
-!i10b 1
-Z87 !s108 1700418848.000000
-Z88 !s90 -reportprogress|300|TB_Serial.vhd|
-Z89 !s107 TB_Serial.vhd|
-!i113 1
-R15
-Asim
-DEx4 work 11 serialblock 0 22 6<<OIQi3DR6RBLgGkJULZ2
-R2
-R3
-R4
-R5
-R6
-DEx4 work 9 tb_serial 0 22 Z;>^7h:b?noIbWSSN64ib3
-!i122 491
-l46
-L9 78
-VnN2VPdJgcFDzcA2BN1^4W2
-!s100 I@8U0;eX?L:KOA:AL4@]i0
-R10
-32
-R86
-!i10b 1
-R87
-R88
-R89
-!i113 1
-R15
-Etb_xtea
-Z90 w1700482183
-R2
-R3
-R4
-R5
-R6
-!i122 500
-R7
-Z91 8TB_XTea.vhd
-Z92 FTB_XTea.vhd
-l0
-L6 1
-V1EQcbDbAIlXD7@`Z8oIM>2
-!s100 D^7>BZMEHT;D_VB23@`]b1
-R10
-32
-Z93 !s110 1700483821
-!i10b 1
-Z94 !s108 1700483821.000000
-Z95 !s90 -reportprogress|300|XTEA.vhd|TB_XTea.vhd|
-Z96 !s107 TB_XTea.vhd|XTEA.vhd|
-!i113 1
-R15
-Asim
-R2
-R3
-R4
-R5
-R6
-DEx4 work 7 tb_xtea 0 22 1EQcbDbAIlXD7@`Z8oIM>2
-!i122 500
-l50
-L9 65
-VkN[VadOfPE8Pa:cb1TMOG3
-!s100 h48HBb^W:biJR5<QBWNZa0
-R10
-32
-R93
-!i10b 1
-R94
-R95
-R96
-!i113 1
-R15
-Etestbench
-Z97 w1700400666
-R2
-R3
-R4
-R5
-R6
-!i122 485
-R7
-Z98 8C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/Testbench.vhd
-Z99 FC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/Testbench.vhd
-l0
-L6 1
-VQCRV7:TB_i^Lg;kePQcY80
-!s100 [G4HL5bKCbicB^Ge94zek0
-R10
-32
-Z100 !s110 1700418462
-!i10b 1
-Z101 !s108 1700418462.000000
-Z102 !s90 -reportprogress|300|-work|work|C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/Testbench.vhd|
-Z103 !s107 C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/Testbench.vhd|
-!i113 1
-R31
-R15
-Asim
-R2
-R3
-R4
-R5
-R6
-DEx4 work 9 testbench 0 22 QCRV7:TB_i^Lg;kePQcY80
-!i122 485
-l46
-L9 59
-V5[3U4^Rj^7lXK_H:UY^860
-!s100 CammdFH2RmF4a[WLfURj92
-R10
-32
-R100
-!i10b 1
-R101
-R102
-R103
-!i113 1
-R31
-R15
-Etester
-Z104 w1700485794
-R2
-R3
-R4
-R5
-R6
-!i122 506
-R7
-Z105 8tester.vhd
-Z106 Ftester.vhd
-l0
-L6 1
-V8b91^4[eX0KdlkT??=F0h1
-!s100 mA4jU^^U]SU9MIDKl106G1
-R10
-32
 R11
-!i10b 1
 R12
 R13
-R14
 !i113 1
-R15
-Asim
-R16
+R14
+Etb_dummytoplevel
+Z52 w1700625201
 R2
 R3
 R4
 R5
 R6
-DEx4 work 6 tester 0 22 8b91^4[eX0KdlkT??=F0h1
-!i122 506
-l37
-L9 50
-V7bPCi0J61BF`omQIf[[9Z1
-!s100 BYPh3>GNHeY226ei^CK?C3
-R10
-32
-R11
-!i10b 1
-R12
-R13
-R14
-!i113 1
-R15
-Abehavioral
-R2
-R3
-R4
-R5
-R6
-DEx4 work 6 tester 0 22 U?0:<3fik1VnX?MmVQHXd2
-!i122 200
-l51
-L17 56
-V`R_J<IZDVQ]k4gL7eYGg50
-!s100 E0n]a;>TFn[HSXQ:zIzFL0
-R10
-32
-!s110 1699878772
-!i10b 1
-!s108 1699878772.000000
-!s90 -reportprogress|300|XTEA.vhd|Tester.vhd|
-!s107 Tester.vhd|XTEA.vhd|
-!i113 1
-R15
-w1699878764
+!i122 1
 R0
-FTester.vhd
-8Tester.vhd
-Etestsender
-Z107 w1700498760
-R2
-R3
-R4
-R5
-R6
-!i122 518
-R7
-Z108 8TestSender.vhd
-Z109 FTestSender.vhd
+Z53 8TB_DummyTopLevel.vhd
+Z54 FTB_DummyTopLevel.vhd
 l0
 L6 1
-VSK^ZimnP3kL]aERXb^`4H2
-!s100 Ri6DFQ6^hOWYzb[>B3cbj3
-R10
+VhQA7C@e:2l[co0K[KWZce3
+!s100 S5ie;lSH?h[_P^@id]LlP2
+R9
 32
-Z110 !s110 1700498771
+R10
 !i10b 1
-Z111 !s108 1700498771.000000
-Z112 !s90 -reportprogress|300|TestSender.vhd|
-Z113 !s107 TestSender.vhd|
+R11
+Z55 !s90 -reportprogress|300|TB_DummyTopLevel.vhd|
+!s107 TB_DummyTopLevel.vhd|
 !i113 1
-R15
-Abehavioral
+R14
+Asim
+R24
 R2
 R3
 R4
 R5
 R6
-Z114 DEx4 work 10 testsender 0 22 SK^ZimnP3kL]aERXb^`4H2
-!i122 518
-l81
-Z115 L15 121
-VO:LADgUYIL8f5?TdhVIUj0
-!s100 Lke?M`goOOXKAgbf]4mf[2
-R10
+DEx4 work 16 tb_dummytoplevel 0 22 hQA7C@e:2l[co0K[KWZce3
+!i122 1
+l51
+L9 94
+V2<eUF?PJj::@oOXlUIfRP1
+!s100 jK_`^:h65BWLEGYI2[;_?2
+R9
 32
-R110
-!i10b 1
-R111
-R112
-R113
-!i113 1
-R15
-Etoplevelsistem
-Z116 w1699946916
-R2
-R3
-R4
-R5
-R6
-!i122 487
-R7
-Z117 8C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/TopLevelSistem.vhd
-Z118 FC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/TopLevelSistem.vhd
-l0
-L6 1
-VE9zWG9m[k9E2bN341lDKe1
-!s100 @2zO;Pb9d8_5G=aOdYd3[3
 R10
-32
-Z119 !s110 1700418463
 !i10b 1
-R101
-Z120 !s90 -reportprogress|300|-work|work|C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/TopLevelSistem.vhd|
-Z121 !s107 C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/TopLevelSistem.vhd|
+R11
+R55
+Z56 !s107 TB_DummyTopLevel.vhd|
 !i113 1
-R31
-R15
-Abehavioral
-R2
-R3
-R4
-R5
-R6
-DEx4 work 14 toplevelsistem 0 22 E9zWG9m[k9E2bN341lDKe1
-!i122 487
-l83
-L16 203
-VmJIYo0<T;4KO<^Z^Bmz7U0
-!s100 `l_ETBJbYHB@z[G=k8B@12
-R10
-32
-R119
-!i10b 1
-R101
-R120
-R121
-!i113 1
-R31
-R15
+R14
 Extea
-Z122 w1700483816
+Z57 w1700548713
 R2
 R3
 R4
 R5
 R6
-!i122 500
-R7
-Z123 8XTEA.vhd
-Z124 FXTEA.vhd
+!i122 0
+R0
+Z58 8XTEA.vhd
+Z59 FXTEA.vhd
 l0
 L6 1
 V;V[ZBXID1bMcROWfNnUPl2
 !s100 a;ni`D8?Xn?FnhTAgjB^E3
-R10
+R9
 32
-R93
+R10
 !i10b 1
-R94
-R95
-R96
+R11
+R12
+R13
 !i113 1
-R15
+R14
 Abehavioral
 R2
 R3
@@ -948,17 +641,17 @@ R4
 R5
 R6
 DEx4 work 4 xtea 0 22 ;V[ZBXID1bMcROWfNnUPl2
-!i122 500
-l58
-L18 135
-VI_1?]0<8;V4eGfZgbB^^c0
-!s100 HnDznK=lAJf3Kg`SA>];g1
-R10
+!i122 0
+l59
+L18 136
+VQXVoh;c9:h@6I94=ZRW1Y0
+!s100 [z9YYT9^<<0`;o<f[X6OA3
+R9
 32
-R93
+R10
 !i10b 1
-R94
-R95
-R96
+R11
+R12
+R13
 !i113 1
-R15
+R14
