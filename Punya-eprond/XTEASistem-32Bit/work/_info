@@ -1,0 +1,274 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit
+Edummytoplevel
+Z1 w1700732884
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 6
+R0
+Z6 8C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd
+Z7 FC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd
+l0
+L6 1
+VCe2OI7BXT0bhQ=c2bN:bg3
+!s100 MKo=LVUB;>j`b0Y3k6GGc1
+Z8 OV;C;2020.1;71
+32
+Z9 !s110 1700733016
+!i10b 1
+Z10 !s108 1700733016.000000
+Z11 !s90 -reportprogress|300|-work|work|C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd|
+Z12 !s107 C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd|
+!i113 1
+Z13 o-work work
+Z14 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 13 dummytoplevel 0 22 Ce2OI7BXT0bhQ=c2bN:bg3
+!i122 6
+l43
+L14 54
+VB_jJ3khlD2Hmm6`=^L^Q10
+!s100 nlea>n[:@g<m?Dnb=_mG41
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Ememoryblock
+Z15 w1700735028
+R2
+R3
+R4
+R5
+!i122 24
+R0
+Z16 8MemoryBlock.vhd
+Z17 FMemoryBlock.vhd
+l0
+L6 1
+Vo75hQE3oDX3QS;3HoZ4M:1
+!s100 dAPL7mGMfAkc2@SaBY^h53
+R8
+32
+Z18 !s110 1700736789
+!i10b 1
+Z19 !s108 1700736789.000000
+Z20 !s90 -reportprogress|300|MUX2Data.vhd|MUX4Data.vhd|MemoryBlock.vhd|TB_MEmory.vhd|
+Z21 !s107 TB_MEmory.vhd|MemoryBlock.vhd|MUX4Data.vhd|MUX2Data.vhd|
+!i113 1
+R14
+Abehavioral
+R2
+R3
+R4
+R5
+Z22 DEx4 work 11 memoryblock 0 22 o75hQE3oDX3QS;3HoZ4M:1
+!i122 24
+l60
+Z23 L16 91
+Z24 VjHSbG[6CMh<`N2eRZdJ7;2
+Z25 !s100 3<@Vh]Wc?>G6W7D:62WZD2
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R14
+Emux2data
+Z26 w1700736552
+R2
+R3
+R4
+R5
+!i122 24
+R0
+Z27 8MUX2Data.vhd
+Z28 FMUX2Data.vhd
+l0
+L6 1
+V_aYnB`UDzaQ]ATHXf>1zz3
+!s100 3GieGfAEeFPN^M4YE@IF`0
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R14
+Abehavioral
+R2
+R3
+R4
+R5
+Z29 DEx4 work 8 mux2data 0 22 _aYnB`UDzaQ]ATHXf>1zz3
+!i122 24
+l19
+Z30 L18 11
+Z31 V^d>>jzMoiz>;WFXEb_B`;3
+Z32 !s100 h[<VQU>Vfa<ZVQTohU5S00
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R14
+Emux4data
+Z33 w1700736784
+R2
+R3
+R4
+R5
+!i122 24
+R0
+Z34 8MUX4Data.vhd
+Z35 FMUX4Data.vhd
+l0
+L6 1
+Vo?`c:L`@l=Dg7eaK7[fmT1
+!s100 ;A9?UR7oV4Z_n3aVeg5RJ1
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R14
+Abehavioral
+R2
+R3
+R4
+R5
+Z36 DEx4 work 8 mux4data 0 22 o?`c:L`@l=Dg7eaK7[fmT1
+!i122 24
+l35
+L20 21
+VLhQ6GfUe816<A9KO=bjEG2
+!s100 VD[94enfSJ1JJIb<8ee8Z2
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R14
+Esram
+Z37 w1700733010
+R2
+R3
+R4
+R5
+!i122 10
+R0
+Z38 8C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd
+Z39 FC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd
+l0
+L6 1
+VIn@EE7^2?iJKN6I;Fn:PA3
+!s100 ;lh^SQbaK_na8Skg<f`OZ3
+R8
+32
+Z40 !s110 1700733017
+!i10b 1
+Z41 !s108 1700733017.000000
+Z42 !s90 -reportprogress|300|-work|work|C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd|
+Z43 !s107 C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 4 sram 0 22 In@EE7^2?iJKN6I;Fn:PA3
+!i122 10
+l22
+L17 20
+Ve>YVC?ml4^f7f6XBUh4mB1
+!s100 <0[lmO26CW<o;U<EiPOfi0
+R8
+32
+R40
+!i10b 1
+R41
+R42
+R43
+!i113 1
+R13
+R14
+Etb_memory
+Z44 w1700736700
+R2
+R3
+R4
+R5
+!i122 24
+R0
+Z45 8TB_MEmory.vhd
+Z46 FTB_MEmory.vhd
+l0
+L6 1
+VaiOG[4Ln:fBnGkic7<]OX1
+!s100 SRSSBH^SI]?ShUiTd4o1j2
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R14
+Abehavioral
+R22
+R2
+R3
+R4
+R5
+Z47 DEx4 work 9 tb_memory 0 22 aiOG[4Ln:fBnGkic7<]OX1
+!i122 24
+l20
+Z48 L9 51
+Z49 VefEd5=8PV]IPcg24B?Se`0
+Z50 !s100 V;=Iz:B4QBjm`kBKkN3iZ0
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R14

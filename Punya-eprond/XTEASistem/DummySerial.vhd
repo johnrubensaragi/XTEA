@@ -219,9 +219,9 @@ begin
     fsm_controller : process(clock)
         constant empty_data : std_logic_vector((data_length - 1) downto 0) := x"0000000000000000";
         constant default_key : std_logic_vector(127 downto 0) := x"6c7bd673045e9d5c29ac6c25db7a3191";
-        constant error_text1 : string := "Error type 1: System cannot recognize input format      ";
-        constant error_text2 : string := "Error type 2: Storage system exceeded   ";
-        constant error_text3 : string := "Error type 3: System is still busy      ";
+        constant error_text1 : string := "Error type 1: System cannot recognize input format     " & LF;
+        constant error_text2 : string := "Error type 2: Storage system exceeded  " & LF;
+        constant error_text3 : string := "Error type 3: System is still busy     " & LF;
         constant error_vector1 : std_logic_vector((8*error_text1'length-1) downto 0) := to_slv(error_text1);
         constant error_vector2 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
         constant error_vector3 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);

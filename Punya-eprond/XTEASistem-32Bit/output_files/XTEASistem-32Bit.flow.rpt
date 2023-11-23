@@ -1,5 +1,5 @@
 Flow report for XTEASistem-32Bit
-Thu Nov 23 14:08:06 2023
+Thu Nov 23 17:53:44 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,20 +41,20 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Thu Nov 23 14:08:06 2023          ;
+; Flow Status                        ; Successful - Thu Nov 23 17:53:44 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; XTEASistem-32Bit                               ;
-; Top-level Entity Name              ; DummyTopLevel                                  ;
+; Top-level Entity Name              ; MemoryBlock                                    ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE6E22C8                                    ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 0                                              ;
-;     Total combinational functions  ; 0                                              ;
+; Total logic elements               ; 132                                            ;
+;     Total combinational functions  ; 132                                            ;
 ;     Dedicated logic registers      ; 0                                              ;
 ; Total registers                    ; 0                                              ;
-; Total pins                         ; 3                                              ;
+; Total pins                         ; 140                                            ;
 ; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 0                                              ;
+; Total memory bits                  ; 65,536                                         ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
 ; Total PLLs                         ; 0                                              ;
 +------------------------------------+------------------------------------------------+
@@ -65,36 +65,37 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/23/2023 14:07:51 ;
+; Start date & time ; 11/23/2023 17:53:35 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; XTEASistem-32Bit    ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                    ;
-+-------------------------------------+----------------------------------------+------------------+---------------+-----------------------------------+
-; Assignment Name                     ; Value                                  ; Default Value    ; Entity Name   ; Section Id                        ;
-+-------------------------------------+----------------------------------------+------------------+---------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 1096959182856.170072327119848          ; --               ; --            ; --                                ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --               ; --            ; eda_board_design_timing           ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --               ; --            ; eda_board_design_boundary_scan    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --               ; --            ; eda_board_design_signal_integrity ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --               ; --            ; eda_board_design_symbol           ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --               ; --            ; eda_simulation                    ;
-; EDA_SIMULATION_TOOL                 ; Questa Intel FPGA (Verilog)            ; <None>           ; --            ; --                                ;
-; EDA_TIME_SCALE                      ; 1 ps                                   ; --               ; --            ; eda_simulation                    ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --               ; --            ; --                                ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --               ; --            ; --                                ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --               ; --            ; --                                ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --               ; DummyTopLevel ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --               ; DummyTopLevel ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --               ; DummyTopLevel ; Top                               ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --               ; --            ; --                                ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --               ; --            ; --                                ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --               ; --            ; --                                ;
-; TOP_LEVEL_ENTITY                    ; DummyTopLevel                          ; XTEASistem-32Bit ; --            ; --                                ;
-+-------------------------------------+----------------------------------------+------------------+---------------+-----------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                           ;
++----------------------------------------------+----------------------------------------+------------------+-------------+-----------------------------------+
+; Assignment Name                              ; Value                                  ; Default Value    ; Entity Name ; Section Id                        ;
++----------------------------------------------+----------------------------------------+------------------+-------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID                        ; 1096959182856.170073681415060          ; --               ; --          ; --                                ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST              ; Off                                    ; --               ; --          ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST              ; Off                                    ; --               ; --          ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST              ; Off                                    ; --               ; --          ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST              ; Off                                    ; --               ; --          ; eda_board_design_symbol           ;
+; EDA_OUTPUT_DATA_FORMAT                       ; Verilog Hdl                            ; --               ; --          ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                          ; Questa Intel FPGA (Verilog)            ; <None>           ; --          ; --                                ;
+; EDA_TIME_SCALE                               ; 1 ps                                   ; --               ; --          ; eda_simulation                    ;
+; MAX_CORE_JUNCTION_TEMP                       ; 85                                     ; --               ; --          ; --                                ;
+; MAX_NUMBER_OF_REGISTERS_FROM_UNINFERRED_RAMS ; 8192                                   ; -1 (Unlimited)   ; --          ; --                                ;
+; MIN_CORE_JUNCTION_TEMP                       ; 0                                      ; --               ; --          ; --                                ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE                  ; 1.2V                                   ; --               ; --          ; --                                ;
+; PARTITION_COLOR                              ; -- (Not supported for targeted family) ; --               ; MemoryBlock ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL          ; -- (Not supported for targeted family) ; --               ; MemoryBlock ; Top                               ;
+; PARTITION_NETLIST_TYPE                       ; -- (Not supported for targeted family) ; --               ; MemoryBlock ; Top                               ;
+; POWER_BOARD_THERMAL_MODEL                    ; None (CONSERVATIVE)                    ; --               ; --          ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION                ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --               ; --          ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY                     ; output_files                           ; --               ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                             ; MemoryBlock                            ; XTEASistem-32Bit ; --          ; --                                ;
++----------------------------------------------+----------------------------------------+------------------+-------------+-----------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -102,8 +103,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4802 MB             ; 00:00:23                           ;
-; Total                ; 00:00:16     ; --                      ; --                  ; 00:00:23                           ;
+; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4837 MB             ; 00:00:12                           ;
+; Total                ; 00:00:09     ; --                      ; --                  ; 00:00:12                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

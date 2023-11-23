@@ -1,5 +1,5 @@
 Analysis & Synthesis report for XTEASistem-32Bit
-Thu Nov 23 14:08:06 2023
+Thu Nov 23 17:53:44 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -13,26 +13,51 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst
- 10. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux
- 11. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:lmemory_read_mux
- 12. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:rmemory_read_mux
- 13. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram00_inst
- 14. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram01_inst
- 15. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram10_inst
- 16. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram11_inst
- 17. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram20_inst
- 18. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram21_inst
- 19. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram30_inst
- 20. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram31_inst
- 21. Parameter Settings for User Entity Instance: MUX2Data:mux_inst1
- 22. Port Connectivity Checks: "MUX2Data:mux_inst1"
- 23. Port Connectivity Checks: "MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux"
- 24. Port Connectivity Checks: "MemoryBlock:memoryblock_inst"
- 25. Post-Synthesis Netlist Statistics for Top Partition
- 26. Elapsed Time Per Partition
- 27. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. General Register Statistics
+ 10. Registers Packed Into Inferred Megafunctions
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Source assignments for SRAM:sram01_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated
+ 13. Source assignments for SRAM:sram11_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated
+ 14. Source assignments for SRAM:sram21_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated
+ 15. Source assignments for SRAM:sram31_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated
+ 16. Source assignments for SRAM:sram00_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated
+ 17. Source assignments for SRAM:sram10_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated
+ 18. Source assignments for SRAM:sram20_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated
+ 19. Source assignments for SRAM:sram30_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated
+ 20. Parameter Settings for User Entity Instance: MUX4Data:row_wenable_mux
+ 21. Parameter Settings for User Entity Instance: MUX4Data:row_wenable_mux|MUX2Data:mux1
+ 22. Parameter Settings for User Entity Instance: MUX4Data:row_wenable_mux|MUX2Data:mux2
+ 23. Parameter Settings for User Entity Instance: MUX4Data:row_wenable_mux|MUX2Data:mux3
+ 24. Parameter Settings for User Entity Instance: MUX4Data:lmemory_read_mux
+ 25. Parameter Settings for User Entity Instance: MUX4Data:lmemory_read_mux|MUX2Data:mux1
+ 26. Parameter Settings for User Entity Instance: MUX4Data:lmemory_read_mux|MUX2Data:mux2
+ 27. Parameter Settings for User Entity Instance: MUX4Data:lmemory_read_mux|MUX2Data:mux3
+ 28. Parameter Settings for User Entity Instance: MUX4Data:rmemory_read_mux
+ 29. Parameter Settings for User Entity Instance: MUX4Data:rmemory_read_mux|MUX2Data:mux1
+ 30. Parameter Settings for User Entity Instance: MUX4Data:rmemory_read_mux|MUX2Data:mux2
+ 31. Parameter Settings for User Entity Instance: MUX4Data:rmemory_read_mux|MUX2Data:mux3
+ 32. Parameter Settings for User Entity Instance: SRAM:sram00_inst
+ 33. Parameter Settings for User Entity Instance: SRAM:sram01_inst
+ 34. Parameter Settings for User Entity Instance: SRAM:sram10_inst
+ 35. Parameter Settings for User Entity Instance: SRAM:sram11_inst
+ 36. Parameter Settings for User Entity Instance: SRAM:sram20_inst
+ 37. Parameter Settings for User Entity Instance: SRAM:sram21_inst
+ 38. Parameter Settings for User Entity Instance: SRAM:sram30_inst
+ 39. Parameter Settings for User Entity Instance: SRAM:sram31_inst
+ 40. Parameter Settings for Inferred Entity Instance: SRAM:sram01_inst|altsyncram:ram_rtl_0
+ 41. Parameter Settings for Inferred Entity Instance: SRAM:sram11_inst|altsyncram:ram_rtl_0
+ 42. Parameter Settings for Inferred Entity Instance: SRAM:sram21_inst|altsyncram:ram_rtl_0
+ 43. Parameter Settings for Inferred Entity Instance: SRAM:sram31_inst|altsyncram:ram_rtl_0
+ 44. Parameter Settings for Inferred Entity Instance: SRAM:sram00_inst|altsyncram:ram_rtl_0
+ 45. Parameter Settings for Inferred Entity Instance: SRAM:sram10_inst|altsyncram:ram_rtl_0
+ 46. Parameter Settings for Inferred Entity Instance: SRAM:sram20_inst|altsyncram:ram_rtl_0
+ 47. Parameter Settings for Inferred Entity Instance: SRAM:sram30_inst|altsyncram:ram_rtl_0
+ 48. altsyncram Parameter Settings by Entity Instance
+ 49. Port Connectivity Checks: "MUX4Data:row_wenable_mux"
+ 50. Post-Synthesis Netlist Statistics for Top Partition
+ 51. Elapsed Time Per Partition
+ 52. Analysis & Synthesis Messages
 
 
 
@@ -59,18 +84,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 23 14:08:06 2023          ;
+; Analysis & Synthesis Status        ; Successful - Thu Nov 23 17:53:44 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; XTEASistem-32Bit                               ;
-; Top-level Entity Name              ; DummyTopLevel                                  ;
+; Top-level Entity Name              ; MemoryBlock                                    ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 0                                              ;
-;     Total combinational functions  ; 0                                              ;
+; Total logic elements               ; 132                                            ;
+;     Total combinational functions  ; 132                                            ;
 ;     Dedicated logic registers      ; 0                                              ;
 ; Total registers                    ; 0                                              ;
-; Total pins                         ; 3                                              ;
+; Total pins                         ; 140                                            ;
 ; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 0                                              ;
+; Total memory bits                  ; 65,536                                         ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
 ; Total PLLs                         ; 0                                              ;
 +------------------------------------+------------------------------------------------+
@@ -82,8 +107,9 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE6E22C8        ;                    ;
-; Top-level entity name                                            ; DummyTopLevel      ; XTEASistem-32Bit   ;
+; Top-level entity name                                            ; MemoryBlock        ; XTEASistem-32Bit   ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Maximum Number of Registers Created from Uninferred RAMs         ; 8192               ; -1 (Unlimited)     ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                      ; Off                ; Off                ;
@@ -178,58 +204,114 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                ;
-+----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                                                                                                                   ; Library ;
-+----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; MemoryBlock.vhd                  ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd   ;         ;
-; SRAM.vhd                         ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd          ;         ;
-; DummyTopLevel.vhd                ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd ;         ;
-; mux4data.vhd                     ; yes             ; Auto-Found VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd      ;         ;
-; mux2data.vhd                     ; yes             ; Auto-Found VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux2data.vhd      ;         ;
-+----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                                           ;
++------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path               ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                                                                                ; Library ;
++------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; MUX4Data.vhd                                   ; yes             ; User VHDL File                                        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd                                   ;         ;
+; MUX2Data.vhd                                   ; yes             ; User VHDL File                                        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX2Data.vhd                                   ;         ;
+; MemoryBlock.vhd                                ; yes             ; User VHDL File                                        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd                                ;         ;
+; SRAM.vhd                                       ; yes             ; User VHDL File                                        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd                                       ;         ;
+; altsyncram.tdf                                 ; yes             ; Megafunction                                          ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altsyncram.tdf                                                                                                    ;         ;
+; stratix_ram_block.inc                          ; yes             ; Megafunction                                          ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                                             ;         ;
+; lpm_mux.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_mux.inc                                                                                                       ;         ;
+; lpm_decode.inc                                 ; yes             ; Megafunction                                          ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_decode.inc                                                                                                    ;         ;
+; aglobal221.inc                                 ; yes             ; Megafunction                                          ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc                                                                                                    ;         ;
+; a_rdenreg.inc                                  ; yes             ; Megafunction                                          ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/a_rdenreg.inc                                                                                                     ;         ;
+; altrom.inc                                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altrom.inc                                                                                                        ;         ;
+; altram.inc                                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altram.inc                                                                                                        ;         ;
+; altdpram.inc                                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altdpram.inc                                                                                                      ;         ;
+; db/altsyncram_ned1.tdf                         ; yes             ; Auto-Generated Megafunction                           ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/db/altsyncram_ned1.tdf                         ;         ;
+; db/xteasistem-32bit.ram0_sram_c1893398.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/db/xteasistem-32bit.ram0_sram_c1893398.hdl.mif ;         ;
++------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 3     ;
-;                                             ;       ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; clock ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 3     ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 132         ;
+;                                             ;             ;
+; Total combinational functions               ; 132         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 128         ;
+;     -- 3 input functions                    ; 4           ;
+;     -- <=2 input functions                  ; 0           ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 132         ;
+;     -- arithmetic mode                      ; 0           ;
+;                                             ;             ;
+; Total registers                             ; 0           ;
+;     -- Dedicated logic registers            ; 0           ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 140         ;
+; Total memory bits                           ; 65536       ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 256         ;
+; Total fan-out                               ; 3544        ;
+; Average fan-out                             ; 5.31        ;
++---------------------------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                        ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name   ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
-; |DummyTopLevel             ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 3    ; 0            ; |DummyTopLevel      ; DummyTopLevel ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                       ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                               ; Entity Name     ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------+-----------------+--------------+
+; |MemoryBlock                              ; 132 (4)             ; 0 (0)                     ; 65536       ; 0            ; 0       ; 0         ; 140  ; 0            ; |MemoryBlock                                                                      ; MemoryBlock     ; work         ;
+;    |MUX4Data:lmemory_read_mux|            ; 64 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|MUX4Data:lmemory_read_mux                                            ; MUX4Data        ; work         ;
+;       |MUX2Data:mux3|                     ; 64 (64)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|MUX4Data:lmemory_read_mux|MUX2Data:mux3                              ; MUX2Data        ; work         ;
+;    |MUX4Data:rmemory_read_mux|            ; 64 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|MUX4Data:rmemory_read_mux                                            ; MUX4Data        ; work         ;
+;       |MUX2Data:mux3|                     ; 64 (64)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|MUX4Data:rmemory_read_mux|MUX2Data:mux3                              ; MUX2Data        ; work         ;
+;    |SRAM:sram00_inst|                     ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram00_inst                                                     ; SRAM            ; work         ;
+;       |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram00_inst|altsyncram:ram_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_ned1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram00_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ; altsyncram_ned1 ; work         ;
+;    |SRAM:sram01_inst|                     ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram01_inst                                                     ; SRAM            ; work         ;
+;       |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram01_inst|altsyncram:ram_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_ned1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram01_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ; altsyncram_ned1 ; work         ;
+;    |SRAM:sram10_inst|                     ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram10_inst                                                     ; SRAM            ; work         ;
+;       |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram10_inst|altsyncram:ram_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_ned1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram10_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ; altsyncram_ned1 ; work         ;
+;    |SRAM:sram11_inst|                     ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram11_inst                                                     ; SRAM            ; work         ;
+;       |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram11_inst|altsyncram:ram_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_ned1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram11_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ; altsyncram_ned1 ; work         ;
+;    |SRAM:sram20_inst|                     ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram20_inst                                                     ; SRAM            ; work         ;
+;       |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram20_inst|altsyncram:ram_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_ned1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram20_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ; altsyncram_ned1 ; work         ;
+;    |SRAM:sram21_inst|                     ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram21_inst                                                     ; SRAM            ; work         ;
+;       |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram21_inst|altsyncram:ram_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_ned1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram21_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ; altsyncram_ned1 ; work         ;
+;    |SRAM:sram30_inst|                     ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram30_inst                                                     ; SRAM            ; work         ;
+;       |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram30_inst|altsyncram:ram_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_ned1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram30_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ; altsyncram_ned1 ; work         ;
+;    |SRAM:sram31_inst|                     ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram31_inst                                                     ; SRAM            ; work         ;
+;       |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram31_inst|altsyncram:ram_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_ned1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MemoryBlock|SRAM:sram31_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ; altsyncram_ned1 ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                         ;
++---------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
+; Name                                                                            ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                            ;
++---------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
+; SRAM:sram00_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 32           ; --           ; --           ; 8192 ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ;
+; SRAM:sram01_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 32           ; --           ; --           ; 8192 ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ;
+; SRAM:sram10_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 32           ; --           ; --           ; 8192 ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ;
+; SRAM:sram11_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 32           ; --           ; --           ; 8192 ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ;
+; SRAM:sram20_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 32           ; --           ; --           ; 8192 ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ;
+; SRAM:sram21_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 32           ; --           ; --           ; 8192 ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ;
+; SRAM:sram30_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 32           ; --           ; --           ; 8192 ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ;
+; SRAM:sram31_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 32           ; --           ; --           ; 8192 ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ;
++---------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -247,269 +329,929 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; data_length    ; 64    ; Signed Integer                                   ;
-; address_length ; 10    ; Signed Integer                                   ;
-+----------------+-------+--------------------------------------------------+
++-----------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                          ;
++-----------------------------------+----------------------------+------+
+; Register Name                     ; Megafunction               ; Type ;
++-----------------------------------+----------------------------+------+
+; SRAM:sram01_inst|temp_data[0..31] ; SRAM:sram01_inst|ram_rtl_0 ; RAM  ;
+; SRAM:sram11_inst|temp_data[0..31] ; SRAM:sram11_inst|ram_rtl_0 ; RAM  ;
+; SRAM:sram21_inst|temp_data[0..31] ; SRAM:sram21_inst|ram_rtl_0 ; RAM  ;
+; SRAM:sram31_inst|temp_data[0..31] ; SRAM:sram31_inst|ram_rtl_0 ; RAM  ;
+; SRAM:sram00_inst|temp_data[0..31] ; SRAM:sram00_inst|ram_rtl_0 ; RAM  ;
+; SRAM:sram10_inst|temp_data[0..31] ; SRAM:sram10_inst|ram_rtl_0 ; RAM  ;
+; SRAM:sram20_inst|temp_data[0..31] ; SRAM:sram20_inst|ram_rtl_0 ; RAM  ;
+; SRAM:sram30_inst|temp_data[0..31] ; SRAM:sram30_inst|ram_rtl_0 ; RAM  ;
++-----------------------------------+----------------------------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; 4:1                ; 64 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; No         ; |MemoryBlock|MUX4Data:rmemory_read_mux|MUX2Data:mux3|data_out[4] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Source assignments for SRAM:sram01_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------+
+; Assignment                      ; Value              ; From ; To                            ;
++---------------------------------+--------------------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                             ;
++---------------------------------+--------------------+------+-------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Source assignments for SRAM:sram11_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------+
+; Assignment                      ; Value              ; From ; To                            ;
++---------------------------------+--------------------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                             ;
++---------------------------------+--------------------+------+-------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Source assignments for SRAM:sram21_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------+
+; Assignment                      ; Value              ; From ; To                            ;
++---------------------------------+--------------------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                             ;
++---------------------------------+--------------------+------+-------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Source assignments for SRAM:sram31_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------+
+; Assignment                      ; Value              ; From ; To                            ;
++---------------------------------+--------------------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                             ;
++---------------------------------+--------------------+------+-------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Source assignments for SRAM:sram00_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------+
+; Assignment                      ; Value              ; From ; To                            ;
++---------------------------------+--------------------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                             ;
++---------------------------------+--------------------+------+-------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Source assignments for SRAM:sram10_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------+
+; Assignment                      ; Value              ; From ; To                            ;
++---------------------------------+--------------------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                             ;
++---------------------------------+--------------------+------+-------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Source assignments for SRAM:sram20_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------+
+; Assignment                      ; Value              ; From ; To                            ;
++---------------------------------+--------------------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                             ;
++---------------------------------+--------------------+------+-------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Source assignments for SRAM:sram30_inst|altsyncram:ram_rtl_0|altsyncram_ned1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------+
+; Assignment                      ; Value              ; From ; To                            ;
++---------------------------------+--------------------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                             ;
++---------------------------------+--------------------+------+-------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:row_wenable_mux ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; data_length    ; 4     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux ;
-+----------------+-------+--------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                     ;
-+----------------+-------+--------------------------------------------------------------------------+
-; data_length    ; 4     ; Signed Integer                                                           ;
-+----------------+-------+--------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:row_wenable_mux|MUX2Data:mux1 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; data_length    ; 4     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:lmemory_read_mux ;
-+----------------+-------+----------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                       ;
-+----------------+-------+----------------------------------------------------------------------------+
-; data_length    ; 32    ; Signed Integer                                                             ;
-+----------------+-------+----------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:row_wenable_mux|MUX2Data:mux2 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; data_length    ; 4     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:rmemory_read_mux ;
-+----------------+-------+----------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                       ;
-+----------------+-------+----------------------------------------------------------------------------+
-; data_length    ; 32    ; Signed Integer                                                             ;
-+----------------+-------+----------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:row_wenable_mux|MUX2Data:mux3 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; data_length    ; 4     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram00_inst ;
-+----------------+-------+-------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                              ;
-+----------------+-------+-------------------------------------------------------------------+
-; data_length    ; 32    ; Signed Integer                                                    ;
-; address_length ; 8     ; Signed Integer                                                    ;
-+----------------+-------+-------------------------------------------------------------------+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:lmemory_read_mux ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram01_inst ;
-+----------------+-------+-------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                              ;
-+----------------+-------+-------------------------------------------------------------------+
-; data_length    ; 32    ; Signed Integer                                                    ;
-; address_length ; 8     ; Signed Integer                                                    ;
-+----------------+-------+-------------------------------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:lmemory_read_mux|MUX2Data:mux1 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram10_inst ;
-+----------------+-------+-------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                              ;
-+----------------+-------+-------------------------------------------------------------------+
-; data_length    ; 32    ; Signed Integer                                                    ;
-; address_length ; 8     ; Signed Integer                                                    ;
-+----------------+-------+-------------------------------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:lmemory_read_mux|MUX2Data:mux2 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram11_inst ;
-+----------------+-------+-------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                              ;
-+----------------+-------+-------------------------------------------------------------------+
-; data_length    ; 32    ; Signed Integer                                                    ;
-; address_length ; 8     ; Signed Integer                                                    ;
-+----------------+-------+-------------------------------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:lmemory_read_mux|MUX2Data:mux3 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram20_inst ;
-+----------------+-------+-------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                              ;
-+----------------+-------+-------------------------------------------------------------------+
-; data_length    ; 32    ; Signed Integer                                                    ;
-; address_length ; 8     ; Signed Integer                                                    ;
-+----------------+-------+-------------------------------------------------------------------+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:rmemory_read_mux ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram21_inst ;
-+----------------+-------+-------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                              ;
-+----------------+-------+-------------------------------------------------------------------+
-; data_length    ; 32    ; Signed Integer                                                    ;
-; address_length ; 8     ; Signed Integer                                                    ;
-+----------------+-------+-------------------------------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:rmemory_read_mux|MUX2Data:mux1 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram30_inst ;
-+----------------+-------+-------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                              ;
-+----------------+-------+-------------------------------------------------------------------+
-; data_length    ; 32    ; Signed Integer                                                    ;
-; address_length ; 8     ; Signed Integer                                                    ;
-+----------------+-------+-------------------------------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:rmemory_read_mux|MUX2Data:mux2 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram31_inst ;
-+----------------+-------+-------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                              ;
-+----------------+-------+-------------------------------------------------------------------+
-; data_length    ; 32    ; Signed Integer                                                    ;
-; address_length ; 8     ; Signed Integer                                                    ;
-+----------------+-------+-------------------------------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX4Data:rmemory_read_mux|MUX2Data:mux3 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MUX2Data:mux_inst1 ;
-+----------------+-------+----------------------------------------+
-; Parameter Name ; Value ; Type                                   ;
-+----------------+-------+----------------------------------------+
-; data_length    ; 64    ; Signed Integer                         ;
-+----------------+-------+----------------------------------------+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SRAM:sram00_inst ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; data_length    ; 32    ; Signed Integer                       ;
+; address_length ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------+
-; Port Connectivity Checks: "MUX2Data:mux_inst1"     ;
-+------------------+-------+----------+--------------+
-; Port             ; Type  ; Severity ; Details      ;
-+------------------+-------+----------+--------------+
-; data_in1[61..59] ; Input ; Info     ; Stuck at VCC ;
-; data_in1[53..52] ; Input ; Info     ; Stuck at VCC ;
-; data_in1[43..39] ; Input ; Info     ; Stuck at VCC ;
-; data_in1[32..31] ; Input ; Info     ; Stuck at VCC ;
-; data_in1[25..20] ; Input ; Info     ; Stuck at VCC ;
-; data_in1[16..15] ; Input ; Info     ; Stuck at VCC ;
-; data_in1[4..3]   ; Input ; Info     ; Stuck at VCC ;
-; data_in1[1..0]   ; Input ; Info     ; Stuck at VCC ;
-; data_in1[51..49] ; Input ; Info     ; Stuck at GND ;
-; data_in1[47..46] ; Input ; Info     ; Stuck at GND ;
-; data_in1[34..33] ; Input ; Info     ; Stuck at GND ;
-; data_in1[19..17] ; Input ; Info     ; Stuck at GND ;
-; data_in1[12..5]  ; Input ; Info     ; Stuck at GND ;
-; data_in1[63]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[62]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[58]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[57]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[56]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[55]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[54]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[48]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[45]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[44]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[38]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[37]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[36]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[35]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[30]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[29]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[28]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[27]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[26]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[14]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[13]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[2]      ; Input ; Info     ; Stuck at GND ;
-; data_in2[57..52] ; Input ; Info     ; Stuck at VCC ;
-; data_in2[48..47] ; Input ; Info     ; Stuck at VCC ;
-; data_in2[36..35] ; Input ; Info     ; Stuck at VCC ;
-; data_in2[33..31] ; Input ; Info     ; Stuck at VCC ;
-; data_in2[29..27] ; Input ; Info     ; Stuck at VCC ;
-; data_in2[21..20] ; Input ; Info     ; Stuck at VCC ;
-; data_in2[11..7]  ; Input ; Info     ; Stuck at VCC ;
-; data_in2[51..49] ; Input ; Info     ; Stuck at GND ;
-; data_in2[44..37] ; Input ; Info     ; Stuck at GND ;
-; data_in2[19..17] ; Input ; Info     ; Stuck at GND ;
-; data_in2[15..14] ; Input ; Info     ; Stuck at GND ;
-; data_in2[2..1]   ; Input ; Info     ; Stuck at GND ;
-; data_in2[63]     ; Input ; Info     ; Stuck at VCC ;
-; data_in2[62]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[61]     ; Input ; Info     ; Stuck at VCC ;
-; data_in2[60]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[59]     ; Input ; Info     ; Stuck at VCC ;
-; data_in2[58]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[46]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[45]     ; Input ; Info     ; Stuck at VCC ;
-; data_in2[34]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[30]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[26]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[25]     ; Input ; Info     ; Stuck at VCC ;
-; data_in2[24]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[23]     ; Input ; Info     ; Stuck at VCC ;
-; data_in2[22]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[16]     ; Input ; Info     ; Stuck at VCC ;
-; data_in2[13]     ; Input ; Info     ; Stuck at VCC ;
-; data_in2[12]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[6]      ; Input ; Info     ; Stuck at GND ;
-; data_in2[5]      ; Input ; Info     ; Stuck at VCC ;
-; data_in2[4]      ; Input ; Info     ; Stuck at GND ;
-; data_in2[3]      ; Input ; Info     ; Stuck at VCC ;
-; data_in2[0]      ; Input ; Info     ; Stuck at VCC ;
-+------------------+-------+----------+--------------+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SRAM:sram01_inst ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; data_length    ; 32    ; Signed Integer                       ;
+; address_length ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------+
-; Port Connectivity Checks: "MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux" ;
-+----------------+-------+----------+----------------------------------------------+
-; Port           ; Type  ; Severity ; Details                                      ;
-+----------------+-------+----------+----------------------------------------------+
-; data_in1[3..1] ; Input ; Info     ; Stuck at GND                                 ;
-; data_in1[0]    ; Input ; Info     ; Stuck at VCC                                 ;
-; data_in2[3..2] ; Input ; Info     ; Stuck at GND                                 ;
-; data_in2[1]    ; Input ; Info     ; Stuck at VCC                                 ;
-; data_in2[0]    ; Input ; Info     ; Stuck at GND                                 ;
-; data_in3[1..0] ; Input ; Info     ; Stuck at GND                                 ;
-; data_in3[3]    ; Input ; Info     ; Stuck at GND                                 ;
-; data_in3[2]    ; Input ; Info     ; Stuck at VCC                                 ;
-; data_in4[2..0] ; Input ; Info     ; Stuck at GND                                 ;
-; data_in4[3]    ; Input ; Info     ; Stuck at VCC                                 ;
-+----------------+-------+----------+----------------------------------------------+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SRAM:sram10_inst ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; data_length    ; 32    ; Signed Integer                       ;
+; address_length ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "MemoryBlock:memoryblock_inst"                                                                       ;
-+----------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port                 ; Type   ; Severity ; Details                                                                             ;
-+----------------------+--------+----------+-------------------------------------------------------------------------------------+
-; enable_write         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; memory_address[7..5] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; memory_address[9]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; memory_address[8]    ; Input  ; Info     ; Stuck at GND                                                                        ;
-; memory_address[4]    ; Input  ; Info     ; Stuck at GND                                                                        ;
-; memory_address[3]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; memory_address[2]    ; Input  ; Info     ; Stuck at GND                                                                        ;
-; memory_address[1]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; memory_address[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
-; memory_read          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------------+--------+----------+-------------------------------------------------------------------------------------+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SRAM:sram11_inst ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; data_length    ; 32    ; Signed Integer                       ;
+; address_length ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SRAM:sram20_inst ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; data_length    ; 32    ; Signed Integer                       ;
+; address_length ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SRAM:sram21_inst ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; data_length    ; 32    ; Signed Integer                       ;
+; address_length ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SRAM:sram30_inst ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; data_length    ; 32    ; Signed Integer                       ;
+; address_length ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SRAM:sram31_inst ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; data_length    ; 32    ; Signed Integer                       ;
+; address_length ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: SRAM:sram01_inst|altsyncram:ram_rtl_0               ;
++------------------------------------+------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                          ; Type           ;
++------------------------------------+------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT                                    ; Untyped        ;
+; WIDTH_A                            ; 32                                             ; Untyped        ;
+; WIDTHAD_A                          ; 8                                              ; Untyped        ;
+; NUMWORDS_A                         ; 256                                            ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WIDTH_B                            ; 1                                              ; Untyped        ;
+; WIDTHAD_B                          ; 1                                              ; Untyped        ;
+; NUMWORDS_B                         ; 1                                              ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped        ;
+; BYTE_SIZE                          ; 8                                              ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA                                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; INIT_FILE                          ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                   ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ned1                                ; Untyped        ;
++------------------------------------+------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: SRAM:sram11_inst|altsyncram:ram_rtl_0               ;
++------------------------------------+------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                          ; Type           ;
++------------------------------------+------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT                                    ; Untyped        ;
+; WIDTH_A                            ; 32                                             ; Untyped        ;
+; WIDTHAD_A                          ; 8                                              ; Untyped        ;
+; NUMWORDS_A                         ; 256                                            ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WIDTH_B                            ; 1                                              ; Untyped        ;
+; WIDTHAD_B                          ; 1                                              ; Untyped        ;
+; NUMWORDS_B                         ; 1                                              ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped        ;
+; BYTE_SIZE                          ; 8                                              ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA                                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; INIT_FILE                          ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                   ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ned1                                ; Untyped        ;
++------------------------------------+------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: SRAM:sram21_inst|altsyncram:ram_rtl_0               ;
++------------------------------------+------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                          ; Type           ;
++------------------------------------+------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT                                    ; Untyped        ;
+; WIDTH_A                            ; 32                                             ; Untyped        ;
+; WIDTHAD_A                          ; 8                                              ; Untyped        ;
+; NUMWORDS_A                         ; 256                                            ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WIDTH_B                            ; 1                                              ; Untyped        ;
+; WIDTHAD_B                          ; 1                                              ; Untyped        ;
+; NUMWORDS_B                         ; 1                                              ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped        ;
+; BYTE_SIZE                          ; 8                                              ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA                                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; INIT_FILE                          ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                   ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ned1                                ; Untyped        ;
++------------------------------------+------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: SRAM:sram31_inst|altsyncram:ram_rtl_0               ;
++------------------------------------+------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                          ; Type           ;
++------------------------------------+------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT                                    ; Untyped        ;
+; WIDTH_A                            ; 32                                             ; Untyped        ;
+; WIDTHAD_A                          ; 8                                              ; Untyped        ;
+; NUMWORDS_A                         ; 256                                            ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WIDTH_B                            ; 1                                              ; Untyped        ;
+; WIDTHAD_B                          ; 1                                              ; Untyped        ;
+; NUMWORDS_B                         ; 1                                              ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped        ;
+; BYTE_SIZE                          ; 8                                              ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA                                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; INIT_FILE                          ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                   ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ned1                                ; Untyped        ;
++------------------------------------+------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: SRAM:sram00_inst|altsyncram:ram_rtl_0               ;
++------------------------------------+------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                          ; Type           ;
++------------------------------------+------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT                                    ; Untyped        ;
+; WIDTH_A                            ; 32                                             ; Untyped        ;
+; WIDTHAD_A                          ; 8                                              ; Untyped        ;
+; NUMWORDS_A                         ; 256                                            ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WIDTH_B                            ; 1                                              ; Untyped        ;
+; WIDTHAD_B                          ; 1                                              ; Untyped        ;
+; NUMWORDS_B                         ; 1                                              ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped        ;
+; BYTE_SIZE                          ; 8                                              ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA                                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; INIT_FILE                          ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                   ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ned1                                ; Untyped        ;
++------------------------------------+------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: SRAM:sram10_inst|altsyncram:ram_rtl_0               ;
++------------------------------------+------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                          ; Type           ;
++------------------------------------+------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT                                    ; Untyped        ;
+; WIDTH_A                            ; 32                                             ; Untyped        ;
+; WIDTHAD_A                          ; 8                                              ; Untyped        ;
+; NUMWORDS_A                         ; 256                                            ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WIDTH_B                            ; 1                                              ; Untyped        ;
+; WIDTHAD_B                          ; 1                                              ; Untyped        ;
+; NUMWORDS_B                         ; 1                                              ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped        ;
+; BYTE_SIZE                          ; 8                                              ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA                                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; INIT_FILE                          ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                   ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ned1                                ; Untyped        ;
++------------------------------------+------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: SRAM:sram20_inst|altsyncram:ram_rtl_0               ;
++------------------------------------+------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                          ; Type           ;
++------------------------------------+------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT                                    ; Untyped        ;
+; WIDTH_A                            ; 32                                             ; Untyped        ;
+; WIDTHAD_A                          ; 8                                              ; Untyped        ;
+; NUMWORDS_A                         ; 256                                            ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WIDTH_B                            ; 1                                              ; Untyped        ;
+; WIDTHAD_B                          ; 1                                              ; Untyped        ;
+; NUMWORDS_B                         ; 1                                              ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped        ;
+; BYTE_SIZE                          ; 8                                              ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA                                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; INIT_FILE                          ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                   ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ned1                                ; Untyped        ;
++------------------------------------+------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: SRAM:sram30_inst|altsyncram:ram_rtl_0               ;
++------------------------------------+------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                          ; Type           ;
++------------------------------------+------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT                                    ; Untyped        ;
+; WIDTH_A                            ; 32                                             ; Untyped        ;
+; WIDTHAD_A                          ; 8                                              ; Untyped        ;
+; NUMWORDS_A                         ; 256                                            ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WIDTH_B                            ; 1                                              ; Untyped        ;
+; WIDTHAD_B                          ; 1                                              ; Untyped        ;
+; NUMWORDS_B                         ; 1                                              ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped        ;
+; BYTE_SIZE                          ; 8                                              ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA                                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; INIT_FILE                          ; db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                   ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ned1                                ; Untyped        ;
++------------------------------------+------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                  ;
++-------------------------------------------+---------------------------------------+
+; Name                                      ; Value                                 ;
++-------------------------------------------+---------------------------------------+
+; Number of entity instances                ; 8                                     ;
+; Entity Instance                           ; SRAM:sram01_inst|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                           ;
+;     -- WIDTH_A                            ; 32                                    ;
+;     -- NUMWORDS_A                         ; 256                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                          ;
+;     -- WIDTH_B                            ; 1                                     ;
+;     -- NUMWORDS_B                         ; 1                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                             ;
+; Entity Instance                           ; SRAM:sram11_inst|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                           ;
+;     -- WIDTH_A                            ; 32                                    ;
+;     -- NUMWORDS_A                         ; 256                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                          ;
+;     -- WIDTH_B                            ; 1                                     ;
+;     -- NUMWORDS_B                         ; 1                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                             ;
+; Entity Instance                           ; SRAM:sram21_inst|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                           ;
+;     -- WIDTH_A                            ; 32                                    ;
+;     -- NUMWORDS_A                         ; 256                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                          ;
+;     -- WIDTH_B                            ; 1                                     ;
+;     -- NUMWORDS_B                         ; 1                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                             ;
+; Entity Instance                           ; SRAM:sram31_inst|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                           ;
+;     -- WIDTH_A                            ; 32                                    ;
+;     -- NUMWORDS_A                         ; 256                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                          ;
+;     -- WIDTH_B                            ; 1                                     ;
+;     -- NUMWORDS_B                         ; 1                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                             ;
+; Entity Instance                           ; SRAM:sram00_inst|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                           ;
+;     -- WIDTH_A                            ; 32                                    ;
+;     -- NUMWORDS_A                         ; 256                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                          ;
+;     -- WIDTH_B                            ; 1                                     ;
+;     -- NUMWORDS_B                         ; 1                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                             ;
+; Entity Instance                           ; SRAM:sram10_inst|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                           ;
+;     -- WIDTH_A                            ; 32                                    ;
+;     -- NUMWORDS_A                         ; 256                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                          ;
+;     -- WIDTH_B                            ; 1                                     ;
+;     -- NUMWORDS_B                         ; 1                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                             ;
+; Entity Instance                           ; SRAM:sram20_inst|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                           ;
+;     -- WIDTH_A                            ; 32                                    ;
+;     -- NUMWORDS_A                         ; 256                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                          ;
+;     -- WIDTH_B                            ; 1                                     ;
+;     -- NUMWORDS_B                         ; 1                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                             ;
+; Entity Instance                           ; SRAM:sram30_inst|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                           ;
+;     -- WIDTH_A                            ; 32                                    ;
+;     -- NUMWORDS_A                         ; 256                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                          ;
+;     -- WIDTH_B                            ; 1                                     ;
+;     -- NUMWORDS_B                         ; 1                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                             ;
++-------------------------------------------+---------------------------------------+
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "MUX4Data:row_wenable_mux" ;
++----------------+-------+----------+------------------+
+; Port           ; Type  ; Severity ; Details          ;
++----------------+-------+----------+------------------+
+; data_in1[3..1] ; Input ; Info     ; Stuck at GND     ;
+; data_in1[0]    ; Input ; Info     ; Stuck at VCC     ;
+; data_in2[3..2] ; Input ; Info     ; Stuck at GND     ;
+; data_in2[1]    ; Input ; Info     ; Stuck at VCC     ;
+; data_in2[0]    ; Input ; Info     ; Stuck at GND     ;
+; data_in3[1..0] ; Input ; Info     ; Stuck at GND     ;
+; data_in3[3]    ; Input ; Info     ; Stuck at GND     ;
+; data_in3[2]    ; Input ; Info     ; Stuck at VCC     ;
+; data_in4[2..0] ; Input ; Info     ; Stuck at GND     ;
+; data_in4[3]    ; Input ; Info     ; Stuck at VCC     ;
++----------------+-------+----------+------------------+
 
 
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+-------------------+---------------------------------+
-; Type              ; Count                           ;
-+-------------------+---------------------------------+
-; boundary_port     ; 3                               ;
-;                   ;                                 ;
-; Max LUT depth     ; 0.00                            ;
-; Average LUT depth ; 0.00                            ;
-+-------------------+---------------------------------+
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 140                         ;
+; cycloneiii_lcell_comb ; 132                         ;
+;     normal            ; 132                         ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 128                         ;
+; cycloneiii_ram_block  ; 256                         ;
+;                       ;                             ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.40                        ;
++-----------------------+-----------------------------+
 
 
 +-------------------------------+
@@ -527,56 +1269,155 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Thu Nov 23 14:07:50 2023
+    Info: Processing started: Thu Nov 23 17:53:34 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off XTEASistem-32Bit -c XTEASistem-32Bit
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file mux4data.vhd
+    Info (12022): Found design unit 1: MUX4Data-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd Line: 20
+    Info (12023): Found entity 1: MUX4Data File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file mux2data.vhd
+    Info (12022): Found design unit 1: MUX2Data-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX2Data.vhd Line: 18
+    Info (12023): Found entity 1: MUX2Data File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX2Data.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file memoryblock.vhd
-    Info (12022): Found design unit 1: MemoryBlock-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 17
+    Info (12022): Found design unit 1: MemoryBlock-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 16
     Info (12023): Found entity 1: MemoryBlock File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 6
-Warning (12019): Can't analyze file -- file MUX.vhd is missing
-Info (12021): Found 2 design units, including 1 entities, in source file sram.vhd
-    Info (12022): Found design unit 1: SRAM-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd Line: 17
-    Info (12023): Found entity 1: SRAM File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file dummytoplevel.vhd
     Info (12022): Found design unit 1: DummyTopLevel-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 14
     Info (12023): Found entity 1: DummyTopLevel File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 6
-Info (12127): Elaborating entity "DummyTopLevel" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(40): object "memory_read" assigned a value but never read File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 40
-Info (12128): Elaborating entity "MemoryBlock" for hierarchy "MemoryBlock:memoryblock_inst" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 47
-Warning (12125): Using design file mux4data.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
-    Info (12022): Found design unit 1: MUX4Data-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 20
-    Info (12023): Found entity 1: MUX4Data File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 6
-Info (12128): Elaborating entity "MUX4Data" for hierarchy "MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 72
-Warning (10492): VHDL Process Statement warning at mux4data.vhd(25): signal "data_in1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 25
-Warning (10492): VHDL Process Statement warning at mux4data.vhd(26): signal "data_in2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 26
-Warning (10492): VHDL Process Statement warning at mux4data.vhd(27): signal "data_in3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 27
-Warning (10492): VHDL Process Statement warning at mux4data.vhd(28): signal "data_in4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 28
-Info (12128): Elaborating entity "MUX4Data" for hierarchy "MemoryBlock:memoryblock_inst|MUX4Data:lmemory_read_mux" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 73
-Warning (10492): VHDL Process Statement warning at mux4data.vhd(25): signal "data_in1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 25
-Warning (10492): VHDL Process Statement warning at mux4data.vhd(26): signal "data_in2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 26
-Warning (10492): VHDL Process Statement warning at mux4data.vhd(27): signal "data_in3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 27
-Warning (10492): VHDL Process Statement warning at mux4data.vhd(28): signal "data_in4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 28
-Info (12128): Elaborating entity "SRAM" for hierarchy "MemoryBlock:memoryblock_inst|SRAM:sram00_inst" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 76
-Warning (12125): Using design file mux2data.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
-    Info (12022): Found design unit 1: MUX2Data-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux2data.vhd Line: 18
-    Info (12023): Found entity 1: MUX2Data File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux2data.vhd Line: 6
-Info (12128): Elaborating entity "MUX2Data" for hierarchy "MUX2Data:mux_inst1" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 60
-Warning (10492): VHDL Process Statement warning at mux2data.vhd(23): signal "data_in1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux2data.vhd Line: 23
-Warning (10492): VHDL Process Statement warning at mux2data.vhd(24): signal "data_in2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux2data.vhd Line: 24
+Info (12021): Found 2 design units, including 1 entities, in source file sram.vhd
+    Info (12022): Found design unit 1: SRAM-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd Line: 17
+    Info (12023): Found entity 1: SRAM File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd Line: 6
+Info (12127): Elaborating entity "MemoryBlock" for the top level hierarchy
+Info (12128): Elaborating entity "MUX4Data" for hierarchy "MUX4Data:row_wenable_mux" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 67
+Info (12128): Elaborating entity "MUX2Data" for hierarchy "MUX4Data:row_wenable_mux|MUX2Data:mux1" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd Line: 36
+Info (12128): Elaborating entity "MUX4Data" for hierarchy "MUX4Data:lmemory_read_mux" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 79
+Info (12128): Elaborating entity "MUX2Data" for hierarchy "MUX4Data:lmemory_read_mux|MUX2Data:mux1" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd Line: 36
+Info (12128): Elaborating entity "SRAM" for hierarchy "SRAM:sram00_inst" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 82
+Info (19000): Inferred 8 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "SRAM:sram01_inst|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "SRAM:sram11_inst|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "SRAM:sram21_inst|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "SRAM:sram31_inst|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "SRAM:sram00_inst|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "SRAM:sram10_inst|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "SRAM:sram20_inst|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "SRAM:sram30_inst|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif
+Info (12130): Elaborated megafunction instantiation "SRAM:sram01_inst|altsyncram:ram_rtl_0"
+Info (12133): Instantiated megafunction "SRAM:sram01_inst|altsyncram:ram_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_PORT_A" = "OLD_DATA"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/XTEASistem-32Bit.ram0_SRAM_c1893398.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ned1.tdf
+    Info (12023): Found entity 1: altsyncram_ned1 File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/db/altsyncram_ned1.tdf Line: 28
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clock" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 8
-    Warning (15610): No output dependent on input pin "nreset" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 9
-    Warning (15610): No output dependent on input pin "data_select" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 10
-Info (21057): Implemented 3 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 4802 megabytes
-    Info: Processing ended: Thu Nov 23 14:08:06 2023
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:23
+Info (21057): Implemented 528 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 76 input pins
+    Info (21059): Implemented 64 output pins
+    Info (21061): Implemented 132 logic cells
+    Info (21064): Implemented 256 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4837 megabytes
+    Info: Processing ended: Thu Nov 23 17:53:44 2023
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:12
 
 

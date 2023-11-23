@@ -1,22 +1,21 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
-use ieee.numeric_std.all;
 
-entity DummyTopLevel is
+entity DummyTopLevel32Bit is
 	port(
 		clock : in std_logic;
 		nreset : in std_logic;
 		data_select : in std_logic
 	);
-end DummyTopLevel;
+end DummyTopLevel32Bit;
 
-architecture behavioral of DummyTopLevel is
+architecture behavioral of DummyTopLevel32Bit is
 	constant address_length : natural := 10;
 	constant data_length : natural := 64;
 
 	component MemoryBlock is
-    generic (data_length, address_length : integer);
     port(
         clock : in std_logic;
         enable_write : in std_logic;
@@ -40,15 +39,10 @@ architecture behavioral of DummyTopLevel is
 	signal memory_write, memory_read : std_logic_vector((data_length-1) downto 0);
 	signal data_in1, data_in2 : std_logic_vector((data_length-1) downto 0);
 	signal memory_address : std_logic_vector((address_length-1) downto 0);
-	signal enable_memory : std_logic := '1';
 
 begin
 	
 	memoryblock_inst: MemoryBlock
-	generic map (
-		data_length    => data_length,
-		address_length => address_length
-	)
 	port map (
 		clock          => clock,
 		enable_write   => enable_write,
@@ -57,10 +51,7 @@ begin
 		memory_read    => memory_read
 	);
 
-	mux_inst1: MUX2Data
-	generic map (
-		data_length => data_length
-	)
+	mux_inst1: MUX2Data generic map(data_length)
 	port map (
 		selector => data_select,
 		data_in1 => data_in1,
