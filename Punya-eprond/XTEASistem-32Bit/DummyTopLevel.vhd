@@ -12,21 +12,21 @@ entity DummyTopLevel is
 end DummyTopLevel;
 
 architecture behavioral of DummyTopLevel is
-	constant address_length : natural := 8;
-	constant data_length : natural := 32;
-	
-	component SRAM is
-	generic (data_length, address_length : integer);
+	constant address_length : natural := 10;
+	constant data_length : natural := 64;
+
+	component MemoryBlock is
+    generic (data_length, address_length : integer);
     port(
         clock : in std_logic;
-        enable_read, enable_write : in std_logic;
-        memory_address : in std_logic_vector((address_length-1) downto 0);
-        memory_write : in std_logic_vector((data_length-1) downto 0);
-        memory_read : out std_logic_vector((data_length-1) downto 0)
+        enable_write : in std_logic;
+        memory_address : in std_logic_vector((address_length - 1) downto 0);
+        memory_write : in std_logic_vector((data_length - 1) downto 0);
+        memory_read : out std_logic_vector((data_length - 1) downto 0)
     );
-	end component SRAM;
-	
-	component MUX is
+	end component MemoryBlock;
+
+	component MUX2Data is
 	generic (data_length : natural);
 	port(
 		selector : in std_logic;
@@ -34,30 +34,30 @@ architecture behavioral of DummyTopLevel is
 		data_in2 : in std_logic_vector((data_length-1) downto 0);
 		data_out : out std_logic_vector((data_length-1) downto 0)
 	);
-	end component MUX;
+	end component MUX2Data;
 
-	signal enable_write, enable_read : std_logic := '0';
+	signal enable_write : std_logic := '0';
 	signal memory_write, memory_read : std_logic_vector((data_length-1) downto 0);
 	signal data_in1, data_in2 : std_logic_vector((data_length-1) downto 0);
 	signal memory_address : std_logic_vector((address_length-1) downto 0);
-	
+	signal enable_memory : std_logic := '1';
+
 begin
 	
-	memory_block1 : SRAM
-	generic map(
+	memoryblock_inst: MemoryBlock
+	generic map (
 		data_length    => data_length,
 		address_length => address_length
-	) 
-	port map(
+	)
+	port map (
 		clock          => clock,
 		enable_write   => enable_write,
-		enable_read    => enable_read,
 		memory_address => memory_address,
 		memory_write   => memory_write,
 		memory_read    => memory_read
 	);
-	
-	mux_inst1: MUX
+
+	mux_inst1: MUX2Data
 	generic map (
 		data_length => data_length
 	)
@@ -68,9 +68,9 @@ begin
 		data_out => memory_write
 	);
 
-	memory_address <= x"BA";
+	memory_address <= x"BA" & "10";
 	enable_write <= '1';
-	data_in1 <= x"BAB12FA9";
-	data_in2 <= x"ABF1A01B";
+	data_in1 <= x"BAB12FA9ABF1A01B";
+	data_in2 <= x"ABF1A01BBAB12FA9";
 
 end behavioral;

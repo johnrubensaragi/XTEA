@@ -1,5 +1,5 @@
 Analysis & Synthesis report for XTEASistem-32Bit
-Wed Nov 22 21:57:59 2023
+Thu Nov 23 14:08:06 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -14,13 +14,25 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: SRAM:memory_block1
- 10. Parameter Settings for User Entity Instance: MUX:mux_inst1
- 11. Port Connectivity Checks: "MUX:mux_inst1"
- 12. Port Connectivity Checks: "SRAM:memory_block1"
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  9. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst
+ 10. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux
+ 11. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:lmemory_read_mux
+ 12. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:rmemory_read_mux
+ 13. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram00_inst
+ 14. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram01_inst
+ 15. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram10_inst
+ 16. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram11_inst
+ 17. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram20_inst
+ 18. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram21_inst
+ 19. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram30_inst
+ 20. Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram31_inst
+ 21. Parameter Settings for User Entity Instance: MUX2Data:mux_inst1
+ 22. Port Connectivity Checks: "MUX2Data:mux_inst1"
+ 23. Port Connectivity Checks: "MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux"
+ 24. Port Connectivity Checks: "MemoryBlock:memoryblock_inst"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -47,7 +59,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 22 21:57:59 2023          ;
+; Analysis & Synthesis Status        ; Successful - Thu Nov 23 14:08:06 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; XTEASistem-32Bit                               ;
 ; Top-level Entity Name              ; DummyTopLevel                                  ;
@@ -166,15 +178,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                          ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                                                   ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; MUX.vhd                          ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX.vhd           ;         ;
-; SRAM.vhd                         ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd          ;         ;
-; DummyTopLevel.vhd                ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                ;
++----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                                                                                                                   ; Library ;
++----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; MemoryBlock.vhd                  ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd   ;         ;
+; SRAM.vhd                         ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd          ;         ;
+; DummyTopLevel.vhd                ; yes             ; User VHDL File        ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd ;         ;
+; mux4data.vhd                     ; yes             ; Auto-Found VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd      ;         ;
+; mux2data.vhd                     ; yes             ; Auto-Found VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux2data.vhd      ;         ;
++----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -233,81 +247,252 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: SRAM:memory_block1 ;
-+----------------+-------+----------------------------------------+
-; Parameter Name ; Value ; Type                                   ;
-+----------------+-------+----------------------------------------+
-; data_length    ; 32    ; Signed Integer                         ;
-; address_length ; 8     ; Signed Integer                         ;
-+----------------+-------+----------------------------------------+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; data_length    ; 64    ; Signed Integer                                   ;
+; address_length ; 10    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MUX:mux_inst1 ;
-+----------------+-------+-----------------------------------+
-; Parameter Name ; Value ; Type                              ;
-+----------------+-------+-----------------------------------+
-; data_length    ; 32    ; Signed Integer                    ;
-+----------------+-------+-----------------------------------+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux ;
++----------------+-------+--------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                     ;
++----------------+-------+--------------------------------------------------------------------------+
+; data_length    ; 4     ; Signed Integer                                                           ;
++----------------+-------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:lmemory_read_mux ;
++----------------+-------+----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                       ;
++----------------+-------+----------------------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                                             ;
++----------------+-------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|MUX4Data:rmemory_read_mux ;
++----------------+-------+----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                       ;
++----------------+-------+----------------------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                                             ;
++----------------+-------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram00_inst ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                                    ;
+; address_length ; 8     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram01_inst ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                                    ;
+; address_length ; 8     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram10_inst ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                                    ;
+; address_length ; 8     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram11_inst ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                                    ;
+; address_length ; 8     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram20_inst ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                                    ;
+; address_length ; 8     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram21_inst ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                                    ;
+; address_length ; 8     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram30_inst ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                                    ;
+; address_length ; 8     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MemoryBlock:memoryblock_inst|SRAM:sram31_inst ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; data_length    ; 32    ; Signed Integer                                                    ;
+; address_length ; 8     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MUX2Data:mux_inst1 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; data_length    ; 64    ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +----------------------------------------------------+
-; Port Connectivity Checks: "MUX:mux_inst1"          ;
+; Port Connectivity Checks: "MUX2Data:mux_inst1"     ;
 +------------------+-------+----------+--------------+
 ; Port             ; Type  ; Severity ; Details      ;
 +------------------+-------+----------+--------------+
-; data_in1[29..27] ; Input ; Info     ; Stuck at VCC ;
-; data_in1[21..20] ; Input ; Info     ; Stuck at VCC ;
-; data_in1[11..7]  ; Input ; Info     ; Stuck at VCC ;
+; data_in1[61..59] ; Input ; Info     ; Stuck at VCC ;
+; data_in1[53..52] ; Input ; Info     ; Stuck at VCC ;
+; data_in1[43..39] ; Input ; Info     ; Stuck at VCC ;
+; data_in1[32..31] ; Input ; Info     ; Stuck at VCC ;
+; data_in1[25..20] ; Input ; Info     ; Stuck at VCC ;
+; data_in1[16..15] ; Input ; Info     ; Stuck at VCC ;
+; data_in1[4..3]   ; Input ; Info     ; Stuck at VCC ;
+; data_in1[1..0]   ; Input ; Info     ; Stuck at VCC ;
+; data_in1[51..49] ; Input ; Info     ; Stuck at GND ;
+; data_in1[47..46] ; Input ; Info     ; Stuck at GND ;
+; data_in1[34..33] ; Input ; Info     ; Stuck at GND ;
 ; data_in1[19..17] ; Input ; Info     ; Stuck at GND ;
-; data_in1[15..14] ; Input ; Info     ; Stuck at GND ;
-; data_in1[2..1]   ; Input ; Info     ; Stuck at GND ;
-; data_in1[31]     ; Input ; Info     ; Stuck at VCC ;
+; data_in1[12..5]  ; Input ; Info     ; Stuck at GND ;
+; data_in1[63]     ; Input ; Info     ; Stuck at VCC ;
+; data_in1[62]     ; Input ; Info     ; Stuck at GND ;
+; data_in1[58]     ; Input ; Info     ; Stuck at GND ;
+; data_in1[57]     ; Input ; Info     ; Stuck at VCC ;
+; data_in1[56]     ; Input ; Info     ; Stuck at GND ;
+; data_in1[55]     ; Input ; Info     ; Stuck at VCC ;
+; data_in1[54]     ; Input ; Info     ; Stuck at GND ;
+; data_in1[48]     ; Input ; Info     ; Stuck at VCC ;
+; data_in1[45]     ; Input ; Info     ; Stuck at VCC ;
+; data_in1[44]     ; Input ; Info     ; Stuck at GND ;
+; data_in1[38]     ; Input ; Info     ; Stuck at GND ;
+; data_in1[37]     ; Input ; Info     ; Stuck at VCC ;
+; data_in1[36]     ; Input ; Info     ; Stuck at GND ;
+; data_in1[35]     ; Input ; Info     ; Stuck at VCC ;
 ; data_in1[30]     ; Input ; Info     ; Stuck at GND ;
+; data_in1[29]     ; Input ; Info     ; Stuck at VCC ;
+; data_in1[28]     ; Input ; Info     ; Stuck at GND ;
+; data_in1[27]     ; Input ; Info     ; Stuck at VCC ;
 ; data_in1[26]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[25]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[24]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[23]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[22]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[16]     ; Input ; Info     ; Stuck at VCC ;
+; data_in1[14]     ; Input ; Info     ; Stuck at GND ;
 ; data_in1[13]     ; Input ; Info     ; Stuck at VCC ;
-; data_in1[12]     ; Input ; Info     ; Stuck at GND ;
-; data_in1[6]      ; Input ; Info     ; Stuck at GND ;
-; data_in1[5]      ; Input ; Info     ; Stuck at VCC ;
-; data_in1[4]      ; Input ; Info     ; Stuck at GND ;
-; data_in1[3]      ; Input ; Info     ; Stuck at VCC ;
-; data_in1[0]      ; Input ; Info     ; Stuck at VCC ;
-; data_in2[25..20] ; Input ; Info     ; Stuck at VCC ;
-; data_in2[16..15] ; Input ; Info     ; Stuck at VCC ;
-; data_in2[4..3]   ; Input ; Info     ; Stuck at VCC ;
-; data_in2[1..0]   ; Input ; Info     ; Stuck at VCC ;
+; data_in1[2]      ; Input ; Info     ; Stuck at GND ;
+; data_in2[57..52] ; Input ; Info     ; Stuck at VCC ;
+; data_in2[48..47] ; Input ; Info     ; Stuck at VCC ;
+; data_in2[36..35] ; Input ; Info     ; Stuck at VCC ;
+; data_in2[33..31] ; Input ; Info     ; Stuck at VCC ;
+; data_in2[29..27] ; Input ; Info     ; Stuck at VCC ;
+; data_in2[21..20] ; Input ; Info     ; Stuck at VCC ;
+; data_in2[11..7]  ; Input ; Info     ; Stuck at VCC ;
+; data_in2[51..49] ; Input ; Info     ; Stuck at GND ;
+; data_in2[44..37] ; Input ; Info     ; Stuck at GND ;
 ; data_in2[19..17] ; Input ; Info     ; Stuck at GND ;
-; data_in2[12..5]  ; Input ; Info     ; Stuck at GND ;
-; data_in2[31]     ; Input ; Info     ; Stuck at VCC ;
+; data_in2[15..14] ; Input ; Info     ; Stuck at GND ;
+; data_in2[2..1]   ; Input ; Info     ; Stuck at GND ;
+; data_in2[63]     ; Input ; Info     ; Stuck at VCC ;
+; data_in2[62]     ; Input ; Info     ; Stuck at GND ;
+; data_in2[61]     ; Input ; Info     ; Stuck at VCC ;
+; data_in2[60]     ; Input ; Info     ; Stuck at GND ;
+; data_in2[59]     ; Input ; Info     ; Stuck at VCC ;
+; data_in2[58]     ; Input ; Info     ; Stuck at GND ;
+; data_in2[46]     ; Input ; Info     ; Stuck at GND ;
+; data_in2[45]     ; Input ; Info     ; Stuck at VCC ;
+; data_in2[34]     ; Input ; Info     ; Stuck at GND ;
 ; data_in2[30]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[29]     ; Input ; Info     ; Stuck at VCC ;
-; data_in2[28]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[27]     ; Input ; Info     ; Stuck at VCC ;
 ; data_in2[26]     ; Input ; Info     ; Stuck at GND ;
-; data_in2[14]     ; Input ; Info     ; Stuck at GND ;
+; data_in2[25]     ; Input ; Info     ; Stuck at VCC ;
+; data_in2[24]     ; Input ; Info     ; Stuck at GND ;
+; data_in2[23]     ; Input ; Info     ; Stuck at VCC ;
+; data_in2[22]     ; Input ; Info     ; Stuck at GND ;
+; data_in2[16]     ; Input ; Info     ; Stuck at VCC ;
 ; data_in2[13]     ; Input ; Info     ; Stuck at VCC ;
-; data_in2[2]      ; Input ; Info     ; Stuck at GND ;
+; data_in2[12]     ; Input ; Info     ; Stuck at GND ;
+; data_in2[6]      ; Input ; Info     ; Stuck at GND ;
+; data_in2[5]      ; Input ; Info     ; Stuck at VCC ;
+; data_in2[4]      ; Input ; Info     ; Stuck at GND ;
+; data_in2[3]      ; Input ; Info     ; Stuck at VCC ;
+; data_in2[0]      ; Input ; Info     ; Stuck at VCC ;
 +------------------+-------+----------+--------------+
 
 
++----------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux" ;
++----------------+-------+----------+----------------------------------------------+
+; Port           ; Type  ; Severity ; Details                                      ;
++----------------+-------+----------+----------------------------------------------+
+; data_in1[3..1] ; Input ; Info     ; Stuck at GND                                 ;
+; data_in1[0]    ; Input ; Info     ; Stuck at VCC                                 ;
+; data_in2[3..2] ; Input ; Info     ; Stuck at GND                                 ;
+; data_in2[1]    ; Input ; Info     ; Stuck at VCC                                 ;
+; data_in2[0]    ; Input ; Info     ; Stuck at GND                                 ;
+; data_in3[1..0] ; Input ; Info     ; Stuck at GND                                 ;
+; data_in3[3]    ; Input ; Info     ; Stuck at GND                                 ;
+; data_in3[2]    ; Input ; Info     ; Stuck at VCC                                 ;
+; data_in4[2..0] ; Input ; Info     ; Stuck at GND                                 ;
+; data_in4[3]    ; Input ; Info     ; Stuck at VCC                                 ;
++----------------+-------+----------+----------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SRAM:memory_block1"                                                                                 ;
+; Port Connectivity Checks: "MemoryBlock:memoryblock_inst"                                                                       ;
 +----------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port                 ; Type   ; Severity ; Details                                                                             ;
 +----------------------+--------+----------+-------------------------------------------------------------------------------------+
-; enable_read          ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; enable_write         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; memory_address[5..3] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; memory_address[7]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; memory_address[6]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; memory_address[7..5] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; memory_address[9]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; memory_address[8]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; memory_address[4]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; memory_address[3]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; memory_address[2]    ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; memory_address[1]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; memory_address[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
@@ -342,14 +527,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Wed Nov 22 21:57:44 2023
+    Info: Processing started: Thu Nov 23 14:07:50 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off XTEASistem-32Bit -c XTEASistem-32Bit
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
-Warning (12090): Entity "MUX" obtained from "MUX.vhd" instead of from Quartus Prime megafunction library File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX.vhd Line: 10
-Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
-    Info (12022): Found design unit 1: MUX-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX.vhd Line: 22
-    Info (12023): Found entity 1: MUX File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file memoryblock.vhd
+    Info (12022): Found design unit 1: MemoryBlock-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 17
+    Info (12023): Found entity 1: MemoryBlock File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 6
+Warning (12019): Can't analyze file -- file MUX.vhd is missing
 Info (12021): Found 2 design units, including 1 entities, in source file sram.vhd
     Info (12022): Found design unit 1: SRAM-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd Line: 17
     Info (12023): Found entity 1: SRAM File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd Line: 6
@@ -357,12 +542,28 @@ Info (12021): Found 2 design units, including 1 entities, in source file dummyto
     Info (12022): Found design unit 1: DummyTopLevel-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 14
     Info (12023): Found entity 1: DummyTopLevel File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 6
 Info (12127): Elaborating entity "DummyTopLevel" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at DummyTopLevel.vhd(39): used explicit default value for signal "enable_read" because signal was never assigned a value File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 39
 Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(40): object "memory_read" assigned a value but never read File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 40
-Info (12128): Elaborating entity "SRAM" for hierarchy "SRAM:memory_block1" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 46
-Info (12128): Elaborating entity "MUX" for hierarchy "MUX:mux_inst1" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 60
-Warning (10492): VHDL Process Statement warning at MUX.vhd(27): signal "data_in1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX.vhd Line: 27
-Warning (10492): VHDL Process Statement warning at MUX.vhd(28): signal "data_in2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX.vhd Line: 28
+Info (12128): Elaborating entity "MemoryBlock" for hierarchy "MemoryBlock:memoryblock_inst" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 47
+Warning (12125): Using design file mux4data.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: MUX4Data-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 20
+    Info (12023): Found entity 1: MUX4Data File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 6
+Info (12128): Elaborating entity "MUX4Data" for hierarchy "MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 72
+Warning (10492): VHDL Process Statement warning at mux4data.vhd(25): signal "data_in1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at mux4data.vhd(26): signal "data_in2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 26
+Warning (10492): VHDL Process Statement warning at mux4data.vhd(27): signal "data_in3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 27
+Warning (10492): VHDL Process Statement warning at mux4data.vhd(28): signal "data_in4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 28
+Info (12128): Elaborating entity "MUX4Data" for hierarchy "MemoryBlock:memoryblock_inst|MUX4Data:lmemory_read_mux" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 73
+Warning (10492): VHDL Process Statement warning at mux4data.vhd(25): signal "data_in1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at mux4data.vhd(26): signal "data_in2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 26
+Warning (10492): VHDL Process Statement warning at mux4data.vhd(27): signal "data_in3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 27
+Warning (10492): VHDL Process Statement warning at mux4data.vhd(28): signal "data_in4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux4data.vhd Line: 28
+Info (12128): Elaborating entity "SRAM" for hierarchy "MemoryBlock:memoryblock_inst|SRAM:sram00_inst" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 76
+Warning (12125): Using design file mux2data.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: MUX2Data-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux2data.vhd Line: 18
+    Info (12023): Found entity 1: MUX2Data File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux2data.vhd Line: 6
+Info (12128): Elaborating entity "MUX2Data" for hierarchy "MUX2Data:mux_inst1" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 60
+Warning (10492): VHDL Process Statement warning at mux2data.vhd(23): signal "data_in1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux2data.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at mux2data.vhd(24): signal "data_in2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/mux2data.vhd Line: 24
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
@@ -372,10 +573,10 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
 Info (21057): Implemented 3 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 4801 megabytes
-    Info: Processing ended: Wed Nov 22 21:57:59 2023
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:24
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 4802 megabytes
+    Info: Processing ended: Thu Nov 23 14:08:06 2023
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:23
 
 

@@ -1,6 +1,6 @@
 Analysis & Synthesis report for top
-Thu Nov 16 13:53:31 2023
-Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+Thu Nov 23 08:16:18 2023
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
 ---------------------
@@ -13,232 +13,287 @@ Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |top|controlFSM:controlFSM0|current_state
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Parameter Settings for User Entity Instance: controlFSM:controlFSM0
- 12. Parameter Settings for User Entity Instance: controlFSM:controlFSM0|counter:addressCounter
- 13. Parameter Settings for User Entity Instance: sram2d:sram2d0
- 14. Port Connectivity Checks: "sram2d:sram2d0"
- 15. Port Connectivity Checks: "controlFSM:controlFSM0|counter:addressCounter"
- 16. Port Connectivity Checks: "controlFSM:controlFSM0"
- 17. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |sram2d
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2010 Altera Corporation
-Your use of Altera Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
-to the terms and conditions of the Altera Program License 
-Subscription Agreement, Altera MegaCore Function License 
-Agreement, or other applicable license agreement, including, 
-without limitation, that your use is for the sole purpose of 
-programming logic devices manufactured by Altera and sold by 
-Altera or its authorized distributors.  Please refer to the 
-applicable agreement for further details.
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                      ;
-+------------------------------------+----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 16 13:53:31 2023        ;
-; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
-; Revision Name                      ; top                                          ;
-; Top-level Entity Name              ; top                                          ;
-; Family                             ; Cyclone IV E                                 ;
-; Total logic elements               ; 0                                            ;
-;     Total combinational functions  ; 0                                            ;
-;     Dedicated logic registers      ; 0                                            ;
-; Total registers                    ; 0                                            ;
-; Total pins                         ; 9                                            ;
-; Total virtual pins                 ; 0                                            ;
-; Total memory bits                  ; 0                                            ;
-; Embedded Multiplier 9-bit elements ; 0                                            ;
-; Total PLLs                         ; 0                                            ;
-+------------------------------------+----------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Nov 23 08:16:18 2023          ;
+; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Revision Name                      ; top                                            ;
+; Top-level Entity Name              ; sram2d                                         ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 1,750                                          ;
+;     Total combinational functions  ; 1,750                                          ;
+;     Dedicated logic registers      ; 1,024                                          ;
+; Total registers                    ; 1024                                           ;
+; Total pins                         ; 135                                            ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                        ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
-; Option                                                                     ; Setting            ; Default Value      ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP4CE6E22C7        ;                    ;
-; Top-level entity name                                                      ; top                ; top                ;
-; Family name                                                                ; Cyclone IV E       ; Stratix II         ;
-; Use Generated Physical Constraints File                                    ; Off                ;                    ;
-; Use smart compilation                                                      ; Off                ; Off                ;
-; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
-; Enable compact report table                                                ; Off                ; Off                ;
-; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
-; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
-; Preserve fewer node names                                                  ; On                 ; On                 ;
-; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
-; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
-; State Machine Processing                                                   ; Auto               ; Auto               ;
-; Safe State Machine                                                         ; Off                ; Off                ;
-; Extract Verilog State Machines                                             ; On                 ; On                 ;
-; Extract VHDL State Machines                                                ; On                 ; On                 ;
-; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
-; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
-; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
-; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
-; Parallel Synthesis                                                         ; On                 ; On                 ;
-; DSP Block Balancing                                                        ; Auto               ; Auto               ;
-; NOT Gate Push-Back                                                         ; On                 ; On                 ;
-; Power-Up Don't Care                                                        ; On                 ; On                 ;
-; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
-; Remove Duplicate Registers                                                 ; On                 ; On                 ;
-; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
-; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
-; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
-; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
-; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
-; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
-; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
-; Optimization Technique                                                     ; Balanced           ; Balanced           ;
-; Carry Chain Length                                                         ; 70                 ; 70                 ;
-; Auto Carry Chains                                                          ; On                 ; On                 ;
-; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
-; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
-; Auto ROM Replacement                                                       ; On                 ; On                 ;
-; Auto RAM Replacement                                                       ; On                 ; On                 ;
-; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
-; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
-; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
-; Strict RAM Replacement                                                     ; Off                ; Off                ;
-; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
-; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
-; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
-; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
-; Auto Resource Sharing                                                      ; Off                ; Off                ;
-; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
-; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
-; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
-; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
-; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
-; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
-; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
-; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
-; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
-; HDL message level                                                          ; Level2             ; Level2             ;
-; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
-; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
-; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
-; Clock MUX Protection                                                       ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
-; Block Design Naming                                                        ; Auto               ; Auto               ;
-; SDC constraint protection                                                  ; Off                ; Off                ;
-; Synthesis Effort                                                           ; Auto               ; Auto               ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
-; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
-; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
-; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6E22C7        ;                    ;
+; Top-level entity name                                            ; sram2d             ; top                ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 12     ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processors 6-12        ;   0.0%      ;
++----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                               ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                  ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+
-; controlFSM.vhd                   ; yes             ; User VHDL File  ; C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/controlFSM.vhd ;
-; counter.vhd                      ; yes             ; User VHDL File  ; C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/counter.vhd    ;
-; sram2d.vhd                       ; yes             ; User VHDL File  ; C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/sram2d.vhd     ;
-; top.vhd                          ; yes             ; User VHDL File  ; C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd        ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                      ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                               ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------+---------+
+; sram2d.vhd                       ; yes             ; User VHDL File  ; C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 9     ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 9     ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,750     ;
+;                                             ;           ;
+; Total combinational functions               ; 1750      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 643       ;
+;     -- 3 input functions                    ; 81        ;
+;     -- <=2 input functions                  ; 1026      ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1750      ;
+;     -- arithmetic mode                      ; 0         ;
+;                                             ;           ;
+; Total registers                             ; 1024      ;
+;     -- Dedicated logic registers            ; 1024      ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 135       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 1024      ;
+; Total fan-out                               ; 7114      ;
+; Average fan-out                             ; 2.34      ;
++---------------------------------------------+-----------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |top                       ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 9    ; 0            ; |top                ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |sram2d                    ; 1750 (1750)         ; 1024 (1024)               ; 0           ; 0            ; 0       ; 0         ; 135  ; 0            ; |sram2d             ; sram2d      ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-Encoding Type:  One-Hot
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |top|controlFSM:controlFSM0|current_state                                                                                                                                                                                                                    ;
-+------------------------------------+------------------------------+------------------------------------+----------------------------+-------------------------+-------------------------------+--------------------------+------------------------------+--------------------+
-; Name                               ; current_state.send_to_serial ; current_state.write_encrypted_data ; current_state.encrypt_data ; current_state.read_data ; current_state.read_attributes ; current_state.send_error ; current_state.write_raw_data ; current_state.idle ;
-+------------------------------------+------------------------------+------------------------------------+----------------------------+-------------------------+-------------------------------+--------------------------+------------------------------+--------------------+
-; current_state.idle                 ; 0                            ; 0                                  ; 0                          ; 0                       ; 0                             ; 0                        ; 0                            ; 0                  ;
-; current_state.write_raw_data       ; 0                            ; 0                                  ; 0                          ; 0                       ; 0                             ; 0                        ; 1                            ; 1                  ;
-; current_state.send_error           ; 0                            ; 0                                  ; 0                          ; 0                       ; 0                             ; 1                        ; 0                            ; 1                  ;
-; current_state.read_attributes      ; 0                            ; 0                                  ; 0                          ; 0                       ; 1                             ; 0                        ; 0                            ; 1                  ;
-; current_state.read_data            ; 0                            ; 0                                  ; 0                          ; 1                       ; 0                             ; 0                        ; 0                            ; 1                  ;
-; current_state.encrypt_data         ; 0                            ; 0                                  ; 1                          ; 0                       ; 0                             ; 0                        ; 0                            ; 1                  ;
-; current_state.write_encrypted_data ; 0                            ; 1                                  ; 0                          ; 0                       ; 0                             ; 0                        ; 0                            ; 1                  ;
-; current_state.send_to_serial       ; 1                            ; 0                                  ; 0                          ; 0                       ; 0                             ; 0                        ; 0                            ; 1                  ;
-+------------------------------------+------------------------------+------------------------------------+----------------------------+-------------------------+-------------------------------+--------------------------+------------------------------+--------------------+
-
-
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+-----------------------------------------------------------+--------------------+
-; Register name                                             ; Reason for Removal ;
-+-----------------------------------------------------------+--------------------+
-; controlFSM:controlFSM0|current_state.idle                 ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.write_raw_data       ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.send_error           ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.read_attributes      ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.read_data            ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.encrypt_data         ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.write_encrypted_data ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.send_to_serial       ; Lost fanout        ;
-; Total Number of Removed Registers = 8                     ;                    ;
-+-----------------------------------------------------------+--------------------+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; dataOut[0]$latch                                    ; rd                  ; yes                    ;
+; dataOut[1]$latch                                    ; rd                  ; yes                    ;
+; dataOut[2]$latch                                    ; rd                  ; yes                    ;
+; dataOut[3]$latch                                    ; rd                  ; yes                    ;
+; dataOut[4]$latch                                    ; rd                  ; yes                    ;
+; dataOut[5]$latch                                    ; rd                  ; yes                    ;
+; dataOut[6]$latch                                    ; rd                  ; yes                    ;
+; dataOut[7]$latch                                    ; rd                  ; yes                    ;
+; dataOut[8]$latch                                    ; rd                  ; yes                    ;
+; dataOut[9]$latch                                    ; rd                  ; yes                    ;
+; dataOut[10]$latch                                   ; rd                  ; yes                    ;
+; dataOut[11]$latch                                   ; rd                  ; yes                    ;
+; dataOut[12]$latch                                   ; rd                  ; yes                    ;
+; dataOut[13]$latch                                   ; rd                  ; yes                    ;
+; dataOut[14]$latch                                   ; rd                  ; yes                    ;
+; dataOut[15]$latch                                   ; rd                  ; yes                    ;
+; dataOut[16]$latch                                   ; rd                  ; yes                    ;
+; dataOut[17]$latch                                   ; rd                  ; yes                    ;
+; dataOut[18]$latch                                   ; rd                  ; yes                    ;
+; dataOut[19]$latch                                   ; rd                  ; yes                    ;
+; dataOut[20]$latch                                   ; rd                  ; yes                    ;
+; dataOut[21]$latch                                   ; rd                  ; yes                    ;
+; dataOut[22]$latch                                   ; rd                  ; yes                    ;
+; dataOut[23]$latch                                   ; rd                  ; yes                    ;
+; dataOut[24]$latch                                   ; rd                  ; yes                    ;
+; dataOut[25]$latch                                   ; rd                  ; yes                    ;
+; dataOut[26]$latch                                   ; rd                  ; yes                    ;
+; dataOut[27]$latch                                   ; rd                  ; yes                    ;
+; dataOut[28]$latch                                   ; rd                  ; yes                    ;
+; dataOut[29]$latch                                   ; rd                  ; yes                    ;
+; dataOut[30]$latch                                   ; rd                  ; yes                    ;
+; dataOut[31]$latch                                   ; rd                  ; yes                    ;
+; dataOut[32]$latch                                   ; rd                  ; yes                    ;
+; dataOut[33]$latch                                   ; rd                  ; yes                    ;
+; dataOut[34]$latch                                   ; rd                  ; yes                    ;
+; dataOut[35]$latch                                   ; rd                  ; yes                    ;
+; dataOut[36]$latch                                   ; rd                  ; yes                    ;
+; dataOut[37]$latch                                   ; rd                  ; yes                    ;
+; dataOut[38]$latch                                   ; rd                  ; yes                    ;
+; dataOut[39]$latch                                   ; rd                  ; yes                    ;
+; dataOut[40]$latch                                   ; rd                  ; yes                    ;
+; dataOut[41]$latch                                   ; rd                  ; yes                    ;
+; dataOut[42]$latch                                   ; rd                  ; yes                    ;
+; dataOut[43]$latch                                   ; rd                  ; yes                    ;
+; dataOut[44]$latch                                   ; rd                  ; yes                    ;
+; dataOut[45]$latch                                   ; rd                  ; yes                    ;
+; dataOut[46]$latch                                   ; rd                  ; yes                    ;
+; dataOut[47]$latch                                   ; rd                  ; yes                    ;
+; dataOut[48]$latch                                   ; rd                  ; yes                    ;
+; dataOut[49]$latch                                   ; rd                  ; yes                    ;
+; dataOut[50]$latch                                   ; rd                  ; yes                    ;
+; dataOut[51]$latch                                   ; rd                  ; yes                    ;
+; dataOut[52]$latch                                   ; rd                  ; yes                    ;
+; dataOut[53]$latch                                   ; rd                  ; yes                    ;
+; dataOut[54]$latch                                   ; rd                  ; yes                    ;
+; dataOut[55]$latch                                   ; rd                  ; yes                    ;
+; dataOut[56]$latch                                   ; rd                  ; yes                    ;
+; dataOut[57]$latch                                   ; rd                  ; yes                    ;
+; dataOut[58]$latch                                   ; rd                  ; yes                    ;
+; dataOut[59]$latch                                   ; rd                  ; yes                    ;
+; dataOut[60]$latch                                   ; rd                  ; yes                    ;
+; dataOut[61]$latch                                   ; rd                  ; yes                    ;
+; dataOut[62]$latch                                   ; rd                  ; yes                    ;
+; dataOut[63]$latch                                   ; rd                  ; yes                    ;
+; Number of user-specified and inferred latches = 64  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -246,169 +301,269 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 1024  ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 1024  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: controlFSM:controlFSM0 ;
-+----------------+-------+--------------------------------------------+
-; Parameter Name ; Value ; Type                                       ;
-+----------------+-------+--------------------------------------------+
-; addresslsize   ; 2     ; Signed Integer                             ;
-; addresswsize   ; 2     ; Signed Integer                             ;
-+----------------+-------+--------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------------+
+; Inverted Register Statistics                         ;
++--------------------------------------------+---------+
+; Inverted Register                          ; Fan out ;
++--------------------------------------------+---------+
+; r_datablock[2][2][0]                       ; 1       ;
+; r_datablock[2][1][0]                       ; 1       ;
+; r_datablock[2][0][0]                       ; 1       ;
+; r_datablock[2][3][0]                       ; 1       ;
+; r_datablock[1][1][0]                       ; 1       ;
+; r_datablock[1][2][0]                       ; 1       ;
+; r_datablock[1][0][0]                       ; 1       ;
+; r_datablock[1][3][0]                       ; 1       ;
+; r_datablock[0][2][0]                       ; 1       ;
+; r_datablock[0][1][0]                       ; 1       ;
+; r_datablock[0][0][0]                       ; 1       ;
+; r_datablock[0][3][0]                       ; 1       ;
+; r_datablock[3][1][0]                       ; 1       ;
+; r_datablock[3][2][0]                       ; 1       ;
+; r_datablock[3][0][0]                       ; 1       ;
+; r_datablock[3][3][0]                       ; 1       ;
+; r_datablock[1][2][1]                       ; 1       ;
+; r_datablock[2][2][1]                       ; 1       ;
+; r_datablock[0][2][1]                       ; 1       ;
+; r_datablock[3][2][1]                       ; 1       ;
+; r_datablock[2][1][1]                       ; 1       ;
+; r_datablock[1][1][1]                       ; 1       ;
+; r_datablock[0][1][1]                       ; 1       ;
+; r_datablock[3][1][1]                       ; 1       ;
+; r_datablock[1][0][1]                       ; 1       ;
+; r_datablock[2][0][1]                       ; 1       ;
+; r_datablock[0][0][1]                       ; 1       ;
+; r_datablock[3][0][1]                       ; 1       ;
+; r_datablock[2][3][1]                       ; 1       ;
+; r_datablock[1][3][1]                       ; 1       ;
+; r_datablock[0][3][1]                       ; 1       ;
+; r_datablock[3][3][1]                       ; 1       ;
+; r_datablock[1][2][2]                       ; 1       ;
+; r_datablock[1][1][2]                       ; 1       ;
+; r_datablock[1][0][2]                       ; 1       ;
+; r_datablock[1][3][2]                       ; 1       ;
+; r_datablock[2][1][2]                       ; 1       ;
+; r_datablock[2][2][2]                       ; 1       ;
+; r_datablock[2][0][2]                       ; 1       ;
+; r_datablock[2][3][2]                       ; 1       ;
+; r_datablock[0][1][2]                       ; 1       ;
+; r_datablock[0][2][2]                       ; 1       ;
+; r_datablock[0][0][2]                       ; 1       ;
+; r_datablock[0][3][2]                       ; 1       ;
+; r_datablock[3][2][2]                       ; 1       ;
+; r_datablock[3][1][2]                       ; 1       ;
+; r_datablock[3][0][2]                       ; 1       ;
+; r_datablock[3][3][2]                       ; 1       ;
+; r_datablock[1][1][3]                       ; 1       ;
+; r_datablock[2][1][3]                       ; 1       ;
+; r_datablock[0][1][3]                       ; 1       ;
+; r_datablock[3][1][3]                       ; 1       ;
+; r_datablock[2][2][3]                       ; 1       ;
+; r_datablock[1][2][3]                       ; 1       ;
+; r_datablock[0][2][3]                       ; 1       ;
+; r_datablock[3][2][3]                       ; 1       ;
+; r_datablock[2][0][3]                       ; 1       ;
+; r_datablock[1][0][3]                       ; 1       ;
+; r_datablock[0][0][3]                       ; 1       ;
+; r_datablock[3][0][3]                       ; 1       ;
+; r_datablock[1][3][3]                       ; 1       ;
+; r_datablock[2][3][3]                       ; 1       ;
+; r_datablock[0][3][3]                       ; 1       ;
+; r_datablock[3][3][3]                       ; 1       ;
+; r_datablock[2][2][4]                       ; 1       ;
+; r_datablock[2][1][4]                       ; 1       ;
+; r_datablock[2][0][4]                       ; 1       ;
+; r_datablock[2][3][4]                       ; 1       ;
+; r_datablock[1][1][4]                       ; 1       ;
+; r_datablock[1][2][4]                       ; 1       ;
+; r_datablock[1][0][4]                       ; 1       ;
+; r_datablock[1][3][4]                       ; 1       ;
+; r_datablock[0][2][4]                       ; 1       ;
+; r_datablock[0][1][4]                       ; 1       ;
+; r_datablock[0][0][4]                       ; 1       ;
+; r_datablock[0][3][4]                       ; 1       ;
+; r_datablock[3][1][4]                       ; 1       ;
+; r_datablock[3][2][4]                       ; 1       ;
+; r_datablock[3][0][4]                       ; 1       ;
+; r_datablock[3][3][4]                       ; 1       ;
+; r_datablock[1][2][5]                       ; 1       ;
+; r_datablock[2][2][5]                       ; 1       ;
+; r_datablock[0][2][5]                       ; 1       ;
+; r_datablock[3][2][5]                       ; 1       ;
+; r_datablock[2][1][5]                       ; 1       ;
+; r_datablock[1][1][5]                       ; 1       ;
+; r_datablock[0][1][5]                       ; 1       ;
+; r_datablock[3][1][5]                       ; 1       ;
+; r_datablock[1][0][5]                       ; 1       ;
+; r_datablock[2][0][5]                       ; 1       ;
+; r_datablock[0][0][5]                       ; 1       ;
+; r_datablock[3][0][5]                       ; 1       ;
+; r_datablock[2][3][5]                       ; 1       ;
+; r_datablock[1][3][5]                       ; 1       ;
+; r_datablock[0][3][5]                       ; 1       ;
+; r_datablock[3][3][5]                       ; 1       ;
+; r_datablock[1][2][6]                       ; 1       ;
+; r_datablock[1][1][6]                       ; 1       ;
+; r_datablock[1][0][6]                       ; 1       ;
+; r_datablock[1][3][6]                       ; 1       ;
+; Total number of inverted registers = 1024* ;         ;
++--------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: controlFSM:controlFSM0|counter:addressCounter ;
-+----------------+-------+-------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                              ;
-+----------------+-------+-------------------------------------------------------------------+
-; outputsize     ; 4     ; Signed Integer                                                    ;
-; max            ; 16    ; Signed Integer                                                    ;
-+----------------+-------+-------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 16:1               ; 64 bits   ; 640 LEs       ; 640 LEs              ; 0 LEs                  ; No         ; |sram2d|Mux319             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
-+-------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: sram2d:sram2d0 ;
-+----------------+-------+------------------------------------+
-; Parameter Name ; Value ; Type                               ;
-+----------------+-------+------------------------------------+
-; bitsize        ; 8     ; Signed Integer                     ;
-; addresslsize   ; 2     ; Signed Integer                     ;
-; addresswsize   ; 2     ; Signed Integer                     ;
-+----------------+-------+------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |sram2d ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; bitSize        ; 64    ; Signed Integer                                ;
+; addressLSize   ; 2     ; Signed Integer                                ;
+; addressWSize   ; 2     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "sram2d:sram2d0"                                                                          ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; datain[7] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; datain[6] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; datain[5] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; datain[4] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; datain[3] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; datain[2] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; datain[1] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; datain[0] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; dataout   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 135                         ;
+; cycloneiii_ff         ; 1024                        ;
+;     ENA               ; 1024                        ;
+; cycloneiii_lcell_comb ; 1750                        ;
+;     normal            ; 1750                        ;
+;         1 data inputs ; 1024                        ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 81                          ;
+;         4 data inputs ; 643                         ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.95                        ;
++-----------------------+-----------------------------+
 
 
-+---------------------------------------------------------------------------+
-; Port Connectivity Checks: "controlFSM:controlFSM0|counter:addressCounter" ;
-+-----------+-------+----------+--------------------------------------------+
-; Port      ; Type  ; Severity ; Details                                    ;
-+-----------+-------+----------+--------------------------------------------+
-; i_countup ; Input ; Info     ; Stuck at VCC                               ;
-; i_rst     ; Input ; Info     ; Stuck at VCC                               ;
-+-----------+-------+----------+--------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "controlFSM:controlFSM0"                                                                   ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; xtea_start ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:06     ;
++----------------+--------------+
 
 
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II Analysis & Synthesis
-    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Thu Nov 16 13:53:28 2023
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+    Info: Processing started: Thu Nov 23 08:15:56 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off dummy_controller -c top
-Info: Found 2 design units, including 1 entities, in source file controlfsm.vhd
-    Info: Found design unit 1: controlFSM-behavioral
-    Info: Found entity 1: controlFSM
-Info: Found 2 design units, including 1 entities, in source file counter.vhd
-    Info: Found design unit 1: counter-behavioral
-    Info: Found entity 1: counter
-Info: Found 2 design units, including 1 entities, in source file sram2d.vhd
-    Info: Found design unit 1: sram2d-behavioral
-    Info: Found entity 1: sram2d
-Info: Found 2 design units, including 1 entities, in source file top.vhd
-    Info: Found design unit 1: top-behavioral
-    Info: Found entity 1: top
-Info: Elaborating entity "top" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at top.vhd(23): object "r_xtea_start" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at top.vhd(25): object "dataOut" assigned a value but never read
-Info: Elaborating entity "controlFSM" for hierarchy "controlFSM:controlFSM0"
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(77): signal "current_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(83): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(91): signal "enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(91): signal "serial_running" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(100): signal "error_check" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(102): signal "serial_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(111): signal "serial_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(125): signal "memory" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(135): signal "xtea_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(135): signal "xtea_running" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(148): signal "memory" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "enable_read", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "enable_write", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "xtea_start", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "address_reset", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "address_countup", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "address_countup" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "address_reset" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "xtea_start" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "enable_write" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "enable_read" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.send_to_serial" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.write_encrypted_data" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.encrypt_data" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.read_data" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.read_attributes" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.send_error" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.write_raw_data" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.idle" at controlFSM.vhd(81)
-Info: Elaborating entity "counter" for hierarchy "controlFSM:controlFSM0|counter:addressCounter"
-Info: Elaborating entity "sram2d" for hierarchy "sram2d:sram2d0"
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file sram2d.vhd
+    Info (12022): Found design unit 1: sram2d-behavioral File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 21
+    Info (12023): Found entity 1: sram2d File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 5
+Info (12127): Elaborating entity "sram2d" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at sram2d.vhd(33): signal "wrt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 33
+Warning (10492): VHDL Process Statement warning at sram2d.vhd(42): signal "r_datablock" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 42
+Warning (10631): VHDL Process Statement warning at sram2d.vhd(39): inferring latch(es) for signal or variable "dataOut", which holds its previous value in one or more paths through the process File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[0]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[1]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[2]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[3]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[4]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[5]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[6]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[7]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[8]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[9]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[10]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[11]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[12]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[13]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[14]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[15]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[16]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[17]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[18]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[19]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[20]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[21]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[22]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[23]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[24]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[25]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[26]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[27]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[28]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[29]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[30]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[31]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[32]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[33]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[34]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[35]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[36]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[37]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[38]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[39]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[40]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[41]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[42]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[43]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[44]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[45]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[46]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[47]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[48]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[49]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[50]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[51]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[52]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[53]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[54]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[55]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[56]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[57]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[58]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[59]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[60]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[61]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[62]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
+Info (10041): Inferred latch for "dataOut[63]" at sram2d.vhd(39) File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Dummy_controller/sram2d.vhd Line: 39
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "r_datablock" into its bus
-Info: 8 registers lost all their fanouts during netlist optimizations. The first 8 are displayed below.
-    Info: Register "controlFSM:controlFSM0|current_state.idle" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.write_raw_data" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.send_error" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.read_attributes" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.read_data" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.encrypt_data" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.write_encrypted_data" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.send_to_serial" lost all its fanouts during netlist optimizations.
-Warning: Design contains 9 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk"
-    Warning (15610): No output dependent on input pin "enable"
-    Warning (15610): No output dependent on input pin "serial_running"
-    Warning (15610): No output dependent on input pin "memory"
-    Warning (15610): No output dependent on input pin "serial_done"
-    Warning (15610): No output dependent on input pin "xtea_running"
-    Warning (15610): No output dependent on input pin "xtea_done"
-    Warning (15610): No output dependent on input pin "nreset"
-    Warning (15610): No output dependent on input pin "error_check"
-Info: Implemented 9 device resources after synthesis - the final resource count might be different
-    Info: Implemented 9 input pins
-    Info: Implemented 0 output pins
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 29 warnings
-    Info: Peak virtual memory: 244 megabytes
-    Info: Processing ended: Thu Nov 16 13:53:31 2023
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1885 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 71 input pins
+    Info (21059): Implemented 64 output pins
+    Info (21061): Implemented 1750 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4864 megabytes
+    Info: Processing ended: Thu Nov 23 08:16:18 2023
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:30
 
 

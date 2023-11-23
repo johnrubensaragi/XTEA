@@ -3,11 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
-library ieee;
-  use ieee.std_logic_1164.all;
-  use ieee.numeric_std.all;
-
-entity MUX is
+entity MUX2Data is
   generic (
     data_length : natural
   );
@@ -17,9 +13,9 @@ entity MUX is
     data_in2 : in std_logic_vector((data_length-1) downto 0);
     data_out : out std_logic_vector((data_length-1) downto 0)
   );
-end entity;
+end MUX2Data;
 
-architecture behavioral of MUX is
+architecture behavioral of MUX2Data is
 begin
     process(selector)
     begin

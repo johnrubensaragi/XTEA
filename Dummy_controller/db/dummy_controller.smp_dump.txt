@@ -1,11 +1,19 @@
 
+State Machine - |top|xtea:xtea0|s
+Name s.s1 s.s0 s.init 
+s.init 0 0 0 
+s.s0 0 1 1 
+s.s1 1 0 1 
+
 State Machine - |top|controlFSM:controlFSM0|current_state
-Name current_state.send_to_serial current_state.write_encrypted_data current_state.encrypt_data current_state.read_data current_state.read_attributes current_state.send_error current_state.write_raw_data current_state.idle 
-current_state.idle 0 0 0 0 0 0 0 0 
-current_state.write_raw_data 0 0 0 0 0 0 1 1 
-current_state.send_error 0 0 0 0 0 1 0 1 
-current_state.read_attributes 0 0 0 0 1 0 0 1 
-current_state.read_data 0 0 0 1 0 0 0 1 
-current_state.encrypt_data 0 0 1 0 0 0 0 1 
-current_state.write_encrypted_data 0 1 0 0 0 0 0 1 
-current_state.send_to_serial 1 0 0 0 0 0 0 1 
+Name current_state.send_to_serial current_state.write_encrypted_data current_state.encrypt_data current_state.read_data current_state.read_mode current_state.read_key1 current_state.read_key0 current_state.send_error current_state.write_raw_data current_state.idle 
+current_state.idle 0 0 0 0 0 0 0 0 0 0 
+current_state.write_raw_data 0 0 0 0 0 0 0 0 1 1 
+current_state.send_error 0 0 0 0 0 0 0 1 0 1 
+current_state.read_key0 0 0 0 0 0 0 1 0 0 1 
+current_state.read_key1 0 0 0 0 0 1 0 0 0 1 
+current_state.read_mode 0 0 0 0 1 0 0 0 0 1 
+current_state.read_data 0 0 0 1 0 0 0 0 0 1 
+current_state.encrypt_data 0 0 1 0 0 0 0 0 0 1 
+current_state.write_encrypted_data 0 1 0 0 0 0 0 0 0 1 
+current_state.send_to_serial 1 0 0 0 0 0 0 0 0 1 
