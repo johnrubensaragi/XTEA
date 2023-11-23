@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top
-Thu Nov 16 13:53:31 2023
+Thu Nov 23 14:05:35 2023
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -13,16 +13,17 @@ Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |top|controlFSM:controlFSM0|current_state
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Parameter Settings for User Entity Instance: controlFSM:controlFSM0
- 12. Parameter Settings for User Entity Instance: controlFSM:controlFSM0|counter:addressCounter
- 13. Parameter Settings for User Entity Instance: sram2d:sram2d0
- 14. Port Connectivity Checks: "sram2d:sram2d0"
- 15. Port Connectivity Checks: "controlFSM:controlFSM0|counter:addressCounter"
- 16. Port Connectivity Checks: "controlFSM:controlFSM0"
- 17. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Parameter Settings for User Entity Instance: Top-level Entity: |memory
+ 10. Parameter Settings for User Entity Instance: sram:sram00
+ 11. Parameter Settings for User Entity Instance: sram:sram01
+ 12. Parameter Settings for User Entity Instance: sram:sram10
+ 13. Parameter Settings for User Entity Instance: sram:sram11
+ 14. Parameter Settings for User Entity Instance: sram:sram20
+ 15. Parameter Settings for User Entity Instance: sram:sram21
+ 16. Parameter Settings for User Entity Instance: sram:sram30
+ 17. Parameter Settings for User Entity Instance: sram:sram31
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -48,16 +49,16 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +------------------------------------+----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 16 13:53:31 2023        ;
+; Analysis & Synthesis Status        ; Successful - Thu Nov 23 14:05:32 2023        ;
 ; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                      ; top                                          ;
-; Top-level Entity Name              ; top                                          ;
+; Top-level Entity Name              ; memory                                       ;
 ; Family                             ; Cyclone IV E                                 ;
-; Total logic elements               ; 0                                            ;
-;     Total combinational functions  ; 0                                            ;
-;     Dedicated logic registers      ; 0                                            ;
-; Total registers                    ; 0                                            ;
-; Total pins                         ; 9                                            ;
+; Total logic elements               ; 110,240                                      ;
+;     Total combinational functions  ; 44,704                                       ;
+;     Dedicated logic registers      ; 65,536                                       ;
+; Total registers                    ; 65536                                        ;
+; Total pins                         ; 141                                          ;
 ; Total virtual pins                 ; 0                                            ;
 ; Total memory bits                  ; 0                                            ;
 ; Embedded Multiplier 9-bit elements ; 0                                            ;
@@ -71,7 +72,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP4CE6E22C7        ;                    ;
-; Top-level entity name                                                      ; top                ; top                ;
+; Top-level entity name                                                      ; memory             ; top                ;
 ; Family name                                                                ; Cyclone IV E       ; Stratix II         ;
 ; Use Generated Physical Constraints File                                    ; Off                ;                    ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
@@ -157,44 +158,43 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                               ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                  ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+
-; controlFSM.vhd                   ; yes             ; User VHDL File  ; C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/controlFSM.vhd ;
-; counter.vhd                      ; yes             ; User VHDL File  ; C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/counter.vhd    ;
-; sram2d.vhd                       ; yes             ; User VHDL File  ; C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/sram2d.vhd     ;
-; top.vhd                          ; yes             ; User VHDL File  ; C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd        ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                           ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                              ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------+
+; memory.vhd                       ; yes             ; User VHDL File  ; C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/memory.vhd ;
+; sram.vhd                         ; yes             ; User VHDL File  ; C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/sram.vhd   ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 9     ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 9     ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 110,240   ;
+;                                             ;           ;
+; Total combinational functions               ; 44704     ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 44704     ;
+;     -- 3 input functions                    ; 0         ;
+;     -- <=2 input functions                  ; 0         ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 44704     ;
+;     -- arithmetic mode                      ; 0         ;
+;                                             ;           ;
+; Total registers                             ; 65536     ;
+;     -- Dedicated logic registers            ; 65536     ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 141       ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 65536     ;
+; Total fan-out                               ; 375629    ;
+; Average fan-out                             ; 3.40      ;
++---------------------------------------------+-----------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -202,43 +202,17 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |top                       ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 9    ; 0            ; |top                ; work         ;
+; |memory                    ; 44704 (0)         ; 65536 (0)    ; 0           ; 0            ; 0       ; 0         ; 141  ; 0            ; |memory             ; work         ;
+;    |sram:sram00|           ; 5526 (5526)       ; 8192 (8192)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |memory|sram:sram00 ;              ;
+;    |sram:sram01|           ; 5813 (5813)       ; 8192 (8192)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |memory|sram:sram01 ;              ;
+;    |sram:sram10|           ; 5429 (5429)       ; 8192 (8192)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |memory|sram:sram10 ; work         ;
+;    |sram:sram11|           ; 5686 (5686)       ; 8192 (8192)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |memory|sram:sram11 ;              ;
+;    |sram:sram20|           ; 5429 (5429)       ; 8192 (8192)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |memory|sram:sram20 ; work         ;
+;    |sram:sram21|           ; 5686 (5686)       ; 8192 (8192)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |memory|sram:sram21 ; work         ;
+;    |sram:sram30|           ; 5440 (5440)       ; 8192 (8192)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |memory|sram:sram30 ; work         ;
+;    |sram:sram31|           ; 5695 (5695)       ; 8192 (8192)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |memory|sram:sram31 ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |top|controlFSM:controlFSM0|current_state                                                                                                                                                                                                                    ;
-+------------------------------------+------------------------------+------------------------------------+----------------------------+-------------------------+-------------------------------+--------------------------+------------------------------+--------------------+
-; Name                               ; current_state.send_to_serial ; current_state.write_encrypted_data ; current_state.encrypt_data ; current_state.read_data ; current_state.read_attributes ; current_state.send_error ; current_state.write_raw_data ; current_state.idle ;
-+------------------------------------+------------------------------+------------------------------------+----------------------------+-------------------------+-------------------------------+--------------------------+------------------------------+--------------------+
-; current_state.idle                 ; 0                            ; 0                                  ; 0                          ; 0                       ; 0                             ; 0                        ; 0                            ; 0                  ;
-; current_state.write_raw_data       ; 0                            ; 0                                  ; 0                          ; 0                       ; 0                             ; 0                        ; 1                            ; 1                  ;
-; current_state.send_error           ; 0                            ; 0                                  ; 0                          ; 0                       ; 0                             ; 1                        ; 0                            ; 1                  ;
-; current_state.read_attributes      ; 0                            ; 0                                  ; 0                          ; 0                       ; 1                             ; 0                        ; 0                            ; 1                  ;
-; current_state.read_data            ; 0                            ; 0                                  ; 0                          ; 1                       ; 0                             ; 0                        ; 0                            ; 1                  ;
-; current_state.encrypt_data         ; 0                            ; 0                                  ; 1                          ; 0                       ; 0                             ; 0                        ; 0                            ; 1                  ;
-; current_state.write_encrypted_data ; 0                            ; 1                                  ; 0                          ; 0                       ; 0                             ; 0                        ; 0                            ; 1                  ;
-; current_state.send_to_serial       ; 1                            ; 0                                  ; 0                          ; 0                       ; 0                             ; 0                        ; 0                            ; 1                  ;
-+------------------------------------+------------------------------+------------------------------------+----------------------------+-------------------------+-------------------------------+--------------------------+------------------------------+--------------------+
-
-
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+-----------------------------------------------------------+--------------------+
-; Register name                                             ; Reason for Removal ;
-+-----------------------------------------------------------+--------------------+
-; controlFSM:controlFSM0|current_state.idle                 ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.write_raw_data       ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.send_error           ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.read_attributes      ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.read_data            ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.encrypt_data         ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.write_encrypted_data ; Lost fanout        ;
-; controlFSM:controlFSM0|current_state.send_to_serial       ; Lost fanout        ;
-; Total Number of Removed Registers = 8                     ;                    ;
-+-----------------------------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -246,84 +220,113 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 65536 ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 65536 ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: controlFSM:controlFSM0 ;
-+----------------+-------+--------------------------------------------+
-; Parameter Name ; Value ; Type                                       ;
-+----------------+-------+--------------------------------------------+
-; addresslsize   ; 2     ; Signed Integer                             ;
-; addresswsize   ; 2     ; Signed Integer                             ;
-+----------------+-------+--------------------------------------------+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |memory ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; bitSize        ; 64    ; Signed Integer                                ;
+; addressSize    ; 10    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: controlFSM:controlFSM0|counter:addressCounter ;
-+----------------+-------+-------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                              ;
-+----------------+-------+-------------------------------------------------------------------+
-; outputsize     ; 4     ; Signed Integer                                                    ;
-; max            ; 16    ; Signed Integer                                                    ;
-+----------------+-------+-------------------------------------------------------------------+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sram:sram00 ;
++-----------------+-------+--------------------------------+
+; Parameter Name  ; Value ; Type                           ;
++-----------------+-------+--------------------------------+
+; srambitsize     ; 32    ; Signed Integer                 ;
+; sramaddresssize ; 8     ; Signed Integer                 ;
++-----------------+-------+--------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: sram2d:sram2d0 ;
-+----------------+-------+------------------------------------+
-; Parameter Name ; Value ; Type                               ;
-+----------------+-------+------------------------------------+
-; bitsize        ; 8     ; Signed Integer                     ;
-; addresslsize   ; 2     ; Signed Integer                     ;
-; addresswsize   ; 2     ; Signed Integer                     ;
-+----------------+-------+------------------------------------+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sram:sram01 ;
++-----------------+-------+--------------------------------+
+; Parameter Name  ; Value ; Type                           ;
++-----------------+-------+--------------------------------+
+; srambitsize     ; 32    ; Signed Integer                 ;
+; sramaddresssize ; 8     ; Signed Integer                 ;
++-----------------+-------+--------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "sram2d:sram2d0"                                                                          ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; datain[7] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; datain[6] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; datain[5] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; datain[4] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; datain[3] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; datain[2] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; datain[1] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; datain[0] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; dataout   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sram:sram10 ;
++-----------------+-------+--------------------------------+
+; Parameter Name  ; Value ; Type                           ;
++-----------------+-------+--------------------------------+
+; srambitsize     ; 32    ; Signed Integer                 ;
+; sramaddresssize ; 8     ; Signed Integer                 ;
++-----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------+
-; Port Connectivity Checks: "controlFSM:controlFSM0|counter:addressCounter" ;
-+-----------+-------+----------+--------------------------------------------+
-; Port      ; Type  ; Severity ; Details                                    ;
-+-----------+-------+----------+--------------------------------------------+
-; i_countup ; Input ; Info     ; Stuck at VCC                               ;
-; i_rst     ; Input ; Info     ; Stuck at VCC                               ;
-+-----------+-------+----------+--------------------------------------------+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sram:sram11 ;
++-----------------+-------+--------------------------------+
+; Parameter Name  ; Value ; Type                           ;
++-----------------+-------+--------------------------------+
+; srambitsize     ; 32    ; Signed Integer                 ;
+; sramaddresssize ; 8     ; Signed Integer                 ;
++-----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "controlFSM:controlFSM0"                                                                   ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; xtea_start ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sram:sram20 ;
++-----------------+-------+--------------------------------+
+; Parameter Name  ; Value ; Type                           ;
++-----------------+-------+--------------------------------+
+; srambitsize     ; 32    ; Signed Integer                 ;
+; sramaddresssize ; 8     ; Signed Integer                 ;
++-----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sram:sram21 ;
++-----------------+-------+--------------------------------+
+; Parameter Name  ; Value ; Type                           ;
++-----------------+-------+--------------------------------+
+; srambitsize     ; 32    ; Signed Integer                 ;
+; sramaddresssize ; 8     ; Signed Integer                 ;
++-----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sram:sram30 ;
++-----------------+-------+--------------------------------+
+; Parameter Name  ; Value ; Type                           ;
++-----------------+-------+--------------------------------+
+; srambitsize     ; 32    ; Signed Integer                 ;
+; sramaddresssize ; 8     ; Signed Integer                 ;
++-----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sram:sram31 ;
++-----------------+-------+--------------------------------+
+; Parameter Name  ; Value ; Type                           ;
++-----------------+-------+--------------------------------+
+; srambitsize     ; 32    ; Signed Integer                 ;
+; sramaddresssize ; 8     ; Signed Integer                 ;
++-----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------+
@@ -332,83 +335,120 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Thu Nov 16 13:53:28 2023
+    Info: Processing started: Thu Nov 23 14:01:44 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off dummy_controller -c top
+Info: Found 2 design units, including 1 entities, in source file memory_top.vhd
+    Info: Found design unit 1: memory_top-behavioral
+    Info: Found entity 1: memory_top
+Info: Found 2 design units, including 1 entities, in source file memory.vhd
+    Info: Found design unit 1: memory-behavioral
+    Info: Found entity 1: memory
+Info: Found 2 design units, including 1 entities, in source file sram.vhd
+    Info: Found design unit 1: sram-behavioral
+    Info: Found entity 1: sram
+Info: Found 2 design units, including 1 entities, in source file xtea.vhd
+    Info: Found design unit 1: xtea-arc
+    Info: Found entity 1: xtea
 Info: Found 2 design units, including 1 entities, in source file controlfsm.vhd
     Info: Found design unit 1: controlFSM-behavioral
     Info: Found entity 1: controlFSM
 Info: Found 2 design units, including 1 entities, in source file counter.vhd
     Info: Found design unit 1: counter-behavioral
     Info: Found entity 1: counter
-Info: Found 2 design units, including 1 entities, in source file sram2d.vhd
-    Info: Found design unit 1: sram2d-behavioral
-    Info: Found entity 1: sram2d
 Info: Found 2 design units, including 1 entities, in source file top.vhd
     Info: Found design unit 1: top-behavioral
     Info: Found entity 1: top
-Info: Elaborating entity "top" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at top.vhd(23): object "r_xtea_start" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at top.vhd(25): object "dataOut" assigned a value but never read
-Info: Elaborating entity "controlFSM" for hierarchy "controlFSM:controlFSM0"
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(77): signal "current_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(83): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(91): signal "enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(91): signal "serial_running" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(100): signal "error_check" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(102): signal "serial_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(111): signal "serial_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(125): signal "memory" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(135): signal "xtea_done" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(135): signal "xtea_running" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at controlFSM.vhd(148): signal "memory" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "enable_read", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "enable_write", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "xtea_start", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "address_reset", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at controlFSM.vhd(81): inferring latch(es) for signal or variable "address_countup", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "address_countup" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "address_reset" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "xtea_start" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "enable_write" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "enable_read" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.send_to_serial" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.write_encrypted_data" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.encrypt_data" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.read_data" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.read_attributes" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.send_error" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.write_raw_data" at controlFSM.vhd(81)
-Info (10041): Inferred latch for "next_state.idle" at controlFSM.vhd(81)
-Info: Elaborating entity "counter" for hierarchy "controlFSM:controlFSM0|counter:addressCounter"
-Info: Elaborating entity "sram2d" for hierarchy "sram2d:sram2d0"
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "r_datablock" into its bus
-Info: 8 registers lost all their fanouts during netlist optimizations. The first 8 are displayed below.
-    Info: Register "controlFSM:controlFSM0|current_state.idle" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.write_raw_data" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.send_error" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.read_attributes" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.read_data" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.encrypt_data" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.write_encrypted_data" lost all its fanouts during netlist optimizations.
-    Info: Register "controlFSM:controlFSM0|current_state.send_to_serial" lost all its fanouts during netlist optimizations.
-Warning: Design contains 9 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk"
-    Warning (15610): No output dependent on input pin "enable"
-    Warning (15610): No output dependent on input pin "serial_running"
-    Warning (15610): No output dependent on input pin "memory"
-    Warning (15610): No output dependent on input pin "serial_done"
-    Warning (15610): No output dependent on input pin "xtea_running"
-    Warning (15610): No output dependent on input pin "xtea_done"
-    Warning (15610): No output dependent on input pin "nreset"
-    Warning (15610): No output dependent on input pin "error_check"
-Info: Implemented 9 device resources after synthesis - the final resource count might be different
-    Info: Implemented 9 input pins
-    Info: Implemented 0 output pins
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 29 warnings
-    Info: Peak virtual memory: 244 megabytes
-    Info: Processing ended: Thu Nov 16 13:53:31 2023
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+Info: Elaborating entity "memory" for the top level hierarchy
+Info: Elaborating entity "sram" for hierarchy "sram:sram00"
+Warning (10492): VHDL Process Statement warning at sram.vhd(42): signal "r_datablock" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at sram.vhd(42): signal "address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info: Found 8 instances of uninferred RAM logic
+    Info: RAM logic "sram:sram01|r_datablock" is uninferred due to asynchronous read logic
+    Info: RAM logic "sram:sram11|r_datablock" is uninferred due to asynchronous read logic
+    Info: RAM logic "sram:sram21|r_datablock" is uninferred due to asynchronous read logic
+    Info: RAM logic "sram:sram31|r_datablock" is uninferred due to asynchronous read logic
+    Info: RAM logic "sram:sram00|r_datablock" is uninferred due to asynchronous read logic
+    Info: RAM logic "sram:sram10|r_datablock" is uninferred due to asynchronous read logic
+    Info: RAM logic "sram:sram20|r_datablock" is uninferred due to asynchronous read logic
+    Info: RAM logic "sram:sram30|r_datablock" is uninferred due to asynchronous read logic
+Warning: Cannot convert all sets of registers into RAM megafunctions when creating nodes; therefore the resulting number of registers remaining in design can cause longer compilation time or result in insufficient memory to complete Analysis and Synthesis
+Warning: TRI or OPNDRN buffers permanently enabled
+    Warning: Node "sram:sram01|dataOut[0]~synth"
+    Warning: Node "sram:sram01|dataOut[1]~synth"
+    Warning: Node "sram:sram01|dataOut[2]~synth"
+    Warning: Node "sram:sram01|dataOut[3]~synth"
+    Warning: Node "sram:sram01|dataOut[4]~synth"
+    Warning: Node "sram:sram01|dataOut[5]~synth"
+    Warning: Node "sram:sram01|dataOut[6]~synth"
+    Warning: Node "sram:sram01|dataOut[7]~synth"
+    Warning: Node "sram:sram01|dataOut[8]~synth"
+    Warning: Node "sram:sram01|dataOut[9]~synth"
+    Warning: Node "sram:sram01|dataOut[10]~synth"
+    Warning: Node "sram:sram01|dataOut[11]~synth"
+    Warning: Node "sram:sram01|dataOut[12]~synth"
+    Warning: Node "sram:sram01|dataOut[13]~synth"
+    Warning: Node "sram:sram01|dataOut[14]~synth"
+    Warning: Node "sram:sram01|dataOut[15]~synth"
+    Warning: Node "sram:sram01|dataOut[16]~synth"
+    Warning: Node "sram:sram01|dataOut[17]~synth"
+    Warning: Node "sram:sram01|dataOut[18]~synth"
+    Warning: Node "sram:sram01|dataOut[19]~synth"
+    Warning: Node "sram:sram01|dataOut[20]~synth"
+    Warning: Node "sram:sram01|dataOut[21]~synth"
+    Warning: Node "sram:sram01|dataOut[22]~synth"
+    Warning: Node "sram:sram01|dataOut[23]~synth"
+    Warning: Node "sram:sram01|dataOut[24]~synth"
+    Warning: Node "sram:sram01|dataOut[25]~synth"
+    Warning: Node "sram:sram01|dataOut[26]~synth"
+    Warning: Node "sram:sram01|dataOut[27]~synth"
+    Warning: Node "sram:sram01|dataOut[28]~synth"
+    Warning: Node "sram:sram01|dataOut[29]~synth"
+    Warning: Node "sram:sram01|dataOut[30]~synth"
+    Warning: Node "sram:sram01|dataOut[31]~synth"
+    Warning: Node "sram:sram00|dataOut[0]~synth"
+    Warning: Node "sram:sram00|dataOut[1]~synth"
+    Warning: Node "sram:sram00|dataOut[2]~synth"
+    Warning: Node "sram:sram00|dataOut[3]~synth"
+    Warning: Node "sram:sram00|dataOut[4]~synth"
+    Warning: Node "sram:sram00|dataOut[5]~synth"
+    Warning: Node "sram:sram00|dataOut[6]~synth"
+    Warning: Node "sram:sram00|dataOut[7]~synth"
+    Warning: Node "sram:sram00|dataOut[8]~synth"
+    Warning: Node "sram:sram00|dataOut[9]~synth"
+    Warning: Node "sram:sram00|dataOut[10]~synth"
+    Warning: Node "sram:sram00|dataOut[11]~synth"
+    Warning: Node "sram:sram00|dataOut[12]~synth"
+    Warning: Node "sram:sram00|dataOut[13]~synth"
+    Warning: Node "sram:sram00|dataOut[14]~synth"
+    Warning: Node "sram:sram00|dataOut[15]~synth"
+    Warning: Node "sram:sram00|dataOut[16]~synth"
+    Warning: Node "sram:sram00|dataOut[17]~synth"
+    Warning: Node "sram:sram00|dataOut[18]~synth"
+    Warning: Node "sram:sram00|dataOut[19]~synth"
+    Warning: Node "sram:sram00|dataOut[20]~synth"
+    Warning: Node "sram:sram00|dataOut[21]~synth"
+    Warning: Node "sram:sram00|dataOut[22]~synth"
+    Warning: Node "sram:sram00|dataOut[23]~synth"
+    Warning: Node "sram:sram00|dataOut[24]~synth"
+    Warning: Node "sram:sram00|dataOut[25]~synth"
+    Warning: Node "sram:sram00|dataOut[26]~synth"
+    Warning: Node "sram:sram00|dataOut[27]~synth"
+    Warning: Node "sram:sram00|dataOut[28]~synth"
+    Warning: Node "sram:sram00|dataOut[29]~synth"
+    Warning: Node "sram:sram00|dataOut[30]~synth"
+    Warning: Node "sram:sram00|dataOut[31]~synth"
+Info: Timing-Driven Synthesis is running
+Warning: Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "rd"
+    Warning (15610): No output dependent on input pin "wrt"
+Info: Implemented 110381 device resources after synthesis - the final resource count might be different
+    Info: Implemented 77 input pins
+    Info: Implemented 64 output pins
+    Info: Implemented 110240 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 71 warnings
+    Info: Peak virtual memory: 526 megabytes
+    Info: Processing ended: Thu Nov 23 14:05:35 2023
+    Info: Elapsed time: 00:03:51
+    Info: Total CPU time (on all processors): 00:02:39
 
 

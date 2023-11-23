@@ -4,9 +4,9 @@ library ieee;
 
 entity top is
   generic (
-    bitSize      : integer := 64; -- Ukuran bit data tersimpan
-    addressLSize : integer := 2;  -- Ukuran address L = jumlah bit minimum untuk memuat L
-    addressWSize : integer := 2   -- Ukuran address W = jumlah bit minimum untuk memuat W
+    bitSize     : integer := 64; -- Ukuran bit data tersimpan
+    addressSize : integer := 8   -- Ukuran address L = jumlah bit minimum untuk memuat L
+    -- addressWSize : integer := 2   -- Ukuran address W = jumlah bit minimum untuk memuat W
   );
   port (enable         : in std_logic;
         nreset         : in std_logic;
@@ -35,7 +35,7 @@ architecture behavioral of top is
   signal r_address_countup       : std_logic;
   signal r_address_reset         : std_logic;
   signal r_address_to_attributes : std_logic;
-  signal r_address               : std_logic_vector(addressLSize + addressWSize - 1 downto 0);
+  signal r_address               : std_logic_vector(addressSize - 1 downto 0);
 
   -- xtea
   signal r_xtea_start : std_logic;
@@ -95,15 +95,14 @@ architecture behavioral of top is
 
   component sram2d is
     generic (
-      bitSize      : integer := bitSize;      -- Ukuran bit data tersimpan
-      addressLSize : integer := addressLSize; -- Ukuran address L = jumlah bit minimum untuk memuat L
-      addressWSize : integer := addressWSize  -- Ukuran address W = jumlah bit minimum untuk memuat W
+      bitSize     : integer := bitSize;    -- Ukuran bit data tersimpan
+      addressSize : integer := addressSize -- Ukuran address L = jumlah bit minimum untuk memuat L
     );
     port (
       clk     : in  std_logic;
       rd, wrt : in  std_logic;
       dataIn  : in  std_logic_vector(bitSize - 1 downto 0);
-      address : in  std_logic_vector(addressWSize + addressLSize - 1 downto 0); -- NOTE: Sementara pake one-hot karena bingung cara menentukan jumlah bit yang diperlukannya; ubah addressL, addressW, dan pembacaan address jika address sudah dalam biner biasa (lupa namanya apa)
+      address : in  std_logic_vector(addressSize - 1 downto 0); -- NOTE: Sementara pake one-hot karena bingung cara menentukan jumlah bit yang diperlukannya; ubah addressL, addressW, dan pembacaan address jika address sudah dalam biner biasa (lupa namanya apa)
 
       dataOut : out std_logic_vector(bitSize - 1 downto 0)
     );
@@ -111,8 +110,8 @@ architecture behavioral of top is
 
   component counter is
     generic (
-      outputSize : integer := addressLSize + addressWSize;
-      max        : integer := 2 **(addressLSize + addressWSize)
+      outputSize : integer := addressSize;
+      max        : integer := 2 **(addressSize)
     );
     port (
       i_clk               : in  std_logic;
@@ -173,9 +172,8 @@ begin
 
   sram2d0: sram2d
     generic map (
-      bitSize      => bitSize,
-      addressLSize => addressLSize,
-      addressWSize => addressWSize
+      bitSize     => bitSize,
+      addressSize => addressSize
     )
     port map (
       clk     => clk,
@@ -188,8 +186,8 @@ begin
 
   addressCounter: counter
     generic map (
-      outputSize => addressLSize + addressWSize,
-      max        => 2 **(addressLSize + addressWSize)
+      outputSize => addressSize,
+      max        => 2 **(addressSize)
     )
     port map (
       i_clk               => clk,
@@ -210,7 +208,7 @@ begin
       d_out_ready => r_xtea_done
     );
 
-  process (r_mux0, r_mux1, r_mux_sel)
+  process (r_mux_sel)
   begin
     if r_mux_sel = '0' then
       r_dataIn <= r_mux0;
@@ -219,7 +217,7 @@ begin
     end if;
   end process;
 
-  process (r_dataOut, r_demux_sel)
+  process (r_demux_sel)
   begin
     if r_demux_sel = "00" then
       r_demux0 <= r_dataOut;
