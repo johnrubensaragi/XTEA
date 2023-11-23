@@ -5,7 +5,7 @@ library ieee;
 entity top is
   generic (
     bitSize     : integer := 64; -- Ukuran bit data tersimpan
-    addressSize : integer := 8   -- Ukuran address L = jumlah bit minimum untuk memuat L
+    addressSize : integer := 10  -- Ukuran address L = jumlah bit minimum untuk memuat L
     -- addressWSize : integer := 2   -- Ukuran address W = jumlah bit minimum untuk memuat W
   );
   port (enable         : in std_logic;
@@ -93,10 +93,10 @@ architecture behavioral of top is
     );
   end component;
 
-  component sram2d is
+  component memory is
     generic (
-      bitSize     : integer := bitSize;    -- Ukuran bit data tersimpan
-      addressSize : integer := addressSize -- Ukuran address L = jumlah bit minimum untuk memuat L
+      bitSize     : integer := 64; -- Ukuran bit data tersimpan
+      addressSize : integer := 10  -- Ukuran address L = jumlah bit minimum untuk memuat L
     );
     port (
       clk     : in  std_logic;
@@ -170,7 +170,7 @@ begin
       dataOut_demux         => r_demux_sel
     );
 
-  sram2d0: sram2d
+  memory0: memory
     generic map (
       bitSize     => bitSize,
       addressSize => addressSize
