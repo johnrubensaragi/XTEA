@@ -1,30 +1,30 @@
 ------------------------------------------------------------
-Timing Analyzer Summary
+TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clock'
-Slack : -4.043
-TNS   : -167.446
+Slack : -4.346
+TNS   : -209.960
 
 Type  : Slow 1200mV 85C Model Setup 'controller_cstate.idle'
-Slack : -2.338
-TNS   : -6.583
+Slack : -2.173
+TNS   : -4.110
 
 Type  : Slow 1200mV 85C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out'
-Slack : -1.733
-TNS   : -4.448
+Slack : -1.691
+TNS   : -4.047
 
 Type  : Slow 1200mV 85C Model Hold 'controller_cstate.idle'
-Slack : -0.096
-TNS   : -0.096
-
-Type  : Slow 1200mV 85C Model Hold 'clock'
-Slack : 0.452
-TNS   : 0.000
+Slack : -1.352
+TNS   : -2.458
 
 Type  : Slow 1200mV 85C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out'
-Slack : 0.453
-TNS   : 0.000
+Slack : -0.343
+TNS   : -0.792
+
+Type  : Slow 1200mV 85C Model Hold 'clock'
+Slack : -0.246
+TNS   : -0.246
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
 Slack : -3.000
@@ -35,32 +35,32 @@ Slack : -1.487
 TNS   : -8.922
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'controller_cstate.idle'
-Slack : 0.415
+Slack : 0.422
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'clock'
-Slack : -3.762
-TNS   : -151.432
+Slack : -4.001
+TNS   : -190.701
 
 Type  : Slow 1200mV 0C Model Setup 'controller_cstate.idle'
-Slack : -2.323
-TNS   : -6.495
+Slack : -2.146
+TNS   : -3.967
 
 Type  : Slow 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out'
-Slack : -1.547
-TNS   : -3.741
+Slack : -1.580
+TNS   : -3.585
 
 Type  : Slow 1200mV 0C Model Hold 'controller_cstate.idle'
-Slack : -0.086
-TNS   : -0.086
+Slack : -1.188
+TNS   : -2.150
 
 Type  : Slow 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out'
-Slack : 0.401
-TNS   : 0.000
+Slack : -0.369
+TNS   : -0.956
 
 Type  : Slow 1200mV 0C Model Hold 'clock'
-Slack : 0.401
-TNS   : 0.000
+Slack : -0.224
+TNS   : -0.224
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
@@ -71,43 +71,43 @@ Slack : -1.487
 TNS   : -8.922
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'controller_cstate.idle'
-Slack : 0.395
+Slack : 0.330
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'clock'
-Slack : -1.143
-TNS   : -32.313
+Slack : -1.198
+TNS   : -48.587
 
 Type  : Fast 1200mV 0C Model Setup 'controller_cstate.idle'
-Slack : -0.638
-TNS   : -1.530
+Slack : -0.654
+TNS   : -1.081
 
 Type  : Fast 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out'
-Slack : -0.115
-TNS   : -0.119
+Slack : -0.135
+TNS   : -0.135
 
 Type  : Fast 1200mV 0C Model Hold 'controller_cstate.idle'
-Slack : 0.064
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out'
-Slack : 0.153
-TNS   : 0.000
+Slack : -0.547
+TNS   : -1.007
 
 Type  : Fast 1200mV 0C Model Hold 'clock'
-Slack : 0.186
-TNS   : 0.000
+Slack : -0.292
+TNS   : -0.292
+
+Type  : Fast 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out'
+Slack : -0.196
+TNS   : -0.664
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -79.540
+TNS   : -79.232
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|ClockDiv:clockdiv_inst|div_out'
 Slack : -1.000
 TNS   : -6.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'controller_cstate.idle'
-Slack : 0.382
+Slack : 0.322
 TNS   : 0.000
 
 ------------------------------------------------------------
