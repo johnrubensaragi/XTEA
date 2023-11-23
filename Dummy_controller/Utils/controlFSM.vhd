@@ -38,7 +38,7 @@ entity controlFSM is
 end entity;
 
 architecture behavioral of controlFSM is
-  type states is (Idle, WriteRawData, SendError, ReadKey0, ReadKey1, ReadMode, ReadData, StartEncrypt, Encrypt, WriteEncrypted, SendToSerial);
+  type states is (Idle, WriteRawData, SendError, PrepareRead, ReadKey0, ReadKey1, ReadMode, ReadData, StartEncrypt, Encrypt, WriteEncrypted, SendToSerial);
   signal current_state, next_state : states;
 
 begin
@@ -83,7 +83,7 @@ begin
           if (error_check = '1') then
             next_state <= SendError;
           elsif (serial_done = '1') then
-            next_state <= ReadKey0;
+            next_state <= PrepareRead;
           else
             next_state <= WriteRawData;
           end if;
@@ -102,7 +102,18 @@ begin
             next_state <= SendError;
           end if;
 
-        when ReadKey0 =>
+        when PrepareRead => -- masukkan key0 ke dataOut
+          enable_read <= '1';
+          enable_write <= '0';
+          xtea_start <= '0';
+          address_countup <= '1';
+          address_reset <= '0';
+          address_to_attributes <= '0';
+          dataIn_mux <= '0';
+          dataOut_demux <= "00";
+          next_state <= ReadKey0;
+
+        when ReadKey0 => -- key0 sudah di dataOut, masukkan ke register key xtea sambil masukkan key1 ke dataOut
           enable_read <= '1';
           enable_write <= '0';
           xtea_start <= '0';
@@ -113,7 +124,7 @@ begin
           dataOut_demux <= "00";
           next_state <= ReadKey1;
 
-        when ReadKey1 =>
+        when ReadKey1 => -- key1 sudah di dataOut, masukkan ke register key xtea sambil masukkan mode ke dataOut
           enable_read <= '1';
           enable_write <= '0';
           xtea_start <= '0';
@@ -124,11 +135,11 @@ begin
           dataOut_demux <= "01";
           next_state <= ReadMode;
 
-        when ReadMode =>
+        when ReadMode => -- mode sudah di dataOut, masukkan ke register mode xtea sambil masukkan data ke dataOut
           enable_read <= '1';
           enable_write <= '0';
           xtea_start <= '0';
-          address_countup <= '1';
+          address_countup <= '0';
           address_reset <= '0';
           address_to_attributes <= '0';
           dataIn_mux <= '0';
@@ -139,7 +150,7 @@ begin
           enable_read <= '1';
           enable_write <= '0';
           xtea_start <= '0';
-          address_countup <= '1';
+          address_countup <= '0';
           address_reset <= '0';
           address_to_attributes <= '0';
           dataIn_mux <= '0';
@@ -179,13 +190,12 @@ begin
           enable_read <= '0';
           enable_write <= '1';
           xtea_start <= '0';
-          address_countup <= '0';
+          address_countup <= '1';
           address_reset <= '0';
           address_to_attributes <= '0';
           dataIn_mux <= '1';
           dataOut_demux <= "11";
           next_state <= ReadData;
-          address_countup <= '1';
 
         when SendToSerial =>
           enable_read <= '1';

@@ -54,6 +54,7 @@ architecture behavioral of top is
   signal r_demux0    : std_logic_vector(bitSize - 1 downto 0); -- ke key1
   signal r_demux1    : std_logic_vector(bitSize - 1 downto 0); -- ke key2
   signal r_demux2    : std_logic_vector(bitSize - 1 downto 0); -- ke mode
+  signal r_demux3    : std_logic_vector(bitSize - 1 downto 0); -- ke d_in
   signal r_demux_sel : std_logic_vector(1 downto 0);
 
   signal r_key : std_logic_vector(2 * bitSize - 1 downto 0);
@@ -200,7 +201,7 @@ begin
   xtea0: xtea
     port map (
       d_in_ready  => r_xtea_start,
-      d_in        => r_dataOut,
+      d_in        => r_demux3,
       key         => r_key,
       clk         => clk,
       mode        => r_mode,
@@ -208,7 +209,7 @@ begin
       d_out_ready => r_xtea_done
     );
 
-  process (r_mux_sel)
+  dataIn_mux: process (r_mux_sel, r_mux0, r_mux1)
   begin
     if r_mux_sel = '0' then
       r_dataIn <= r_mux0;
@@ -217,17 +218,61 @@ begin
     end if;
   end process;
 
-  process (r_demux_sel)
+  dataOut_demux: process (clk) -- SALAH, harusnya atribut yang mau masuk ke xtea disimpan dulu di register
   begin
-    if r_demux_sel = "00" then
-      r_demux0 <= r_dataOut;
-    elsif r_demux_sel = "01" then
-      r_demux1 <= r_dataOut;
-    elsif r_demux_sel = "10" then
-      r_demux2 <= r_dataOut;
+    if rising_edge(clk) then
+      if r_demux_sel = "00" then
+        r_demux0 <= r_dataOut;
+        r_demux1 <= r_demux1;
+        r_demux2 <= r_demux2;
+        r_demux3 <= r_demux3;
+      elsif r_demux_sel = "01" then
+        r_demux0 <= r_demux0;
+        r_demux1 <= r_dataOut;
+        r_demux2 <= r_demux2;
+        r_demux3 <= r_demux3;
+      elsif r_demux_sel = "10" then
+        r_demux0 <= r_demux0;
+        r_demux1 <= r_demux1;
+        r_demux2 <= r_dataOut;
+        r_demux3 <= r_demux3;
+      elsif r_demux_sel = "11" then
+        r_demux0 <= r_demux0;
+        r_demux1 <= r_demux1;
+        r_demux2 <= r_demux2;
+        r_demux3 <= r_dataOut;
+      else
+        null;
+      end if;
     end if;
   end process;
 
+  -- dataOut_demux: process (r_demux_sel, r_dataOut) -- SALAH, harusnya atribut yang mau masuk ke xtea disimpan dulu di register
+  -- begin
+  --   if r_demux_sel = "00" then
+  --     r_demux0 <= r_dataOut;
+  --     r_demux1 <= (others => '0');
+  --     r_demux2 <= (others => '0');
+  --     r_demux3 <= (others => '0');
+  --   elsif r_demux_sel = "01" then
+  --     r_demux0 <= (others => '0');
+  --     r_demux1 <= r_dataOut;
+  --     r_demux2 <= (others => '0');
+  --     r_demux3 <= (others => '0');
+  --   elsif r_demux_sel = "10" then
+  --     r_demux0 <= (others => '0');
+  --     r_demux1 <= (others => '0');
+  --     r_demux2 <= r_dataOut;
+  --     r_demux3 <= (others => '0');
+  --   elsif r_demux_sel = "11" then
+  --     r_demux0 <= (others => '0');
+  --     r_demux1 <= (others => '0');
+  --     r_demux2 <= (others => '0');
+  --     r_demux3 <= r_dataOut;
+  --   else
+  --     null;
+  --   end if;
+  -- end process;
   r_key <= r_demux0 & r_demux1;
 
 end architecture;

@@ -13,7 +13,7 @@ architecture behavioral of demux is
 
 begin
 
-  process (sel)
+  process (sel, muxIn)
   begin
     case sel is
       when "00" =>
