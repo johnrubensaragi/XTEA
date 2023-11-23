@@ -1,0 +1,205 @@
+Quartus II
+Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+12
+1084
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+top
+# storage
+db|top.(0).cnf
+db|top.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+top.vhd
+6581cd17b2e7e17e6e301c4cb04a839b
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+sram2d
+# storage
+db|top.(3).cnf
+db|top.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+sram2d.vhd
+76e05664c42a6522864fc8dc98fb209c
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+bitsize
+8
+PARAMETER_SIGNED_DEC
+USR
+addresslsize
+2
+PARAMETER_SIGNED_DEC
+USR
+addresswsize
+2
+PARAMETER_SIGNED_DEC
+USR
+ constraint(datain)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(address)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(dataout)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+sram2d:sram2d0
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+counter
+# storage
+db|top.(2).cnf
+db|top.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+counter.vhd
+534b5a36f571ed9feef417e0aa7fc967
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+outputsize
+4
+PARAMETER_SIGNED_DEC
+USR
+max
+16
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+controlFSM:controlFSM0|counter:addressCounter
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+controlFSM
+# storage
+db|top.(1).cnf
+db|top.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+controlfsm.vhd
+58447aba338a7222bd2e9d30fbde387e
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+addresslsize
+2
+PARAMETER_SIGNED_DEC
+USR
+addresswsize
+2
+PARAMETER_SIGNED_DEC
+USR
+ constraint(address)
+3 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+controlFSM:controlFSM0
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# complete
+

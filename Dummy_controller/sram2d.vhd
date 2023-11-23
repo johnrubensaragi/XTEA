@@ -4,9 +4,9 @@ library ieee;
 
 entity sram2d is
   generic (
-    bitSize      : integer := 8; -- Ukuran bit data tersimpan
-    addressLSize : integer := 5; -- Ukuran address L = jumlah bit minimum untuk memuat L
-    addressWSize : integer := 5  -- Ukuran address W = jumlah bit minimum untuk memuat W
+    bitSize      : integer := 64; -- Ukuran bit data tersimpan
+    addressLSize : integer := 2;  -- Ukuran address L = jumlah bit minimum untuk memuat L
+    addressWSize : integer := 2   -- Ukuran address W = jumlah bit minimum untuk memuat W
   );
   port (
     clk     : in  std_logic;
@@ -23,32 +23,26 @@ architecture behavioral of sram2d is
   constant W : integer := 2 ** addressWSize;
 
   type t_datablocks is array (0 to L - 1, 0 to W - 1) of std_logic_vector(bitSize - 1 downto 0);
-  signal r_datablock : t_datablocks;
+  signal r_datablock : t_datablocks := (others =>(others =>(others => '1'))); -- inisiasi key dan mode sementara di sini dulu
   alias addressL is address(addressWSize + addressLSize - 1 downto addressWSize); -- Koordinat address sepanjang L
   alias addressW is address(addressWSize - 1 downto 0);                           -- Koordinat address sepanjang W
 
 begin
   process (clk)
   begin
-    if rising_edge(clk) then
-
-      -- for i in 0 to L - 1 loop
-      --   for j in 0 to W - 1 loop
-      --     if rd = '1' and i = unsigned(addressL) and j = unsigned(addressW) then -- Baca ke address
-      --       dataOut <= r_datablock(i, j);
-      --     end if;
-      --     if wrt = '1' and i = unsigned(addressL) and j = unsigned(addressW) then -- Tulis ke address
-      --       r_datablock(i, j) <= dataIn;
-      --     end if;
-      --   end loop;
-      -- end loop;
-      if rd = '1' then
-        dataOut <= r_datablock(conv_integer(unsigned(addressL)), conv_integer(unsigned(addressW)));
-      end if;
-      if wrt = '1' then
-        r_datablock(conv_integer(unsigned(addressL)), conv_integer(unsigned(addressW))) <= dataIn;
-      end if;
+    if rising_edge(clk) and wrt = '1' then
+      -- if wrt = '1' then
+      r_datablock(conv_integer(unsigned(addressL)), conv_integer(unsigned(addressW))) <= dataIn;
     end if;
+  end process;
+
+  process (rd, address)
+  begin
+    if rd = '1' then
+      dataOut <= r_datablock(conv_integer(unsigned(addressL)), conv_integer(unsigned(addressW)));
+      -- end if;
+    end if;
+
   end process;
 
 end architecture;
