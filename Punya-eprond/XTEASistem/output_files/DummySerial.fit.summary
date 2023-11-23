@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Nov 22 17:29:01 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : DummySerial
+Top-level Entity Name : DummyTopLevel
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 3,194 / 6,272 ( 51 % )
+    Total combinational functions : 2,592 / 6,272 ( 41 % )
+    Dedicated logic registers : 1,656 / 6,272 ( 26 % )
+Total registers : 1656
+Total pins : 16 / 92 ( 17 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )
