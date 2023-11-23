@@ -1,6 +1,11 @@
 Flow report for DummySerial
+<<<<<<< HEAD
 Tue Nov 21 14:36:26 2023
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+=======
+Wed Nov 22 17:29:21 2023
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+>>>>>>> 4b73ff87388f0b5a174df57c853981d9660713fe
 
 
 ---------------------
@@ -35,6 +40,7 @@ applicable agreement for further details.
 
 
 
+<<<<<<< HEAD
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +------------------------------------+----------------------------------------------+
@@ -56,6 +62,28 @@ applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                               ;
 ; Total PLLs                         ; 0 / 2 ( 0 % )                                ;
 +------------------------------------+----------------------------------------------+
+=======
++-------------------------------------------------------------------------------------+
+; Flow Summary                                                                        ;
++------------------------------------+------------------------------------------------+
+; Flow Status                        ; Successful - Wed Nov 22 17:29:21 2023          ;
+; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Revision Name                      ; DummySerial                                    ;
+; Top-level Entity Name              ; DummyTopLevel                                  ;
+; Family                             ; Cyclone IV E                                   ;
+; Device                             ; EP4CE6E22C8                                    ;
+; Timing Models                      ; Final                                          ;
+; Total logic elements               ; 3,194 / 6,272 ( 51 % )                         ;
+;     Total combinational functions  ; 2,592 / 6,272 ( 41 % )                         ;
+;     Dedicated logic registers      ; 1,656 / 6,272 ( 26 % )                         ;
+; Total registers                    ; 1656                                           ;
+; Total pins                         ; 16 / 92 ( 17 % )                               ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0 / 276,480 ( 0 % )                            ;
+; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                                 ;
+; Total PLLs                         ; 0 / 2 ( 0 % )                                  ;
++------------------------------------+------------------------------------------------+
+>>>>>>> 4b73ff87388f0b5a174df57c853981d9660713fe
 
 
 +-----------------------------------------+
@@ -63,12 +91,17 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
+<<<<<<< HEAD
 ; Start date & time ; 11/21/2023 14:36:07 ;
+=======
+; Start date & time ; 11/22/2023 17:27:40 ;
+>>>>>>> 4b73ff87388f0b5a174df57c853981d9660713fe
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DummySerial         ;
 +-------------------+---------------------+
 
 
+<<<<<<< HEAD
 +-----------------------------------------------------------------------------------------------------------------------------------------+
 ; Flow Non-Default Global Settings                                                                                                        ;
 +-------------------------------------+---------------------------------+---------------+-------------+-----------------------------------+
@@ -100,6 +133,46 @@ applicable agreement for further details.
 ; Assembler                 ; 00:00:02     ; 1.0                     ; 227 MB              ; 00:00:00                           ;
 ; Total                     ; 00:00:17     ; --                      ; --                  ; 00:00:09                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+=======
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                 ;
++-------------------------------------+----------------------------------------+---------------+---------------+-----------------------------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name   ; Section Id                        ;
++-------------------------------------+----------------------------------------+---------------+---------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID               ; 1096959182856.170064886011440          ; --            ; --            ; --                                ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --            ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --            ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --            ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --            ; eda_board_design_symbol           ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --            ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                 ; Questa Intel FPGA (Verilog)            ; <None>        ; --            ; --                                ;
+; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --            ; eda_simulation                    ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --            ; --                                ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --            ; --                                ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --            ; --                                ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DummyTopLevel ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; DummyTopLevel ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; DummyTopLevel ; Top                               ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --            ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --            ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --            ; --                                ;
+; TOP_LEVEL_ENTITY                    ; DummyTopLevel                          ; DummySerial   ; --            ; --                                ;
++-------------------------------------+----------------------------------------+---------------+---------------+-----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:29     ; 1.0                     ; 4909 MB             ; 00:00:27                           ;
+; Fitter               ; 00:00:50     ; 1.3                     ; 6165 MB             ; 00:00:43                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4710 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:10     ; 1.4                     ; 4903 MB             ; 00:00:05                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4661 MB             ; 00:00:01                           ;
+; Total                ; 00:01:33     ; --                      ; --                  ; 00:01:17                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+>>>>>>> 4b73ff87388f0b5a174df57c853981d9660713fe
 
 
 +--------------------------------------------------------------------------------------------+

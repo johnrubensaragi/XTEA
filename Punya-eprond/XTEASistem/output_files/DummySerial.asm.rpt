@@ -1,6 +1,11 @@
 Assembler report for DummySerial
+<<<<<<< HEAD
 Tue Nov 21 14:36:24 2023
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+=======
+Wed Nov 22 17:29:06 2023
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+>>>>>>> 4b73ff87388f0b5a174df57c853981d9660713fe
 
 
 ---------------------
@@ -37,9 +42,13 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
+<<<<<<< HEAD
 ; Assembler Status      ; Successful - Tue Nov 21 14:36:24 2023 ;
+=======
+; Assembler Status      ; Successful - Wed Nov 22 17:29:06 2023 ;
+>>>>>>> 4b73ff87388f0b5a174df57c853981d9660713fe
 ; Revision Name         ; DummySerial                           ;
-; Top-level Entity Name ; DummySerial                           ;
+; Top-level Entity Name ; DummyTopLevel                         ;
 ; Family                ; Cyclone IV E                          ;
 ; Device                ; EP4CE6E22C8                           ;
 +-----------------------+---------------------------------------+
@@ -86,6 +95,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------------------------+
 
 
+<<<<<<< HEAD
 +-----------------------------------------------------------------------------------------------------------------------------------------------+
 ; Assembler Device Options: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem/output_files/DummySerial.sof ;
 +----------------+------------------------------------------------------------------------------------------------------------------------------+
@@ -95,12 +105,23 @@ applicable agreement for further details.
 ; JTAG usercode  ; 0xFFFFFFFF                                                                                                                   ;
 ; Checksum       ; 0x000A1F2B                                                                                                                   ;
 +----------------+------------------------------------------------------------------------------------------------------------------------------+
+=======
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem/output_files/DummySerial.sof ;
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                                                      ;
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x002B147F                                                                                                                                                   ;
+; Checksum       ; 0x002B147F                                                                                                                                                   ;
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+>>>>>>> 4b73ff87388f0b5a174df57c853981d9660713fe
 
 
 +--------------------+
 ; Assembler Messages ;
 +--------------------+
 Info: *******************************************************************
+<<<<<<< HEAD
 Info: Running Quartus II Assembler
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
     Info: Processing started: Tue Nov 21 14:36:22 2023
@@ -112,5 +133,19 @@ Info: Quartus II Assembler was successful. 0 errors, 0 warnings
     Info: Processing ended: Tue Nov 21 14:36:24 2023
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:00
+=======
+Info: Running Quartus Prime Assembler
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+    Info: Processing started: Wed Nov 22 17:29:04 2023
+Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off XTEASistem -c DummySerial
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (115031): Writing out detailed assembly data for power analysis
+Info (115030): Assembler is generating device programming files
+Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4711 megabytes
+    Info: Processing ended: Wed Nov 22 17:29:06 2023
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+>>>>>>> 4b73ff87388f0b5a174df57c853981d9660713fe
 
 
