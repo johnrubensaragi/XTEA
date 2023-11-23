@@ -67,30 +67,30 @@ begin
             sender_data_out <= (others => '0');
         elsif sender_clock'event and sender_clock = '1' then
             case c_state is
-                when idle =>
-                    if (sender_start = '1') then
-                        n_state <= sending;
-                    end if;
-                    sender_done <= '0';
-                when sending =>
-                    pulse_enable <= '1';
-                    pulse_reset <= not pulse_reset;
-                    data_counter <= data_counter + 1;
-                    case data_counter is
-                        when "000" => sender_data_out <= sender_data_in(63 downto 56);
-                        when "001" => sender_data_out <= sender_data_in(55 downto 48);
-                        when "010" => sender_data_out <= sender_data_in(47 downto 40);
-                        when "011" => sender_data_out <= sender_data_in(39 downto 32);
-                        when "100" => sender_data_out <= sender_data_in(31 downto 24);
-                        when "101" => sender_data_out <= sender_data_in(23 downto 16);
-                        when "110" => sender_data_out <= sender_data_in(15 downto 8);
-                        when "111" =>
-                            sender_data_out <= sender_data_in(7 downto 0);
-                            sender_done <= '1';
-                            n_state <= idle;
-                        when others =>
-                    end case;
-                when others => n_state <= idle;
+            when idle =>
+                if (sender_start = '1') then
+                    n_state <= sending;
+                end if;
+                sender_done <= '0';
+            when sending =>
+                pulse_enable <= '1';
+                pulse_reset <= not pulse_reset;
+                data_counter <= data_counter + 1;
+                case data_counter is
+                    when "000" => sender_data_out <= sender_data_in(63 downto 56);
+                    when "001" => sender_data_out <= sender_data_in(55 downto 48);
+                    when "010" => sender_data_out <= sender_data_in(47 downto 40);
+                    when "011" => sender_data_out <= sender_data_in(39 downto 32);
+                    when "100" => sender_data_out <= sender_data_in(31 downto 24);
+                    when "101" => sender_data_out <= sender_data_in(23 downto 16);
+                    when "110" => sender_data_out <= sender_data_in(15 downto 8);
+                    when "111" =>
+                        sender_data_out <= sender_data_in(7 downto 0);
+                        sender_done <= '1';
+                        n_state <= idle;
+                    when others =>
+                end case;
+            when others => n_state <= idle;
             end case;
         end if;
     end process sender_fsm;

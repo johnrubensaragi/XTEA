@@ -147,12 +147,12 @@ begin
                     when read_mode => -- read input mode
                         if (reader_data_in = "00110000") then -- ASCII "0"
                             reader_address_out <= temp_address;
-                            reader_data_out <= empty_data(63 downto 8) & reader_data_in;
+                            reader_data_out <= empty_data((data_length-1) downto 8) & reader_data_in;
                             done_mode <= '1';
                             n_state <= start;
                         elsif (reader_data_in = "00110001") then -- ASCII "1"
                             reader_address_out <= temp_address;
-                            reader_data_out <= empty_data(63 downto 8) & reader_data_in;
+                            reader_data_out <= empty_data((data_length-1) downto 8) & reader_data_in;
                             done_mode <= '1';
                             n_state <= start;            
                         else -- Send error if wrong format
