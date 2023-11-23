@@ -26,56 +26,70 @@ end entity;
 architecture behavioral of top is
 
   -- memory
-  signal r_enable_read  : std_logic;
-  signal r_enable_write : std_logic;
-  signal r_address      : std_logic_vector(addressLSize + addressWSize - 1 downto 0);
   signal r_dataIn       : std_logic_vector(bitSize - 1 downto 0);
   signal r_dataOut      : std_logic_vector(bitSize - 1 downto 0);
-  signal r_mux0         : std_logic_vector(bitSize - 1 downto 0); -- dari serial
-  signal r_mux1         : std_logic_vector(bitSize - 1 downto 0); -- dari memory
-  signal r_mux_sel      : std_logic;
-  signal r_demux0       : std_logic_vector(bitSize - 1 downto 0); -- ke key1
-  signal r_demux1       : std_logic_vector(bitSize - 1 downto 0); -- ke key2
-  signal r_demux2       : std_logic_vector(bitSize - 1 downto 0); -- ke mode
-  signal r_demux_sel    : std_logic_vector(1 downto 0);
+  signal r_enable_read  : std_logic;
+  signal r_enable_write : std_logic;
+
+  -- address
+  signal r_address_countup       : std_logic;
+  signal r_address_reset         : std_logic;
+  signal r_address_to_attributes : std_logic;
+  signal r_address               : std_logic_vector(addressLSize + addressWSize - 1 downto 0);
+
+  -- xtea
+  signal r_xtea_start : std_logic;
+  signal r_xtea_done  : std_logic;
+
+  -- serial
+  -- BELOM SABAR, sementara pake input dulu
+  signal r_serial_running : std_logic;
+  signal r_serial_done    : std_logic;
+  signal r_error_check    : std_logic;
+
+  -- mux
+  signal r_mux0      : std_logic_vector(bitSize - 1 downto 0); -- dari serial
+  signal r_mux1      : std_logic_vector(bitSize - 1 downto 0); -- dari memory
+  signal r_mux_sel   : std_logic;
+  signal r_demux0    : std_logic_vector(bitSize - 1 downto 0); -- ke key1
+  signal r_demux1    : std_logic_vector(bitSize - 1 downto 0); -- ke key2
+  signal r_demux2    : std_logic_vector(bitSize - 1 downto 0); -- ke mode
+  signal r_demux_sel : std_logic_vector(1 downto 0);
 
   signal r_key : std_logic_vector(2 * bitSize - 1 downto 0);
   alias r_mode is r_demux2(0);
 
-  -- xtea
-  signal r_xtea_start : std_logic;
-  -- signal mode         : std_logic; --0 jika enc, 1 jika dec
-  signal r_xtea_done : std_logic; -- xtea_done
-
   component controlFSM is
     generic (
-      bitSize      : integer := 8;
-      AddressLSize : integer := 2;
-      AddressWSize : integer := 2
+      bitSize : integer := 8
     );
     port (
-      enable         : in  std_logic;
-      nreset         : in  std_logic;
-      clk            : in  std_logic;
+      enable                : in  std_logic;
+      nreset                : in  std_logic;
+      clk                   : in  std_logic;
 
-      -- control input signals
-      serial_running : in  std_logic;
-      serial_done    : in  std_logic;
-      error_check    : in  std_logic;
-      xtea_done      : in  std_logic;
+      -- memory controls
+      memory                : in  std_logic_vector(bitSize - 1 downto 0);
+      enable_read           : out std_logic;
+      enable_write          : out std_logic;
 
-      -- data input signals
-      memory         : in  std_logic_vector(bitSize - 1 downto 0); -- dummy memory, untuk ngetes behavior ketika blok memory terisi atau kosong
+      -- address controls
+      address_countup       : out std_logic;
+      address_reset         : out std_logic;
+      address_to_attributes : out std_logic;
 
-      -- control output signals
-      enable_read    : out std_logic;
-      enable_write   : out std_logic;
-      xtea_start     : out std_logic;
-      dataIn_mux     : out std_logic;
-      dataOut_demux  : out std_logic_vector(1 downto 0);
+      -- xtea controls
+      xtea_done             : in  std_logic;
+      xtea_start            : out std_logic;
 
-      -- data output signals
-      address        : out std_logic_vector(AddressLSize + AddressWSize - 1 downto 0)
+      -- serial controls
+      serial_running        : in  std_logic;
+      serial_done           : in  std_logic;
+      error_check           : in  std_logic;
+
+      -- mux controls
+      dataIn_mux            : out std_logic;
+      dataOut_demux         : out std_logic_vector(1 downto 0)
     );
   end component;
 
@@ -95,6 +109,21 @@ architecture behavioral of top is
     );
   end component;
 
+  component counter is
+    generic (
+      outputSize : integer := addressLSize + addressWSize;
+      max        : integer := 2 **(addressLSize + addressWSize)
+    );
+    port (
+      i_clk               : in  std_logic;
+      i_countup           : in  std_logic;
+      i_rst               : in  std_logic;
+      i_rst_to_attributes : in  std_logic;
+
+      o_count             : out std_logic_vector(outputSize - 1 downto 0)
+    );
+  end component;
+
   component xtea is
     port (
       d_in_ready  : in  std_logic;                      -- xtea_start
@@ -111,25 +140,35 @@ begin
 
   controlFSM0: controlFSM
     generic map (
-      bitSize      => bitSize,
-      addressLSize => addressLSize,
-      addressWSize => addressWSize
+      bitSize => bitSize
     )
     port map (
-      enable         => enable,
-      nreset         => nreset,
-      clk            => clk,
-      serial_running => serial_running,
-      serial_done    => serial_done,
-      error_check    => error_check,
-      xtea_done      => r_xtea_done,
-      memory         => r_dataOut,
-      enable_read    => r_enable_read,
-      enable_write   => r_enable_write,
-      xtea_start     => r_xtea_start,
-      dataIn_mux     => r_mux_sel,
-      dataOut_demux  => r_demux_sel,
-      address        => r_address
+      enable                => enable,
+      nreset                => nreset,
+      clk                   => clk,
+
+      -- memory controls
+      memory                => r_dataOut,
+      enable_read           => r_enable_read,
+      enable_write          => r_enable_write,
+
+      -- address controls
+      address_countup       => r_address_countup,
+      address_reset         => r_address_reset,
+      address_to_attributes => r_address_to_attributes,
+
+      -- xtea controls
+      xtea_done             => r_xtea_done,
+      xtea_start            => r_xtea_start,
+
+      -- serial controls
+      serial_running        => serial_running,
+      serial_done           => serial_done,
+      error_check           => error_check,
+
+      -- mux controls
+      dataIn_mux            => r_mux_sel,
+      dataOut_demux         => r_demux_sel
     );
 
   sram2d0: sram2d
@@ -145,6 +184,19 @@ begin
       dataIn  => r_dataIn,
       address => r_address,
       dataOut => r_dataOut
+    );
+
+  addressCounter: counter
+    generic map (
+      outputSize => addressLSize + addressWSize,
+      max        => 2 **(addressLSize + addressWSize)
+    )
+    port map (
+      i_clk               => clk,
+      i_countup           => r_address_countup,
+      i_rst               => r_address_reset,
+      i_rst_to_attributes => r_address_to_attributes,
+      o_count             => r_address
     );
 
   xtea0: xtea

@@ -30,7 +30,7 @@ begin
         count <= 3; -- initial data address
         o_count <= std_logic_vector(to_unsigned(3, outputSize));
       elsif (i_rst_to_attributes = '1') then
-        count <= 0; -- initial data address
+        count <= 0; -- initial attribute address
         o_count <= std_logic_vector(to_unsigned(0, outputSize));
       else
         count <= count;
