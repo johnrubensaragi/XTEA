@@ -1,0 +1,49 @@
+
+State Machine - |DummyTopLevel|controller_nstate
+Name controller_nstate.sending_results controller_nstate.reading_results controller_nstate.storing_xtea controller_nstate.processing_xtea controller_nstate.starting_xtea controller_nstate.setup_xtea3 controller_nstate.setup_xtea2 controller_nstate.setup_xtea1 controller_nstate.sending_error controller_nstate.reading_serial controller_nstate.idle 
+controller_nstate.idle 0 0 0 0 0 0 0 0 0 0 0 
+controller_nstate.reading_serial 0 0 0 0 0 0 0 0 0 1 1 
+controller_nstate.sending_error 0 0 0 0 0 0 0 0 1 0 1 
+controller_nstate.setup_xtea1 0 0 0 0 0 0 0 1 0 0 1 
+controller_nstate.setup_xtea2 0 0 0 0 0 0 1 0 0 0 1 
+controller_nstate.setup_xtea3 0 0 0 0 0 1 0 0 0 0 1 
+controller_nstate.starting_xtea 0 0 0 0 1 0 0 0 0 0 1 
+controller_nstate.processing_xtea 0 0 0 1 0 0 0 0 0 0 1 
+controller_nstate.storing_xtea 0 0 1 0 0 0 0 0 0 0 1 
+controller_nstate.reading_results 0 1 0 0 0 0 0 0 0 0 1 
+controller_nstate.sending_results 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DummyTopLevel|controller_cstate
+Name controller_cstate.sending_results controller_cstate.reading_results controller_cstate.storing_xtea controller_cstate.processing_xtea controller_cstate.starting_xtea controller_cstate.setup_xtea3 controller_cstate.setup_xtea2 controller_cstate.setup_xtea1 controller_cstate.sending_error controller_cstate.reading_serial controller_cstate.idle 
+controller_cstate.idle 0 0 0 0 0 0 0 0 0 0 0 
+controller_cstate.reading_serial 0 0 0 0 0 0 0 0 0 1 1 
+controller_cstate.sending_error 0 0 0 0 0 0 0 0 1 0 1 
+controller_cstate.setup_xtea1 0 0 0 0 0 0 0 1 0 0 1 
+controller_cstate.setup_xtea2 0 0 0 0 0 0 1 0 0 0 1 
+controller_cstate.setup_xtea3 0 0 0 0 0 1 0 0 0 0 1 
+controller_cstate.starting_xtea 0 0 0 0 1 0 0 0 0 0 1 
+controller_cstate.processing_xtea 0 0 0 1 0 0 0 0 0 0 1 
+controller_cstate.storing_xtea 0 0 1 0 0 0 0 0 0 0 1 
+controller_cstate.reading_results 0 1 0 0 0 0 0 0 0 0 1 
+controller_cstate.sending_results 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DummyTopLevel|XTEA:xteablock_inst|xtea_cstate
+Name xtea_cstate.change_v1 xtea_cstate.change_sum xtea_cstate.change_v0 xtea_cstate.start xtea_cstate.idle 
+xtea_cstate.idle 0 0 0 0 0 
+xtea_cstate.start 0 0 0 1 1 
+xtea_cstate.change_v0 0 0 1 0 1 
+xtea_cstate.change_sum 0 1 0 0 1 
+xtea_cstate.change_v1 1 0 0 0 1 
+
+State Machine - |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state
+Name c_state.read_data c_state.read_startdata c_state.read_key c_state.read_mode c_state.read_whitedata c_state.read_whitekey c_state.read_whitemode c_state.read_kw c_state.start c_state.idle 
+c_state.idle 0 0 0 0 0 0 0 0 0 0 
+c_state.start 0 0 0 0 0 0 0 0 1 1 
+c_state.read_kw 0 0 0 0 0 0 0 1 0 1 
+c_state.read_whitemode 0 0 0 0 0 0 1 0 0 1 
+c_state.read_whitekey 0 0 0 0 0 1 0 0 0 1 
+c_state.read_whitedata 0 0 0 0 1 0 0 0 0 1 
+c_state.read_mode 0 0 0 1 0 0 0 0 0 1 
+c_state.read_key 0 0 1 0 0 0 0 0 0 1 
+c_state.read_startdata 0 1 0 0 0 0 0 0 0 1 
+c_state.read_data 1 0 0 0 0 0 0 0 0 1 

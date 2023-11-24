@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE6E22C8
-set_global_assignment -name TOP_LEVEL_ENTITY MemoryBlock
+set_global_assignment -name TOP_LEVEL_ENTITY DummyTopLevel
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 22.1STD.2
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:13:45  NOVEMBER 22, 2023"
 set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.2 Lite Edition"
@@ -58,10 +58,21 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VHDL_FILE XTEA.vhd
+set_global_assignment -name VHDL_FILE speed_select.vhd
+set_global_assignment -name VHDL_FILE SerialSender.vhd
+set_global_assignment -name VHDL_FILE SerialReader.vhd
+set_global_assignment -name VHDL_FILE SerialBlock.vhd
+set_global_assignment -name VHDL_FILE PulseGenerator.vhd
+set_global_assignment -name VHDL_FILE my_uart_tx.vhd
+set_global_assignment -name VHDL_FILE my_uart_top.vhd
+set_global_assignment -name VHDL_FILE my_uart_rx.vhd
+set_global_assignment -name VHDL_FILE DummyTopLevel.vhd
+set_global_assignment -name VHDL_FILE ClockDiv.vhd
+set_global_assignment -name VHDL_FILE ClockCounter.vhd
 set_global_assignment -name VHDL_FILE MUX4Data.vhd
 set_global_assignment -name VHDL_FILE MUX2Data.vhd
 set_global_assignment -name VHDL_FILE MemoryBlock.vhd
-set_global_assignment -name VHDL_FILE DummyTopLevel.vhd
 set_global_assignment -name VHDL_FILE SRAM.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top

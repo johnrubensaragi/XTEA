@@ -64,7 +64,7 @@ begin
     sram_address <= memory_address(7 downto 0); -- only use the last 8 bit address for the actual ram address
     
     -- use previous row selector to select which row to write to
-    row_wenable_mux : MUX4Data generic map(4) port map(row_selector, "0001", "0010", "0100", "1000", row_enable);
+    row_enable_mux : MUX4Data generic map(4) port map(row_selector, "0001", "0010", "0100", "1000", row_enable);
     enable_row0 <= row_enable(0) and enable_write;
     enable_row1 <= row_enable(1) and enable_write;
     enable_row2 <= row_enable(2) and enable_write;
