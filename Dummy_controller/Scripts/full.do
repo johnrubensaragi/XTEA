@@ -12,6 +12,10 @@ vsim work.top
 #add wave -r sim:/top/*
 add wave -position insertpoint  \
 sim:/top/controlFSM0/current_state
+add wave -position insertpoint  \
+sim:/top/controlFSM0/next_state
+add wave -position insertpoint  \
+sim:/top/controlFSM0/memory
 add wave sim:/top/*
 add wave sim:/top/xtea0/*
 add wave -position insertpoint  \

@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="top">
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram01|altsyncram:r_datablock_rtl_4" CBX_FILE_NAME="altsyncram_r7m1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram11|altsyncram:r_datablock_rtl_5" CBX_FILE_NAME="altsyncram_r7m1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram21|altsyncram:r_datablock_rtl_6" CBX_FILE_NAME="altsyncram_r7m1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram31|altsyncram:r_datablock_rtl_7" CBX_FILE_NAME="altsyncram_r7m1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram00|altsyncram:r_datablock_rtl_0" CBX_FILE_NAME="altsyncram_r7m1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram10|altsyncram:r_datablock_rtl_1" CBX_FILE_NAME="altsyncram_r7m1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram20|altsyncram:r_datablock_rtl_2" CBX_FILE_NAME="altsyncram_r7m1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram30|altsyncram:r_datablock_rtl_3" CBX_FILE_NAME="altsyncram_r7m1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram01|altsyncram:r_datablock_rtl_4" CBX_FILE_NAME="altsyncram_h4j1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram11|altsyncram:r_datablock_rtl_5" CBX_FILE_NAME="altsyncram_h4j1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram21|altsyncram:r_datablock_rtl_6" CBX_FILE_NAME="altsyncram_h4j1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram31|altsyncram:r_datablock_rtl_7" CBX_FILE_NAME="altsyncram_h4j1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram00|altsyncram:r_datablock_rtl_0" CBX_FILE_NAME="altsyncram_h4j1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram10|altsyncram:r_datablock_rtl_1" CBX_FILE_NAME="altsyncram_h4j1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram20|altsyncram:r_datablock_rtl_2" CBX_FILE_NAME="altsyncram_h4j1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|memory:memory0|sram:sram30|altsyncram:r_datablock_rtl_3" CBX_FILE_NAME="altsyncram_h4j1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

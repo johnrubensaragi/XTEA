@@ -21,7 +21,7 @@ architecture behavioral of sram is
   constant L : integer := 2 ** sramAddressSize;
 
   type t_datablocks is array (0 to L - 1) of std_logic_vector(sramBitSize - 1 downto 0);
-  signal r_datablock : t_datablocks := (others =>(others => '1')); -- inisiasi key dan mode sementara di sini dulu
+  signal r_datablock : t_datablocks := (others =>(others => '0')); -- inisiasi key dan mode sementara di sini dulu
 
 begin
 
