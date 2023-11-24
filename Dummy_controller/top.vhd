@@ -4,9 +4,9 @@ library ieee;
 
 entity top is
   generic (
-    bitSize      : integer := 64; -- Ukuran bit data tersimpan
-    addressLSize : integer := 2;  -- Ukuran address L = jumlah bit minimum untuk memuat L
-    addressWSize : integer := 2   -- Ukuran address W = jumlah bit minimum untuk memuat W
+    bitSize     : integer := 64; -- Ukuran bit data tersimpan
+    addressSize : integer := 10  -- Ukuran address L = jumlah bit minimum untuk memuat L
+    -- addressWSize : integer := 2   -- Ukuran address W = jumlah bit minimum untuk memuat W
   );
   port (enable         : in std_logic;
         nreset         : in std_logic;
@@ -35,7 +35,7 @@ architecture behavioral of top is
   signal r_address_countup       : std_logic;
   signal r_address_reset         : std_logic;
   signal r_address_to_attributes : std_logic;
-  signal r_address               : std_logic_vector(addressLSize + addressWSize - 1 downto 0);
+  signal r_address               : std_logic_vector(addressSize - 1 downto 0);
 
   -- xtea
   signal r_xtea_start : std_logic;
@@ -54,6 +54,7 @@ architecture behavioral of top is
   signal r_demux0    : std_logic_vector(bitSize - 1 downto 0); -- ke key1
   signal r_demux1    : std_logic_vector(bitSize - 1 downto 0); -- ke key2
   signal r_demux2    : std_logic_vector(bitSize - 1 downto 0); -- ke mode
+  signal r_demux3    : std_logic_vector(bitSize - 1 downto 0); -- ke d_in
   signal r_demux_sel : std_logic_vector(1 downto 0);
 
   signal r_key : std_logic_vector(2 * bitSize - 1 downto 0);
@@ -93,17 +94,16 @@ architecture behavioral of top is
     );
   end component;
 
-  component sram2d is
+  component memory is
     generic (
-      bitSize      : integer := bitSize;      -- Ukuran bit data tersimpan
-      addressLSize : integer := addressLSize; -- Ukuran address L = jumlah bit minimum untuk memuat L
-      addressWSize : integer := addressWSize  -- Ukuran address W = jumlah bit minimum untuk memuat W
+      bitSize     : integer := 64; -- Ukuran bit data tersimpan
+      addressSize : integer := 10  -- Ukuran address L = jumlah bit minimum untuk memuat L
     );
     port (
       clk     : in  std_logic;
       rd, wrt : in  std_logic;
       dataIn  : in  std_logic_vector(bitSize - 1 downto 0);
-      address : in  std_logic_vector(addressWSize + addressLSize - 1 downto 0); -- NOTE: Sementara pake one-hot karena bingung cara menentukan jumlah bit yang diperlukannya; ubah addressL, addressW, dan pembacaan address jika address sudah dalam biner biasa (lupa namanya apa)
+      address : in  std_logic_vector(addressSize - 1 downto 0); -- NOTE: Sementara pake one-hot karena bingung cara menentukan jumlah bit yang diperlukannya; ubah addressL, addressW, dan pembacaan address jika address sudah dalam biner biasa (lupa namanya apa)
 
       dataOut : out std_logic_vector(bitSize - 1 downto 0)
     );
@@ -111,8 +111,8 @@ architecture behavioral of top is
 
   component counter is
     generic (
-      outputSize : integer := addressLSize + addressWSize;
-      max        : integer := 2 **(addressLSize + addressWSize)
+      outputSize : integer := addressSize;
+      max        : integer := 2 **(addressSize)
     );
     port (
       i_clk               : in  std_logic;
@@ -171,11 +171,10 @@ begin
       dataOut_demux         => r_demux_sel
     );
 
-  sram2d0: sram2d
+  memory0: memory
     generic map (
-      bitSize      => bitSize,
-      addressLSize => addressLSize,
-      addressWSize => addressWSize
+      bitSize     => bitSize,
+      addressSize => addressSize
     )
     port map (
       clk     => clk,
@@ -188,8 +187,8 @@ begin
 
   addressCounter: counter
     generic map (
-      outputSize => addressLSize + addressWSize,
-      max        => 2 **(addressLSize + addressWSize)
+      outputSize => addressSize,
+      max        => 2 **(addressSize)
     )
     port map (
       i_clk               => clk,
@@ -202,7 +201,7 @@ begin
   xtea0: xtea
     port map (
       d_in_ready  => r_xtea_start,
-      d_in        => r_dataOut,
+      d_in        => r_demux3,
       key         => r_key,
       clk         => clk,
       mode        => r_mode,
@@ -210,7 +209,7 @@ begin
       d_out_ready => r_xtea_done
     );
 
-  process (r_mux0, r_mux1, r_mux_sel)
+  dataIn_mux: process (r_mux_sel, r_mux0, r_mux1)
   begin
     if r_mux_sel = '0' then
       r_dataIn <= r_mux0;
@@ -219,17 +218,61 @@ begin
     end if;
   end process;
 
-  process (r_dataOut, r_demux_sel)
+  dataOut_demux: process (clk) -- SALAH, harusnya atribut yang mau masuk ke xtea disimpan dulu di register
   begin
-    if r_demux_sel = "00" then
-      r_demux0 <= r_dataOut;
-    elsif r_demux_sel = "01" then
-      r_demux1 <= r_dataOut;
-    elsif r_demux_sel = "10" then
-      r_demux2 <= r_dataOut;
+    if rising_edge(clk) then
+      if r_demux_sel = "00" then
+        r_demux0 <= r_dataOut;
+        r_demux1 <= r_demux1;
+        r_demux2 <= r_demux2;
+        r_demux3 <= r_demux3;
+      elsif r_demux_sel = "01" then
+        r_demux0 <= r_demux0;
+        r_demux1 <= r_dataOut;
+        r_demux2 <= r_demux2;
+        r_demux3 <= r_demux3;
+      elsif r_demux_sel = "10" then
+        r_demux0 <= r_demux0;
+        r_demux1 <= r_demux1;
+        r_demux2 <= r_dataOut;
+        r_demux3 <= r_demux3;
+      elsif r_demux_sel = "11" then
+        r_demux0 <= r_demux0;
+        r_demux1 <= r_demux1;
+        r_demux2 <= r_demux2;
+        r_demux3 <= r_dataOut;
+      else
+        null;
+      end if;
     end if;
   end process;
 
+  -- dataOut_demux: process (r_demux_sel, r_dataOut) -- SALAH, harusnya atribut yang mau masuk ke xtea disimpan dulu di register
+  -- begin
+  --   if r_demux_sel = "00" then
+  --     r_demux0 <= r_dataOut;
+  --     r_demux1 <= (others => '0');
+  --     r_demux2 <= (others => '0');
+  --     r_demux3 <= (others => '0');
+  --   elsif r_demux_sel = "01" then
+  --     r_demux0 <= (others => '0');
+  --     r_demux1 <= r_dataOut;
+  --     r_demux2 <= (others => '0');
+  --     r_demux3 <= (others => '0');
+  --   elsif r_demux_sel = "10" then
+  --     r_demux0 <= (others => '0');
+  --     r_demux1 <= (others => '0');
+  --     r_demux2 <= r_dataOut;
+  --     r_demux3 <= (others => '0');
+  --   elsif r_demux_sel = "11" then
+  --     r_demux0 <= (others => '0');
+  --     r_demux1 <= (others => '0');
+  --     r_demux2 <= (others => '0');
+  --     r_demux3 <= r_dataOut;
+  --   else
+  --     null;
+  --   end if;
+  -- end process;
   r_key <= r_demux0 & r_demux1;
 
 end architecture;

@@ -6,14 +6,15 @@ s.s0 0 1 1
 s.s1 1 0 1 
 
 State Machine - |top|controlFSM:controlFSM0|current_state
-Name current_state.send_to_serial current_state.write_encrypted_data current_state.encrypt_data current_state.read_data current_state.read_mode current_state.read_key1 current_state.read_key0 current_state.send_error current_state.write_raw_data current_state.idle 
-current_state.idle 0 0 0 0 0 0 0 0 0 0 
-current_state.write_raw_data 0 0 0 0 0 0 0 0 1 1 
-current_state.send_error 0 0 0 0 0 0 0 1 0 1 
-current_state.read_key0 0 0 0 0 0 0 1 0 0 1 
-current_state.read_key1 0 0 0 0 0 1 0 0 0 1 
-current_state.read_mode 0 0 0 0 1 0 0 0 0 1 
-current_state.read_data 0 0 0 1 0 0 0 0 0 1 
-current_state.encrypt_data 0 0 1 0 0 0 0 0 0 1 
-current_state.write_encrypted_data 0 1 0 0 0 0 0 0 0 1 
-current_state.send_to_serial 1 0 0 0 0 0 0 0 0 1 
+Name current_state.SendToSerial current_state.WriteEncrypted current_state.Encrypt current_state.StartEncrypt current_state.ReadData current_state.ReadMode current_state.ReadKey1 current_state.ReadKey0 current_state.SendError current_state.WriteRawData current_state.Idle 
+current_state.Idle 0 0 0 0 0 0 0 0 0 0 0 
+current_state.WriteRawData 0 0 0 0 0 0 0 0 0 1 1 
+current_state.SendError 0 0 0 0 0 0 0 0 1 0 1 
+current_state.ReadKey0 0 0 0 0 0 0 0 1 0 0 1 
+current_state.ReadKey1 0 0 0 0 0 0 1 0 0 0 1 
+current_state.ReadMode 0 0 0 0 0 1 0 0 0 0 1 
+current_state.ReadData 0 0 0 0 1 0 0 0 0 0 1 
+current_state.StartEncrypt 0 0 0 1 0 0 0 0 0 0 1 
+current_state.Encrypt 0 0 1 0 0 0 0 0 0 0 1 
+current_state.WriteEncrypted 0 1 0 0 0 0 0 0 0 0 1 
+current_state.SendToSerial 1 0 0 0 0 0 0 0 0 0 1 
