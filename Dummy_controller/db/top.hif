@@ -2735,57 +2735,6 @@ address_a0
 
 # end
 # entity
-controlFSM
-# storage
-db|top.(4).cnf
-db|top.(4).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-utils|controlfsm.vhd
-268913d133fd725dc50b050d39b58dd
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-bitsize
-64
-PARAMETER_SIGNED_DEC
-USR
- constraint(memory)
-63 downto 0
-PARAMETER_STRING
-USR
- constraint(store_datatype)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(datatype)
-1 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-controlFSM:controlFSM0
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
 sram
 # storage
 db|top.(6).cnf
@@ -3119,6 +3068,417 @@ db|dummy_controller.ram0_sram_4e0128d8.hdl.mif
 
 # end
 # entity
+SerialBlock
+# storage
+db|top.(15).cnf
+db|top.(15).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|serialblock.vhd
+2a9723d77ff3acc49987abbd02fa5f7
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+64
+PARAMETER_SIGNED_DEC
+USR
+address_length
+10
+PARAMETER_SIGNED_DEC
+USR
+ constraint(error_out)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(send_data)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(store_data)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(store_datatype)
+1 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+SerialReader
+# storage
+db|top.(16).cnf
+db|top.(16).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|serialreader.vhd
+f5e0dd3c9ee9f1e21acdff9c10c17de0
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+64
+PARAMETER_SIGNED_DEC
+USR
+address_length
+10
+PARAMETER_SIGNED_DEC
+USR
+ constraint(error_out)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(reader_data_in)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(reader_data_out)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(reader_data_type)
+1 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialReader:serialreader_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+SerialSender
+# storage
+db|top.(18).cnf
+db|top.(18).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|serialsender.vhd
+a4e4158a28665657bd6fd7af6749b825
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+64
+PARAMETER_SIGNED_DEC
+USR
+address_length
+10
+PARAMETER_SIGNED_DEC
+USR
+ constraint(sender_data_in)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(sender_data_out)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+PulseGenerator
+# storage
+db|top.(19).cnf
+db|top.(19).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|pulsegenerator.vhd
+e3941993fa757825cda3e840eff356a
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+pulse_width
+10
+PARAMETER_SIGNED_DEC
+USR
+pulse_max
+16
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst
+SerialBlock:serialblock_inst|PulseGenerator:checkoutpulse_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+my_uart_top
+# storage
+db|top.(20).cnf
+db|top.(20).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|my_uart_top.vhd
+14962665ca656450ab8e31f714244a38
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(send_data)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(receive_data)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+speed_select
+# storage
+db|top.(21).cnf
+db|top.(21).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|speed_select.vhd
+82c4bb04ffd93db49b80ca40bcfa4b
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx
+SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_tx
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+my_uart_rx
+# storage
+db|top.(22).cnf
+db|top.(22).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|my_uart_rx.vhd
+8498f93126b9e12f597aaee45b6e755
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(rx_data)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+my_uart_tx
+# storage
+db|top.(23).cnf
+db|top.(23).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|my_uart_tx.vhd
+d1dec454465bbc812b70be53243fb6
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(tx_data)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+ClockDiv
+# storage
+db|top.(24).cnf
+db|top.(24).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|clockdiv.vhd
+ce9815014a3b3987953559bcb461cf
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+div_frequency
+19200
+PARAMETER_SIGNED_DEC
+USR
+clock_frequency
+50000000
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
 top
 # storage
 db|top.(0).cnf
@@ -3130,7 +3490,7 @@ ON
 # case_insensitive
 # source_file
 top.vhd
-e42f3a1cd5c5854bb1721550f31da83e
+1f56ee198efdf585a8959a17112bcd8
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -3154,6 +3514,61 @@ DEF
 }
 # hierarchies {
 |
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+controlFSM
+# storage
+db|top.(4).cnf
+db|top.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+utils|controlfsm.vhd
+8f83648bdcdf2d1c488a4454ee4fbe48
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+bitsize
+64
+PARAMETER_SIGNED_DEC
+USR
+ constraint(memory)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(error_check)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(store_datatype)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(datatype)
+1 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+controlFSM:controlFSM0
 }
 # lmf
 |altera|91sp2|quartus|lmf|maxplus2.lmf

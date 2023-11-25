@@ -29,7 +29,7 @@ entity controlFSM is
     -- serial controls
     serial_running        : in  std_logic;
     serial_done           : in  std_logic;
-    error_check           : in  std_logic;
+    error_check           : in  std_logic_vector(1 downto 0);
     store_datatype        : in  std_logic_vector(1 downto 0);
     store_checkout        : in  std_logic;
 
@@ -47,14 +47,14 @@ architecture behavioral of controlFSM is
 begin
   process (clk, nreset)
   begin
-    if nreset = '1' then
+    if nreset = '0' then
       current_state <= idle;
     elsif clk'event and clk = '1' then
       current_state <= next_state;
     end if;
   end process;
 
-  process (current_state, enable, serial_running, store_datatype, store_checkout, error_check, serial_done, memory, xtea_done) -- Hybrid FSM (address controls are Mealy-typed, the rest is Moore-typed)
+  process (current_state, enable, serial_running, serial_done, store_datatype, store_checkout, error_check, serial_done, memory, xtea_done) -- Hybrid FSM (address controls are Mealy-typed, the rest is Moore-typed)
   begin
 
     case current_state is
@@ -84,7 +84,7 @@ begin
         address_to_attributes <= '0';
         dataIn_mux <= '0';
         address_sel <= '0';
-        if (error_check = '1') then
+        if (error_check = "01" or error_check = "10") then
           next_state <= SendError;
         elsif store_datatype = "00" or store_datatype = "01" or store_datatype = "10" then
           next_state <= ReceiveAttributes;
@@ -103,17 +103,31 @@ begin
         dataIn_mux <= '0';
         dataType <= "00";
         address_sel <= '0';
-        if (error_check = '1') then
+        if (error_check = "01" or error_check = "10") then
           next_state <= SendError;
-        elsif (serial_running = '0') and (store_checkout = '0') then
+          address_countup <= '0';
+          address_reset <= '0';
+          address_to_attributes <= '0';
+        elsif (serial_done = '1') and (store_checkout = '0') then
           next_state <= PrepareRead;
+          address_countup <= '0';
+          address_reset <= '0';
           address_to_attributes <= '1';
         elsif store_datatype = "00" or store_datatype = "01" or store_datatype = "10" then
           next_state <= ReceiveAttributes;
+          address_countup <= '0';
+          address_reset <= '1';
+          address_to_attributes <= '0';
         elsif store_datatype = "11" then
           next_state <= ReceiveFirstData;
+          address_countup <= '0';
+          address_reset <= '0';
+          address_to_attributes <= '0';
         else
           next_state <= ReceiveAttributes;
+          address_countup <= '0';
+          address_reset <= '0';
+          address_to_attributes <= '0';
         end if;
 
       when ReceiveFirstData =>
@@ -123,25 +137,31 @@ begin
         dataIn_mux <= '0';
         dataType <= "00";
         address_sel <= '0';
-        if (error_check = '1') then
+        if (error_check = "01" or error_check = "10") then
           next_state <= SendError;
           address_countup <= '0';
           address_reset <= '0';
-        elsif (serial_running = '0') and (store_checkout = '0') then
+          address_to_attributes <= '0';
+        elsif (serial_done = '1') and (store_checkout = '0') then
           next_state <= PrepareRead;
+          address_countup <= '0';
+          address_reset <= '0';
           address_to_attributes <= '1';
         elsif store_datatype = "00" or store_datatype = "01" or store_datatype = "10" then
           next_state <= ReceiveAttributes;
           address_countup <= '0';
           address_reset <= '1';
+          address_to_attributes <= '0';
         elsif store_checkout = '1' then
           next_state <= ReceiveWriteData;
           address_countup <= '0';
           address_reset <= '0';
+          address_to_attributes <= '0';
         else
           next_state <= ReceiveData;
           address_countup <= '0';
           address_reset <= '0';
+          address_to_attributes <= '0';
         end if;
 
       when ReceiveData =>
@@ -151,25 +171,31 @@ begin
         dataIn_mux <= '0';
         dataType <= "00";
         address_sel <= '0';
-        if (error_check = '1') then
+        if (error_check = "01" or error_check = "10") then
           next_state <= SendError;
           address_countup <= '0';
           address_reset <= '0';
-        elsif (serial_running = '0') and (store_checkout = '0') then
+          address_to_attributes <= '0';
+        elsif (serial_done = '1') and (store_checkout = '0') then
           next_state <= PrepareRead;
+          address_countup <= '0';
+          address_reset <= '0';
           address_to_attributes <= '1';
         elsif store_datatype = "00" or store_datatype = "01" or store_datatype = "10" then
           next_state <= ReceiveAttributes;
           address_countup <= '0';
           address_reset <= '0';
+          address_to_attributes <= '0';
         elsif store_checkout = '1' then
           next_state <= ReceiveWriteData;
           address_countup <= '1';
           address_reset <= '0';
+          address_to_attributes <= '0';
         else
           next_state <= ReceiveData;
           address_countup <= '0';
           address_reset <= '0';
+          address_to_attributes <= '0';
         end if;
 
       when ReceiveWriteData =>
@@ -181,25 +207,31 @@ begin
         dataIn_mux <= '0';
         dataType <= "00";
         address_sel <= '0';
-        if (error_check = '1') then
+        if (error_check = "01" or error_check = "10") then
           next_state <= SendError;
           address_countup <= '0';
           address_reset <= '0';
-        elsif (serial_running = '0') and (store_checkout = '0') then
+          address_to_attributes <= '0';
+        elsif (serial_done = '1') and (store_checkout = '0') then
           next_state <= PrepareRead;
+          address_countup <= '0';
+          address_reset <= '0';
           address_to_attributes <= '1';
         elsif store_datatype = "00" or store_datatype = "01" or store_datatype = "10" then
           next_state <= ReceiveAttributes;
           address_countup <= '0';
           address_reset <= '1';
+          address_to_attributes <= '0';
         elsif store_checkout = '0' then
           next_state <= ReceiveData;
           address_countup <= '0';
           address_reset <= '0';
+          address_to_attributes <= '0';
         else
           next_state <= ReceiveWriteData;
           address_countup <= '0';
           address_reset <= '0';
+          address_to_attributes <= '0';
         end if;
 
       when SendError =>

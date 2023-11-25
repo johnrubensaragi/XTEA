@@ -8,19 +8,24 @@ entity top is
     addressSize : integer := 10  -- Ukuran address L = jumlah bit minimum untuk memuat L
     -- addressWSize : integer := 2   -- Ukuran address W = jumlah bit minimum untuk memuat W
   );
-  port (enable         : in std_logic;
-        nreset         : in std_logic;
-        clk            : in std_logic;
+  port (enable   : in  std_logic;
+        clk      : in  std_logic;
+        nreset   : in  std_logic;
 
-        -- control input signals
-        serial_running : in std_logic;
-        serial_done    : in std_logic;
-        error_check    : in std_logic;
-        store_datatype : in std_logic_vector(1 downto 0);
-        store_checkout : in std_logic;
-
-        -- input data
-        serial_output  : in std_logic_vector(bitSize - 1 downto 0)
+        -- dari DummyTopLevel.vhd
+        rs232_rx : in  std_logic;
+        rs232_tx : out std_logic;
+        keys     : in  std_logic_vector(3 downto 0);
+        switch   : in  std_logic_vector(3 downto 0);
+        leds     : out std_logic_vector(3 downto 0)
+          -- -- control input signals
+          -- serial_running : in  std_logic;
+          -- serial_done    : in  std_logic;
+          -- error_check    : in  std_logic;
+          -- store_datatype : in  std_logic_vector(1 downto 0);
+          -- store_checkout : in  std_logic;
+          -- -- input data
+          -- serial_output  : in  std_logic_vector(bitSize - 1 downto 0)
        );
 
 end entity;
@@ -46,10 +51,16 @@ architecture behavioral of top is
   signal r_xtea_done  : std_logic;
 
   -- serial
-  -- BELOM SABAR, sementara pake input dulu
-  signal r_serial_running : std_logic;
-  signal r_serial_done    : std_logic;
-  signal r_error_check    : std_logic;
+  signal r_serial_running        : std_logic;
+  signal r_serial_read_done      : std_logic;
+  signal r_serial_send_done      : std_logic;
+  signal r_serial_send_start     : std_logic;
+  signal r_error_check           : std_logic_vector(1 downto 0);
+  signal r_send_data             : std_logic_vector((bitSize - 1) downto 0);
+  signal r_store_data            : std_logic_vector((bitSize - 1) downto 0);
+  signal r_store_datatype        : std_logic_vector(1 downto 0);
+  signal r_store_checkout        : std_logic;
+  signal r_store_checkout_buffer : std_logic;
 
   -- mux
   signal r_mux0           : std_logic_vector(bitSize - 1 downto 0); -- dari serial
@@ -91,7 +102,7 @@ architecture behavioral of top is
       -- serial controls
       serial_running        : in  std_logic;
       serial_done           : in  std_logic;
-      error_check           : in  std_logic;
+      error_check           : in  std_logic_vector(1 downto 0);
       store_datatype        : in  std_logic_vector(1 downto 0);
       store_checkout        : in  std_logic;
 
@@ -144,6 +155,25 @@ architecture behavioral of top is
     );
   end component;
 
+  component SerialBlock is
+    generic (data_length, address_length : natural);
+    port (
+      clock          : in  std_logic;
+      nreset         : in  std_logic;
+      serial_running : out std_logic;
+      read_done      : out std_logic;
+      send_done      : out std_logic;
+      send_start     : in  std_logic;
+      error_out      : out std_logic_vector(1 downto 0);
+      send_data      : in  std_logic_vector((data_length - 1) downto 0);
+      store_data     : out std_logic_vector((data_length - 1) downto 0);
+      store_datatype : out std_logic_vector(1 downto 0);
+      store_checkout : out std_logic;
+      rs232_rx       : in  std_logic;
+      rs232_tx       : out std_logic
+    );
+  end component;
+
 begin
 
   controlFSM0: controlFSM
@@ -170,11 +200,11 @@ begin
       xtea_start            => r_xtea_start,
 
       -- serial controls
-      serial_running        => serial_running,
-      serial_done           => serial_done,
-      error_check           => error_check,
-      store_datatype        => store_datatype,
-      store_checkout        => store_checkout,
+      serial_running        => r_serial_running,
+      serial_done           => r_serial_read_done,
+      error_check           => r_error_check,
+      store_datatype        => r_store_datatype,
+      store_checkout        => r_store_checkout,
 
       -- mux controls
       dataIn_mux            => r_dataIn_mux_sel,
@@ -220,7 +250,28 @@ begin
       d_out_ready => r_xtea_done
     );
 
-  dataIn_mux: process (r_dataIn_mux_sel, r_mux0, r_mux1)
+  serialblock_inst: SerialBlock
+    generic map (
+      data_length    => bitSize,
+      address_length => addressSize
+    )
+    port map (
+      clock          => clk,
+      nreset         => nreset,
+      serial_running => r_serial_running,
+      read_done      => r_serial_read_done,
+      send_done      => r_serial_send_done,
+      send_start     => r_serial_send_start,
+      error_out      => r_error_check,
+      send_data      => r_send_data,
+      store_data     => r_store_data,
+      store_datatype => r_store_datatype,
+      store_checkout => r_store_checkout_buffer,
+      rs232_rx       => rs232_rx,
+      rs232_tx       => rs232_tx
+    );
+
+  dataIn_mux: process (r_dataIn_mux_sel, r_mux0, r_mux1) -- dataIn mux
   begin
     if r_dataIn_mux_sel = '0' then
       r_dataIn <= r_mux0;
@@ -263,9 +314,9 @@ begin
     end if;
   end process;
 
-  serial_address_LUT: process (store_datatype, r_address_from_counter)
+  serial_address_LUT: process (r_store_datatype, r_address_from_counter) -- address LUT
   begin
-    case store_datatype is
+    case r_store_datatype is
       when "00" =>
         r_address_from_serial <= "0000000000";
       when "01" =>
@@ -277,7 +328,7 @@ begin
     end case;
   end process;
 
-  address_sel: process (r_address_sel, r_address_from_serial, r_address_from_counter)
+  address_sel: process (r_address_sel, r_address_from_serial, r_address_from_counter) -- address selector
   begin
     if r_address_sel = '0' then
       r_address <= r_address_from_serial;
@@ -286,8 +337,15 @@ begin
     end if;
   end process;
 
+  serial_store_checkout_buffer: process (clk) -- delays store_checkout by 1 clock
+  begin
+    if rising_edge(clk) then
+      r_store_checkout <= r_store_checkout_buffer;
+    end if;
+  end process;
+
   r_key  <= r_demux0 & r_demux1;
-  r_mux0 <= serial_output;
+  r_mux0 <= r_store_data;
 
 end architecture;
 
