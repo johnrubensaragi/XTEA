@@ -183,7 +183,7 @@ begin
 
   error_out            <= internal_error;
   checkout_pulse_reset <= reader_data_checkout;
-  store_checkout       <= checkout_pulse when reader_done = '0';
+  store_checkout       <= checkout_pulse when reader_done = '0' else '0';
 
   checkout_pulse_checker: process (clock)
   begin

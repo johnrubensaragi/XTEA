@@ -83,6 +83,7 @@ begin
         address_reset <= '1';
         address_to_attributes <= '0';
         dataIn_mux <= '0';
+        dataType <= "00";
         address_sel <= '0';
         if (error_check = "01" or error_check = "10") then
           next_state <= SendError;
