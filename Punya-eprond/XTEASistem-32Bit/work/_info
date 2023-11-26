@@ -9,6 +9,7 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit
+<<<<<<< HEAD
 Eaddresscounter
 Z1 w1700922724
 Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
@@ -994,3 +995,5 @@ R11
 R12
 !i113 1
 R13
+=======
+>>>>>>> a71cbb3ee4ddb58454ed8f1187a6a186f1d7ebf5
