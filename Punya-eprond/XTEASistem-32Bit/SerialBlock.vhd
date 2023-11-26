@@ -160,8 +160,8 @@ begin
 
     checkoutpulse_inst: PulseGenerator
     generic map (
-      pulse_width => 10,
-      pulse_max   => 16
+      pulse_width => 5,
+      pulse_max   => 8
     )
     port map (
       clock        => clock,

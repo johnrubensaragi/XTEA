@@ -28,6 +28,7 @@ architecture behavioral of SerialReader is
     signal temp_type : std_logic_vector(1 downto 0) := "00";
     signal temp_checkout : std_logic := '0';
     signal done_mode, done_key, done_data : std_logic := '0';
+    signal done_8bit : std_logic := '0';
     signal counter : std_logic_vector(3 downto 0) := "0000";
 
 begin
@@ -51,6 +52,8 @@ begin
     reader_fsm : process(reader_trigger, nreset)
         constant default_key : std_logic_vector(127 downto 0) := x"6c7bd673045e9d5c29ac6c25db7a3191";
         constant empty_data : std_logic_vector((data_length-1) downto 0) := x"0000000000000000";
+        constant end_data_identifier : std_logic_vector(7 downto 0) := "00001010"; -- newline (LF)
+        constant data_identifier : std_logic_vector(7 downto 0) := "00100010"; -- quotation mark (")
         variable int_counter : natural;
     begin
         int_counter := conv_integer(counter);
@@ -62,17 +65,18 @@ begin
             done_mode <= '0';
             done_key <= '0';
             done_data <= '0';
+            done_8bit <= '0';
 
         elsif (reader_enable = '1') then
 
         -- only check state when triggered
-        if (reader_trigger = '1') then
+        if rising_edge(reader_trigger) then
 
             -- finish if read a newline character
-            if (reader_data_in = "00001010") then -- ASCII newline (LF)
+            if (reader_data_in = end_data_identifier) then -- ASCII newline (LF)
                 
                 -- trigger checkout if not empty
-                if (temp_data /= empty_data) then temp_checkout <= not temp_checkout;
+                if (done_8bit = '0') then temp_checkout <= not temp_checkout;
                 end if;
 
                 -- check if all inputs are done
@@ -165,31 +169,38 @@ begin
                         n_state <= idle;
                     else
                         temp_data <= reader_data_in & default_key(119 downto 64);
+                        done_8bit <= '0';
                         temp_type <= "00";
                         done_key <= '1';
                     end if;
                 else
                     if (reader_data_in = "00100000") then -- ASCII " "
-                        temp_checkout <= not temp_checkout;
+                        if (done_8bit = '0') then temp_checkout <= not temp_checkout;
+                        end if;
+                        done_8bit <= '1';
                         n_state <= start;
                     else
                         -- change each 8 bit data based on counter
                         if (int_counter <= 7) then
                             if (int_counter = 0) then
+                                done_8bit <= '0';
                                 temp_data <= reader_data_in & default_key(119 downto 64);
                             else
                                 temp_data((64-8*int_counter-1) downto 64-8*(int_counter+1)) <= reader_data_in;
                                 if (int_counter = 7) then
+                                    done_8bit <= '1';
                                     temp_checkout <= not temp_checkout;
                                 end if;
                             end if;
                         else
                             if (int_counter = 8) then
                                 temp_data <= reader_data_in & default_key(55 downto 0);
+                                done_8bit <= '0';
                                 temp_type <= "01";
                             else
                                 temp_data((64-8*(int_counter-8)-1) downto 64-8*((int_counter-8)+1)) <= reader_data_in;
                                 if (int_counter = 15) then
+                                    done_8bit <= '1';
                                     temp_checkout <= not temp_checkout;
                                     n_state <= start;
                                 end if;
@@ -199,7 +210,7 @@ begin
                 end if;
 
             when read_startdata => -- read start data keyword (")
-                if (reader_data_in = "00100010") then -- ASCII (")
+                if (reader_data_in = data_identifier) then -- ASCII (")
                     counter <= "0000";
                     n_state <= read_data;
                 else
@@ -209,19 +220,23 @@ begin
 
             when read_data => -- read input data
                 counter <= counter + 1;
-                if (reader_data_in = "00100010") then -- ASCII (")
-                    temp_checkout <= not temp_checkout;
+                if (reader_data_in = data_identifier) then -- ASCII (")
+                    if (done_8bit = '0') then temp_checkout <= not temp_checkout;
+                    end if;
                     temp_type <= "11";
+                    done_8bit <= '1';
                     done_data <= '1';
                     n_state <= start;
                 else
                     -- change each 8 bit data based on counter
                     if (int_counter = 0) then
+                        done_8bit <= '0';
                         temp_data <= reader_data_in & empty_data(55 downto 0);
                         temp_type <= "11";
                     else
                         temp_data((64-8*int_counter-1) downto 64-8*(int_counter+1)) <= reader_data_in;
                         if (int_counter = 7) then
+                            done_8bit <= '1';
                             temp_checkout <= not temp_checkout;
                             counter <= "0000";
                         end if;

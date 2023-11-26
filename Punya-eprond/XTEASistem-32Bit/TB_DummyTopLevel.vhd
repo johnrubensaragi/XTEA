@@ -9,11 +9,11 @@ end TB_DummyTopLevel;
 architecture sim of TB_DummyTopLevel is
     constant clock_frequency : natural := 50e6; -- 50 MHz
     constant clock_period : time := 1 sec / clock_frequency;
-    constant baud_rate : natural := 9600; -- 9600 bps
+    constant baud_rate : natural := 115200; -- 115200 bps
 
     constant data_length : natural := 64;
     constant address_length : natural := 10;
-    constant string_input : string := "-m 0 -d " & '"' & "Ini merupakan data yang sangat rahasia dan perlu diperahasiakan okey." & '"' & " -k password1234";
+    constant string_input : string := "-m 0 -d " & '"' & "Ini merupakan data yang sangat rahasia dan perlu diperahasiakan okey." & '"' & " -k password" & LF;
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
@@ -60,7 +60,7 @@ begin
         switch   => switch,
         leds     => leds
     );
-    
+
     clockdiv_inst: ClockDiv
     generic map (
       div_frequency   => baud_rate,

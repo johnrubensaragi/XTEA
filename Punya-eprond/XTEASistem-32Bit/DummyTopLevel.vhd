@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
-use ieee.numeric_std.all;
+use ieee.std_logic_arith.all;
 
 entity DummyTopLevel is
     port(
@@ -16,8 +16,12 @@ entity DummyTopLevel is
 end DummyTopLevel;
 
 architecture behavioral of DummyTopLevel is
+    constant clock_frequency : natural := 50e6;
     constant data_length : natural := 64;
     constant address_length : natural := 10;
+    constant default_key : std_logic_vector(127 downto 0) := x"6c7bd673045e9d5c29ac6c25db7a3191";
+    constant empty_data : std_logic_vector((data_length-1) downto 0) := (others => '0');
+    constant empty_address : std_logic_vector((address_length-1) downto 0) := (others => '0');
 
     component SerialBlock is
     generic(data_length, address_length : natural);
@@ -40,12 +44,13 @@ architecture behavioral of DummyTopLevel is
 
     component XTEA is
     port(
-        clock, nreset : in std_logic;
+        clock : in std_logic;
+        nreset : in std_logic;
+        xtea_mode : in std_logic;
         xtea_key : in std_logic_vector(127 downto 0);
         xtea_input : in std_logic_vector(63 downto 0);
-        xtea_mode : in std_logic;
-        xtea_start : in std_logic;
         xtea_output : out std_logic_vector(63 downto 0);
+        xtea_start : in std_logic;
         xtea_done : out std_logic
     );
     end component XTEA;
@@ -59,6 +64,83 @@ architecture behavioral of DummyTopLevel is
         memory_read : out std_logic_vector(63 downto 0)
     );
     end component MemoryBlock;
+
+    component AddressCounter is
+    generic(address_length : natural := 10);
+    port(
+        clock : in std_logic;
+        nreset : in std_logic;
+        countup_trigger : in std_logic;
+        force_enable : in std_logic;
+        force_address : in std_logic_vector(1 downto 0);        
+        address_out : out std_logic_vector((address_length-1) downto 0)
+    );
+    end component AddressCounter;
+
+    component MUX1Bit is
+    port (
+        selector : in std_logic;
+        data_in1 : in std_logic;
+        data_in2 : in std_logic;
+        data_out : out std_logic
+    );
+    end component MUX1Bit;
+
+    component MUX2Data is
+    generic(data_length : natural);
+    port(
+        selector : in std_logic;
+        data_in1 : in std_logic_vector((data_length-1) downto 0);
+        data_in2 : in std_logic_vector((data_length-1) downto 0);
+        data_out : out std_logic_vector((data_length-1) downto 0)
+    );
+    end component MUX2Data;
+
+    component MUX4Data is
+    generic(data_length : natural);
+    port(
+        selector : in std_logic_vector(1 downto 0);
+        data_in1 : in std_logic_vector((data_length-1) downto 0);
+        data_in2 : in std_logic_vector((data_length-1) downto 0);
+        data_in3 : in std_logic_vector((data_length-1) downto 0);
+        data_in4 : in std_logic_vector((data_length-1) downto 0);
+        data_out : out std_logic_vector((data_length-1) downto 0)
+    );
+    end component MUX4Data;
+
+    component DEMUX2Data is
+    generic (
+        data_length : natural
+    );
+    port (
+        selector : in std_logic;
+        data_in : in std_logic_vector((data_length-1) downto 0);
+        data_out1 : out std_logic_vector((data_length-1) downto 0);
+        data_out2 : out std_logic_vector((data_length-1) downto 0)
+    );
+    end component DEMUX2Data;
+
+    component DEMUX4Data is
+    generic(data_length : natural);
+    port(
+        selector : in std_logic_vector(1 downto 0);
+        data_in : in std_logic_vector((data_length-1) downto 0);
+        data_out1 : out std_logic_vector((data_length-1) downto 0);
+        data_out2 : out std_logic_vector((data_length-1) downto 0);
+        data_out3 : out std_logic_vector((data_length-1) downto 0);
+        data_out4 : out std_logic_vector((data_length-1) downto 0)
+    );
+    end component DEMUX4Data;
+
+    component Reg is
+    generic(data_length : natural);
+    port(
+        clock : in std_logic;
+        enable : in std_logic;
+        data_in : in std_logic_vector((data_length-1) downto 0);
+        data_out : out std_logic_vector((data_length-1) downto 0)
+    );
+    end component Reg;
 
     component PulseGenerator is
     generic(pulse_width, pulse_max : natural);
@@ -82,54 +164,115 @@ architecture behavioral of DummyTopLevel is
     );
     end component ClockCounter;
 
-    -- Pulse gen inout
-    signal sender_pulse_trigger, sender_pulse_enable : std_logic := '0';
-    signal sender_pulse : std_logic;
-    signal xtea_pulse_trigger, xtea_pulse_enable : std_logic := '0';
-    signal xtea_pulse : std_logic;
+    component ClockDiv is
+    generic(div_frequency, clock_frequency : natural);
+	port(
+		clock_in: in std_logic;
+		clock_out: out std_logic
+	);
+    end component ClockDiv;
 
-    -- Clock counter inout
-    constant ccounter_max : natural := 16;
-    signal ccounter_enable, ccounter_reset : std_logic := '0';
-    signal ccounter_out : natural range 0 to (ccounter_max-1);
+    component Controller is
+    port (
+        -- main clock and reset
+        clock : in std_logic;
+        nreset : in std_logic;
+        enable : in std_logic;
+        leds : out std_logic_vector(3 downto 0);
 
-    -- Serial block inout
-    signal serial_running, read_done, send_done, send_done_buffer : std_logic;
+        -- serial block port
+        serial_running : in std_logic;
+        read_done, send_done : in std_logic;
+        store_datatype : in std_logic_vector(1 downto 0);
+        error_type : in std_logic_vector(1 downto 0);
+
+        -- address countup port
+        store_checkout : in std_logic;
+        force_enable : out std_logic;
+        force_address : out std_logic_vector(1 downto 0);
+
+        -- memory block port
+        enable_write : out std_logic;
+        memory_null : in std_logic;
+        address_null : in std_logic;
+
+        -- xtea block port
+        xtea_done : in std_logic;
+
+        -- mux and demux selectors
+        selector_ctrigger : out std_logic;
+        selector_datawrite, selector_datareset : out std_logic;
+        selector_dataread, selector_datasend : out std_logic;
+        selector_dataxtea, selector_datatext : out std_logic_vector(1 downto 0);
+
+        -- pulse generator port
+        sender_pulse_enable, sender_pulse_trigger : out std_logic;
+        xtea_pulse_enable, xtea_pulse_trigger : out std_logic;
+        countup_pulse_trigger : out std_logic;
+
+        -- clock counter port
+        ccounter_enable, ccounter_reset : out std_logic;
+        ccounter_out : in natural range 0 to 7
+    );
+    end component Controller;
+
+    -- serial block inout
+    signal serial_running, read_done, send_start, send_done :  std_logic;
     signal error_out : std_logic_vector(1 downto 0);
-    signal store_data : std_logic_vector((data_length-1) downto 0);
+    signal send_data, store_data : std_logic_vector((data_length-1) downto 0);
     signal store_datatype : std_logic_vector(1 downto 0);
     signal store_checkout : std_logic;
-    signal send_data : std_logic_vector((data_length-1) downto 0);
-    signal send_start : std_logic;
-    signal send_counter : natural range 0 to 7 := 0;
 
-    -- Memory block inout
-    signal memory_read, memory_write : std_logic_vector((data_length-1) downto 0) := (others => '0');
-    signal memory_address : std_logic_vector((address_length-1) downto 0) := (others => '0');
-    signal enable_read, enable_write : std_logic := '0';
-
-    -- XTEA block inout
-    signal xtea_mode, xtea_start, xtea_done, xtea_done_buffer : std_logic;
+    -- xtea block inout
+    signal xtea_start, xtea_done, xtea_mode : std_logic;
     signal xtea_input, xtea_output : std_logic_vector((data_length-1) downto 0);
     signal xtea_key : std_logic_vector(127 downto 0);
 
-    signal enable_switch : std_logic;
+    -- memory block inout
+    signal enable_write : std_logic;
+    signal memory_write, memory_read : std_logic_vector((data_length-1) downto 0);
 
-    type states is (idle, reading_serial, sending_error, setup_xtea1, setup_xtea2, setup_xtea3, starting_xtea,
-                    processing_xtea, storing_xtea, reading_results, sending_results);
-    signal controller_cstate, controller_nstate : states;
+    -- address counter inout
+    signal countup_trigger, force_enable : std_logic;
+    signal force_address : std_logic_vector(1 downto 0);
+    signal address_out : std_logic_vector((address_length-1) downto 0);
 
-    function to_slv(str : string) return std_logic_vector is
-        alias str_norm : string(str'length downto 1) is str;
-        variable res_v : std_logic_vector(8 * str'length - 1 downto 0);
-    begin
-        for idx in str_norm'range loop
-          res_v(8 * idx - 1 downto 8 * idx - 8) := 
-            std_logic_vector(to_unsigned(character'pos(str_norm(idx)), 8));
-        end loop;
-        return res_v;
-    end function;
+    -- mux and demux inout
+    signal selector_ctrigger : std_logic;
+    signal selector_datawrite, selector_datareset : std_logic;
+    signal selector_dataread, selector_datasend : std_logic;
+    signal selector_dataxtea, selector_datatext : std_logic_vector(1 downto 0);
 
+    signal datawrite_muxout : std_logic_vector((data_length-1) downto 0);
+
+    signal dataxtea_demuxin : std_logic_vector((data_length-1) downto 0);
+    signal xtea_fullmode, xtea_leftkey, xtea_rightkey, xtea_data : std_logic_vector((data_length-1) downto 0);
+
+    signal datasend_muxout, datatext_muxout : std_logic_vector((data_length-1) downto 0);
+    signal datatext_error1, datatext_error2, datatext_error3 : std_logic_vector((data_length-1) downto 0);
+    signal datatext_results : std_logic_vector((data_length-1) downto 0);
+
+    -- registers inout
+    signal temp_leftkey, temp_rightkey : std_logic_vector((data_length-1) downto 0);
+    signal temp_fullmode, temp_dataxtea : std_logic_vector((data_length-1) downto 0);
+    signal leftkey_enable, rightkey_enable : std_logic;
+    signal fullmode_enable, dataxtea_enable : std_logic;
+
+    -- pulse generator inout 
+    signal countup_pulse, countup_pulse_trigger : std_logic;
+    signal sender_pulse, sender_pulse_enable, sender_pulse_trigger : std_logic;
+    signal xtea_pulse, xtea_pulse_enable, xtea_pulse_trigger : std_logic;
+
+    -- clock counter inout
+    constant ccounter_max : natural := 8;
+    signal ccounter_out : natural range 0 to (ccounter_max-1);
+    signal ccounter_enable, ccounter_reset : std_logic;
+
+    -- controller inout
+    signal memory_null, address_null : std_logic;
+
+    -- half clock for count up trigger
+    signal half_clock : std_logic;
 begin
 
     serialblock_inst: SerialBlock
@@ -169,40 +312,14 @@ begin
     port map (
         clock          => clock,
         enable_write   => enable_write,
-        memory_address => memory_address,
+        memory_address => address_out,
         memory_write   => memory_write,
         memory_read    => memory_read
     );
 
-    spulse10clock_int: PulseGenerator
-    generic map (
-      pulse_width => 10,
-      pulse_max   => 16
-    )
-    port map (
-      clock        => clock,
-      nreset       => nreset,
-      pulse_enable => sender_pulse_enable,
-      pulse_reset  => sender_pulse_trigger,
-      pulse_out    => sender_pulse
-    );
-
-    xpulse10clock_int: PulseGenerator
-    generic map (
-      pulse_width => 10,
-      pulse_max   => 16
-    )
-    port map (
-      clock        => clock,
-      nreset       => nreset,
-      pulse_enable => xtea_pulse_enable,
-      pulse_reset  => xtea_pulse_trigger,
-      pulse_out    => xtea_pulse
-    );
-
     clockcounter_inst: ClockCounter
     generic map (
-        count_max => ccounter_max
+        count_max => 8
     )
     port map (
         clock  => clock,
@@ -212,242 +329,194 @@ begin
         count  => ccounter_out
     );
 
-    enable_switch <= switch(3);
+    senderpulse_inst: PulseGenerator
+    generic map (
+        pulse_width => 5,
+        pulse_max   => 8
+    )
+    port map (
+        clock        => clock,
+        nreset       => nreset,
+        pulse_enable => sender_pulse_enable,
+        pulse_reset  => sender_pulse_trigger,
+        pulse_out    => sender_pulse
+    );
 
+    xteapulse_inst: PulseGenerator
+    generic map (
+        pulse_width => 5,
+        pulse_max   => 8
+    )
+    port map (
+        clock        => clock,
+        nreset       => nreset,
+        pulse_enable => xtea_pulse_enable,
+        pulse_reset  => xtea_pulse_trigger,
+        pulse_out    => xtea_pulse
+    );
+
+    -- attach pulse gen to start xtea and sender
     xtea_start <= xtea_pulse;
     send_start <= sender_pulse;
 
-    change_state: process(clock)
-    begin
-        if (nreset = '0') then
-            controller_cstate <= idle;
-        elsif rising_edge(clock) then
-            controller_cstate <= controller_nstate;
-        end if;
-    end process change_state;
+    addresscounter_inst: AddressCounter
+    generic map (
+        address_length => address_length
+    )
+    port map (
+        clock           => clock,
+        nreset          => nreset,
+        countup_trigger => countup_trigger,
+        force_enable    => force_enable,
+        force_address   => force_address,
+        address_out     => address_out
+    );
 
-    fsm_controller : process(clock)
-        constant empty_data : std_logic_vector((data_length - 1) downto 0) := x"0000000000000000";
-        constant default_key : std_logic_vector(127 downto 0) := x"6c7bd673045e9d5c29ac6c25db7a3191";
-        constant error_text1 : string := "Error type 1: System cannot recognize input format     " & LF;
-        constant error_text2 : string := "Error type 2: Storage system exceeded  " & LF;
-        constant error_text3 : string := "Error type 3: System is still busy     " & LF;
-        constant error_vector1 : std_logic_vector((8*error_text1'length-1) downto 0) := to_slv(error_text1);
-        constant error_vector2 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
-        constant error_vector3 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
-    begin
-        if rising_edge(clock) then
+    countuppulse_inst: PulseGenerator
+    generic map (
+        pulse_width => 5,
+        pulse_max   => 8
+    )
+    port map (
+        clock        => clock,
+        nreset       => nreset,
+        pulse_enable => '1',
+        pulse_reset  => countup_pulse_trigger,
+        pulse_out    => countup_pulse
+    );
 
-        if (controller_cstate = idle) then leds <= "1110";
-        elsif (controller_cstate = reading_serial) then leds <= "1101";
-        elsif (controller_cstate = processing_xtea) then leds <= "1011";
-        elsif (controller_cstate = sending_results) then leds <= "0111";
-        else leds <= "1111";
-        end if;
+    ctrigger_mux_inst: MUX1Bit
+    port map (
+      selector => selector_ctrigger, --  1 bit selector for countup trigger
+      data_in1 => countup_pulse, -- '0' for trigger from countup pulse
+      data_in2 => half_clock, -- '1' for auto trigger using half clock
+      data_out => countup_trigger
+    );
 
-        case controller_cstate is
-        when idle =>
-            send_counter <= 0;
-            sender_pulse_enable <= '0';
-            xtea_pulse_enable <= '0';
+    datawrite_mux_inst: MUX2Data
+    generic map (data_length)
+    port map (
+        selector => selector_datawrite, -- 1 bit selector for storing xtea or reader
+        data_in1 => store_data, -- '0' for serial reader output
+        data_in2 => xtea_output, -- '1' for xtea output
+        data_out => datawrite_muxout
+    );
 
-            if (error_out /= "01" and error_out /= "10") then
-                if (serial_running = '1') then
-                    controller_nstate <= reading_serial;
-                end if;
-            end if;
+    datareset_mux_inst: MUX2Data
+    generic map (data_length)
+    port map (
+        selector => selector_datareset, -- 1 bit selector for memory reset : all memory will be null
+        data_in1 => datawrite_muxout, -- '0' for not reset
+        data_in2 => (others => '0'), -- '1' for reset
+        data_out => memory_write
+    );
 
-        when reading_serial =>
-            enable_write <= '1';
-            memory_write <= store_data;
+    dataread_demux_inst: DEMUX2Data
+    generic map (data_length)
+    port map (
+        selector  => selector_dataread, -- 1 bit selector for inputting xtea or sender
+        data_in   => memory_read,
+        data_out1 => dataxtea_demuxin, -- '0' for xtea inputs
+        data_out2 => datasend_muxout -- '1' for serial sender input
+    );
 
-            -- start send error if error
-            if (error_out = "01" or error_out = "10") then
-                controller_nstate <= sending_error;
-                enable_write <= '0';
+    dataxtea_demux_inst: DEMUX4Data
+    generic map (data_length)
+    port map (
+        selector  => selector_dataxtea, -- 2 bit selector for xtea inputs
+        data_in   => dataxtea_demuxin,
+        data_out1 => temp_leftkey, -- "00" for xtea leftkey : key(127 downto 64)
+        data_out2 => temp_rightkey, -- "01" for xtea rightkey : key(63 downto 0)
+        data_out3 => temp_fullmode, -- "10" for xtea mode
+        data_out4 => temp_dataxtea -- "11" for xtea input
+    );
 
-            -- wait until reading is done
-            elsif (read_done = '1') then
-                memory_address <= (1|0 => '1', others => '0');
-                controller_nstate <= setup_xtea1;
-                enable_write <= '0';
-            end if;
+    -- truncate the data for xtea inputs
+    xtea_key(127 downto 64) <= xtea_leftkey when (xtea_leftkey /= empty_data) else default_key(127 downto 64);
+    xtea_key(63 downto 0) <= xtea_rightkey when (xtea_rightkey /= empty_data) else default_key(63 downto 0);
+    xtea_mode <= xtea_fullmode(0);
+    xtea_input <= xtea_data;
 
-        when sending_error => -- send error message based on types
-            send_done_buffer <= send_done;
-            sender_pulse_enable <= '1';
+    -- xtea registers to preserve data
+    leftkey_reg : Reg generic map(data_length) port map(clock, leftkey_enable, temp_leftkey, xtea_leftkey);
+    rightkey_reg : Reg generic map(data_length) port map(clock, rightkey_enable, temp_rightkey, xtea_rightkey);
+    fullmode_reg : Reg generic map(data_length) port map(clock, fullmode_enable, temp_fullmode, xtea_fullmode);
+    dataxtea_reg : Reg generic map(data_length) port map(clock, dataxtea_enable, temp_dataxtea, xtea_data);
+    
+    -- only enable register when selected
+    leftkey_enable <= '1' when selector_dataxtea = "00" else '0';
+    rightkey_enable <= '1' when selector_dataxtea = "01" else '0';
+    fullmode_enable <= '1' when selector_dataxtea = "10" else '0';
+    dataxtea_enable <= '1' when selector_dataxtea = "11" else '0';
 
-            -- send error message for wrong format
-            if (error_out = "01") then
-                
-                -- send every 8 characters of the text
-                if (send_counter >= 0 and send_counter <= (error_text1'length/8 - 1)) then
-                    send_data <= error_vector1((error_vector1'length-(64*send_counter)-1) downto error_vector1'length-(64*(send_counter+1)));
-                end if;
 
-                -- give pulse to start sending every 8 characters
-                if (send_done_buffer = '0' and send_done = '1') then
-                    if (send_counter < (error_text1'length/8 - 1)) then
-                        sender_pulse_trigger <= not sender_pulse_trigger;
-                        send_counter <= send_counter + 1;
-                    else
-                        controller_nstate <= idle;
-                    end if;
-                end if;
+    datasend_mux_inst: MUX2Data
+    generic map (data_length)
+    port map (
+        selector => selector_datasend, --  1 bit selector for data to send
+        data_in1 => datasend_muxout, -- '0' for data from memory
+        data_in2 => datatext_muxout, -- '1' for data from text constants
+        data_out => send_data
+    );
 
-            -- send error message for max storage exceeded
-            elsif (error_out = "10") then
-                
-                -- send every 8 characters of the text
-                if (send_counter >= 0 and send_counter <= (error_text2'length/8 - 1)) then
-                    send_data <= error_vector2((error_vector2'length-(64*send_counter)-1) downto error_vector2'length-(64*(send_counter+1)));
-                end if;
+    datatext_mux_inst: MUX4Data
+    generic map (data_length)
+    port map (
+        selector => selector_datatext, -- 2 bit selector for text constants
+        data_in1 => datatext_results, -- "00" for text results
+        data_in2 => datatext_error1, -- "01" for error type 1 : wrong format input
+        data_in3 => datatext_error2, -- "10" for error type 2 : memory full
+        data_in4 => datatext_error3, -- "11" for error type 3 : system stil processing
+        data_out => datatext_muxout
+    );
 
-                -- give pulse to start sending every 8 characters
-                if (send_done_buffer = '0' and send_done = '1') then
-                    if (send_counter < (error_text2'length/8 - 1)) then
-                        sender_pulse_trigger <= not sender_pulse_trigger;
-                        send_counter <= send_counter + 1;
-                    else
-                        controller_nstate <= idle;
-                    end if;
-                end if;
+    -- check if memory read is null or if address is at 0
+    memory_null <= '1' when (memory_read = empty_data) else '0';
+    address_null <= '1' when (address_out = empty_address) else '0';
 
-            end if;
+    controller_inst: Controller
+    port map (
+      clock                 => clock,
+      nreset                => nreset,
+      enable                => '1',
+      leds                  => leds,
+      serial_running        => serial_running,
+      read_done             => read_done,
+      send_done             => send_done,
+      store_datatype        => store_datatype,
+      error_type            => error_out,
+      store_checkout        => store_checkout,
+      force_enable          => force_enable,
+      force_address         => force_address,
+      enable_write          => enable_write,
+      memory_null           => memory_null,
+      address_null          => address_null,
+      xtea_done             => xtea_done,
+      selector_ctrigger     => selector_ctrigger,
+      selector_datawrite    => selector_datawrite,
+      selector_datareset    => selector_datareset,
+      selector_dataread     => selector_dataread,
+      selector_dataxtea     => selector_dataxtea,
+      selector_datasend     => selector_datasend,
+      selector_datatext     => selector_datatext,
+      sender_pulse_enable   => sender_pulse_enable,
+      sender_pulse_trigger  => sender_pulse_trigger,
+      xtea_pulse_enable     => xtea_pulse_enable,
+      xtea_pulse_trigger    => xtea_pulse_trigger,
+      countup_pulse_trigger => countup_pulse_trigger,
+      ccounter_enable       => ccounter_enable,
+      ccounter_reset        => ccounter_reset,
+      ccounter_out          => ccounter_out
+    );
 
-        when setup_xtea1 => -- setup xtea mode
-            ccounter_enable <= '1';
-            enable_read <= '1';
-            memory_address <= (others => '0');
-            xtea_mode <= memory_read(0);
-
-            -- wait for 5 clock cycles before next state
-            if (ccounter_out >= 5) then
-                ccounter_reset <= not ccounter_reset;
-                ccounter_enable <= '0';
-                controller_nstate <= setup_xtea2;
-            end if;
-
-        when setup_xtea2 => -- setup xtea key
-            ccounter_enable <= '1';
-            memory_address <= (0 => '1', others => '0');
-            if (memory_read /= empty_data) then
-                xtea_key(127 downto 64) <= memory_read;
-            else
-                xtea_key(127 downto 64) <= default_key(127 downto 64);
-            end if;
-
-            -- wait for 5 clock cycles before next state
-            if (ccounter_out >= 5) then
-                ccounter_reset <= not ccounter_reset;
-                ccounter_enable <= '0';
-                controller_nstate <= setup_xtea3;
-            end if;
-
-        when setup_xtea3 => -- setup xtea key
-            ccounter_enable <= '1';
-            memory_address <= (1 => '1', others => '0');
-            if (memory_read /= empty_data) then
-                xtea_key(63 downto 0) <= memory_read;
-            else
-                xtea_key(63 downto 0) <= default_key(127 downto 64);
-            end if;
-
-            -- wait for 5 clock cycles before next state
-            if (ccounter_out >= 5) then
-                ccounter_reset <= not ccounter_reset;
-                ccounter_enable <= '0';
-                memory_address <= (1|0 => '1', others => '0');
-                controller_nstate <= starting_xtea;
-            end if;
-
-        when starting_xtea => -- read xtea input
-            if (memory_read /= empty_data and memory_address /= "0000000000") then
-                ccounter_enable <= '1';
-                enable_read <= '1';
-                xtea_pulse_enable <= '1';
-                xtea_input <= memory_read;
-
-                -- trigger the pulse to start the xtea
-                if (ccounter_out = 5) then
-                    xtea_pulse_trigger <= not xtea_pulse_trigger;
-                end if;
-
-                -- wait for 5 clock cycles before next state
-                if (ccounter_out >= 5) then
-                    ccounter_reset <= not ccounter_reset;
-                    ccounter_enable <= '0';
-                    enable_read <= '0';
-                    controller_nstate <= processing_xtea;
-                end if;
-            else
-                ccounter_reset <= not ccounter_reset;
-                ccounter_enable <= '0';
-                memory_address <= (1|0 => '1', others => '0');
-                controller_nstate <= reading_results;
-            end if;
-
-        when processing_xtea => -- process encrypt/decrypt
-            xtea_done_buffer <= xtea_done;
-            if (xtea_done_buffer = '0' and xtea_done = '1') then
-                controller_nstate <= storing_xtea;
-            end if;
-
-        when storing_xtea => -- store xtea output
-            ccounter_enable <= '1';
-            enable_write <= '1';
-            memory_write <= xtea_output;
-
-            if (ccounter_out = 5) then
-                memory_address <= memory_address + 1;
-            end if;
-
-            -- wait for 5 clock cycles before next state
-            if (ccounter_out >= 5) then
-                ccounter_reset <= not ccounter_reset;
-                ccounter_enable <= '0';
-                enable_write <= '0';
-                controller_nstate <= starting_xtea;
-            end if;
-
-        when reading_results => -- read each results
-            if (memory_read /= empty_data and memory_address /= "0000000000") then
-                send_data <= memory_read;
-                ccounter_enable <= '1';
-                enable_read <= '1';
-                sender_pulse_enable <= '1';
-
-                -- trigger the pulse to start the sending
-                if (ccounter_out = 5) then
-                    sender_pulse_trigger <= not sender_pulse_trigger;
-                end if;
-
-                -- wait for 5 clock cycles before next state
-                if (ccounter_out >= 5) then
-                    ccounter_reset <= not ccounter_reset;
-                    ccounter_enable <= '0';
-                    enable_read <= '0';
-                    controller_nstate <= sending_results;
-                end if;
-            else
-                ccounter_reset <= not ccounter_reset;
-                ccounter_enable <= '0';
-                enable_read <= '0';
-                controller_nstate <= idle;
-            end if;
-
-        when sending_results => -- send each results through serial
-            send_done_buffer <= send_done;
-            if (send_done_buffer = '0' and send_done = '1') then
-                memory_address <= memory_address + 1;
-                controller_nstate <= reading_results;
-            end if;
-
-        when others => controller_nstate <= idle;
-
-        end case;
-        end if;
-
-    end process fsm_controller;
+    clockdiv_inst: ClockDiv
+    generic map (
+      div_frequency   => clock_frequency/2,
+      clock_frequency => clock_frequency
+    )
+    port map (
+      clock_in  => clock,
+      clock_out => half_clock
+    );
 
 end architecture;

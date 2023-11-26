@@ -5,12 +5,13 @@ use ieee.numeric_std.all;
 
 entity XTEA is
     port(
-        clock, nreset : in std_logic;
+        clock :  in std_logic;
+        nreset : in std_logic;
+        xtea_mode : in std_logic;
         xtea_key : in std_logic_vector(127 downto 0);
         xtea_input : in std_logic_vector(63 downto 0);
-        xtea_mode : in std_logic;
-        xtea_start : in std_logic;
         xtea_output : out std_logic_vector(63 downto 0);
+        xtea_start : in std_logic;
         xtea_done : out std_logic
     );
 end XTEA;
@@ -81,8 +82,9 @@ begin
         end if;
     end process;
 
-    process(xtea_start, xtea_cstate)
+    process(clock)
     begin
+        if rising_edge(clock) then
         case(xtea_cstate) is
             when idle =>
                 subkey(0) <= xtea_key(127 downto 96);
@@ -148,6 +150,7 @@ begin
             when others =>
                 xtea_nstate <= idle;
         end case;
+        end if;
     end process;
 
 end behavioral;
