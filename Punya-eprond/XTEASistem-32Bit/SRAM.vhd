@@ -16,7 +16,7 @@ end entity;
 
 architecture behavioral of SRAM is
   type ram_type is array (0 to (2 ** address_length - 1)) of std_logic_vector((data_length - 1) downto 0);
-  signal ram : ram_type := (others =>(others => '0'));
+  signal ram : ram_type;
 
   signal temp_data : std_logic_vector((data_length - 1) downto 0);
 begin

@@ -12,7 +12,7 @@ entity Controller is
     leds : out std_logic_vector(3 downto 0);
 
     -- serial block port
-    serial_running : in std_logic;
+    reader_running, sender_running : in std_logic;
     read_done, send_done : in std_logic;
     store_datatype : in std_logic_vector(1 downto 0);
     error_type : in std_logic_vector(1 downto 0);
@@ -35,6 +35,7 @@ entity Controller is
     selector_datawrite, selector_datareset : out std_logic;
     selector_dataread, selector_datasend : out std_logic;
     selector_dataxtea, selector_datatext : out std_logic_vector(1 downto 0);
+    selector_dataidentifier : out std_logic;
 
     -- pulse generator port
     sender_pulse_enable, sender_pulse_trigger : out std_logic;
@@ -43,20 +44,32 @@ entity Controller is
 
     -- clock counter port
     ccounter_enable, ccounter_reset : out std_logic;
-    ccounter_out : in natural range 0 to 7
+    ccounter_out : in natural range 0 to 15;
+
+    -- text roms port
+    rom_index_counter : out natural range 0 to 7
 
   );
 end Controller;
 
 architecture behavioral of Controller is
     
+    -- internal triggers
     signal i_ccounter_reset, i_countup_trigger : std_logic := '0';
     signal i_xpulse_trigger, i_spulse_trigger : std_logic := '0';
 
+    -- buffers
     signal store_datatype_buffer : std_logic_vector(1 downto 0);
     signal send_done_buffer, xtea_done_buffer : std_logic;
     signal store_checkout_buffer1, store_checkout_buffer2 : std_logic;
     signal store_checkout_buffer3, store_checkout_buffer4 : std_logic;
+
+    -- for memory clearing
+    signal done_clear : std_logic;
+
+    -- for texts sending
+    signal max_textrom_index : natural range 0 to 7;
+    signal send_counter : natural range 0 to 7;
 
     type states is (idle, reading_serial, sending_message, setup_xtea1, setup_xtea2, setup_xtea3, starting_xtea,
                     processing_xtea, storing_xtea, reading_results, sending_results, clearing_memory);
@@ -79,26 +92,24 @@ begin
     xtea_pulse_trigger <= i_xpulse_trigger;
     sender_pulse_trigger <= i_spulse_trigger;
 
+    rom_index_counter <= send_counter;
+
     change_state: process(clock)
     begin
         if (nreset = '0') then
-            -- force_enable <= '1';
-            -- force_address <= "00";
-            -- controller_cstate <= clearing_memory;
+            controller_cstate <= clearing_memory;
         elsif rising_edge(clock) then
             controller_cstate <= controller_nstate;
         end if;
     end process change_state;
 
     fsm_controller : process(clock)
-        -- constant error_text1 : string := "Error type 1: System cannot recognize input format     " & LF;
-        -- constant error_text2 : string := "Error type 2: Storage system exceeded  " & LF;
-        -- constant error_text3 : string := "Error type 3: System is still busy     " & LF;
-        -- constant error_vector1 : std_logic_vector((8*error_text1'length-1) downto 0) := to_slv(error_text1);
-        -- constant error_vector2 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
-        -- constant error_vector3 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
+        constant results_text : string := "System results from processing XTEA:   " & LF;
+        constant error_text1 : string := "Error type 1: System cannot recognize input format     " & LF;
+        constant error_text2 : string := "Error type 2: Storage system exceeded  " & LF;
+        constant error_text3 : string := "Error type 3: System is still busy     " & LF;
     begin
-        if rising_edge(clock) then
+        if rising_edge(clock) and (enable = '1') then
 
         if (controller_cstate = idle) then leds <= "1110";
         elsif (controller_cstate = reading_serial) then leds <= "1101";
@@ -107,17 +118,32 @@ begin
         else leds <= "1111";
         end if;
 
+        if (nreset = '0') then
+            force_enable <= '1';
+            force_address <= "00";
+            ccounter_enable <= '1';
+            controller_nstate <= clearing_memory;
+        else
+
         case controller_cstate is
         when idle =>
+
+            -- initialization
+            selector_datareset <= '0';
+            selector_ctrigger <= '0';
             sender_pulse_enable <= '0';
             xtea_pulse_enable <= '0';
             i_ccounter_reset <= '0';
             i_countup_trigger <= '0';
             i_xpulse_trigger <= '0';
             i_spulse_trigger <= '0';
+            enable_write <= '0';
+            done_clear <= '0';
+            send_counter <= 0;
 
+            -- dont start if error
             if (error_type /= "01" and error_type /= "10") then
-                if (serial_running = '1') then
+                if (reader_running = '1') then
                     controller_nstate <= reading_serial;
                 else
                     controller_nstate <= controller_cstate;
@@ -149,7 +175,7 @@ begin
                 end if;
             end if;
 
-            -- only count up trigger if data type doesn't change
+            -- only count up trigger if data type doesnt change
             if (store_checkout_buffer2 = '0' and store_checkout_buffer1 = '1' and store_datatype_buffer = store_datatype) then
                 i_countup_trigger <= not i_countup_trigger;
             end if;
@@ -168,15 +194,45 @@ begin
                 controller_nstate <= controller_cstate;
             end if;
 
-        when sending_message => -- send error message based on types
-            send_done_buffer <= send_done;
+        when sending_message => -- send messages based on error types
+            selector_dataidentifier <= '0'; -- dont send newline character
+            selector_dataread <= '1'; -- connect memory read to sender
+            selector_datasend <= '1'; -- send data from text roms
 
-            -- send error message for wrong format
-            if (error_type = "01") then
-                selector_datatext <= "01";
-            -- send error message for max storage exceeded
+            sender_pulse_enable <= '1';
+            send_done_buffer <= send_done;
+            
+            -- if not error = send results message
+            if (error_type = "00") then
+                selector_datatext <= "00"; -- send text results
+                max_textrom_index <= results_text'length/8;
+            
+            -- if error = send error messages
+            elsif (error_type = "01") then 
+                selector_datatext <= "01"; -- send error message for wrong format
+                max_textrom_index <= error_text1'length/8;
             elsif (error_type = "10") then
-                selector_datatext <= "10";
+                selector_datatext <= "10"; -- send error message for max storage exceeded
+                max_textrom_index <= error_text2'length/8;
+            elsif (error_type = "11") then
+                selector_datatext <= "11"; -- send error message for system still busy
+                max_textrom_index <= error_text3'length/8;
+            end if;
+
+            if (send_counter = 0) then -- jump start the sending
+                i_spulse_trigger <= not i_spulse_trigger;
+                send_counter <= send_counter + 1;
+            end if;
+
+            if (send_done_buffer = '0' and send_done = '1') then
+                if (send_counter < max_textrom_index) then
+                    i_spulse_trigger <= not i_spulse_trigger;
+                    send_counter <= send_counter + 1;
+                else
+                    if (error_type = "00") then controller_nstate <= reading_results;
+                    else controller_nstate <= idle;
+                    end if;
+                end if;
             end if;
 
         when setup_xtea1 => -- setup xtea mode
@@ -194,6 +250,7 @@ begin
             end if;
 
         when setup_xtea2 => -- setup xtea key
+            selector_dataread <= '0'; -- select memory read to xtea inputs
             selector_dataxtea <= "01"; -- select memory read to xtea rightkey input
             ccounter_enable <= '1';
 
@@ -206,6 +263,7 @@ begin
             end if;
 
         when setup_xtea3 => -- setup xtea key
+            selector_dataread <= '0'; -- select memory read to xtea inputs
             selector_dataxtea <= "10"; -- select memory read to xtea mode input
             ccounter_enable <= '1';
 
@@ -240,7 +298,7 @@ begin
                 force_address <= "11"; -- force address to 11 to start reading results
                 i_ccounter_reset <= not i_ccounter_reset;
                 ccounter_enable <= '0';
-                controller_nstate <= reading_results;
+                controller_nstate <= sending_message;
             end if;
 
         when processing_xtea => -- process encrypt/decrypt
@@ -250,7 +308,8 @@ begin
             end if;
 
         when storing_xtea => -- store xtea output
-            selector_dataread <= '1'; -- make sure to not read the memory into the xtea input
+            selector_datareset <= '0'; -- make sure to not use memory reset
+            selector_dataread <= '1'; -- make sure to not connect memory read with xtea input
             selector_datawrite <= '1'; -- select xtea output as memory write
             ccounter_enable <= '1';
             enable_write <= '1';
@@ -271,6 +330,7 @@ begin
 
         when reading_results => -- read each results
             if (memory_null /= '1' and address_null /= '1') then
+                selector_dataidentifier <= '0'; -- dont send newline character yet
                 selector_dataread <= '1'; -- select memory read to sender
                 selector_datasend <= '0'; -- select sender input as from memory
                 force_enable <= '0';
@@ -289,9 +349,18 @@ begin
                     controller_nstate <= sending_results;
                 end if;
             else
-                i_ccounter_reset <= not i_ccounter_reset;
-                ccounter_enable <= '0';
-                controller_nstate <= idle;
+                selector_dataidentifier <= '1'; -- send newline character
+                if (ccounter_out = 5) then
+                    sender_pulse_enable <= '1';
+                    i_spulse_trigger <= not i_spulse_trigger;
+                end if;
+
+                -- wait for 15 clock cycles before next state
+                if (ccounter_out >= 15) then
+                    i_ccounter_reset <= not i_ccounter_reset;
+                    ccounter_enable <= '0';
+                    controller_nstate <= idle;
+                end if;
             end if;
 
         when sending_results => -- send each results through serial
@@ -302,18 +371,28 @@ begin
             end if;
 
         when clearing_memory =>
+            force_enable <= '0';
             enable_write <= '1';
-            selector_datareset <= '1'; -- use null data to write over all the memory
-            selector_ctrigger <= '1'; -- use clock as count up trigger to fasten the process
+            selector_datareset <= '1'; -- use empty data to write over all the memory
+            selector_ctrigger <= '1'; -- use half clock as count up trigger to fasten the process
 
-            if (ccounter_out = 2) then
-                i_countup_trigger <= not i_countup_trigger;
+            -- done clear to check if the address is back at null
+            if (ccounter_out = 15) then
+                done_clear <= '1';
                 i_ccounter_reset <= not i_ccounter_reset;
+                ccounter_enable <= '0';
             end if;
 
-        when others => controller_nstate <= idle;
+            if (address_null = '1' and done_clear = '1') then
+                sender_pulse_enable <= '0';
+                xtea_pulse_enable <= '0';
+                controller_nstate <= idle;
+            end if;
+
+        when others =>
 
         end case;
+        end if;
         end if;
 
     end process fsm_controller;

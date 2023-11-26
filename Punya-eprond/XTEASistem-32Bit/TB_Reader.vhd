@@ -13,7 +13,7 @@ architecture sim of TB_Reader is
 
     constant data_length : natural := 64;
     constant address_length : natural := 10;
-    constant string_input : string :=  "-m 0 -d " & '"' & "Ini merupakan data yang sangat rahasia dan perlu diperahasiakan okey." & '"' & " -k password1234" & LF;
+    constant string_input : string :=  "-m 0 -d " & '"' & "Ini merupakan data yang sangat rahasia dan perlu diperahasiakan okey." & '"' & " -k password" & LF;
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
@@ -77,7 +77,7 @@ begin
 
     clockdiv_inst: ClockDiv
     generic map (
-      div_frequency   => baud_rate,
+      div_frequency   => 2*baud_rate,
       clock_frequency => clock_frequency
     )
     port map (
@@ -107,7 +107,7 @@ begin
                 uart_tx <= bit10_v(num);
             end if;
             counter  <= counter + 1;
-            wait until bps_clock'event;
+            wait until rising_edge(bps_clock);
             end loop;
         end loop;
 

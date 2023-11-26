@@ -22,13 +22,15 @@ architecture behavioral of DummyTopLevel is
     constant default_key : std_logic_vector(127 downto 0) := x"6c7bd673045e9d5c29ac6c25db7a3191";
     constant empty_data : std_logic_vector((data_length-1) downto 0) := (others => '0');
     constant empty_address : std_logic_vector((address_length-1) downto 0) := (others => '0');
+    constant newline_vector : std_logic_vector(63 downto 0) := "00001010" & conv_std_logic_vector(0, 56);
 
     component SerialBlock is
     generic(data_length, address_length : natural);
     port(
         clock : in std_logic;
         nreset : in std_logic;
-        serial_running: out std_logic;
+        reader_running : out std_logic;
+        sender_running : out std_logic;
         read_done : out std_logic;
         send_done : out std_logic;
         send_start : in std_logic;
@@ -181,7 +183,7 @@ architecture behavioral of DummyTopLevel is
         leds : out std_logic_vector(3 downto 0);
 
         -- serial block port
-        serial_running : in std_logic;
+        reader_running, sender_running : in std_logic;
         read_done, send_done : in std_logic;
         store_datatype : in std_logic_vector(1 downto 0);
         error_type : in std_logic_vector(1 downto 0);
@@ -204,6 +206,7 @@ architecture behavioral of DummyTopLevel is
         selector_datawrite, selector_datareset : out std_logic;
         selector_dataread, selector_datasend : out std_logic;
         selector_dataxtea, selector_datatext : out std_logic_vector(1 downto 0);
+        selector_dataidentifier : out std_logic;
 
         -- pulse generator port
         sender_pulse_enable, sender_pulse_trigger : out std_logic;
@@ -212,12 +215,15 @@ architecture behavioral of DummyTopLevel is
 
         -- clock counter port
         ccounter_enable, ccounter_reset : out std_logic;
-        ccounter_out : in natural range 0 to 7
+        ccounter_out : in natural range 0 to 15;
+
+        -- text roms port
+        rom_index_counter : out natural range 0 to 7
     );
     end component Controller;
 
     -- serial block inout
-    signal serial_running, read_done, send_start, send_done :  std_logic;
+    signal reader_running, sender_running, read_done, send_start, send_done :  std_logic;
     signal error_out : std_logic_vector(1 downto 0);
     signal send_data, store_data : std_logic_vector((data_length-1) downto 0);
     signal store_datatype : std_logic_vector(1 downto 0);
@@ -242,13 +248,14 @@ architecture behavioral of DummyTopLevel is
     signal selector_datawrite, selector_datareset : std_logic;
     signal selector_dataread, selector_datasend : std_logic;
     signal selector_dataxtea, selector_datatext : std_logic_vector(1 downto 0);
+    signal selector_dataidentifier : std_logic;
 
     signal datawrite_muxout : std_logic_vector((data_length-1) downto 0);
 
     signal dataxtea_demuxin : std_logic_vector((data_length-1) downto 0);
     signal xtea_fullmode, xtea_leftkey, xtea_rightkey, xtea_data : std_logic_vector((data_length-1) downto 0);
 
-    signal datasend_muxout, datatext_muxout : std_logic_vector((data_length-1) downto 0);
+    signal dataselected_muxout, datasend_muxout, datatext_muxout : std_logic_vector((data_length-1) downto 0);
     signal datatext_error1, datatext_error2, datatext_error3 : std_logic_vector((data_length-1) downto 0);
     signal datatext_results : std_logic_vector((data_length-1) downto 0);
 
@@ -264,7 +271,7 @@ architecture behavioral of DummyTopLevel is
     signal xtea_pulse, xtea_pulse_enable, xtea_pulse_trigger : std_logic;
 
     -- clock counter inout
-    constant ccounter_max : natural := 8;
+    constant ccounter_max : natural := 16;
     signal ccounter_out : natural range 0 to (ccounter_max-1);
     signal ccounter_enable, ccounter_reset : std_logic;
 
@@ -273,6 +280,25 @@ architecture behavioral of DummyTopLevel is
 
     -- half clock for count up trigger
     signal half_clock : std_logic;
+
+    -- simple ROM for text constants
+    constant rom_length : natural := 8;
+    type simple_rom is array(0 to (rom_length-1)) of std_logic_vector((data_length-1) downto 0);
+    signal rom_text0, rom_text1, rom_text2, rom_text3 : simple_rom;
+    signal rom_index : natural range 0 to (rom_length-1);
+
+    -- function for changing string to slv
+    function to_slv(str : string) return std_logic_vector is
+        alias str_norm : string(str'length downto 1) is str;
+        variable res_v : std_logic_vector(8 * str'length - 1 downto 0);
+      begin
+        for idx in str_norm'range loop
+          res_v(8 * idx - 1 downto 8 * idx - 8) := 
+            std_logic_vector(conv_unsigned(character'pos(str_norm(idx)), 8));
+        end loop;
+        return res_v;
+      end function;
+
 begin
 
     serialblock_inst: SerialBlock
@@ -283,7 +309,8 @@ begin
     port map (
         clock          => clock,
         nreset         => nreset,
-        serial_running => serial_running,
+        reader_running => reader_running,
+        sender_running => sender_running,
         read_done      => read_done,
         send_done      => send_done,
         send_start     => send_start,
@@ -319,7 +346,7 @@ begin
 
     clockcounter_inst: ClockCounter
     generic map (
-        count_max => 8
+        count_max => ccounter_max
     )
     port map (
         clock  => clock,
@@ -370,6 +397,16 @@ begin
         force_enable    => force_enable,
         force_address   => force_address,
         address_out     => address_out
+    );
+
+    clockdiv_inst: ClockDiv
+    generic map (
+      div_frequency   => clock_frequency/2,
+      clock_frequency => clock_frequency
+    )
+    port map (
+      clock_in  => clock,
+      clock_out => half_clock
     );
 
     countuppulse_inst: PulseGenerator
@@ -449,6 +486,16 @@ begin
     fullmode_enable <= '1' when selector_dataxtea = "10" else '0';
     dataxtea_enable <= '1' when selector_dataxtea = "11" else '0';
 
+    mux2data_inst: MUX2Data
+    generic map (
+      data_length => data_length
+    )
+    port map (
+      selector => selector_dataidentifier, -- 1 bit selector for sending data or newline
+      data_in1 => dataselected_muxout, -- '0' for sending data
+      data_in2 => newline_vector, -- '1' for sending newline
+      data_out => send_data
+    );
 
     datasend_mux_inst: MUX2Data
     generic map (data_length)
@@ -456,7 +503,7 @@ begin
         selector => selector_datasend, --  1 bit selector for data to send
         data_in1 => datasend_muxout, -- '0' for data from memory
         data_in2 => datatext_muxout, -- '1' for data from text constants
-        data_out => send_data
+        data_out => dataselected_muxout
     );
 
     datatext_mux_inst: MUX4Data
@@ -474,49 +521,76 @@ begin
     memory_null <= '1' when (memory_read = empty_data) else '0';
     address_null <= '1' when (address_out = empty_address) else '0';
 
+    -- fill each text roms with text constants and update them per clock
+    text_roms : process(clock)
+        constant results_text : string := "System results from processing XTEA:   " & LF;
+        constant error_text1 : string := "Error type 1: System cannot recognize input format     " & LF;
+        constant error_text2 : string := "Error type 2: Storage system exceeded  " & LF;
+        constant error_text3 : string := "Error type 3: System is still busy     " & LF;
+        constant results_vector : std_logic_vector((8*results_text'length-1) downto 0) := to_slv(results_text);
+        constant error_vector1 : std_logic_vector((8*error_text1'length-1) downto 0) := to_slv(error_text1);
+        constant error_vector2 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
+        constant error_vector3 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
+    begin
+        for idx in 1 to (rom_length-1) loop
+            if (idx <= results_vector'length/64) then 
+                rom_text0(idx) <= results_vector(results_vector'length-1-64*(idx-1) downto results_vector'length-(64*(idx)));
+            end if;
+            if (idx <= error_vector1'length/64) then 
+                rom_text1(idx) <= error_vector1(error_vector1'length-1-64*(idx-1) downto error_vector1'length-(64*(idx)));
+            end if;
+            if (idx <= error_vector2'length/64) then 
+                rom_text2(idx) <= error_vector2(error_vector2'length-1-64*(idx-1) downto error_vector2'length-(64*(idx)));
+            end if;
+            if (idx <= error_vector3'length/64) then 
+                rom_text3(idx) <= error_vector3(error_vector3'length-1-64*(idx-1) downto error_vector3'length-(64*(idx)));
+            end if;
+        end loop;
+        
+        if rising_edge(clock) then
+            datatext_results <= rom_text0(rom_index);
+            datatext_error1 <= rom_text1(rom_index);
+            datatext_error2 <= rom_text2(rom_index);
+            datatext_error3 <= rom_text3(rom_index);
+        end if;
+    end process text_roms;
+
     controller_inst: Controller
     port map (
-      clock                 => clock,
-      nreset                => nreset,
-      enable                => '1',
-      leds                  => leds,
-      serial_running        => serial_running,
-      read_done             => read_done,
-      send_done             => send_done,
-      store_datatype        => store_datatype,
-      error_type            => error_out,
-      store_checkout        => store_checkout,
-      force_enable          => force_enable,
-      force_address         => force_address,
-      enable_write          => enable_write,
-      memory_null           => memory_null,
-      address_null          => address_null,
-      xtea_done             => xtea_done,
-      selector_ctrigger     => selector_ctrigger,
-      selector_datawrite    => selector_datawrite,
-      selector_datareset    => selector_datareset,
-      selector_dataread     => selector_dataread,
-      selector_dataxtea     => selector_dataxtea,
-      selector_datasend     => selector_datasend,
-      selector_datatext     => selector_datatext,
-      sender_pulse_enable   => sender_pulse_enable,
-      sender_pulse_trigger  => sender_pulse_trigger,
-      xtea_pulse_enable     => xtea_pulse_enable,
-      xtea_pulse_trigger    => xtea_pulse_trigger,
-      countup_pulse_trigger => countup_pulse_trigger,
-      ccounter_enable       => ccounter_enable,
-      ccounter_reset        => ccounter_reset,
-      ccounter_out          => ccounter_out
-    );
-
-    clockdiv_inst: ClockDiv
-    generic map (
-      div_frequency   => clock_frequency/2,
-      clock_frequency => clock_frequency
-    )
-    port map (
-      clock_in  => clock,
-      clock_out => half_clock
+        clock                   => clock,
+        nreset                  => nreset,
+        enable                  => '1',
+        leds                    => leds,
+        reader_running          => reader_running,
+        sender_running          => sender_running,
+        read_done               => read_done,
+        send_done               => send_done,
+        store_datatype          => store_datatype,
+        error_type              => error_out,
+        store_checkout          => store_checkout,
+        force_enable            => force_enable,
+        force_address           => force_address,
+        enable_write            => enable_write,
+        memory_null             => memory_null,
+        address_null            => address_null,
+        xtea_done               => xtea_done,
+        selector_ctrigger       => selector_ctrigger,
+        selector_datawrite      => selector_datawrite,
+        selector_datareset      => selector_datareset,
+        selector_dataread       => selector_dataread,
+        selector_datasend       => selector_datasend,
+        selector_dataxtea       => selector_dataxtea,
+        selector_datatext       => selector_datatext,
+        selector_dataidentifier => selector_dataidentifier,
+        sender_pulse_enable     => sender_pulse_enable,
+        sender_pulse_trigger    => sender_pulse_trigger,
+        xtea_pulse_enable       => xtea_pulse_enable,
+        xtea_pulse_trigger      => xtea_pulse_trigger,
+        countup_pulse_trigger   => countup_pulse_trigger,
+        ccounter_enable         => ccounter_enable,
+        ccounter_reset          => ccounter_reset,
+        ccounter_out            => ccounter_out,
+        rom_index_counter       => rom_index
     );
 
 end architecture;

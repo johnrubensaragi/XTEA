@@ -8,7 +8,8 @@ entity SerialBlock is
     port(
         clock : in std_logic;
         nreset : in std_logic;
-        serial_running: out std_logic;
+        reader_running: out std_logic;
+        sender_running : out std_logic;
         read_done : out std_logic;
         send_done : out std_logic;
         send_start : in std_logic;
@@ -259,13 +260,15 @@ begin
 
             -- to check reader or sender is running
             if (reader_start = '1') then
-                serial_running <= '1';
-            elsif (sender_start = '1') then
-                serial_running <= '1';
+                reader_running <= '1';
             elsif (reader_done = '1') then
-                serial_running <= '0';
+                reader_running <= '0';
+            end if;
+
+            if (sender_start = '1') then
+                sender_running <= '1';
             elsif (sender_done = '1') then
-                serial_running <= '0';
+                sender_running <= '0';
             end if;
 
             -- to disable reader and sender if error

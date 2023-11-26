@@ -93,7 +93,7 @@ begin
 
     clockdiv_inst: ClockDiv
     generic map (
-      div_frequency   => baud_rate,
+      div_frequency   => 2*baud_rate,
       clock_frequency => clock_frequency
     )
     port map (
@@ -116,7 +116,7 @@ begin
         nreset <= '0';
         wait for 5*clock_period;
         nreset <= '1';
-        wait for 100*clock_period;
+        wait for 8*(2**address_length)*clock_period;
 
         -- initiate toplevel2 by sending the xtea mode and key
         receive_selector <= '0';
@@ -130,7 +130,7 @@ begin
                 uart_tx2 <= bit10_v(num);
             end if;
             counter <= counter + 1;
-            wait until bps_clock'event;
+            wait until rising_edge(bps_clock);
             end loop;
         end loop;
 
@@ -144,7 +144,7 @@ begin
                 uart_tx1 <= bit10_v(num);
             end if;
             counter <= counter + 1;
-            wait until bps_clock'event;
+            wait until rising_edge(bps_clock);
             end loop;
         end loop;
         
@@ -153,7 +153,7 @@ begin
         wait for baud_period;
         receive_selector <= '1';
         wait for clock_period;
-        wait for 14*encrypt_input'length*baud_period;
+        wait for 24*encrypt_input'length*baud_period;
 
         -- add data identifier and newline character add the end
         receive_selector <= '0';
@@ -167,7 +167,7 @@ begin
                 uart_tx2 <= bit10_v(num);
             end if;
             counter <= counter + 1;
-            wait until bps_clock'event;
+            wait until rising_edge(bps_clock);
             end loop;
         end loop;
 

@@ -12,10 +12,12 @@ vcom TB_DummyTopLevel.vhd
 vsim tb_dummytoplevel
 
 quietly WaveActivateNextPane {} 0
+add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/nreset
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/rs232_rx
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/rs232_tx
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/error_out
-add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/serial_running
+add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/reader_running
+add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/sender_running
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/read_done
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/send_start
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/send_done
@@ -54,6 +56,7 @@ add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/controller_inst/controll
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/ccounter_out
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/ccounter_enable
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/ccounter_reset
+add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/controller_inst/done_clear
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/memory_null
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/address_null
 add wave -noupdate -radix ascii /tb_dummytoplevel/dummytoplevel_inst/memoryblock_inst/sram00_inst/ram
@@ -84,4 +87,4 @@ configure wave -timelineunits sec
 update
 WaveRestoreZoom {0 ps} {52500103168 ps}
 
-run 20 ms
+run 30 ms
