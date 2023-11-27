@@ -3,39 +3,111 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -4.168
-TNS   : -65.654
+Slack : -14.746
+TNS   : -4195.685
+
+Type  : Slow 1200mV 85C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Slack : -8.620
+TNS   : -86.123
+
+Type  : Slow 1200mV 85C Model Setup 'SerialBlock:serialblock_inst|reader_trigger'
+Slack : -6.812
+TNS   : -518.283
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.433
+Slack : -0.169
+TNS   : -0.169
+
+Type  : Slow 1200mV 85C Model Hold 'SerialBlock:serialblock_inst|reader_trigger'
+Slack : 0.366
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Slack : 0.432
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
-Slack : -3.000
-TNS   : -38.688
+Slack : -3.201
+TNS   : -921.795
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|reader_trigger'
+Slack : -1.487
+TNS   : -129.369
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Slack : -1.487
+TNS   : -25.279
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -3.948
-TNS   : -61.085
+Slack : -13.815
+TNS   : -3905.397
+
+Type  : Slow 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Slack : -8.041
+TNS   : -80.293
+
+Type  : Slow 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|reader_trigger'
+Slack : -6.271
+TNS   : -478.710
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : -0.158
+TNS   : -0.158
+
+Type  : Slow 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|reader_trigger'
+Slack : 0.237
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
 Slack : 0.382
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
-Slack : -3.000
-TNS   : -38.688
+Slack : -3.201
+TNS   : -921.795
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|reader_trigger'
+Slack : -1.487
+TNS   : -129.369
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Slack : -1.487
+TNS   : -25.279
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.190
-TNS   : -16.618
+Slack : -6.046
+TNS   : -1481.276
+
+Type  : Fast 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Slack : -3.057
+TNS   : -27.566
+
+Type  : Fast 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|reader_trigger'
+Slack : -2.529
+TNS   : -189.129
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.167
+Slack : -0.230
+TNS   : -0.230
+
+Type  : Fast 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|reader_trigger'
+Slack : 0.156
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Slack : 0.166
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -28.440
+TNS   : -622.300
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|reader_trigger'
+Slack : -1.000
+TNS   : -87.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Slack : -1.000
+TNS   : -17.000
 
 ------------------------------------------------------------
