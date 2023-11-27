@@ -1,10 +1,13 @@
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(115200);
+  Serial.begin(9600);
+  Serial.setTimeout(1);
 }
-int x;
+String x;
 void loop() {
   // put your main code here, to run repeatedly:
-  x = Serial.readString().toInt();
-  Serial.print(x+1);
+  while (!Serial.available());
+
+  x = Serial.readString();
+  Serial.print(x);
 }
