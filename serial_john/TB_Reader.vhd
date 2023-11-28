@@ -51,7 +51,7 @@ architecture sim of TB_Reader is
     end function;
 
 begin
-    serialblock_inst: entity work.top
+    serialblock_inst: entity work.SerialBlock
     port map (
         nreset => nreset,
         clk => clock,
