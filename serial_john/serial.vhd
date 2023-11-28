@@ -40,7 +40,7 @@ begin
 
     process(clk)
     begin
-        if nreset = '1' then
+        if nreset = '0' then
             d_out_ready <= '0';
             d_out <= (others => '0');
             serial_end <= '1';
