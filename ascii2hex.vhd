@@ -6,28 +6,28 @@ entity ascii2hex is
         hex     : out std_logic_vector(3 downto 0);
         ascii   : in std_logic_vector(7 downto 0)
     );
-end hex2ascii;
+end ascii2hex;
 
-architecture arc of hex2ascii is
+architecture arc of ascii2hex is
 begin
-    process(hex)
+    process(ascii)
     begin
-        if(hex = x"0") then ascii <= x"30";
-        elsif(hex = x"1") then ascii <= x"31";
-        elsif(hex = x"2") then ascii <= x"32";
-        elsif(hex = x"3") then ascii <= x"33";
-        elsif(hex = x"4") then ascii <= x"34";
-        elsif(hex = x"5") then ascii <= x"35";
-        elsif(hex = x"6") then ascii <= x"36";
-        elsif(hex = x"7") then ascii <= x"37";
-        elsif(hex = x"8") then ascii <= x"38";
-        elsif(hex = x"9") then ascii <= x"39";
-        elsif(hex = x"A") then ascii <= x"40";
-        elsif(hex = x"B") then ascii <= x"41";
-        elsif(hex = x"C") then ascii <= x"42";
-        elsif(hex = x"D") then ascii <= x"43";
-        elsif(hex = x"E") then ascii <= x"44";
-        elsif(hex = x"F") then ascii <= x"45";
+        if   (ascii = x"30") then hex <= x"0";
+        elsif(ascii = x"31") then hex <= x"1";
+        elsif(ascii = x"32") then hex <= x"2";
+        elsif(ascii = x"33") then hex <= x"3";
+        elsif(ascii = x"34") then hex <= x"4";
+        elsif(ascii = x"35") then hex <= x"5";
+        elsif(ascii = x"36") then hex <= x"6";
+        elsif(ascii = x"37") then hex <= x"7";
+        elsif(ascii = x"38") then hex <= x"8";
+        elsif(ascii = x"39") then hex <= x"9";
+        elsif(ascii = x"41") then hex <= x"A";
+        elsif(ascii = x"42") then hex <= x"B";
+        elsif(ascii = x"43") then hex <= x"C";
+        elsif(ascii = x"44") then hex <= x"D";
+        elsif(ascii = x"45") then hex <= x"E";
+        elsif(ascii = x"46") then hex <= x"F";
         end if;
     end process;
 end arc;
