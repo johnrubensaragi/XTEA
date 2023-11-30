@@ -71,7 +71,7 @@ begin
         if (nreset = '0') then
             sender_done <= '0';
             sender_data_out <= (others => '0');
-        elsif sender_clock'event and sender_clock = '1' then
+        elsif rising_edge(sender_clock) then
             case c_state is
             when idle =>
                 if (sender_start = '1') then
@@ -80,17 +80,12 @@ begin
                 data_counter <= (others => '0');
                 sender_done <= '0';
             when sending =>
-                if (data_8bit /= data_null) then
-                    pulse_enable <= '1';
-                    pulse_reset <= not pulse_reset;
-                    data_counter <= data_counter + 1;
-                    sender_data_out <= data_8bit;
-                    if (int_counter = 7) then
-                        sender_done <= '1'; n_state <= idle;
-                    end if;
-                else
-                    sender_done <= '1';
-                    n_state <= idle;
+                pulse_enable <= '1';
+                pulse_reset <= not pulse_reset;
+                data_counter <= data_counter + 1;
+                sender_data_out <= data_8bit;
+                if (int_counter = 7) then
+                    sender_done <= '1'; n_state <= idle;
                 end if;
             when others => n_state <= idle;
             end case;

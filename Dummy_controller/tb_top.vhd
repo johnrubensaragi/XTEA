@@ -9,11 +9,12 @@ end entity;
 architecture sim of TB_DummyTopLevel is
   constant clock_frequency : natural := 50e6;   -- 50 MHz
   constant clock_period    : time    := 1 sec / clock_frequency;
-  constant baud_rate       : natural := 115200; -- 9600 bps
+  constant baud_rate       : natural := 115200; -- 115200 bps
+  constant baud_period     : time    := 1 sec / baud_rate;
 
   constant data_length    : natural := 64;
   constant address_length : natural := 10;
-  constant string_input   : string  := "-m 1 -d " & '"' & "Ini merupakan data yang sangat rahasia dan perlu diperahasiakan okey." & '"' & " -k password1234" & LF;
+  constant string_input   : string  := "-m 0 -d " & '"' & "Ini merupakan data yang sangat rahasia dan perlu diperahasiakan okey." & '"' & " -k password" & LF;
 
   signal enable    : std_logic                    := '1';
   signal clock     : std_logic                    := '0';
@@ -64,7 +65,7 @@ begin
 
   clockdiv_inst: ClockDiv
     generic map (
-      div_frequency   => baud_rate,
+      div_frequency   => 2 * baud_rate,
       clock_frequency => clock_frequency
     )
     port map (
@@ -72,11 +73,6 @@ begin
       clock_out => bps_clock
     );
 
-  -- clk: process
-  -- begin
-  --   wait for (clock_period / 2);
-  --   clock <= not clock;
-  -- end process;
   clock <= not clock after clock_period / 2;
 
   rs232_rx    <= uart_tx;
@@ -88,7 +84,7 @@ begin
     nreset <= '0';
     wait for 5 * clock_period;
     nreset <= '1';
-    wait for 100 * clock_period;
+    wait for 8 *(2 ** address_length) * clock_period;
 
     for char in uart_vector'length / 10 downto 1 loop
       bit10_v := uart_vector(10 * char - 1 downto 10 * char - 10);
@@ -99,9 +95,14 @@ begin
           uart_tx <= bit10_v(num);
         end if;
         counter <= counter + 1;
-        wait until bps_clock'event;
+        wait until rising_edge(bps_clock);
       end loop;
     end loop;
+
+    wait for 24 * string_input'length * baud_period;
+    nreset <= '0';
+    wait for 5 * clock_period;
+    nreset <= '1';
 
     wait;
   end process;

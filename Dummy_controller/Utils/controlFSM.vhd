@@ -27,8 +27,11 @@ entity controlFSM is
     xtea_start            : out std_logic;
 
     -- serial controls
-    serial_running        : in  std_logic;
-    serial_done           : in  std_logic;
+    reader_running        : in  std_logic;
+    sender_running        : in  std_logic;
+    reader_done           : in  std_logic;
+    sender_done           : in  std_logic;
+    sender_start          : out std_logic;
     error_check           : in  std_logic_vector(1 downto 0);
     store_datatype        : in  std_logic_vector(1 downto 0);
     store_checkout        : in  std_logic;
@@ -41,7 +44,7 @@ entity controlFSM is
 end entity;
 
 architecture behavioral of controlFSM is
-  type states is (Idle, PrepareReceive, ReceiveAttributes, ReceiveFirstData, ReceiveData, ReceiveWriteData, SendError, PrepareRead, ReadKey0, ReadKey1, ReadMode, ReadData, StartEncrypt, Encrypt, WriteEncrypted, SendToSerial);
+  type states is (Idle, PrepareReceive, ReceiveAttributes, ReceiveFirstData, ReceiveData, ReceiveWriteData, SendError, PrepareRead, ReadKey0, ReadKey1, ReadMode, ReadData, StartEncrypt, Encrypt, WriteEncrypted, PrepareSend, SendToSerial, Sending);
   signal current_state, next_state : states;
 
 begin
@@ -54,7 +57,7 @@ begin
     end if;
   end process;
 
-  process (current_state, enable, serial_running, serial_done, store_datatype, store_checkout, error_check, serial_done, memory, xtea_done) -- Hybrid FSM (address controls are Mealy-typed, the rest is Moore-typed)
+  process (current_state, enable, reader_running, reader_done, sender_done, store_datatype, store_checkout, error_check, reader_done, memory, xtea_done) -- Hybrid FSM (address controls are Mealy-typed, the rest is Moore-typed)
   begin
 
     case current_state is
@@ -63,13 +66,14 @@ begin
         enable_read <= '0';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '0';
         address_reset <= '0';
         address_to_attributes <= '0';
         dataIn_mux <= '0';
         dataType <= "00";
         address_sel <= '0';
-        if (enable = '1') and (serial_running = '1') and (store_checkout = '1') then
+        if (enable = '1') and (reader_running = '1') and (store_checkout = '1') then
           next_state <= PrepareReceive;
         else
           next_state <= Idle;
@@ -79,6 +83,7 @@ begin
         enable_read <= '0';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '0';
         address_reset <= '1';
         address_to_attributes <= '0';
@@ -99,6 +104,7 @@ begin
         enable_read <= '0';
         enable_write <= '1';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '0';
         address_reset <= '1';
         dataIn_mux <= '0';
@@ -109,7 +115,7 @@ begin
           address_countup <= '0';
           address_reset <= '0';
           address_to_attributes <= '0';
-        elsif (serial_done = '1') and (store_checkout = '0') then
+        elsif (reader_done = '1') and (store_checkout = '0') then
           next_state <= PrepareRead;
           address_countup <= '0';
           address_reset <= '0';
@@ -135,6 +141,7 @@ begin
         enable_read <= '0';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         dataIn_mux <= '0';
         dataType <= "00";
         address_sel <= '0';
@@ -143,7 +150,7 @@ begin
           address_countup <= '0';
           address_reset <= '0';
           address_to_attributes <= '0';
-        elsif (serial_done = '1') and (store_checkout = '0') then
+        elsif (reader_done = '1') and (store_checkout = '0') then
           next_state <= PrepareRead;
           address_countup <= '0';
           address_reset <= '0';
@@ -169,6 +176,7 @@ begin
         enable_read <= '0';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         dataIn_mux <= '0';
         dataType <= "00";
         address_sel <= '0';
@@ -177,7 +185,7 @@ begin
           address_countup <= '0';
           address_reset <= '0';
           address_to_attributes <= '0';
-        elsif (serial_done = '1') and (store_checkout = '0') then
+        elsif (reader_done = '1') and (store_checkout = '0') then
           next_state <= PrepareRead;
           address_countup <= '0';
           address_reset <= '0';
@@ -203,6 +211,7 @@ begin
         enable_read <= '0';
         enable_write <= '1';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '0';
         address_reset <= '0';
         dataIn_mux <= '0';
@@ -213,7 +222,7 @@ begin
           address_countup <= '0';
           address_reset <= '0';
           address_to_attributes <= '0';
-        elsif (serial_done = '1') and (store_checkout = '0') then
+        elsif (reader_done = '1') and (store_checkout = '0') then
           next_state <= PrepareRead;
           address_countup <= '0';
           address_reset <= '0';
@@ -239,13 +248,14 @@ begin
         enable_read <= '0';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '0';
         address_reset <= '0';
         address_to_attributes <= '0';
         dataIn_mux <= '0';
         dataType <= "00";
         address_sel <= '0';
-        if (serial_done = '1') then
+        if (reader_done = '1') then
           next_state <= Idle;
         else
           next_state <= SendError;
@@ -255,6 +265,7 @@ begin
         enable_read <= '1';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '1';
         address_reset <= '0';
         address_to_attributes <= '0';
@@ -267,6 +278,7 @@ begin
         enable_read <= '1';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '1';
         address_reset <= '0';
         address_to_attributes <= '0';
@@ -279,6 +291,7 @@ begin
         enable_read <= '1';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '1';
         address_reset <= '0';
         address_to_attributes <= '0';
@@ -291,6 +304,7 @@ begin
         enable_read <= '1';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '0';
         address_reset <= '0';
         address_to_attributes <= '0';
@@ -303,6 +317,7 @@ begin
         enable_read <= '1';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '0';
         address_reset <= '0';
         address_to_attributes <= '0';
@@ -320,12 +335,14 @@ begin
         dataType <= "11";
         address_sel <= '1';
         if (memory = "0000000000000000000000000000000000000000000000000000000000000000") then -- jangan lupa dirubah jadi semestinya
-          next_state <= SendToSerial;
+          next_state <= PrepareSend;
           xtea_start <= '0'; -- dibuat sbg Mealy agar XTEA tidak berjalan jika memory null
+          sender_start <= '0';
           address_reset <= '1';
         else
           next_state <= Encrypt;
           xtea_start <= '1';
+          sender_start <= '0';
           address_reset <= '0';
         end if;
 
@@ -333,6 +350,7 @@ begin
         enable_read <= '0';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '0';
         address_reset <= '0';
         address_to_attributes <= '0';
@@ -349,6 +367,7 @@ begin
         enable_read <= '0';
         enable_write <= '1';
         xtea_start <= '0';
+        sender_start <= '0';
         address_countup <= '1';
         address_reset <= '0';
         address_to_attributes <= '0';
@@ -357,18 +376,63 @@ begin
         address_sel <= '1';
         next_state <= ReadData;
 
+      when PrepareSend =>
+        enable_read <= '1';
+        enable_write <= '0';
+        xtea_start <= '0';
+        sender_start <= '1';
+        address_countup <= '0';
+        address_reset <= '0';
+        address_to_attributes <= '0';
+        dataIn_mux <= '1';
+        dataType <= "11";
+        address_sel <= '1';
+        next_state <= SendToSerial;
+
       when SendToSerial =>
         enable_read <= '1';
         enable_write <= '0';
         xtea_start <= '0';
+        sender_start <= '0';
         address_reset <= '0';
         dataIn_mux <= '0';
-        dataType <= "00";
+        dataType <= "11";
         address_sel <= '1';
         if (memory /= "0000000000000000000000000000000000000000000000000000000000000000") then
-          next_state <= SendToSerial;
-          address_countup <= '1';
-          address_to_attributes <= '0';
+          if sender_done = '0' then
+            next_state <= Sending;
+            address_countup <= '0';
+            address_to_attributes <= '0';
+          else
+            next_state <= SendToSerial;
+            address_countup <= '0';
+            address_to_attributes <= '0';
+          end if;
+        else
+          next_state <= Idle;
+          address_countup <= '0';
+          address_to_attributes <= '1';
+        end if;
+
+      when Sending =>
+        enable_read <= '1';
+        enable_write <= '0';
+        xtea_start <= '0';
+        sender_start <= '0';
+        address_reset <= '0';
+        dataIn_mux <= '0';
+        dataType <= "11";
+        address_sel <= '1';
+        if (memory /= "0000000000000000000000000000000000000000000000000000000000000000") then
+          if sender_done = '1' then
+            next_state <= PrepareSend;
+            address_countup <= '1';
+            address_to_attributes <= '0';
+          else
+            next_state <= Sending;
+            address_countup <= '0';
+            address_to_attributes <= '0';
+          end if;
         else
           next_state <= Idle;
           address_countup <= '0';

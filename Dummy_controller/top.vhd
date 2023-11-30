@@ -20,7 +20,7 @@ entity top is
         leds     : out std_logic_vector(3 downto 0)
           -- -- control input signals
           -- serial_running : in  std_logic;
-          -- serial_done    : in  std_logic;
+          -- reader_done    : in  std_logic;
           -- error_check    : in  std_logic;
           -- store_datatype : in  std_logic_vector(1 downto 0);
           -- store_checkout : in  std_logic;
@@ -51,7 +51,8 @@ architecture behavioral of top is
   signal r_xtea_done  : std_logic;
 
   -- serial
-  signal r_serial_running        : std_logic;
+  signal r_reader_running        : std_logic;
+  signal r_sender_running        : std_logic;
   signal r_serial_read_done      : std_logic;
   signal r_serial_send_done      : std_logic;
   signal r_serial_send_start     : std_logic;
@@ -100,8 +101,11 @@ architecture behavioral of top is
       xtea_start            : out std_logic;
 
       -- serial controls
-      serial_running        : in  std_logic;
-      serial_done           : in  std_logic;
+      reader_running        : in  std_logic;
+      sender_running        : in  std_logic;
+      reader_done           : in  std_logic;
+      sender_done           : in  std_logic;
+      sender_start          : out std_logic;
       error_check           : in  std_logic_vector(1 downto 0);
       store_datatype        : in  std_logic_vector(1 downto 0);
       store_checkout        : in  std_logic;
@@ -160,7 +164,8 @@ architecture behavioral of top is
     port (
       clock          : in  std_logic;
       nreset         : in  std_logic;
-      serial_running : out std_logic;
+      reader_running : out std_logic;
+      sender_running : out std_logic;
       read_done      : out std_logic;
       send_done      : out std_logic;
       send_start     : in  std_logic;
@@ -200,8 +205,11 @@ begin
       xtea_start            => r_xtea_start,
 
       -- serial controls
-      serial_running        => r_serial_running,
-      serial_done           => r_serial_read_done,
+      reader_running        => r_reader_running,
+      sender_running        => r_sender_running,
+      reader_done           => r_serial_read_done,
+      sender_done           => r_serial_send_done,
+      sender_start          => r_serial_send_start,
       error_check           => r_error_check,
       store_datatype        => r_store_datatype,
       store_checkout        => r_store_checkout,
@@ -258,12 +266,13 @@ begin
     port map (
       clock          => clk,
       nreset         => nreset,
-      serial_running => r_serial_running,
+      reader_running => r_reader_running,
+      sender_running => r_sender_running,
       read_done      => r_serial_read_done,
       send_done      => r_serial_send_done,
       send_start     => r_serial_send_start,
       error_out      => r_error_check,
-      send_data      => r_send_data,
+      send_data      => r_dataOut,
       store_data     => r_store_data,
       store_datatype => r_store_datatype,
       store_checkout => r_store_checkout_buffer,
