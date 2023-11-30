@@ -6,20 +6,19 @@ if [file exists wor] {
 
 vlib work
 
-vcom ClockCounter.vhd ClockDiv.vhd PulseGenerator.vhd speed_select.vhd my_uart_rx.vhd my_uart_tx.vhd my_uart_top.vhd SRAM.vhd XTEA.vhd SerialReader.vhd SerialSender.vhd SerialBlock.vhd DummySerial.vhd DummyTopLevel.vhd
+vcom Register.vhd MUX1Bit.vhd MUX2Data.vhd MUX4Data.vhd DEMUX2Data.vhd DEMUX4Data.vhd ClockCounter.vhd ClockDiv.vhd PulseGenerator.vhd speed_select.vhd my_uart_rx.vhd my_uart_tx.vhd my_uart_top.vhd SRAM.vhd MemoryBlock.vhd XTEA.vhd SerialReader.vhd SerialSender.vhd SerialBlock.vhd AddressCounter.vhd Controller.vhd DummyTopLevel.vhd
 vcom TB_Sender.vhd
 
 vsim tb_sender
 
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb_sender/serialblock_inst/serial_running
+add wave -noupdate /tb_sender/serialblock_inst/rs232_rx
+add wave -noupdate /tb_sender/serialblock_inst/rs232_tx
+add wave -noupdate /tb_sender/serialblock_inst/sender_running
 add wave -noupdate /tb_sender/serialblock_inst/send_done
 add wave -noupdate /tb_sender/serialblock_inst/send_start
 add wave -noupdate /tb_sender/serialblock_inst/error_out
 add wave -noupdate -radix ascii /tb_sender/serialblock_inst/send_data
-add wave -noupdate /tb_sender/serialblock_inst/rs232_rx
-add wave -noupdate /tb_sender/serialblock_inst/rs232_tx
-add wave -noupdate /tb_sender/serialblock_inst/internal_error
 add wave -noupdate -radix ascii /tb_sender/serialblock_inst/uart_send
 add wave -noupdate /tb_sender/serialblock_inst/sender_trigger
 add wave -noupdate /tb_sender/serialblock_inst/sender_enable
@@ -46,4 +45,4 @@ configure wave -timelineunits sec
 update
 WaveRestoreZoom {21662457975 ps} {156754607475 ps}
 
-run 500 ms
+run 5.5 ms

@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
-use ieee.numeric_std.all;
+use ieee.std_logic_arith.all;
 
 entity TB_Sender is
 end TB_Sender;
@@ -11,17 +11,22 @@ architecture sim of TB_Sender is
     constant period : time := 1 sec / frequency;
     constant data_length : natural := 64;
     constant address_length : natural := 10;
-    constant text_input : string := "itb! KAKI LU TUH BAU BANGETTTT!!! BIKIN GAK FOKUS KULIAH BAHKAN UJIAN!!! seenggaknya ganti kaos kaki tiap hari sama rajin cuci sepatu lah, masa space tiga bangku dari lu aja masih kecium bjir?????????";
+    constant text_input : string := "Halo ini adalah hasil enkripsi " & LF;
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
     signal error_out : std_logic_vector(1 downto 0) := (others => '0');
 
-    signal serial_running, send_done, read_done : std_logic;
-    signal store_address : std_logic_vector((address_length - 1 ) downto 0);
+    signal reader_running, sender_running, send_done, read_done : std_logic;
     signal store_data : std_logic_vector((data_length - 1) downto 0);
+    signal store_datatype : std_logic_vector(1 downto 0);
+    signal store_checkout : std_logic;
     signal send_data : std_logic_vector((data_length - 1) downto 0);
     signal send_start : std_logic;
+
+    constant ROM_length : natural := 10;
+    type simple_ROM is array(0 to (ROM_length-1)) of std_logic_vector((data_length-1) downto 0);
+    signal memory_text1, memory_text2, memory_text3 : simple_ROM;
 
     signal rs232_rx, rs232_tx : std_logic := '1';
 
@@ -33,12 +38,13 @@ architecture sim of TB_Sender is
       begin
         for idx in str_norm'range loop
           res_v(8 * idx - 1 downto 8 * idx - 8) := 
-            std_logic_vector(to_unsigned(character'pos(str_norm(idx)), 8));
+            std_logic_vector(conv_unsigned(character'pos(str_norm(idx)), 8));
         end loop;
         return res_v;
       end function;
 
 begin
+
     serialblock_inst: entity work.SerialBlock
     generic map (
         data_length    => data_length,
@@ -47,24 +53,27 @@ begin
     port map (
         clock          => clock,
         nreset         => nreset,
-        serial_running => serial_running,
+        reader_running => reader_running,
+        sender_running => sender_running,
         read_done      => read_done,
         send_done      => send_done,
         send_start     => send_start,
         error_out      => error_out,
         send_data      => send_data,
-        store_address  => store_address,
         store_data     => store_data,
+        store_datatype => store_datatype,
+        store_checkout => store_checkout,
         rs232_rx       => rs232_rx,
         rs232_tx       => rs232_tx
     );
 
     clock <= not clock after period / 2;
+    text_vector <= to_slv(text_input);
 
     sender_test : process
+        constant newline_vector : std_logic_vector(63 downto 0) := "00001010" & conv_std_logic_vector(0, 56);
     begin
         nreset <= '0';
-        text_vector <= to_slv(text_input);
         wait for period;
         nreset <= '1';
 

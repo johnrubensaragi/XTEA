@@ -141,7 +141,7 @@ begin
         sender_clock    => sender_clock,
         sender_enable   => sender_enable,
         sender_trigger  => sender_trigger,
-        sender_start   => sender_start,
+        sender_start    => sender_start,
         sender_done     => sender_done,
         sender_data_in  => send_data,
         sender_data_out => uart_send

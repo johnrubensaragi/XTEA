@@ -6,29 +6,31 @@ if [file exists work] {
 
 vlib work
 
-vcom ClockCounter.vhd ClockDiv.vhd PulseGenerator.vhd speed_select.vhd my_uart_rx.vhd my_uart_tx.vhd my_uart_top.vhd SRAM.vhd XTEA.vhd SerialReader.vhd SerialSender.vhd SerialBlock.vhd DummySerial.vhd DummyTopLevel.vhd
+vcom Register.vhd MUX1Bit.vhd MUX2Data.vhd MUX4Data.vhd DEMUX2Data.vhd DEMUX4Data.vhd ClockCounter.vhd ClockDiv.vhd PulseGenerator.vhd speed_select.vhd my_uart_rx.vhd my_uart_tx.vhd my_uart_top.vhd SRAM.vhd MemoryBlock.vhd XTEA.vhd SerialReader.vhd SerialSender.vhd SerialBlock.vhd AddressCounter.vhd Controller.vhd DummyTopLevel.vhd
 vcom TB_Reader.vhd
 
 vsim tb_reader
 
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb_reader/serialblock_inst/serial_running
-add wave -noupdate /tb_reader/serialblock_inst/read_done
-add wave -noupdate /tb_reader/serialblock_inst/send_done
-add wave -noupdate /tb_reader/serialblock_inst/error_out
-add wave -noupdate /tb_reader/serialblock_inst/store_address
-add wave -noupdate -radix ascii /tb_reader/serialblock_inst/store_data
 add wave -noupdate /tb_reader/serialblock_inst/rs232_rx
 add wave -noupdate /tb_reader/serialblock_inst/rs232_tx
+add wave -noupdate /tb_reader/serialblock_inst/reader_running
+add wave -noupdate /tb_reader/serialblock_inst/read_done
+add wave -noupdate /tb_reader/serialblock_inst/error_out
+add wave -noupdate -radix ascii /tb_reader/serialblock_inst/store_data
+add wave -noupdate /tb_reader/serialblock_inst/store_datatype
+add wave -noupdate /tb_reader/serialblock_inst/store_checkout
+add wave -noupdate /tb_reader/serialblock_inst/serialreader_inst/temp_data
 add wave -noupdate -radix ascii /tb_reader/serialblock_inst/reader_data_in
+add wave -noupdate -radix ascii /tb_reader/serialblock_inst/reader_data_out
+add wave -noupdate /tb_reader/serialblock_inst/reader_data_type
+add wave -noupdate /tb_reader/serialblock_inst/reader_data_checkout
 add wave -noupdate /tb_reader/serialblock_inst/reader_trigger
 add wave -noupdate /tb_reader/serialblock_inst/reader_enable
 add wave -noupdate /tb_reader/serialblock_inst/reader_start
-add wave -noupdate /tb_reader/serialblock_inst/reader_finish
 add wave -noupdate /tb_reader/serialblock_inst/reader_done
 add wave -noupdate /tb_reader/serialblock_inst/receive
 add wave -noupdate /tb_reader/serialblock_inst/receive_c
-add wave -noupdate /tb_reader/serialblock_inst/reader_clock
 add wave -noupdate /tb_reader/serialblock_inst/internal_error
 
 TreeUpdate [SetDefaultTree]
@@ -48,6 +50,6 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits sec
 update
-WaveRestoreZoom {0 ps} {367500 us}
+WaveRestoreZoom {0 ps} {7 ms}
 
-run 250 ms
+run 9 ms

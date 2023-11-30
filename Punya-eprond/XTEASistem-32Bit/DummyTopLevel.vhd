@@ -22,7 +22,7 @@ architecture behavioral of DummyTopLevel is
     constant default_key : std_logic_vector(127 downto 0) := x"6c7bd673045e9d5c29ac6c25db7a3191";
     constant empty_data : std_logic_vector((data_length-1) downto 0) := (others => '0');
     constant empty_address : std_logic_vector((address_length-1) downto 0) := (others => '0');
-    constant newline_vector : std_logic_vector(63 downto 0) := "00001010" & conv_std_logic_vector(0, 56);
+    constant newline_vector : std_logic_vector(63 downto 0) := "00001010" & conv_std_logic_vector(0, 48) & "00001010";
 
     component SerialBlock is
     generic(data_length, address_length : natural);
@@ -192,18 +192,16 @@ architecture behavioral of DummyTopLevel is
         store_checkout : in std_logic;
         force_enable : out std_logic;
         force_address : out std_logic_vector(1 downto 0);
+        address_atmax : in std_logic;
 
         -- memory block port
         enable_write : out std_logic;
-        memory_null : in std_logic;
-        address_null : in std_logic;
 
         -- xtea block port
         xtea_done : in std_logic;
 
         -- mux and demux selectors
-        selector_ctrigger : out std_logic;
-        selector_datawrite, selector_datareset : out std_logic;
+        selector_datawrite : out std_logic;
         selector_dataread, selector_datasend : out std_logic;
         selector_dataxtea, selector_datatext : out std_logic_vector(1 downto 0);
         selector_dataidentifier : out std_logic;
@@ -223,7 +221,7 @@ architecture behavioral of DummyTopLevel is
     end component Controller;
 
     -- serial block inout
-    signal reader_running, sender_running, read_done, send_start, send_done :  std_logic;
+    signal reader_running, sender_running, read_done, send_done, send_start :  std_logic;
     signal error_out : std_logic_vector(1 downto 0);
     signal send_data, store_data : std_logic_vector((data_length-1) downto 0);
     signal store_datatype : std_logic_vector(1 downto 0);
@@ -242,15 +240,14 @@ architecture behavioral of DummyTopLevel is
     signal countup_trigger, force_enable : std_logic;
     signal force_address : std_logic_vector(1 downto 0);
     signal address_out : std_logic_vector((address_length-1) downto 0);
+    signal max_data_address : std_logic_vector((address_length-1) downto 0);
+    signal address_atmax : std_logic;
 
     -- mux and demux inout
-    signal selector_ctrigger : std_logic;
-    signal selector_datawrite, selector_datareset : std_logic;
+    signal selector_datawrite : std_logic;
     signal selector_dataread, selector_datasend : std_logic;
     signal selector_dataxtea, selector_datatext : std_logic_vector(1 downto 0);
     signal selector_dataidentifier : std_logic;
-
-    signal datawrite_muxout : std_logic_vector((data_length-1) downto 0);
 
     signal dataxtea_demuxin : std_logic_vector((data_length-1) downto 0);
     signal xtea_fullmode, xtea_leftkey, xtea_rightkey, xtea_data : std_logic_vector((data_length-1) downto 0);
@@ -264,6 +261,7 @@ architecture behavioral of DummyTopLevel is
     signal temp_fullmode, temp_dataxtea : std_logic_vector((data_length-1) downto 0);
     signal leftkey_enable, rightkey_enable : std_logic;
     signal fullmode_enable, dataxtea_enable : std_logic;
+    signal maxadd_enable : std_logic;
 
     -- pulse generator inout 
     signal countup_pulse, countup_pulse_trigger : std_logic;
@@ -274,12 +272,6 @@ architecture behavioral of DummyTopLevel is
     constant ccounter_max : natural := 16;
     signal ccounter_out : natural range 0 to (ccounter_max-1);
     signal ccounter_enable, ccounter_reset : std_logic;
-
-    -- controller inout
-    signal memory_null, address_null : std_logic;
-
-    -- half clock for count up trigger
-    signal half_clock : std_logic;
 
     -- simple ROM for text constants
     constant rom_length : natural := 8;
@@ -399,16 +391,6 @@ begin
         address_out     => address_out
     );
 
-    clockdiv_inst: ClockDiv
-    generic map (
-      div_frequency   => clock_frequency/2,
-      clock_frequency => clock_frequency
-    )
-    port map (
-      clock_in  => clock,
-      clock_out => half_clock
-    );
-
     countuppulse_inst: PulseGenerator
     generic map (
         pulse_width => 5,
@@ -422,13 +404,7 @@ begin
         pulse_out    => countup_pulse
     );
 
-    ctrigger_mux_inst: MUX1Bit
-    port map (
-      selector => selector_ctrigger, --  1 bit selector for countup trigger
-      data_in1 => countup_pulse, -- '0' for trigger from countup pulse
-      data_in2 => half_clock, -- '1' for auto trigger using half clock
-      data_out => countup_trigger
-    );
+    countup_trigger <= countup_pulse;
 
     datawrite_mux_inst: MUX2Data
     generic map (data_length)
@@ -436,15 +412,6 @@ begin
         selector => selector_datawrite, -- 1 bit selector for storing xtea or reader
         data_in1 => store_data, -- '0' for serial reader output
         data_in2 => xtea_output, -- '1' for xtea output
-        data_out => datawrite_muxout
-    );
-
-    datareset_mux_inst: MUX2Data
-    generic map (data_length)
-    port map (
-        selector => selector_datareset, -- 1 bit selector for memory reset : all memory will be null
-        data_in1 => datawrite_muxout, -- '0' for not reset
-        data_in2 => (others => '0'), -- '1' for reset
         data_out => memory_write
     );
 
@@ -467,6 +434,10 @@ begin
         data_out3 => temp_fullmode, -- "10" for xtea mode
         data_out4 => temp_dataxtea -- "11" for xtea input
     );
+
+    -- register to save address maximum for data
+    maxadd_reg : Reg generic map (address_length) port map (clock, maxadd_enable, address_out, max_data_address);
+    address_atmax <= '1' when (address_out = max_data_address) else '0';
 
     -- truncate the data for xtea inputs
     xtea_key(127 downto 64) <= xtea_leftkey when (xtea_leftkey /= empty_data) else default_key(127 downto 64);
@@ -517,10 +488,6 @@ begin
         data_out => datatext_muxout
     );
 
-    -- check if memory read is null or if address is at 0
-    memory_null <= '1' when (memory_read = empty_data) else '0';
-    address_null <= '1' when (address_out = empty_address) else '0';
-
     -- fill each text roms with text constants and update them per clock
     text_roms : process(clock)
         constant results_text : string := "System results from processing XTEA:   " & LF;
@@ -570,13 +537,10 @@ begin
         store_checkout          => store_checkout,
         force_enable            => force_enable,
         force_address           => force_address,
+        address_atmax           => address_atmax,
         enable_write            => enable_write,
-        memory_null             => memory_null,
-        address_null            => address_null,
         xtea_done               => xtea_done,
-        selector_ctrigger       => selector_ctrigger,
         selector_datawrite      => selector_datawrite,
-        selector_datareset      => selector_datareset,
         selector_dataread       => selector_dataread,
         selector_datasend       => selector_datasend,
         selector_dataxtea       => selector_dataxtea,

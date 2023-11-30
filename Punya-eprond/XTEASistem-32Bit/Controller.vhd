@@ -21,18 +21,17 @@ entity Controller is
     store_checkout : in std_logic;
     force_enable : out std_logic;
     force_address : out std_logic_vector(1 downto 0);
+    address_atmax : in std_logic;
+    maxadd_enable : out std_logic;
 
     -- memory block port
     enable_write : out std_logic;
-    memory_null : in std_logic;
-    address_null : in std_logic;
 
     -- xtea block port
     xtea_done : in std_logic;
 
     -- mux and demux selectors
-    selector_ctrigger : out std_logic;
-    selector_datawrite, selector_datareset : out std_logic;
+    selector_datawrite : out std_logic;
     selector_dataread, selector_datasend : out std_logic;
     selector_dataxtea, selector_datatext : out std_logic_vector(1 downto 0);
     selector_dataidentifier : out std_logic;
@@ -64,15 +63,12 @@ architecture behavioral of Controller is
     signal store_checkout_buffer1, store_checkout_buffer2 : std_logic;
     signal store_checkout_buffer3, store_checkout_buffer4 : std_logic;
 
-    -- for memory clearing
-    signal done_clear : std_logic;
-
     -- for texts sending
     signal max_textrom_index : natural range 0 to 7;
     signal send_counter : natural range 0 to 7;
 
-    type states is (idle, reading_serial, sending_message, setup_xtea1, setup_xtea2, setup_xtea3, starting_xtea,
-                    processing_xtea, storing_xtea, reading_results, sending_results, clearing_memory);
+    type states is (idle, reading_serial, adding_maxadd, sending_message, setup_xtea1, setup_xtea2, setup_xtea3, starting_xtea,
+                    processing_xtea, storing_xtea, reading_results, sending_results);
     signal controller_cstate, controller_nstate : states;
  
     function to_slv(str : string) return std_logic_vector is
@@ -97,7 +93,7 @@ begin
     change_state: process(clock)
     begin
         if (nreset = '0') then
-            controller_cstate <= clearing_memory;
+            controller_cstate <= idle;
         elsif rising_edge(clock) then
             controller_cstate <= controller_nstate;
         end if;
@@ -118,19 +114,10 @@ begin
         else leds <= "1111";
         end if;
 
-        if (nreset = '0') then
-            force_enable <= '1';
-            force_address <= "00";
-            ccounter_enable <= '1';
-            controller_nstate <= clearing_memory;
-        else
-
         case controller_cstate is
         when idle =>
 
             -- initialization
-            selector_datareset <= '0';
-            selector_ctrigger <= '0';
             sender_pulse_enable <= '0';
             xtea_pulse_enable <= '0';
             i_ccounter_reset <= '0';
@@ -138,7 +125,6 @@ begin
             i_xpulse_trigger <= '0';
             i_spulse_trigger <= '0';
             enable_write <= '0';
-            done_clear <= '0';
             send_counter <= 0;
 
             -- dont start if error
@@ -151,7 +137,6 @@ begin
             end if;
 
         when reading_serial =>
-            selector_ctrigger <= '0'; -- use pulse gen as trigger for countup
             selector_datareset <= '0'; -- make sure dont select the memory reset
             selector_datawrite <= '0'; -- select serial output as memory write
             force_address <= store_datatype;
@@ -187,11 +172,20 @@ begin
 
             -- wait until reading is done
             elsif (read_done = '1') then
-                force_enable <= '1';
-                force_address <= "00"; -- force address to 00 to start setting up xtea
-                controller_nstate <= setup_xtea1;
+                maxadd_enable <= '1';
+                controller_nstate <= adding_maxadd;
             else
                 controller_nstate <= controller_cstate;
+            end if;
+
+        when adding_maxadd => -- add maximum address to check for at memory
+            maxadd_enable <= '1';
+            ccounter_enable <= '1';
+            if (ccounter_out >= 5) then
+                i_ccounter_reset <= not i_ccounter_reset;
+                maxadd_enable <= '0';
+                ccounter_enable <= '0';
+                controller_nstate <= setup_xtea1;
             end if;
 
         when sending_message => -- send messages based on error types
@@ -238,13 +232,15 @@ begin
         when setup_xtea1 => -- setup xtea mode
             selector_dataread <= '0'; -- select memory read to xtea inputs
             selector_dataxtea <= "00"; -- select memory read to xtea leftkey input
-            force_enable <= '0';
+            force_address <= "00"; -- force address to 00 to start setting up xtea
+            force_enable <= '1';
             ccounter_enable <= '1';
 
             -- wait for 5 clock cycles before next state
             if (ccounter_out >= 5) then
                 i_countup_trigger <= not i_countup_trigger; -- count up address
                 i_ccounter_reset <= not i_ccounter_reset;
+                force_enable <= '0';
                 ccounter_enable <= '0';
                 controller_nstate <= setup_xtea2;
             end if;
@@ -252,6 +248,7 @@ begin
         when setup_xtea2 => -- setup xtea key
             selector_dataread <= '0'; -- select memory read to xtea inputs
             selector_dataxtea <= "01"; -- select memory read to xtea rightkey input
+            force_enable <= '0';
             ccounter_enable <= '1';
 
             -- wait for 5 clock cycles before next state
@@ -265,6 +262,7 @@ begin
         when setup_xtea3 => -- setup xtea key
             selector_dataread <= '0'; -- select memory read to xtea inputs
             selector_dataxtea <= "10"; -- select memory read to xtea mode input
+            force_enable <= '0';
             ccounter_enable <= '1';
 
             -- wait for 5 clock cycles before next state
@@ -276,9 +274,10 @@ begin
             end if;
 
         when starting_xtea => -- read xtea input
-            if (memory_null /= '1' and address_null /= '1') then
+            if (address_atmax /= '1') then
                 selector_dataread <= '0'; -- select memory read to xtea inputs
                 selector_dataxtea <= "11"; -- select memory read to xtea data input
+                force_enable <= '0';
                 ccounter_enable <= '1';
 
                 -- trigger the pulse to start the xtea
@@ -308,7 +307,6 @@ begin
             end if;
 
         when storing_xtea => -- store xtea output
-            selector_datareset <= '0'; -- make sure to not use memory reset
             selector_dataread <= '1'; -- make sure to not connect memory read with xtea input
             selector_datawrite <= '1'; -- select xtea output as memory write
             ccounter_enable <= '1';
@@ -329,7 +327,7 @@ begin
             end if;
 
         when reading_results => -- read each results
-            if (memory_null /= '1' and address_null /= '1') then
+            if (address_atmax /= '1') then
                 selector_dataidentifier <= '0'; -- dont send newline character yet
                 selector_dataread <= '1'; -- select memory read to sender
                 selector_datasend <= '0'; -- select sender input as from memory
@@ -370,29 +368,9 @@ begin
                 controller_nstate <= reading_results;
             end if;
 
-        when clearing_memory =>
-            force_enable <= '0';
-            enable_write <= '1';
-            selector_datareset <= '1'; -- use empty data to write over all the memory
-            selector_ctrigger <= '1'; -- use half clock as count up trigger to fasten the process
-
-            -- done clear to check if the address is back at null
-            if (ccounter_out = 15) then
-                done_clear <= '1';
-                i_ccounter_reset <= not i_ccounter_reset;
-                ccounter_enable <= '0';
-            end if;
-
-            if (address_null = '1' and done_clear = '1') then
-                sender_pulse_enable <= '0';
-                xtea_pulse_enable <= '0';
-                controller_nstate <= idle;
-            end if;
-
         when others =>
 
         end case;
-        end if;
         end if;
 
     end process fsm_controller;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for XTEASistem-32Bit
-Sun Nov 26 22:52:32 2023
+Tue Nov 28 14:35:55 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -128,13 +128,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Nov 26 22:52:32 2023          ;
+; Analysis & Synthesis Status        ; Successful - Tue Nov 28 14:35:54 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; XTEASistem-32Bit                               ;
 ; Top-level Entity Name              ; DummyTopLevel                                  ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 2,123                                          ;
-;     Total combinational functions  ; 1,849                                          ;
+; Total logic elements               ; 2,124                                          ;
+;     Total combinational functions  ; 1,852                                          ;
 ;     Dedicated logic registers      ; 969                                            ;
 ; Total registers                    ; 969                                            ;
 ; Total pins                         ; 16                                             ;
@@ -153,6 +153,8 @@ https://fpgasoftware.intel.com/eula.
 ; Device                                                           ; EP4CE6E22C8        ;                    ;
 ; Top-level entity name                                            ; DummyTopLevel      ; XTEASistem-32Bit   ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone IV GX      ;
+; VHDL Show LMF Mapping Messages                                   ; Off                ;                    ;
+; VHDL Version                                                     ; VHDL_2008          ; VHDL_1993          ;
 ; Maximum Number of Registers Created from Uninferred RAMs         ; 8192               ; -1 (Unlimited)     ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -162,7 +164,6 @@ https://fpgasoftware.intel.com/eula.
 ; Preserve fewer node names                                        ; On                 ; On                 ;
 ; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
 ; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
 ; State Machine Processing                                         ; Auto               ; Auto               ;
 ; Safe State Machine                                               ; Off                ; Off                ;
 ; Extract Verilog State Machines                                   ; On                 ; On                 ;
@@ -250,9 +251,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 4            ;   0.1%      ;
 ;     Processor 5            ;   0.1%      ;
 ;     Processor 6            ;   0.1%      ;
-;     Processor 7            ;   0.1%      ;
-;     Processor 8            ;   0.1%      ;
-;     Processors 9-12        ;   0.1%      ;
+;     Processors 7-12        ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -301,16 +300,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 2,123       ;
+; Estimated Total logic elements              ; 2,124       ;
 ;                                             ;             ;
-; Total combinational functions               ; 1849        ;
+; Total combinational functions               ; 1852        ;
 ; Logic element usage by number of LUT inputs ;             ;
 ;     -- 4 input functions                    ; 1055        ;
-;     -- 3 input functions                    ; 447         ;
-;     -- <=2 input functions                  ; 347         ;
+;     -- 3 input functions                    ; 449         ;
+;     -- <=2 input functions                  ; 348         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 1530        ;
+;     -- normal mode                          ; 1533        ;
 ;     -- arithmetic mode                      ; 319         ;
 ;                                             ;             ;
 ; Total registers                             ; 969         ;
@@ -324,7 +323,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
 ; Maximum fan-out                             ; 1121        ;
-; Total fan-out                               ; 12185       ;
+; Total fan-out                               ; 12190       ;
 ; Average fan-out                             ; 3.92        ;
 +---------------------------------------------+-------------+
 
@@ -334,11 +333,11 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                              ; Entity Name     ; Library Name ;
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |DummyTopLevel                                ; 1849 (170)          ; 969 (44)                  ; 65536       ; 0            ; 0       ; 0         ; 16   ; 0            ; |DummyTopLevel                                                                                                   ; DummyTopLevel   ; work         ;
+; |DummyTopLevel                                ; 1852 (170)          ; 969 (44)                  ; 65536       ; 0            ; 0       ; 0         ; 16   ; 0            ; |DummyTopLevel                                                                                                   ; DummyTopLevel   ; work         ;
 ;    |AddressCounter:addresscounter_inst|       ; 23 (23)             ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|AddressCounter:addresscounter_inst                                                                ; AddressCounter  ; work         ;
 ;    |ClockCounter:clockcounter_inst|           ; 5 (5)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|ClockCounter:clockcounter_inst                                                                    ; ClockCounter    ; work         ;
 ;    |ClockDiv:clockdiv_inst|                   ; 42 (42)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|ClockDiv:clockdiv_inst                                                                            ; ClockDiv        ; work         ;
-;    |Controller:controller_inst|               ; 167 (167)           ; 62 (62)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|Controller:controller_inst                                                                        ; Controller      ; work         ;
+;    |Controller:controller_inst|               ; 170 (170)           ; 62 (62)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|Controller:controller_inst                                                                        ; Controller      ; work         ;
 ;    |DEMUX4Data:dataxtea_demux_inst|           ; 192 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|DEMUX4Data:dataxtea_demux_inst                                                                    ; DEMUX4Data      ; work         ;
 ;       |DEMUX2Data:demux2|                     ; 128 (128)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux2                                                  ; DEMUX2Data      ; work         ;
 ;       |DEMUX2Data:demux3|                     ; 64 (64)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3                                                  ; DEMUX2Data      ; work         ;
@@ -385,8 +384,8 @@ https://fpgasoftware.intel.com/eula.
 ;    |Reg:rightkey_reg|                         ; 0 (0)               ; 64 (64)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|Reg:rightkey_reg                                                                                  ; Reg             ; work         ;
 ;    |SerialBlock:serialblock_inst|             ; 407 (4)             ; 302 (74)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst                                                                      ; SerialBlock     ; work         ;
 ;       |ClockDiv:sclockdiv_inst|               ; 42 (42)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst                                              ; ClockDiv        ; work         ;
-;       |PulseGenerator:checkoutpulse_inst|     ; 7 (7)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|PulseGenerator:checkoutpulse_inst                                    ; PulseGenerator  ; work         ;
-;       |SerialReader:serialreader_inst|        ; 201 (201)           ; 97 (97)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst                                       ; SerialReader    ; work         ;
+;       |PulseGenerator:checkoutpulse_inst|     ; 6 (6)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|PulseGenerator:checkoutpulse_inst                                    ; PulseGenerator  ; work         ;
+;       |SerialReader:serialreader_inst|        ; 202 (202)           ; 97 (97)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst                                       ; SerialReader    ; work         ;
 ;       |SerialSender:serialsender_inst|        ; 66 (55)             ; 22 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialSender:serialsender_inst                                       ; SerialSender    ; work         ;
 ;          |PulseGenerator:pulsegenerator_inst| ; 11 (11)             ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst    ; PulseGenerator  ; work         ;
 ;       |my_uart_top:my_uart_top_inst|          ; 87 (0)              ; 72 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst                                         ; my_uart_top     ; work         ;
@@ -418,22 +417,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Encoding Type:  One-Hot
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; State Machine - |DummyTopLevel|Controller:controller_inst|controller_nstate                                                                                                                                                                                                                                                                                                                                                                          ;
-+-----------------------------------+------------------------+-----------------------------------+-----------------------------------+--------------------------------+-----------------------------------+---------------------------------+-------------------------------+-------------------------------+-------------------------------+-----------------------------------+----------------------------------+-----------------------------------+
-; Name                              ; controller_nstate.idle ; controller_nstate.sending_results ; controller_nstate.reading_results ; controller_nstate.storing_xtea ; controller_nstate.processing_xtea ; controller_nstate.starting_xtea ; controller_nstate.setup_xtea3 ; controller_nstate.setup_xtea2 ; controller_nstate.setup_xtea1 ; controller_nstate.sending_message ; controller_nstate.reading_serial ; controller_nstate.clearing_memory ;
-+-----------------------------------+------------------------+-----------------------------------+-----------------------------------+--------------------------------+-----------------------------------+---------------------------------+-------------------------------+-------------------------------+-------------------------------+-----------------------------------+----------------------------------+-----------------------------------+
-; controller_nstate.clearing_memory ; 0                      ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 0                                 ;
-; controller_nstate.reading_serial  ; 0                      ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 1                                ; 1                                 ;
-; controller_nstate.sending_message ; 0                      ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 1                                 ; 0                                ; 1                                 ;
-; controller_nstate.setup_xtea1     ; 0                      ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 1                             ; 0                                 ; 0                                ; 1                                 ;
-; controller_nstate.setup_xtea2     ; 0                      ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 1                             ; 0                             ; 0                                 ; 0                                ; 1                                 ;
-; controller_nstate.setup_xtea3     ; 0                      ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 1                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                                 ;
-; controller_nstate.starting_xtea   ; 0                      ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 1                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                                 ;
-; controller_nstate.processing_xtea ; 0                      ; 0                                 ; 0                                 ; 0                              ; 1                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                                 ;
-; controller_nstate.storing_xtea    ; 0                      ; 0                                 ; 0                                 ; 1                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                                 ;
-; controller_nstate.reading_results ; 0                      ; 0                                 ; 1                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                                 ;
-; controller_nstate.sending_results ; 0                      ; 1                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                                 ;
-; controller_nstate.idle            ; 1                      ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                                 ;
-+-----------------------------------+------------------------+-----------------------------------+-----------------------------------+--------------------------------+-----------------------------------+---------------------------------+-------------------------------+-------------------------------+-------------------------------+-----------------------------------+----------------------------------+-----------------------------------+
++-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+--------------------------------+-----------------------------------+---------------------------------+-------------------------------+-------------------------------+-------------------------------+-----------------------------------+----------------------------------+------------------------+
+; Name                              ; controller_nstate.clearing_memory ; controller_nstate.sending_results ; controller_nstate.reading_results ; controller_nstate.storing_xtea ; controller_nstate.processing_xtea ; controller_nstate.starting_xtea ; controller_nstate.setup_xtea3 ; controller_nstate.setup_xtea2 ; controller_nstate.setup_xtea1 ; controller_nstate.sending_message ; controller_nstate.reading_serial ; controller_nstate.idle ;
++-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+--------------------------------+-----------------------------------+---------------------------------+-------------------------------+-------------------------------+-------------------------------+-----------------------------------+----------------------------------+------------------------+
+; controller_nstate.idle            ; 0                                 ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 0                      ;
+; controller_nstate.reading_serial  ; 0                                 ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 1                                ; 1                      ;
+; controller_nstate.sending_message ; 0                                 ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 1                                 ; 0                                ; 1                      ;
+; controller_nstate.setup_xtea1     ; 0                                 ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 1                             ; 0                                 ; 0                                ; 1                      ;
+; controller_nstate.setup_xtea2     ; 0                                 ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 1                             ; 0                             ; 0                                 ; 0                                ; 1                      ;
+; controller_nstate.setup_xtea3     ; 0                                 ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 1                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                      ;
+; controller_nstate.starting_xtea   ; 0                                 ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 1                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                      ;
+; controller_nstate.processing_xtea ; 0                                 ; 0                                 ; 0                                 ; 0                              ; 1                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                      ;
+; controller_nstate.storing_xtea    ; 0                                 ; 0                                 ; 0                                 ; 1                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                      ;
+; controller_nstate.reading_results ; 0                                 ; 0                                 ; 1                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                      ;
+; controller_nstate.sending_results ; 0                                 ; 1                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                      ;
+; controller_nstate.clearing_memory ; 1                                 ; 0                                 ; 0                                 ; 0                              ; 0                                 ; 0                               ; 0                             ; 0                             ; 0                             ; 0                                 ; 0                                ; 1                      ;
++-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+--------------------------------+-----------------------------------+---------------------------------+-------------------------------+-------------------------------+-------------------------------+-----------------------------------+----------------------------------+------------------------+
 
 
 Encoding Type:  One-Hot
@@ -639,7 +638,7 @@ Encoding Type:  One-Hot
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 969   ;
-; Number of registers using Synchronous Clear  ; 110   ;
+; Number of registers using Synchronous Clear  ; 109   ;
 ; Number of registers using Synchronous Load   ; 68    ;
 ; Number of registers using Asynchronous Clear ; 208   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -679,15 +678,15 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[3]                      ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|num[3]                   ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver|num[0]                      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter|num[0]                   ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |DummyTopLevel|PulseGenerator:xteapulse_inst|counter[0]                                                                  ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |DummyTopLevel|PulseGenerator:countuppulse_inst|counter[2]                                                               ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |DummyTopLevel|SerialBlock:serialblock_inst|PulseGenerator:checkoutpulse_inst|counter[2]                                 ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[3] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DummyTopLevel|SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst|counter[2] ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |DummyTopLevel|PulseGenerator:senderpulse_inst|counter[2]                                                                ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |DummyTopLevel|XTEA:xteablock_inst|subinput0[4]                                                                          ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |DummyTopLevel|XTEA:xteablock_inst|sum[18]                                                                               ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |DummyTopLevel|XTEA:xteablock_inst|subinput0[25]                                                                         ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |DummyTopLevel|XTEA:xteablock_inst|sum[19]                                                                               ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |DummyTopLevel|XTEA:xteablock_inst|subinput1[11]                                                                         ;
 ; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |DummyTopLevel|Controller:controller_inst|selector_datatext[0]                                                           ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |DummyTopLevel|XTEA:xteablock_inst|counter[3]                                                                            ;
@@ -1970,22 +1969,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR           ; 115                         ;
 ;     ENA SCLR          ; 8                           ;
 ;     ENA SLD           ; 64                          ;
-;     SCLR              ; 72                          ;
+;     SCLR              ; 71                          ;
 ;     SLD               ; 4                           ;
-;     plain             ; 79                          ;
-; cycloneiii_lcell_comb ; 1850                        ;
+;     plain             ; 80                          ;
+; cycloneiii_lcell_comb ; 1853                        ;
 ;     arith             ; 319                         ;
 ;         2 data inputs ; 101                         ;
 ;         3 data inputs ; 218                         ;
-;     normal            ; 1531                        ;
-;         1 data inputs ; 15                          ;
-;         2 data inputs ; 232                         ;
-;         3 data inputs ; 229                         ;
+;     normal            ; 1534                        ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 231                         ;
+;         3 data inputs ; 231                         ;
 ;         4 data inputs ; 1055                        ;
 ; cycloneiii_ram_block  ; 256                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 4.76                        ;
+; Max LUT depth         ; 10.00                       ;
+; Average LUT depth     ; 4.88                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1994,7 +1993,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:08     ;
 +----------------+--------------+
 
 
@@ -2004,7 +2003,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sun Nov 26 22:52:19 2023
+    Info: Processing started: Tue Nov 28 14:35:27 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off XTEASistem-32Bit -c XTEASistem-32Bit
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -2125,6 +2124,7 @@ Info (12128): Elaborating entity "Reg" for hierarchy "Reg:leftkey_reg" File: C:/
 Info (12128): Elaborating entity "MUX4Data" for hierarchy "MUX4Data:datatext_mux_inst" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 509
 Info (12128): Elaborating entity "Controller" for hierarchy "Controller:controller_inst" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 558
 Warning (10492): VHDL Process Statement warning at Controller.vhd(99): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd Line: 99
+Warning (10492): VHDL Process Statement warning at Controller.vhd(112): signal "enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd Line: 112
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[0]" feeding internal logic into a wire File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
     Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[1]" feeding internal logic into a wire File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
@@ -2635,15 +2635,15 @@ Warning (21074): Design contains 8 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "switch[1]" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 13
     Warning (15610): No output dependent on input pin "switch[2]" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 13
     Warning (15610): No output dependent on input pin "switch[3]" File: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 13
-Info (21057): Implemented 2415 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2416 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 2143 logic cells
+    Info (21061): Implemented 2144 logic cells
     Info (21064): Implemented 256 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 425 warnings
-    Info: Peak virtual memory: 4903 megabytes
-    Info: Processing ended: Sun Nov 26 22:52:32 2023
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:15
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 426 warnings
+    Info: Peak virtual memory: 4904 megabytes
+    Info: Processing ended: Tue Nov 28 14:35:55 2023
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:31
 
 

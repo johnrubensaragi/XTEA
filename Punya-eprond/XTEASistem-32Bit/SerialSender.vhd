@@ -36,8 +36,8 @@ architecture behavioral of SerialSender is
 begin
     pulsegenerator_inst: PulseGenerator
     generic map (
-      pulse_width => 10,
-      pulse_max   => 16
+      pulse_width => 5,
+      pulse_max   => 8
     )
     port map (
       clock        => clock,
@@ -61,7 +61,6 @@ begin
     end process change_state;
 
     sender_fsm : process(sender_clock)
-        constant data_null : std_logic_vector(7 downto 0) := x"00";
         variable data_8bit : std_logic_vector(7 downto 0);
         variable int_counter : natural;
     begin

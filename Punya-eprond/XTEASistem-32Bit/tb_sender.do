@@ -12,14 +12,13 @@ vcom TB_Sender.vhd
 vsim tb_sender
 
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb_sender/serialblock_inst/serial_running
+add wave -noupdate /tb_sender/serialblock_inst/rs232_rx
+add wave -noupdate /tb_sender/serialblock_inst/rs232_tx
+add wave -noupdate /tb_sender/serialblock_inst/sender_running
 add wave -noupdate /tb_sender/serialblock_inst/send_done
 add wave -noupdate /tb_sender/serialblock_inst/send_start
 add wave -noupdate /tb_sender/serialblock_inst/error_out
 add wave -noupdate -radix ascii /tb_sender/serialblock_inst/send_data
-add wave -noupdate /tb_sender/serialblock_inst/rs232_rx
-add wave -noupdate /tb_sender/serialblock_inst/rs232_tx
-add wave -noupdate /tb_sender/serialblock_inst/internal_error
 add wave -noupdate -radix ascii /tb_sender/serialblock_inst/uart_send
 add wave -noupdate /tb_sender/serialblock_inst/sender_trigger
 add wave -noupdate /tb_sender/serialblock_inst/sender_enable
@@ -46,4 +45,4 @@ configure wave -timelineunits sec
 update
 WaveRestoreZoom {21662457975 ps} {156754607475 ps}
 
-run 5 ms
+run 5.5 ms

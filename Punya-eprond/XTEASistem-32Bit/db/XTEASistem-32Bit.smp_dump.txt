@@ -1,7 +1,7 @@
 
 State Machine - |DummyTopLevel|Controller:controller_inst|controller_nstate
-Name controller_nstate.idle controller_nstate.sending_results controller_nstate.reading_results controller_nstate.storing_xtea controller_nstate.processing_xtea controller_nstate.starting_xtea controller_nstate.setup_xtea3 controller_nstate.setup_xtea2 controller_nstate.setup_xtea1 controller_nstate.sending_message controller_nstate.reading_serial controller_nstate.clearing_memory 
-controller_nstate.clearing_memory 0 0 0 0 0 0 0 0 0 0 0 0 
+Name controller_nstate.clearing_memory controller_nstate.sending_results controller_nstate.reading_results controller_nstate.storing_xtea controller_nstate.processing_xtea controller_nstate.starting_xtea controller_nstate.setup_xtea3 controller_nstate.setup_xtea2 controller_nstate.setup_xtea1 controller_nstate.sending_message controller_nstate.reading_serial controller_nstate.idle 
+controller_nstate.idle 0 0 0 0 0 0 0 0 0 0 0 0 
 controller_nstate.reading_serial 0 0 0 0 0 0 0 0 0 0 1 1 
 controller_nstate.sending_message 0 0 0 0 0 0 0 0 0 1 0 1 
 controller_nstate.setup_xtea1 0 0 0 0 0 0 0 0 1 0 0 1 
@@ -12,7 +12,7 @@ controller_nstate.processing_xtea 0 0 0 0 1 0 0 0 0 0 0 1
 controller_nstate.storing_xtea 0 0 0 1 0 0 0 0 0 0 0 1 
 controller_nstate.reading_results 0 0 1 0 0 0 0 0 0 0 0 1 
 controller_nstate.sending_results 0 1 0 0 0 0 0 0 0 0 0 1 
-controller_nstate.idle 1 0 0 0 0 0 0 0 0 0 0 1 
+controller_nstate.clearing_memory 1 0 0 0 0 0 0 0 0 0 0 1 
 
 State Machine - |DummyTopLevel|Controller:controller_inst|controller_cstate
 Name controller_cstate.idle controller_cstate.sending_results controller_cstate.reading_results controller_cstate.storing_xtea controller_cstate.processing_xtea controller_cstate.starting_xtea controller_cstate.setup_xtea3 controller_cstate.setup_xtea2 controller_cstate.setup_xtea1 controller_cstate.sending_message controller_cstate.reading_serial controller_cstate.clearing_memory 

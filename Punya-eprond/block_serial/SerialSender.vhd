@@ -61,36 +61,33 @@ begin
     end process change_state;
 
     sender_fsm : process(sender_clock)
+        constant data_null : std_logic_vector(7 downto 0) := x"00";
+        variable data_8bit : std_logic_vector(7 downto 0);
+        variable int_counter : natural;
     begin
+        int_counter := conv_integer(data_counter);
+        data_8bit := sender_data_in((64-8*int_counter-1) downto 64-8*(int_counter+1));
+
         if (nreset = '0') then
             sender_done <= '0';
             sender_data_out <= (others => '0');
-        elsif sender_clock'event and sender_clock = '1' then
+        elsif rising_edge(sender_clock) then
             case c_state is
-                when idle =>
-                    if (sender_start = '1') then
-                        n_state <= sending;
-                    end if;
-                    sender_done <= '0';
-                when sending =>
-                    pulse_enable <= '1';
-                    pulse_reset <= not pulse_reset;
-                    data_counter <= data_counter + 1;
-                    case data_counter is
-                        when "000" => sender_data_out <= sender_data_in(63 downto 56);
-                        when "001" => sender_data_out <= sender_data_in(55 downto 48);
-                        when "010" => sender_data_out <= sender_data_in(47 downto 40);
-                        when "011" => sender_data_out <= sender_data_in(39 downto 32);
-                        when "100" => sender_data_out <= sender_data_in(31 downto 24);
-                        when "101" => sender_data_out <= sender_data_in(23 downto 16);
-                        when "110" => sender_data_out <= sender_data_in(15 downto 8);
-                        when "111" =>
-                            sender_data_out <= sender_data_in(7 downto 0);
-                            sender_done <= '1';
-                            n_state <= idle;
-                        when others =>
-                    end case;
-                when others => n_state <= idle;
+            when idle =>
+                if (sender_start = '1') then
+                    n_state <= sending;
+                end if;
+                data_counter <= (others => '0');
+                sender_done <= '0';
+            when sending =>
+                pulse_enable <= '1';
+                pulse_reset <= not pulse_reset;
+                data_counter <= data_counter + 1;
+                sender_data_out <= data_8bit;
+                if (int_counter = 7) then
+                    sender_done <= '1'; n_state <= idle;
+                end if;
+            when others => n_state <= idle;
             end case;
         end if;
     end process sender_fsm;

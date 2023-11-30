@@ -11,15 +11,13 @@ architecture sim of TB_Sender is
     constant period : time := 1 sec / frequency;
     constant data_length : natural := 64;
     constant address_length : natural := 10;
-    constant text1_input : string := "Halo ini adalah hasil enkripsi  ";
-    constant text2_input : string := "Ini merupakan text yang berbeda daripada sebelumnya    " & LF;
-    constant text3_input : string := "Apalagi ini yang merupakan text paling berbeda. ";
+    constant text_input : string := "Halo ini adalah hasil enkripsi " & LF;
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
     signal error_out : std_logic_vector(1 downto 0) := (others => '0');
 
-    signal serial_running, send_done, read_done : std_logic;
+    signal reader_running, sender_running, send_done, read_done : std_logic;
     signal store_data : std_logic_vector((data_length - 1) downto 0);
     signal store_datatype : std_logic_vector(1 downto 0);
     signal store_checkout : std_logic;
@@ -32,9 +30,7 @@ architecture sim of TB_Sender is
 
     signal rs232_rx, rs232_tx : std_logic := '1';
 
-    -- signal text1_vector : std_logic_vector((8 * text1_input'length - 1) downto 0);
-    -- signal text2_vector : std_logic_vector((8 * text2_input'length - 1) downto 0);
-    -- signal text3_vector : std_logic_vector((8 * text3_input'length - 1) downto 0);
+    signal text_vector : std_logic_vector((8 * text_input'length - 1) downto 0);
 
     function to_slv(str : string) return std_logic_vector is
         alias str_norm : string(str'length downto 1) is str;
@@ -57,7 +53,8 @@ begin
     port map (
         clock          => clock,
         nreset         => nreset,
-        serial_running => serial_running,
+        reader_running => reader_running,
+        sender_running => sender_running,
         read_done      => read_done,
         send_done      => send_done,
         send_start     => send_start,
@@ -71,48 +68,24 @@ begin
     );
 
     clock <= not clock after period / 2;
-    -- text1_vector <= to_slv(text1_input);
-    -- text2_vector <= to_slv(text2_input);
-    -- text3_vector <= to_slv(text3_input);
+    text_vector <= to_slv(text_input);
 
-    fill_rom : process(clock)
-        constant text1_vector : std_logic_vector((8 * text1_input'length - 1) downto 0) := to_slv(text1_input);
-        constant text2_vector : std_logic_vector((8 * text2_input'length - 1) downto 0) := to_slv(text2_input);
-        constant text3_vector : std_logic_vector((8 * text3_input'length - 1) downto 0) := to_slv(text3_input);
+    sender_test : process
+        constant newline_vector : std_logic_vector(63 downto 0) := "00001010" & conv_std_logic_vector(0, 56);
     begin
-        for idx in 0 to (ROM_length-1) loop
-            if (idx < text1_vector'length/64) then 
-                memory_text1(idx) <= text1_vector(text1_vector'length-1-64*(idx) downto text1_vector'length-(64*(idx+1)));
-            end if;
-            if (idx < text2_vector'length/64) then 
-                memory_text2(idx) <= text2_vector(text2_vector'length-1-64*(idx) downto text2_vector'length-(64*(idx+1)));
-            end if;
-            if (idx < text3_vector'length/64) then 
-                memory_text3(idx) <= text3_vector(text3_vector'length-1-64*(idx) downto text3_vector'length-(64*(idx+1)));
+        nreset <= '0';
+        wait for period;
+        nreset <= '1';
+
+        for num in text_input'range loop
+            if (num mod 8 = 0) then
+                send_data <= text_vector((text_vector'length-(64*((num/8)-1))-1) downto text_vector'length-(64*(num/8)));
+                send_start <= '1';
+                wait for period;
+                send_start <= '0';
+                wait until rising_edge(send_done);
             end if;
         end loop;
-    end process;
-
-    -- sender_test : process
-    --     constant newline_vector : std_logic_vector(63 downto 0) := "00001010" & conv_std_logic_vector(0, 56);
-    -- begin
-    --     nreset <= '0';
-    --     wait for period;
-    --     nreset <= '1';
-
-    --     for num in text1_input'range loop
-    --         if (num mod 8 = 0) then
-    --             send_data <= text1_vector((text1_vector'length-(64*((num/8)-1))-1) downto text1_vector'length-(64*(num/8)));
-    --             send_start <= '1';
-    --             wait for period;
-    --             send_start <= '0';
-    --             wait until rising_edge(send_done);
-    --         end if;
-    --     end loop;
-    --     send_data <= newline_vector;
-    --     send_start <= '1';
-    --     wait for period;
-    --     send_start <= '0';
-    --     wait;
-    -- end process sender_test;
+        wait;
+    end process sender_test;
 end sim;

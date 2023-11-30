@@ -3,27 +3,27 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clock'
-Slack : -10.700
-TNS   : -3852.703
+Slack : -10.729
+TNS   : -4068.178
 
 Type  : Slow 1200mV 85C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : -7.544
-TNS   : -73.481
+Slack : -7.534
+TNS   : -76.714
 
 Type  : Slow 1200mV 85C Model Setup 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : -6.172
-TNS   : -457.165
+Slack : -5.634
+TNS   : -447.987
 
 Type  : Slow 1200mV 85C Model Setup 'nreset'
-Slack : -2.816
-TNS   : -5.387
-
-Type  : Slow 1200mV 85C Model Hold 'clock'
-Slack : 0.413
-TNS   : 0.000
+Slack : -2.175
+TNS   : -4.232
 
 Type  : Slow 1200mV 85C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : 0.453
+Slack : 0.344
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock'
+Slack : 0.409
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'SerialBlock:serialblock_inst|reader_trigger'
@@ -31,44 +31,44 @@ Slack : 0.453
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'nreset'
-Slack : 1.506
+Slack : 1.283
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'clock'
-Slack : -3.615
-TNS   : -26.598
+Slack : -3.116
+TNS   : -23.232
 
 Type  : Slow 1200mV 85C Model Recovery 'nreset'
-Slack : -2.599
-TNS   : -5.194
+Slack : -2.267
+TNS   : -4.406
 
 Type  : Slow 1200mV 85C Model Recovery 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : -0.164
-TNS   : -10.376
+Slack : -0.168
+TNS   : -11.827
 
 Type  : Slow 1200mV 85C Model Recovery 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : 0.890
+Slack : 0.850
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : -0.970
-TNS   : -8.725
+Slack : -0.943
+TNS   : -8.392
 
 Type  : Slow 1200mV 85C Model Removal 'clock'
-Slack : -0.132
-TNS   : -13.028
+Slack : -0.117
+TNS   : -11.985
 
 Type  : Slow 1200mV 85C Model Removal 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : 0.111
+Slack : 0.125
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'nreset'
-Slack : 1.698
+Slack : 1.427
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
 Slack : -3.201
-TNS   : -1377.475
+TNS   : -1442.903
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'nreset'
 Slack : -3.000
@@ -83,27 +83,27 @@ Slack : -1.487
 TNS   : -25.279
 
 Type  : Slow 1200mV 0C Model Setup 'clock'
-Slack : -9.882
-TNS   : -3554.225
+Slack : -9.902
+TNS   : -3753.196
 
 Type  : Slow 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : -6.957
-TNS   : -68.059
+Slack : -7.003
+TNS   : -71.594
 
 Type  : Slow 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : -5.701
-TNS   : -426.103
+Slack : -5.324
+TNS   : -418.476
 
 Type  : Slow 1200mV 0C Model Setup 'nreset'
-Slack : -2.746
-TNS   : -5.283
-
-Type  : Slow 1200mV 0C Model Hold 'clock'
-Slack : 0.358
-TNS   : 0.000
+Slack : -2.114
+TNS   : -4.145
 
 Type  : Slow 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : 0.401
+Slack : 0.254
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clock'
+Slack : 0.352
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|reader_trigger'
@@ -111,44 +111,44 @@ Slack : 0.403
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'nreset'
-Slack : 1.343
+Slack : 1.169
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'clock'
-Slack : -3.399
-TNS   : -24.838
+Slack : -2.928
+TNS   : -21.696
 
 Type  : Slow 1200mV 0C Model Recovery 'nreset'
-Slack : -2.551
-TNS   : -5.072
+Slack : -2.333
+TNS   : -4.481
 
 Type  : Slow 1200mV 0C Model Recovery 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : -0.098
-TNS   : -6.049
+Slack : -0.102
+TNS   : -7.121
 
 Type  : Slow 1200mV 0C Model Recovery 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : 0.925
+Slack : 0.876
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : -0.933
-TNS   : -8.390
+Slack : -0.893
+TNS   : -7.941
 
 Type  : Slow 1200mV 0C Model Removal 'clock'
-Slack : -0.126
-TNS   : -12.635
+Slack : -0.114
+TNS   : -11.724
 
 Type  : Slow 1200mV 0C Model Removal 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : 0.122
+Slack : 0.137
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'nreset'
-Slack : 1.597
+Slack : 1.318
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.201
-TNS   : -1377.475
+TNS   : -1442.903
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'nreset'
 Slack : -3.000
@@ -163,72 +163,72 @@ Slack : -1.487
 TNS   : -25.279
 
 Type  : Fast 1200mV 0C Model Setup 'clock'
-Slack : -3.869
-TNS   : -1202.373
+Slack : -3.939
+TNS   : -1280.682
 
 Type  : Fast 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : -2.596
-TNS   : -24.934
+Slack : -2.550
+TNS   : -24.563
 
 Type  : Fast 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : -2.041
-TNS   : -149.389
+Slack : -1.901
+TNS   : -144.097
 
 Type  : Fast 1200mV 0C Model Setup 'nreset'
-Slack : -0.754
-TNS   : -1.369
+Slack : -0.487
+TNS   : -0.854
 
 Type  : Fast 1200mV 0C Model Hold 'clock'
-Slack : 0.112
+Slack : 0.107
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : 0.186
+Slack : 0.130
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : 0.186
+Slack : 0.187
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'nreset'
-Slack : 0.494
+Slack : 0.477
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'clock'
-Slack : -1.046
-TNS   : -19.560
+Slack : -1.032
+TNS   : -19.557
 
 Type  : Fast 1200mV 0C Model Recovery 'nreset'
-Slack : -0.813
-TNS   : -1.611
+Slack : -0.681
+TNS   : -1.321
 
 Type  : Fast 1200mV 0C Model Recovery 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : -0.205
-TNS   : -14.015
+Slack : -0.207
+TNS   : -14.680
 
 Type  : Fast 1200mV 0C Model Recovery 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : 0.237
+Slack : 0.216
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : -0.408
-TNS   : -3.665
+Slack : -0.394
+TNS   : -3.488
 
 Type  : Fast 1200mV 0C Model Removal 'clock'
-Slack : -0.081
-TNS   : -8.286
+Slack : -0.075
+TNS   : -7.795
 
 Type  : Fast 1200mV 0C Model Removal 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : 0.046
+Slack : 0.054
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'nreset'
-Slack : 0.510
+Slack : 0.436
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -932.518
+TNS   : -979.406
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'nreset'
 Slack : -3.000
