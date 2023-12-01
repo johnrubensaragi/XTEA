@@ -8,65 +8,40 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-dC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit
+Z0 dC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit
 Eaddresscounter
-<<<<<<< HEAD
 Z1 w1700922724
 Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 6
+!i122 0
 R0
 Z6 8AddressCounter.vhd
 Z7 FAddressCounter.vhd
-=======
-Z0 w1701073066
-Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z5 dC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit
-Z6 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd
-Z7 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 l0
-L6
-V<HW>6iShY_?[>FYza0TYL3
+L6 1
+V^KC=g5;7g9:[6`O;2CN^^1
 !s100 dXBkX5KU<KaRbSCYe[dIM0
-Z8 OV;C;10.6d;65
+Z8 OV;C;2020.1;71
 32
-<<<<<<< HEAD
-Z9 !s110 1701126244
+Z9 !s110 1701326660
 !i10b 1
-Z10 !s108 1701126243.000000
-Z11 !s90 -reportprogress|300|Register.vhd|MUX1Bit.vhd|MUX2Data.vhd|MUX4Data.vhd|DEMUX2Data.vhd|DEMUX4Data.vhd|ClockCounter.vhd|ClockDiv.vhd|PulseGenerator.vhd|speed_select.vhd|my_uart_rx.vhd|my_uart_tx.vhd|my_uart_top.vhd|SRAM.vhd|MemoryBlock.vhd|XTEA.vhd|SerialReader.vhd|SerialSender.vhd|SerialBlock.vhd|AddressCounter.vhd|Controller.vhd|DummyTopLevel.vhd|
-Z12 !s107 DummyTopLevel.vhd|Controller.vhd|AddressCounter.vhd|SerialBlock.vhd|SerialSender.vhd|SerialReader.vhd|XTEA.vhd|MemoryBlock.vhd|SRAM.vhd|my_uart_top.vhd|my_uart_tx.vhd|my_uart_rx.vhd|speed_select.vhd|PulseGenerator.vhd|ClockDiv.vhd|ClockCounter.vhd|DEMUX4Data.vhd|DEMUX2Data.vhd|MUX4Data.vhd|MUX2Data.vhd|MUX1Bit.vhd|Register.vhd|
-=======
-Z9 !s110 1701097181
-!i10b 1
-Z10 !s108 1701097181.000000
-Z11 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd|
-Z12 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd|
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z10 !s108 1701326660.000000
+Z11 !s90 -reportprogress|300|Register.vhd|MUX1Bit.vhd|MUX2Data.vhd|MUX4Data.vhd|DEMUX2Data.vhd|DEMUX4Data.vhd|ClockCounter.vhd|ClockDiv.vhd|PulseGenerator.vhd|uart_interpreter.vhd|RegisterBank64Bit.vhd|SRAM.vhd|MemoryBlock.vhd|XTEA.vhd|SerialReader.vhd|SerialSender.vhd|SerialBlock.vhd|AddressCounter.vhd|Controller.vhd|DummyTopLevel.vhd|
+Z12 !s107 DummyTopLevel.vhd|Controller.vhd|AddressCounter.vhd|SerialBlock.vhd|SerialSender.vhd|SerialReader.vhd|XTEA.vhd|MemoryBlock.vhd|SRAM.vhd|RegisterBank64Bit.vhd|uart_interpreter.vhd|PulseGenerator.vhd|ClockDiv.vhd|ClockCounter.vhd|DEMUX4Data.vhd|DEMUX2Data.vhd|MUX4Data.vhd|MUX2Data.vhd|MUX1Bit.vhd|Register.vhd|
 !i113 1
-Z13 o-work work
-Z14 tExplicit 1 CvgOpt 0
+Z13 tExplicit 1 CvgOpt 0
 Abehavioral
-R1
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 14 addresscounter 0 22 ^KC=g5;7g9:[6`O;2CN^^1
-!i122 6
-=======
-Z15 DEx4 work 14 addresscounter 0 22 <HW>6iShY_?[>FYza0TYL3
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l21
-L18
-VW;dE5_VHeUVzJ65ol?bLg0
+L18 21
+V=<[Y0=n63NHCmY:en`3052
 !s100 ldNP^EnECaR9YdYbXTZ?J0
 R8
 32
@@ -77,1643 +52,868 @@ R11
 R12
 !i113 1
 R13
-R14
 Eclockcounter
-Z16 w1700794731
-Z17 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-R1
+Z14 w1700625828
+Z15 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R2
 R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
 Z16 8ClockCounter.vhd
 Z17 FClockCounter.vhd
-=======
-Z18 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/ClockCounter.vhd
-Z19 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/ClockCounter.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 l0
-L6
-V@VELzj^kg3kY2BH70CzR43
+L6 1
+Voo5RXj]G6OggGSjUSMz_N3
 !s100 N[`o^RJgMfT2F2UFE;?g03
 R8
 32
 R9
 !i10b 1
 R10
-Z20 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/ClockCounter.vhd|
-Z21 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/ClockCounter.vhd|
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R17
-R1
+R15
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 12 clockcounter 0 22 oo5RXj]G6OggGSjUSMz_N3
-!i122 6
-=======
-DEx4 work 12 clockcounter 0 22 @VELzj^kg3kY2BH70CzR43
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l29
-L17
-V7@GXfYiDIEo^<Y_g=?SIc0
+L17 33
+V3E4z2a_Yz:;`8zJ:47aP=3
 !s100 PhBUa_i3]DPJjhd2VI1Mi0
 R8
 32
 R9
 !i10b 1
 R10
-R20
-R21
+R11
+R12
 !i113 1
 R13
-R14
 Eclockdiv
-Z22 w1701097029
-R1
+Z18 w1700622039
 R2
 R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
 Z19 8ClockDiv.vhd
 Z20 FClockDiv.vhd
-=======
-Z23 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/ClockDiv.vhd
-Z24 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/ClockDiv.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 l0
-L6
-VQK:z4cFEnjLVW^C@1AZF32
+L6 1
+VnWKD`43]k28[ELkBZ?Reb2
 !s100 Cf8?I5aLMSmoNnQ?4H6732
 R8
 32
 R9
 !i10b 1
 R10
-Z25 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/ClockDiv.vhd|
-Z26 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/ClockDiv.vhd|
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R1
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 8 clockdiv 0 22 nWKD`43]k28[ELkBZ?Reb2
-!i122 6
-=======
-DEx4 work 8 clockdiv 0 22 QK:z4cFEnjLVW^C@1AZF32
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l16
-L14
-VQ]InPjj4c^XnDijZUiN9c0
+L14 19
+V?V@XgXEng4iP1:RGlJJ1^2
 !s100 2zh5>7JM0<I2]kj_FcZ6F0
 R8
 32
 R9
 !i10b 1
 R10
-R25
-R26
+R11
+R12
 !i113 1
 R13
-R14
 Econtroller
-<<<<<<< HEAD
-Z21 w1701014254
-=======
-R0
-R1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z21 w1701311917
 R2
 R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
 Z22 8Controller.vhd
 Z23 FController.vhd
-=======
-Z27 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd
-Z28 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 l0
-L6
-V@J=[7GY0_=BC?KW1Se]@h3
-!s100 cg28VBHzOEOCE0:<eoaei3
+L6 1
+VRSXdo9EFT8z8:LD4N7XbN3
+!s100 HmXMG13z6lZGgIIU;4Mm^3
 R8
 32
 R9
 !i10b 1
 R10
-Z29 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd|
-Z30 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd|
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R1
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
-DEx4 work 10 controller 0 22 JV7d]Kk_Z@>R79>eJ`2Zo3
-!i122 6
-l89
-L55 346
-Vf^OYHg2;:A[a_g[H9@lJk2
-=======
-DEx4 work 10 controller 0 22 @J=[7GY0_=BC?KW1Se]@h3
-l89
-L55
-VInZo@FMAhIE6Pf_RhOgNQ1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-!s100 BWjN_=j8190[VMW<bQZbI2
+DEx4 work 10 controller 0 22 RSXdo9EFT8z8:LD4N7XbN3
+!i122 0
+l85
+L54 326
+VFRm`<^Qifa`UVChgmXhB[3
+!s100 7N24:Bc`mJCQ:VZag98H`2
 R8
 32
 R9
 !i10b 1
 R10
-R29
-R30
+R11
+R12
 !i113 1
 R13
-R14
 Edemux2data
-R0
-R2
-R1
+Z24 w1700930454
 R3
+R2
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
 Z25 8DEMUX2Data.vhd
 Z26 FDEMUX2Data.vhd
-=======
-Z31 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd
-Z32 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 l0
-L6
-V2`BJa6S?YYkccOBnBoMOl3
+L6 1
+VGPRXLH<VP7XlZ?398hM1b0
 !s100 9ZZ7QidSfBXXM8S5K4FI=2
 R8
 32
 R9
 !i10b 1
 R10
-Z33 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd|
-Z34 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd|
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R2
-R1
 R3
+R2
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 10 demux2data 0 22 GPRXLH<VP7XlZ?398hM1b0
-!i122 6
-=======
-DEx4 work 10 demux2data 0 22 2`BJa6S?YYkccOBnBoMOl3
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l19
-L18
-V12ViJXT_IIJ4UEj32lAmT3
+Z27 L18 11
+VJF3bT61V=Rchi@6^zf<JC0
 !s100 DH[k_DOa8fo9_2__;k?eK1
 R8
 32
 R9
 !i10b 1
 R10
-R33
-R34
+R11
+R12
 !i113 1
 R13
-R14
 Edemux4data
-R0
-R2
-R1
+Z28 w1700798286
 R3
+R2
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
 Z29 8DEMUX4Data.vhd
 Z30 FDEMUX4Data.vhd
-=======
-Z35 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX4Data.vhd
-Z36 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX4Data.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 l0
-L6
-V8eT5<?Y9M_3APgQi7XY@83
+L6 1
+VQNEN=lM78<I108Ajj`_@]0
 !s100 hjP7az1TeK?zaMLPIZf4<2
 R8
 32
 R9
 !i10b 1
 R10
-Z37 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX4Data.vhd|
-Z38 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX4Data.vhd|
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R2
-R1
 R3
+R2
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 10 demux4data 0 22 QNEN=lM78<I108Ajj`_@]0
-!i122 6
-=======
-DEx4 work 10 demux4data 0 22 8eT5<?Y9M_3APgQi7XY@83
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l35
-L20
-V[TGoi3B0aFNNDdQAzjXOK3
+Z31 L20 21
+VfV];WP_=X@@?XOjAI:3e32
 !s100 WEEC:D9<M9W?MjL>dS[b81
 R8
 32
 R9
 !i10b 1
 R10
-R37
-R38
+R11
+R12
 !i113 1
 R13
-R14
 Edummytoplevel
-<<<<<<< HEAD
-Z32 w1701014957
-=======
-R0
-R1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z32 w1701312993
 R2
 R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
 Z33 8DummyTopLevel.vhd
 Z34 FDummyTopLevel.vhd
-=======
-Z39 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd
-Z40 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 l0
-L6
-VYR8YiIz^=Y?dQj4UUH??]1
+L6 1
+VRXBYglF?GFGO><5>HGd3^2
 !s100 O;=Y4m`OTUB_S>DX8dX?K1
 R8
 32
 R9
 !i10b 1
 R10
-Z41 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd|
-Z42 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd|
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R1
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 13 dummytoplevel 0 22 RXBYglF?GFGO><5>HGd3^2
-!i122 6
-l302
-L18 579
-V3:i5bE@10o=i^S0Ke0JTa0
-=======
-Z43 DEx4 work 13 dummytoplevel 0 22 YR8YiIz^=Y?dQj4UUH??]1
-l302
-L18
-V2I=KO9h8_NSkO5U>Y2I[@2
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-!s100 jFiE^7Ce6R[S_0DSWPITl1
+!i122 0
+l287
+L18 536
+VKFMUBh1mm29l<^czE_]Mc2
+!s100 3I_0N9S1Hlkm^o8>YPONo3
 R8
 32
 R9
 !i10b 1
 R10
-R41
-R42
+R11
+R12
 !i113 1
 R13
-R14
 Ememoryblock
-<<<<<<< HEAD
 Z35 w1700740549
 R3
-=======
-R16
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 R2
-R1
-R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
 Z36 8MemoryBlock.vhd
 Z37 FMemoryBlock.vhd
-=======
-Z44 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd
-Z45 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 l0
-L6
-V[0kjb4^A3<QM9I_d3V>5c1
+L6 1
+Vo75hQE3oDX3QS;3HoZ4M:1
 !s100 dAPL7mGMfAkc2@SaBY^h53
 R8
 32
-Z46 !s110 1701097182
+R9
 !i10b 1
 R10
-Z47 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd|
-Z48 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd|
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R2
-R1
 R3
+R2
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 11 memoryblock 0 22 o75hQE3oDX3QS;3HoZ4M:1
-!i122 6
-=======
-Z49 DEx4 work 11 memoryblock 0 22 [0kjb4^A3<QM9I_d3V>5c1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l60
-L16
-VbQ5zYmX4bMJWaRhXmH]Ud3
+L16 91
+VB_DSN>5V8BRDCNdG8GMbX0
 !s100 ?bEd^gYl>BQUS7REUH7XH2
 R8
 32
-R46
+R9
 !i10b 1
 R10
-R47
-R48
+R11
+R12
 !i113 1
 R13
-R14
 Emux1bit
-<<<<<<< HEAD
 Z38 w1700817678
 R3
-=======
-R0
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 R2
-R1
-R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
 Z39 8MUX1Bit.vhd
 Z40 FMUX1Bit.vhd
-=======
-Z50 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX1Bit.vhd
-Z51 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX1Bit.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 l0
-L6
-VeHdJ7agSNBh49_oMeGzh52
+L6 1
+VX`bYM:4:MfNCgHXR]9YY33
 !s100 Pa[;]@Ieic4`<aEPa_VPJ1
 R8
 32
-R46
+R9
 !i10b 1
-Z52 !s108 1701097182.000000
-Z53 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX1Bit.vhd|
-Z54 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX1Bit.vhd|
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R2
-R1
 R3
+R2
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 7 mux1bit 0 22 X`bYM:4:MfNCgHXR]9YY33
-!i122 6
-=======
-DEx4 work 7 mux1bit 0 22 eHdJ7agSNBh49_oMeGzh52
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l16
-L15
-VLd830OS=:<LTjYkB;ZLZ81
+L15 11
+V[^c;3VLcKh>DR;<h?A;cM0
 !s100 >K<^J1N]NJ_fUViV9mEf@3
 R8
 32
-R46
+R9
 !i10b 1
-R52
-R53
-R54
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Emux2data
-<<<<<<< HEAD
 Z41 w1700736552
 R3
-=======
-Z55 w1700740941
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 R2
-R1
-R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
 Z42 8MUX2Data.vhd
 Z43 FMUX2Data.vhd
-=======
-Z56 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX2Data.vhd
-Z57 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX2Data.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 l0
-L6
-VCODVm4[mKFbJ2D4Ybc:?31
+L6 1
+V_aYnB`UDzaQ]ATHXf>1zz3
 !s100 3GieGfAEeFPN^M4YE@IF`0
 R8
 32
-R46
+R9
 !i10b 1
-R52
-Z58 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX2Data.vhd|
-Z59 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX2Data.vhd|
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R2
-R1
 R3
+R2
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 8 mux2data 0 22 _aYnB`UDzaQ]ATHXf>1zz3
-!i122 6
-=======
-DEx4 work 8 mux2data 0 22 CODVm4[mKFbJ2D4Ybc:?31
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l19
-L18
-V<gkmPzk[d:?OPMXb`z?lD1
+R27
+V^d>>jzMoiz>;WFXEb_B`;3
 !s100 h[<VQU>Vfa<ZVQTohU5S00
 R8
 32
-R46
+R9
 !i10b 1
-R52
-R58
-R59
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Emux4data
-<<<<<<< HEAD
 Z44 w1700736784
 R3
-=======
-R55
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 R2
-R1
-R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
 Z45 8MUX4Data.vhd
 Z46 FMUX4Data.vhd
-=======
-Z60 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd
-Z61 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 l0
-L6
-VCeo1a^Ee2DH;X`nVW[Ld^0
+L6 1
+Vo?`c:L`@l=Dg7eaK7[fmT1
 !s100 ;A9?UR7oV4Z_n3aVeg5RJ1
 R8
 32
-R46
+R9
 !i10b 1
-R52
-Z62 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd|
-Z63 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd|
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R2
-R1
 R3
+R2
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 8 mux4data 0 22 o?`c:L`@l=Dg7eaK7[fmT1
-!i122 6
-=======
-DEx4 work 8 mux4data 0 22 Ceo1a^Ee2DH;X`nVW[Ld^0
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l35
-L20
-VVDz[8e1C9OS<]8E70H^ZE1
+R31
+VLhQ6GfUe816<A9KO=bjEG2
 !s100 VD[94enfSJ1JJIb<8ee8Z2
 R8
 32
-R46
+R9
 !i10b 1
-R52
-R62
-R63
+R10
+R11
+R12
 !i113 1
 R13
-R14
-Emy_uart_rx
-<<<<<<< HEAD
-Z47 w1700577489
-R15
-R4
-R5
-!i122 6
-R0
-Z48 8my_uart_rx.vhd
-Z49 Fmy_uart_rx.vhd
-=======
-R22
-R17
-R3
-R4
-R5
-Z64 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_rx.vhd
-Z65 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_rx.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-l0
-L7
-V0:ld=U8^9=Hk?cJW1D>Ne0
-!s100 BR5G>Kb[bfZCan4QCTz1g3
-R8
-32
-R46
-!i10b 1
-R52
-Z66 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_rx.vhd|
-Z67 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_rx.vhd|
-!i113 1
-R13
-R14
-Artl
-R17
-R3
-R4
-<<<<<<< HEAD
-R5
-DEx4 work 10 my_uart_rx 0 22 0TCYVXm]WShTXQMiV8[400
-!i122 6
-=======
-DEx4 work 10 my_uart_rx 0 22 0:ld=U8^9=Hk?cJW1D>Ne0
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-l34
-L21
-V;I_Ch8jBdT9NWcjM8KT[V0
-!s100 @L5C0oD9CnMV1gIBF2j]o3
-R8
-32
-R46
-!i10b 1
-R52
-R66
-R67
-!i113 1
-R13
-R14
-Emy_uart_top
-<<<<<<< HEAD
-Z50 w1700401330
-R4
-R5
-!i122 6
-R0
-Z51 8my_uart_top.vhd
-Z52 Fmy_uart_top.vhd
-=======
-R22
-R3
-R4
-R5
-Z68 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_top.vhd
-Z69 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_top.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-l0
-L10
-V=e_olDknWFdQH6gd;I:L:2
-!s100 a5K4m?MbEYIlT5`NjI<ek1
-R8
-32
-R46
-!i10b 1
-R52
-Z70 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_top.vhd|
-Z71 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_top.vhd|
-!i113 1
-R13
-R14
-Astructural
-R3
-R4
-<<<<<<< HEAD
-R5
-DEx4 work 11 my_uart_top 0 22 UHDFk3@11BW`oj;DGQ2Tg3
-!i122 6
-=======
-DEx4 work 11 my_uart_top 0 22 =e_olDknWFdQH6gd;I:L:2
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-l66
-L28
-Vg19dZMdGcDC8R0n_ic54Y2
-!s100 0_RN9m@UDL6=;A:O^DUEi0
-R8
-32
-R46
-!i10b 1
-R52
-R70
-R71
-!i113 1
-R13
-R14
-Emy_uart_tx
-<<<<<<< HEAD
-Z53 w1700120227
-R15
-R4
-R5
-!i122 6
-R0
-Z54 8my_uart_tx.vhd
-Z55 Fmy_uart_tx.vhd
-=======
-R22
-R17
-R3
-R4
-R5
-Z72 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_tx.vhd
-Z73 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_tx.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-l0
-L9
-VF8AJA>jdRfC6?V9e9e61T0
-!s100 @?@W3i7I^j:Th;QSTWePz3
-R8
-32
-R46
-!i10b 1
-R52
-Z74 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_tx.vhd|
-Z75 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/my_uart_tx.vhd|
-!i113 1
-R13
-R14
-Artl
-R17
-R3
-R4
-<<<<<<< HEAD
-R5
-DEx4 work 10 my_uart_tx 0 22 dScW920NngY06c]>:eR`=0
-!i122 6
-=======
-DEx4 work 10 my_uart_tx 0 22 F8AJA>jdRfC6?V9e9e61T0
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-l32
-L23
-Vg8aBI9=Oa1?:ICI45VidN2
-!s100 ?1gJ[ORYTN=A5G6i5za`b3
-R8
-32
-R46
-!i10b 1
-R52
-R74
-R75
-!i113 1
-R13
-R14
 Epulsegenerator
-<<<<<<< HEAD
-Z56 w1700752761
-=======
-R22
-R1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z47 w1701178934
 R2
 R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
-Z57 8PulseGenerator.vhd
-Z58 FPulseGenerator.vhd
-=======
-Z76 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/PulseGenerator.vhd
-Z77 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/PulseGenerator.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z48 8PulseGenerator.vhd
+Z49 FPulseGenerator.vhd
 l0
-L6
-VY;FlkjmlYO>@f:H]0]:;L2
+L6 1
+VZIhz6kP1CF>dI=hRANAm61
 !s100 cUKmmGQg2=h@TcX1QBR150
 R8
 32
-R46
+R9
 !i10b 1
-R52
-Z78 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/PulseGenerator.vhd|
-Z79 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/PulseGenerator.vhd|
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R1
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 14 pulsegenerator 0 22 ZIhz6kP1CF>dI=hRANAm61
-!i122 6
-=======
-DEx4 work 14 pulsegenerator 0 22 Y;FlkjmlYO>@f:H]0]:;L2
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l28
-L17
-VISSVRShBoFOI7hFmR;mI;0
+L17 38
+V1kXOM<=W>7P^@AN3SPEIU2
 !s100 k9SakijVkPTT]:ZPiCPVo0
 R8
 32
-R46
+R9
 !i10b 1
-R52
-R78
-R79
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Ereg
-<<<<<<< HEAD
-Z59 w1700973443
-=======
-R0
-R1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z50 w1701312885
 R2
 R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
-Z60 8Register.vhd
-Z61 FRegister.vhd
-=======
-Z80 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Register.vhd
-Z81 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Register.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z51 8Register.vhd
+Z52 FRegister.vhd
 l0
-L6
-VB:ooWQS=ekk60<UPJa[On3
-!s100 m>2R>hZJ[z88nkGKfhhn;0
+L6 1
+V1Io3=GA@7=WPAUe4n4QC>1
+!s100 `9z<hj=6:B?YLQ[Po6W3e1
 R8
 32
-R46
+R9
 !i10b 1
-R52
-Z82 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Register.vhd|
-Z83 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Register.vhd|
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R1
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
-DEx4 work 3 reg 0 22 YOA>mhO`W2CRSdXfofo[g3
-!i122 6
-=======
-DEx4 work 3 reg 0 22 B:ooWQS=ekk60<UPJa[On3
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-l18
-L16
-VCn2K3@>N3A;e6L6F_aMg61
-!s100 1DGYjX]GganW=V^EN6;A72
+DEx4 work 3 reg 0 22 1Io3=GA@7=WPAUe4n4QC>1
+!i122 0
+l19
+L17 18
+VR>GB0>:B9n6CeZ4:c3=g93
+!s100 C3oTAazf3RhA4TXi]BS[53
 R8
 32
-R46
+R9
 !i10b 1
-R52
-R82
-R83
+R10
+R11
+R12
 !i113 1
 R13
-R14
-Eserialblock
-<<<<<<< HEAD
-Z62 w1701011698
-=======
-R22
-R1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Eregisterbank64bit
+Z53 w1701326618
 R2
 R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
-Z63 8SerialBlock.vhd
-Z64 FSerialBlock.vhd
-=======
-Z84 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd
-Z85 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z54 8RegisterBank64Bit.vhd
+Z55 FRegisterBank64Bit.vhd
 l0
-L6
-VK]HPdN][iTRK8X3]1INWj3
+L6 1
+VILO@N?8KQc;Em5zc21W`80
+!s100 J=D:;CAX^cKebe>Za@C^<1
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 17 registerbank64bit 0 22 ILO@N?8KQc;Em5zc21W`80
+!i122 0
+l36
+L18 42
+VhB?In>c]F;9bdK;1_];bJ2
+!s100 Bgjf=[l6_4A^>RFBZmh]a2
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+Eserialblock
+Z56 w1701321806
+R2
+R3
+R4
+R5
+!i122 0
+R0
+Z57 8SerialBlock.vhd
+Z58 FSerialBlock.vhd
+l0
+L6 1
+VTl:mGW1_HBYQf9Wj^LdVj2
 !s100 OjEPB7A2<IdzP:VbZDWDe0
 R8
 32
-R46
+R9
 !i10b 1
-R52
-Z86 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd|
-Z87 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd|
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R1
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
-Z65 DEx4 work 11 serialblock 0 22 Tl:mGW1_HBYQf9Wj^LdVj2
-!i122 6
-=======
-DEx4 work 11 serialblock 0 22 K]HPdN][iTRK8X3]1INWj3
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-l113
-L26
-VIL1;z4V3hN?HIB>JaSWaz3
-!s100 TCAn2[:1@_HghQi>UeAAR2
+Z59 DEx4 work 11 serialblock 0 22 Tl:mGW1_HBYQf9Wj^LdVj2
+!i122 0
+l92
+L26 184
+Vm>RD[bXM>_<dC^i:3NW@h0
+!s100 o:>@bPW7`Z[dFz5nb9LK51
 R8
 32
-R46
+R9
 !i10b 1
-R52
-R86
-R87
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Eserialreader
-R22
-R1
+Z60 w1701326656
 R2
 R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
-Z67 8SerialReader.vhd
-Z68 FSerialReader.vhd
-=======
-Z88 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd
-Z89 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z61 8SerialReader.vhd
+Z62 FSerialReader.vhd
 l0
-L6
-V@PZZe:S18Oz5AHzTMhDTo3
-!s100 AKF0nX6:XAB^04Bb_f_Re2
+L6 1
+Vi=BdO[PNPPXzQIkHGFAiS2
+!s100 iST^Gk=bmh8P;ICf0P3z23
 R8
 32
-Z90 !s110 1701097183
+R9
 !i10b 1
-R52
-Z91 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd|
-Z92 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd|
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R1
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
-DEx4 work 12 serialreader 0 22 TS@:gfm`iDOK5YPfPizAI2
-!i122 6
-=======
-DEx4 work 12 serialreader 0 22 @PZZe:S18Oz5AHzTMhDTo3
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-l34
-L23
-Vn1ND2I^Z5WFVdM1GhmZO90
-!s100 ^>VkzJa3YS^MM5QejPY5?2
+DEx4 work 12 serialreader 0 22 i=BdO[PNPPXzQIkHGFAiS2
+!i122 0
+l94
+L23 293
+VfN8[62[eBmdFoEC36POBH1
+!s100 kjUaAFacelFgXP:eHJ7;f0
 R8
 32
-R90
+R9
 !i10b 1
-R52
-R91
-R92
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Eserialsender
-R22
-R1
+Z63 w1701177394
 R2
 R3
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
-Z70 8SerialSender.vhd
-Z71 FSerialSender.vhd
-=======
-Z93 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialSender.vhd
-Z94 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialSender.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z64 8SerialSender.vhd
+Z65 FSerialSender.vhd
 l0
-L6
-Vc<NDP1?jzBi:lGAo6z3[`1
+L6 1
+VA5?iWkYPmDgl4W__Qzj5e1
 !s100 7O7RLGU`2952Ea;YNC=i11
 R8
 32
-R90
+R9
 !i10b 1
-Z95 !s108 1701097183.000000
-Z96 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialSender.vhd|
-Z97 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SerialSender.vhd|
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R1
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 12 serialsender 0 22 A5?iWkYPmDgl4W__Qzj5e1
-!i122 6
-=======
-DEx4 work 12 serialsender 0 22 c<NDP1?jzBi:lGAo6z3[`1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l36
-L21
-VUYmFN3gUHX5XS2JMeNe4I1
-!s100 56ON@?B`2ENQhoSn_2?U03
+L21 74
+V257=ZNaAOO<OYM6MNjk]j0
+!s100 OnLVL3dloooeQADedS3RZ1
 R8
 32
-R90
+R9
 !i10b 1
-R95
-R96
-R97
+R10
+R11
+R12
 !i113 1
 R13
-R14
-Espeed_select
-R22
-R3
-R4
-R5
-<<<<<<< HEAD
-!i122 6
-R0
-Z73 8speed_select.vhd
-Z74 Fspeed_select.vhd
-=======
-Z98 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/speed_select.vhd
-Z99 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/speed_select.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-l0
-L6
-VC=7In[?0S_<?@<dHi?nQK1
-!s100 _Uh99P<j1=f8hYSgdP6?O0
-R8
-32
-R90
-!i10b 1
-R95
-Z100 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/speed_select.vhd|
-Z101 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/speed_select.vhd|
-!i113 1
-R13
-R14
-Artl
-R3
-R4
-<<<<<<< HEAD
-R5
-DEx4 work 12 speed_select 0 22 mTUZbhZnaL8oD^GM=Ea]R1
-!i122 6
-=======
-DEx4 work 12 speed_select 0 22 C=7In[?0S_<?@<dHi?nQK1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-l37
-L29
-VBhNjK>U8AVRSlY^;O^CP20
-!s100 BI<=JMV301gElAWS2L6=T3
-R8
-32
-R90
-!i10b 1
-R95
-R100
-R101
-!i113 1
-R13
-R14
 Esram
-R0
-R2
-R1
+Z66 w1700990830
 R3
+R2
 R4
 R5
-<<<<<<< HEAD
-!i122 6
+!i122 0
 R0
-Z76 8SRAM.vhd
-Z77 FSRAM.vhd
-=======
-Z102 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd
-Z103 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z67 8SRAM.vhd
+Z68 FSRAM.vhd
 l0
-L6
-V<zbA7>n4A^hPP[MhH>HM52
+L6 1
+V@CF>aGU<0g[zmUCdmcfe73
 !s100 mfzM]R01JndoBm^OKEQmo1
 R8
 32
-R90
+R9
 !i10b 1
-R95
-Z104 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd|
-Z105 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd|
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R2
-R1
 R3
+R2
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 4 sram 0 22 @CF>aGU<0g[zmUCdmcfe73
-!i122 6
-=======
-DEx4 work 4 sram 0 22 <zbA7>n4A^hPP[MhH>HM52
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l22
-L17
-Vz?7ih37mH4bl64j>KO5g:2
+L17 20
+VnI2CWDJH?9`ghL]_CSGeG1
 !s100 7Mz1YU]0LJ]F6?;QV@i_m3
 R8
 32
-R90
+R9
 !i10b 1
-R95
-R104
-R105
+R10
+R11
+R12
 !i113 1
 R13
-<<<<<<< HEAD
 Etb_reader
-Z78 w1701093249
+Z69 w1701093249
 R15
-=======
-R14
-Etb_dummytoplevel
-R0
-R17
-R1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
 R2
 R3
 R4
 R5
-<<<<<<< HEAD
-!i122 2
+!i122 1
 R0
-Z79 8TB_Reader.vhd
-Z80 FTB_Reader.vhd
+Z70 8TB_Reader.vhd
+Z71 FTB_Reader.vhd
 l0
 L6 1
 VTb8cbKXYZ5d6Jc>G_7FgL0
 !s100 ;faFa<=2H_bF8H40kbo[20
 R8
 32
-Z81 !s110 1701093260
+Z72 !s110 1701326661
 !i10b 1
-Z82 !s108 1701093260.000000
-Z83 !s90 -reportprogress|300|TB_Reader.vhd|
-Z84 !s107 TB_Reader.vhd|
-=======
-Z106 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_DummyTopLevel.vhd
-Z107 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_DummyTopLevel.vhd
-l0
-L6
-VicM=::UGlN7g4HY>GXa420
-!s100 S5ie;lSH?h[_P^@id]LlP2
-R8
-32
-R90
-!i10b 1
-R95
-Z108 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_DummyTopLevel.vhd|
-Z109 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_DummyTopLevel.vhd|
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+R10
+Z73 !s90 -reportprogress|300|TB_Reader.vhd|
+!s107 TB_Reader.vhd|
 !i113 1
 R13
-R14
 Asim
-<<<<<<< HEAD
-R65
+R59
 R15
 R2
 R3
 R4
 R5
 DEx4 work 9 tb_reader 0 22 Tb8cbKXYZ5d6Jc>G_7FgL0
-!i122 2
+!i122 1
 l56
 L9 109
 VM2o1K9Djk<?^`7YoDc09=3
 !s100 YMG1RQ99GLTD8597;?U@c1
 R8
 32
-R81
+R72
 !i10b 1
-R82
-R83
-R84
+R10
+R73
+Z74 !s107 TB_Reader.vhd|
 !i113 1
 R13
-Etb_sender
-Z85 w1701093975
-R2
-R3
+Euart_interpreter
+Z75 w1701318960
+R15
 R4
 R5
-!i122 7
+!i122 0
 R0
-Z86 8TB_Sender.vhd
-Z87 FTB_Sender.vhd
+Z76 8uart_interpreter.vhd
+Z77 Fuart_interpreter.vhd
 l0
-L6 1
-V5Cdk2JW3Jj>SzjV0j`KTF3
-!s100 nc<Tdm30@0b3h^m?ABmai0
-=======
-R43
-R17
-R1
-R2
-R3
-R4
-DEx4 work 16 tb_dummytoplevel 0 22 icM=::UGlN7g4HY>GXa420
-l52
-L9
-VhjGoV28E2_f@F1<9m40nU3
-!s100 =J=dLkNaC^jT6mSnMjbLN3
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-R8
-32
-R90
-!i10b 1
-<<<<<<< HEAD
-Z88 !s108 1701126244.000000
-Z89 !s90 -reportprogress|300|TB_Sender.vhd|
-Z90 !s107 TB_Sender.vhd|
-!i113 1
-R13
-Asim
-R65
-R2
-R3
-R4
-R5
-Z91 DEx4 work 9 tb_sender 0 22 5Cdk2JW3Jj>SzjV0j`KTF3
-!i122 7
-l46
-Z92 L9 83
-Z93 VZ<J<NMZ4jd5eCf`OTeadK2
-Z94 !s100 9?z23Vdd4kjml6`CNXC7N0
+L5 1
+VAZnCS^DmLn3TJehH:AFbW0
+!s100 JEP7Mz`2B3h@1DMf8XDKF3
 R8
 32
 R9
 !i10b 1
-R88
-R89
-R90
+R10
+R11
+R12
+!i113 1
+R13
+Aarch
+R15
+R4
+R5
+DEx4 work 16 uart_interpreter 0 22 AZnCS^DmLn3TJehH:AFbW0
+!i122 0
+l39
+L24 148
+V@hCDWZZ`F_l8MIlNFP==D2
+!s100 _cUBZNPC2?XTcNJ@KP^zE3
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
 !i113 1
 R13
 Extea
-Z95 w1700984222
+Z78 w1700984222
 R15
-=======
-R95
-R108
-R109
-!i113 1
-R13
-R14
-Etb_fullxteaprocess
+R2
+R3
+R4
+R5
+!i122 0
 R0
-R17
-Z110 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
-R1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
-R2
-R3
-R4
-R5
-<<<<<<< HEAD
-!i122 6
-R0
-Z96 8XTEA.vhd
-Z97 FXTEA.vhd
-=======
-Z111 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_FullXTEAProcess.vhd
-Z112 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_FullXTEAProcess.vhd
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+Z79 8XTEA.vhd
+Z80 FXTEA.vhd
 l0
-L7
-VJ?9FllMFH;:SZG:RM6MY_0
-!s100 SjKb0hF1z6CA7jB0aPdMV2
-R8
-32
-R90
-!i10b 1
-R95
-Z113 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_FullXTEAProcess.vhd|
-Z114 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_FullXTEAProcess.vhd|
-!i113 1
-R13
-R14
-Asim
-R17
-R110
-R1
-R2
-R3
-R4
-DEx4 work 18 tb_fullxteaprocess 0 22 J?9FllMFH;:SZG:RM6MY_0
-l71
-L10
-V`B63@h[i5B8d7_U9S9]Hz2
-!s100 ]mlDiGa`a6ila:kKFOTbn0
-R8
-32
-R90
-!i10b 1
-R95
-R113
-R114
-!i113 1
-R13
-R14
-Etb_memory
-R55
-R2
-R1
-R3
-R4
-R5
-Z115 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Memory.vhd
-Z116 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Memory.vhd
-l0
-L6
-VPOALL<81FZ0Ic8Fm35emV0
-!s100 SRSSBH^SI]?ShUiTd4o1j2
-R8
-32
-R90
-!i10b 1
-R95
-Z117 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Memory.vhd|
-Z118 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Memory.vhd|
-!i113 1
-R13
-R14
-Abehavioral
-R49
-R2
-R1
-R3
-R4
-DEx4 work 9 tb_memory 0 22 POALL<81FZ0Ic8Fm35emV0
-l20
-L9
-VFc_koh4[l42jzKeB32<>h2
-!s100 V;=Iz:B4QBjm`kBKkN3iZ0
-R8
-32
-R90
-!i10b 1
-R95
-R117
-R118
-!i113 1
-R13
-R14
-Etb_reader
-R0
-R17
-R1
-R2
-R3
-R4
-R5
-8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Reader.vhd
-FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Reader.vhd
-l0
-L6
-Vk[J<4@Te@b>jV02ElP1Aa3
-!s100 ;faFa<=2H_bF8H40kbo[20
-R8
-32
-R90
-!i10b 1
-R95
-!s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Reader.vhd|
-!s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Reader.vhd|
-!i113 1
-R13
-R14
-Etb_sender
-R0
-R1
-R2
-R3
-R4
-R5
-8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Sender.vhd
-FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Sender.vhd
-l0
-L6
-VXV88UJUkUMb6?hacV=[XK3
-!s100 nc<Tdm30@0b3h^m?ABmai0
-R8
-32
-R90
-!i10b 1
-R95
-!s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Sender.vhd|
-!s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_Sender.vhd|
-!i113 1
-R13
-R14
-Etb_xtea
-R16
-R17
-R1
-R2
-R3
-R4
-R5
-Z119 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_XTEA.vhd
-Z120 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_XTEA.vhd
-l0
-L6
-Vijm1HQ;c@?_bG8>3YOb;80
-!s100 D^7>BZMEHT;D_VB23@`]b1
-R8
-32
-Z121 !s110 1701097184
-!i10b 1
-R95
-Z122 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_XTEA.vhd|
-Z123 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TB_XTEA.vhd|
-!i113 1
-R13
-R14
-Asim
-R17
-R1
-R2
-R3
-R4
-DEx4 work 7 tb_xtea 0 22 ijm1HQ;c@?_bG8>3YOb;80
-l50
-L9
-V;BZGa@=_D^76@3>R5]DJI1
-!s100 h48HBb^W:biJR5<QBWNZa0
-R8
-32
-R121
-!i10b 1
-R95
-R122
-R123
-!i113 1
-R13
-R14
-Etester
-R0
-R17
-R1
-R2
-R3
-R4
-R5
-Z124 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Tester.vhd
-Z125 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Tester.vhd
-l0
-L6
-VC`6dNnBjcMCeTdP]QRkH=2
-!s100 mA4jU^^U]SU9MIDKl106G1
-R8
-32
-R121
-!i10b 1
-Z126 !s108 1701097184.000000
-Z127 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Tester.vhd|
-Z128 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/Tester.vhd|
-!i113 1
-R13
-R14
-Asim
-R15
-R17
-R1
-R2
-R3
-R4
-DEx4 work 6 tester 0 22 C`6dNnBjcMCeTdP]QRkH=2
-l45
-L9
-V`V29N5E?5<mZX`=R]1<1I2
-!s100 RINZ@9EJMCI@MRCjW?`@A1
-R8
-32
-R121
-!i10b 1
-R126
-R127
-R128
-!i113 1
-R13
-R14
-Etestsender
-R16
-R17
-R1
-R2
-R3
-R4
-R5
-Z129 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TestSender.vhd
-Z130 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TestSender.vhd
-l0
-L6
-VSB;SNM^>8ZhS8e=b;hoZ21
-!s100 Ri6DFQ6^hOWYzb[>B3cbj3
-R8
-32
-R121
-!i10b 1
-R126
-Z131 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TestSender.vhd|
-Z132 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/TestSender.vhd|
-!i113 1
-R13
-R14
-Abehavioral
-R17
-R1
-R2
-R3
-R4
-DEx4 work 10 testsender 0 22 SB;SNM^>8ZhS8e=b;hoZ21
-l81
-L15
-V:U1bSR<nTf>dI4S=4BIJ=0
-!s100 M`db^9l3ZkXTOVKVdHD:k1
-R8
-32
-R121
-!i10b 1
-R126
-R131
-R132
-!i113 1
-R13
-R14
-Extea
-R0
-R17
-R1
-R2
-R3
-R4
-R5
-Z133 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/XTEA.vhd
-Z134 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/XTEA.vhd
-l0
-L6
-VCN0TRIU`f2dGfMElFDoDE1
+L6 1
+V`dl8ABYHUzhUOohS<9??R1
 !s100 DUm6E?=e52G;=?2]me@GC1
 R8
 32
-R121
+R9
 !i10b 1
-R126
-Z135 !s90 -reportprogress|30|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/XTEA.vhd|
-Z136 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Punya-eprond/XTEASistem-32Bit/XTEA.vhd|
+R10
+R11
+R12
 !i113 1
 R13
-R14
 Abehavioral
-R17
-R1
+R15
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
 DEx4 work 4 xtea 0 22 `dl8ABYHUzhUOohS<9??R1
-!i122 6
-=======
-Z137 DEx4 work 4 xtea 0 22 CN0TRIU`f2dGfMElFDoDE1
->>>>>>> 9ac5de05acbad56d8cdbf74f2de47ca79c600bf9
+!i122 0
 l60
-L19
-Z138 V56AziN0`R5TS4Kj_HlkzP3
-Z139 !s100 nah68a6enZ5g0CF]n8];63
+L19 138
+VOMg[PoCW1mOHH8C8S4HYk0
+!s100 nah68a6enZ5g0CF]n8];63
 R8
 32
-R121
+R9
 !i10b 1
-R126
-R135
-R136
+R10
+R11
+R12
 !i113 1
 R13
-R14

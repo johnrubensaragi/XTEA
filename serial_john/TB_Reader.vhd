@@ -22,7 +22,6 @@ architecture sim of TB_Reader is
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
     
-
     signal rs232_rx, rs232_tx : std_logic := '1';
 
     signal uart_vector : std_logic_vector((string_input'length*10-1) downto 0);
@@ -83,10 +82,10 @@ begin
     serial_test : process
         variable bit10_v : std_logic_vector(9 downto 0);
     begin
-        nreset <= '0';
-        wait for 5*clock_period;
-        nreset <= '1';
-        wait for 100*clock_period;
+        nreset <= not nreset;
+        wait for 2*clock_period;
+        nreset <= not nreset;
+        wait for 1 sec/baud_rate;
 
         for char in uart_vector'length/10 downto 1 loop
             bit10_v := uart_vector(10*char - 1 downto 10*char - 10);

@@ -1,0 +1,66 @@
+# Current time Thu Nov 30 13:30:41 2023
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 00502839. Traceback:
+# 0    0x00502839: 'EnumDispProc + 0xccb9'
+# 1    0x00502ae1: 'EnumDispProc + 0xcf61'
+# 2    0x005031e7: 'EnumDispProc + 0xd667'
+# 3    0x005033b6: 'EnumDispProc + 0xd836'
+# 4    0x0050377f: 'EnumDispProc + 0xdbff'
+# 5    0x00504e30: 'EnumDispProc + 0xf2b0'
+# 6    0x004fdcbb: 'EnumDispProc + 0x813b'
+# 7    0x004f4097: 'mti_strlen + 0x45a37'
+# 8    0x004f7329: 'EnumDispProc + 0x17a9'
+# 9    0x6db439f1: 'TclNREvalObjv + 0x3e1'
+StackWalk failed 299
+# End of Stack Trace
+
+# Current time Thu Nov 30 13:31:09 2023
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 00502839. Traceback:
+# 0    0x00502839: 'EnumDispProc + 0xccb9'
+# 1    0x00502ae1: 'EnumDispProc + 0xcf61'
+# 2    0x005031e7: 'EnumDispProc + 0xd667'
+# 3    0x005033b6: 'EnumDispProc + 0xd836'
+# 4    0x0050377f: 'EnumDispProc + 0xdbff'
+# 5    0x00504e30: 'EnumDispProc + 0xf2b0'
+# 6    0x004fdcbb: 'EnumDispProc + 0x813b'
+# 7    0x004f4097: 'mti_strlen + 0x45a37'
+# 8    0x004f7329: 'EnumDispProc + 0x17a9'
+# 9    0x6ddf39f1: 'TclNREvalObjv + 0x3e1'
+StackWalk failed 299
+# End of Stack Trace
+
+# Current time Thu Nov 30 13:31:39 2023
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 00502839. Traceback:
+# 0    0x00502839: 'EnumDispProc + 0xccb9'
+# 1    0x00502ae1: 'EnumDispProc + 0xcf61'
+# 2    0x005031e7: 'EnumDispProc + 0xd667'
+# 3    0x005033b6: 'EnumDispProc + 0xd836'
+# 4    0x0050377f: 'EnumDispProc + 0xdbff'
+# 5    0x00504e30: 'EnumDispProc + 0xf2b0'
+# 6    0x004fdcbb: 'EnumDispProc + 0x813b'
+# 7    0x004f4097: 'mti_strlen + 0x45a37'
+# 8    0x004f7329: 'EnumDispProc + 0x17a9'
+# 9    0x6dc739f1: 'TclNREvalObjv + 0x3e1'
+StackWalk failed 299
+# End of Stack Trace
+

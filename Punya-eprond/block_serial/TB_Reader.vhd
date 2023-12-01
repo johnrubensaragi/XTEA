@@ -13,7 +13,7 @@ architecture sim of TB_Reader is
 
     constant data_length : natural := 64;
     constant address_length : natural := 10;
-    constant string_input : string :=  "-m 0 -k password -d " & '"' & "Ini merupakan data yang sangat rahasia dan perlu diperahasiakan okey." & '"' & LF;
+    constant string_input : string :=  "-m 1 -k password1234 -d ABC241BACF910580A8070C0A";
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
@@ -67,6 +67,7 @@ begin
         read_done      => read_done,
         send_done      => send_done,
         send_start     => send_start,
+        send_convert   => '0',
         error_out      => error_out,
         send_data      => send_data,
         store_data     => store_data,
@@ -95,9 +96,9 @@ begin
         variable bit10_v : std_logic_vector(9 downto 0);
     begin
         nreset <= '0';
-        wait for 5*clock_period;
+        wait for 2*clock_period;
         nreset <= '1';
-        wait for 100*clock_period;
+        wait for 0.5 sec/baud_rate;
 
         for char in uart_vector'length/10 downto 1 loop
             bit10_v := uart_vector(10*char - 1 downto 10*char - 10);

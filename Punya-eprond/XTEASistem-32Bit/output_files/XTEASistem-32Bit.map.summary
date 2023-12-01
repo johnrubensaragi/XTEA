@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Tue Nov 28 14:35:54 2023
+Analysis & Synthesis Status : Successful - Thu Nov 30 09:52:27 2023
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : XTEASistem-32Bit
 Top-level Entity Name : DummyTopLevel
 Family : Cyclone IV E
-Total logic elements : 2,124
-    Total combinational functions : 1,852
-    Dedicated logic registers : 969
-Total registers : 969
+Total logic elements : 2,023
+    Total combinational functions : 1,747
+    Dedicated logic registers : 933
+Total registers : 933
 Total pins : 16
 Total virtual pins : 0
 Total memory bits : 65,536

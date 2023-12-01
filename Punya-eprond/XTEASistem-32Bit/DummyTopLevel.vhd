@@ -16,7 +16,6 @@ entity DummyTopLevel is
 end DummyTopLevel;
 
 architecture behavioral of DummyTopLevel is
-    constant clock_frequency : natural := 50e6;
     constant data_length : natural := 64;
     constant address_length : natural := 10;
     constant default_key : std_logic_vector(127 downto 0) := x"6c7bd673045e9d5c29ac6c25db7a3191";
@@ -139,6 +138,7 @@ architecture behavioral of DummyTopLevel is
     port(
         clock : in std_logic;
         enable : in std_logic;
+        clear : in std_logic;
         data_in : in std_logic_vector((data_length-1) downto 0);
         data_out : out std_logic_vector((data_length-1) downto 0)
     );
@@ -165,14 +165,6 @@ architecture behavioral of DummyTopLevel is
         count : out natural range 0 to (count_max-1)
     );
     end component ClockCounter;
-
-    component ClockDiv is
-    generic(div_frequency, clock_frequency : natural);
-	port(
-		clock_in: in std_logic;
-		clock_out: out std_logic
-	);
-    end component ClockDiv;
 
     component Controller is
     port (
@@ -436,7 +428,7 @@ begin
     );
 
     -- register to save address maximum for data
-    maxadd_reg : Reg generic map (address_length) port map (clock, maxadd_enable, address_out, max_data_address);
+    maxadd_reg : Reg generic map (address_length) port map (clock, maxadd_enable, '1', address_out, max_data_address);
     address_atmax <= '1' when (address_out = max_data_address) else '0';
 
     -- truncate the data for xtea inputs
@@ -446,10 +438,10 @@ begin
     xtea_input <= xtea_data;
 
     -- xtea registers to preserve data
-    leftkey_reg : Reg generic map(data_length) port map(clock, leftkey_enable, temp_leftkey, xtea_leftkey);
-    rightkey_reg : Reg generic map(data_length) port map(clock, rightkey_enable, temp_rightkey, xtea_rightkey);
-    fullmode_reg : Reg generic map(data_length) port map(clock, fullmode_enable, temp_fullmode, xtea_fullmode);
-    dataxtea_reg : Reg generic map(data_length) port map(clock, dataxtea_enable, temp_dataxtea, xtea_data);
+    leftkey_reg : Reg generic map(data_length) port map(clock, leftkey_enable, '1', temp_leftkey, xtea_leftkey);
+    rightkey_reg : Reg generic map(data_length) port map(clock, rightkey_enable, '1', temp_rightkey, xtea_rightkey);
+    fullmode_reg : Reg generic map(data_length) port map(clock, fullmode_enable, '1', temp_fullmode, xtea_fullmode);
+    dataxtea_reg : Reg generic map(data_length) port map(clock, dataxtea_enable, '1', temp_dataxtea, xtea_data);
     
     -- only enable register when selected
     leftkey_enable <= '1' when selector_dataxtea = "00" else '0';

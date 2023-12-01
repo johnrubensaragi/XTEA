@@ -7,11 +7,11 @@ entity TB_Sender is
 end TB_Sender;
         
 architecture sim of TB_Sender is
-    constant frequency : natural := 50e6; -- 50 MHz
-    constant period : time := 1 sec / frequency;
+    constant clock_frequency : natural := 50e6; -- 50 MHz
+    constant clock_period : time := 1 sec / clock_frequency;
     constant data_length : natural := 64;
     constant address_length : natural := 10;
-    constant text_input : string := "Halo ini adalah hasil enkripsi " & LF;
+    constant text_input : string := "Teknik testench yang paling baik adalah menggunakan abstrak yang kubuat karena itu merupakan sebuah mahakarya yang selalu kuciptakan setiap kali praktikum telah berakhir.";
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
@@ -23,6 +23,7 @@ architecture sim of TB_Sender is
     signal store_checkout : std_logic;
     signal send_data : std_logic_vector((data_length - 1) downto 0);
     signal send_start : std_logic;
+    signal send_convert : std_logic;
 
     constant ROM_length : natural := 10;
     type simple_ROM is array(0 to (ROM_length-1)) of std_logic_vector((data_length-1) downto 0);
@@ -47,43 +48,46 @@ begin
 
     serialblock_inst: entity work.SerialBlock
     generic map (
-        data_length    => data_length,
-        address_length => address_length
+      data_length    => data_length,
+      address_length => address_length
     )
     port map (
-        clock          => clock,
-        nreset         => nreset,
-        reader_running => reader_running,
-        sender_running => sender_running,
-        read_done      => read_done,
-        send_done      => send_done,
-        send_start     => send_start,
-        error_out      => error_out,
-        send_data      => send_data,
-        store_data     => store_data,
-        store_datatype => store_datatype,
-        store_checkout => store_checkout,
-        rs232_rx       => rs232_rx,
-        rs232_tx       => rs232_tx
+      clock          => clock,
+      nreset         => nreset,
+      reader_running => reader_running,
+      sender_running => sender_running,
+      read_done      => read_done,
+      send_done      => send_done,
+      send_start     => send_start,
+      send_convert   => send_convert,
+      error_out      => error_out,
+      send_data      => send_data,
+      store_data     => store_data,
+      store_datatype => store_datatype,
+      store_checkout => store_checkout,
+      rs232_rx       => rs232_rx,
+      rs232_tx       => rs232_tx
     );
 
-    clock <= not clock after period / 2;
+    clock <= not clock after clock_period / 2;
     text_vector <= to_slv(text_input);
 
     sender_test : process
-        constant newline_vector : std_logic_vector(63 downto 0) := "00001010" & conv_std_logic_vector(0, 56);
+        constant newline_vector : std_logic_vector(63 downto 0) := "00001010" & conv_std_logic_vector(0, 48) & "00001010";
     begin
         nreset <= '0';
-        wait for period;
+        wait for 5*clock_period;
         nreset <= '1';
+        send_convert <= '1';
 
         for num in text_input'range loop
             if (num mod 8 = 0) then
                 send_data <= text_vector((text_vector'length-(64*((num/8)-1))-1) downto text_vector'length-(64*(num/8)));
                 send_start <= '1';
-                wait for period;
+                wait for 2*clock_period;
                 send_start <= '0';
                 wait until rising_edge(send_done);
+                wait for 5*clock_period;
             end if;
         end loop;
         wait;

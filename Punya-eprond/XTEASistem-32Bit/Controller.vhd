@@ -67,7 +67,7 @@ architecture behavioral of Controller is
     signal max_textrom_index : natural range 0 to 7;
     signal send_counter : natural range 0 to 7;
 
-    type states is (idle, reading_serial, adding_maxadd, sending_message, setup_xtea1, setup_xtea2, setup_xtea3, starting_xtea,
+    type states is (idle, reading_serial, sending_message, setup_xtea1, setup_xtea2, setup_xtea3, starting_xtea,
                     processing_xtea, storing_xtea, reading_results, sending_results);
     signal controller_cstate, controller_nstate : states;
  
@@ -137,8 +137,8 @@ begin
             end if;
 
         when reading_serial =>
-            selector_datareset <= '0'; -- make sure dont select the memory reset
             selector_datawrite <= '0'; -- select serial output as memory write
+            maxadd_enable <= '1';
             force_address <= store_datatype;
 
             -- buffers for timing synchronization
@@ -172,20 +172,10 @@ begin
 
             -- wait until reading is done
             elsif (read_done = '1') then
-                maxadd_enable <= '1';
-                controller_nstate <= adding_maxadd;
+                maxadd_enable <= '0';
+                controller_nstate <= setup_xtea1;
             else
                 controller_nstate <= controller_cstate;
-            end if;
-
-        when adding_maxadd => -- add maximum address to check for at memory
-            maxadd_enable <= '1';
-            ccounter_enable <= '1';
-            if (ccounter_out >= 5) then
-                i_ccounter_reset <= not i_ccounter_reset;
-                maxadd_enable <= '0';
-                ccounter_enable <= '0';
-                controller_nstate <= setup_xtea1;
             end if;
 
         when sending_message => -- send messages based on error types
