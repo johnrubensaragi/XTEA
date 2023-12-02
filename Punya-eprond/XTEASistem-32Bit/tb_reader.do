@@ -6,7 +6,7 @@ if [file exists work] {
 
 vlib work
 
-vcom ascii2hex.vhd hex2ascii.vhd Register.vhd MUX1Bit.vhd MUX2Data.vhd MUX4Data.vhd MUX8Data.vhd MUX16Data.vhd DEMUX2Data.vhd DEMUX4Data.vhd ClockCounter.vhd ClockDiv.vhd PulseGenerator.vhd SRAM.vhd MemoryBlock.vhd XTEA.vhd Custom64BitShifter.vhd SerialReader.vhd SerialSender.vhd SerialBlock.vhd AddressCounter.vhd Controller.vhd DummyTopLevel.vhd
+vcom ascii2hex.vhd hex2ascii.vhd Register.vhd MUX1Bit.vhd MUX2Data.vhd MUX4Data.vhd MUX8Data.vhd MUX16Data.vhd DEMUX2Data.vhd DEMUX4Data.vhd ClockCounter.vhd ClockDiv.vhd PulseGenerator.vhd uart_interpreter.vhd SRAM.vhd MemoryBlock.vhd XTEA.vhd Custom64BitShifter.vhd SerialReader.vhd SerialSender.vhd SerialBlock.vhd AddressCounter.vhd Controller.vhd DummyTopLevel.vhd
 vcom TB_Reader.vhd
 
 vsim tb_reader

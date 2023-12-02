@@ -24,15 +24,16 @@ architecture behavioral of DummyTopLevel is
     constant newline_vector : std_logic_vector(63 downto 0) := "00001010" & conv_std_logic_vector(0, 48) & "00001010";
 
     component SerialBlock is
-    generic(data_length, address_length : natural);
+    generic(data_length : natural := 64; address_length : natural := 10);
     port(
         clock : in std_logic;
         nreset : in std_logic;
-        reader_running : out std_logic;
+        reader_running: out std_logic;
         sender_running : out std_logic;
         read_done : out std_logic;
         send_done : out std_logic;
         send_start : in std_logic;
+        send_convert : in std_logic;
         error_out : out std_logic_vector(1 downto 0);
         send_data : in std_logic_vector((data_length-1) downto 0);
         store_data : out std_logic_vector((data_length-1) downto 0);
@@ -177,6 +178,7 @@ architecture behavioral of DummyTopLevel is
         -- serial block port
         reader_running, sender_running : in std_logic;
         read_done, send_done : in std_logic;
+        send_convert : out std_logic;
         store_datatype : in std_logic_vector(1 downto 0);
         error_type : in std_logic_vector(1 downto 0);
 
@@ -185,17 +187,19 @@ architecture behavioral of DummyTopLevel is
         force_enable : out std_logic;
         force_address : out std_logic_vector(1 downto 0);
         address_atmax : in std_logic;
+        maxadd_enable : out std_logic;
 
         -- memory block port
         enable_write : out std_logic;
 
         -- xtea block port
         xtea_done : in std_logic;
+        dataxtea_enable : out std_logic;
 
         -- mux and demux selectors
         selector_datawrite : out std_logic;
         selector_dataread, selector_datasend : out std_logic;
-        selector_dataxtea, selector_datatext : out std_logic_vector(1 downto 0);
+        selector_datatext : out std_logic_vector(1 downto 0);
         selector_dataidentifier : out std_logic;
 
         -- pulse generator port
@@ -205,7 +209,7 @@ architecture behavioral of DummyTopLevel is
 
         -- clock counter port
         ccounter_enable, ccounter_reset : out std_logic;
-        ccounter_out : in natural range 0 to 15;
+        ccounter_out : in natural range 0 to 63;
 
         -- text roms port
         rom_index_counter : out natural range 0 to 7
@@ -216,6 +220,7 @@ architecture behavioral of DummyTopLevel is
     signal reader_running, sender_running, read_done, send_done, send_start :  std_logic;
     signal error_out : std_logic_vector(1 downto 0);
     signal send_data, store_data : std_logic_vector((data_length-1) downto 0);
+    signal send_convert : std_logic;
     signal store_datatype : std_logic_vector(1 downto 0);
     signal store_checkout : std_logic;
 
@@ -229,7 +234,7 @@ architecture behavioral of DummyTopLevel is
     signal memory_write, memory_read : std_logic_vector((data_length-1) downto 0);
 
     -- address counter inout
-    signal countup_trigger, force_enable : std_logic;
+    signal force_enable : std_logic;
     signal force_address : std_logic_vector(1 downto 0);
     signal address_out : std_logic_vector((address_length-1) downto 0);
     signal max_data_address : std_logic_vector((address_length-1) downto 0);
@@ -238,10 +243,10 @@ architecture behavioral of DummyTopLevel is
     -- mux and demux inout
     signal selector_datawrite : std_logic;
     signal selector_dataread, selector_datasend : std_logic;
-    signal selector_dataxtea, selector_datatext : std_logic_vector(1 downto 0);
+    signal selector_datatext : std_logic_vector(1 downto 0);
     signal selector_dataidentifier : std_logic;
 
-    signal dataxtea_demuxin : std_logic_vector((data_length-1) downto 0);
+    signal dataxtea_write : std_logic_vector((data_length-1) downto 0);
     signal xtea_fullmode, xtea_leftkey, xtea_rightkey, xtea_data : std_logic_vector((data_length-1) downto 0);
 
     signal dataselected_muxout, datasend_muxout, datatext_muxout : std_logic_vector((data_length-1) downto 0);
@@ -261,7 +266,7 @@ architecture behavioral of DummyTopLevel is
     signal xtea_pulse, xtea_pulse_enable, xtea_pulse_trigger : std_logic;
 
     -- clock counter inout
-    constant ccounter_max : natural := 16;
+    constant ccounter_max : natural := 64;
     signal ccounter_out : natural range 0 to (ccounter_max-1);
     signal ccounter_enable, ccounter_reset : std_logic;
 
@@ -298,6 +303,7 @@ begin
         read_done      => read_done,
         send_done      => send_done,
         send_start     => send_start,
+        send_convert   => send_convert,
         error_out      => error_out,
         send_data      => send_data,
         store_data     => store_data,
@@ -366,6 +372,19 @@ begin
         pulse_out    => xtea_pulse
     );
 
+    countuppulse_inst: PulseGenerator
+    generic map (
+      pulse_width => 5,
+      pulse_max   => 8
+    )
+    port map (
+      clock        => clock,
+      nreset       => nreset,
+      pulse_enable => '1',
+      pulse_reset  => countup_pulse_trigger,
+      pulse_out    => countup_pulse
+    );
+
     -- attach pulse gen to start xtea and sender
     xtea_start <= xtea_pulse;
     send_start <= sender_pulse;
@@ -377,32 +396,17 @@ begin
     port map (
         clock           => clock,
         nreset          => nreset,
-        countup_trigger => countup_trigger,
+        countup_trigger => countup_pulse,
         force_enable    => force_enable,
         force_address   => force_address,
         address_out     => address_out
     );
 
-    countuppulse_inst: PulseGenerator
-    generic map (
-        pulse_width => 5,
-        pulse_max   => 8
-    )
-    port map (
-        clock        => clock,
-        nreset       => nreset,
-        pulse_enable => '1',
-        pulse_reset  => countup_pulse_trigger,
-        pulse_out    => countup_pulse
-    );
-
-    countup_trigger <= countup_pulse;
-
     datawrite_mux_inst: MUX2Data
     generic map (data_length)
     port map (
         selector => selector_datawrite, -- 1 bit selector for storing xtea or reader
-        data_in1 => store_data, -- '0' for serial reader output
+        data_in1 => dataxtea_write, -- '0' for data to process
         data_in2 => xtea_output, -- '1' for xtea output
         data_out => memory_write
     );
@@ -412,23 +416,23 @@ begin
     port map (
         selector  => selector_dataread, -- 1 bit selector for inputting xtea or sender
         data_in   => memory_read,
-        data_out1 => dataxtea_demuxin, -- '0' for xtea inputs
+        data_out1 => temp_dataxtea, -- '0' for xtea input
         data_out2 => datasend_muxout -- '1' for serial sender input
     );
 
     dataxtea_demux_inst: DEMUX4Data
     generic map (data_length)
     port map (
-        selector  => selector_dataxtea, -- 2 bit selector for xtea inputs
-        data_in   => dataxtea_demuxin,
+        selector  => store_datatype, -- 2 bit selector for xtea inputs
+        data_in   => store_data,
         data_out1 => temp_leftkey, -- "00" for xtea leftkey : key(127 downto 64)
         data_out2 => temp_rightkey, -- "01" for xtea rightkey : key(63 downto 0)
         data_out3 => temp_fullmode, -- "10" for xtea mode
-        data_out4 => temp_dataxtea -- "11" for xtea input
+        data_out4 => dataxtea_write -- "11" for xtea input
     );
 
     -- register to save address maximum for data
-    maxadd_reg : Reg generic map (address_length) port map (clock, maxadd_enable, '1', address_out, max_data_address);
+    maxadd_reg : Reg generic map (address_length) port map (clock, maxadd_enable, nreset, address_out, max_data_address);
     address_atmax <= '1' when (address_out = max_data_address) else '0';
 
     -- truncate the data for xtea inputs
@@ -438,17 +442,17 @@ begin
     xtea_input <= xtea_data;
 
     -- xtea registers to preserve data
-    leftkey_reg : Reg generic map(data_length) port map(clock, leftkey_enable, '1', temp_leftkey, xtea_leftkey);
-    rightkey_reg : Reg generic map(data_length) port map(clock, rightkey_enable, '1', temp_rightkey, xtea_rightkey);
-    fullmode_reg : Reg generic map(data_length) port map(clock, fullmode_enable, '1', temp_fullmode, xtea_fullmode);
-    dataxtea_reg : Reg generic map(data_length) port map(clock, dataxtea_enable, '1', temp_dataxtea, xtea_data);
+    leftkey_reg : Reg generic map(data_length) port map(clock, leftkey_enable, nreset, temp_leftkey, xtea_leftkey);
+    rightkey_reg : Reg generic map(data_length) port map(clock, rightkey_enable, nreset, temp_rightkey, xtea_rightkey);
+    fullmode_reg : Reg generic map(data_length) port map(clock, fullmode_enable, nreset, temp_fullmode, xtea_fullmode);
+
+    dataxtea_reg : Reg generic map(data_length) port map(clock, dataxtea_enable, nreset, temp_dataxtea, xtea_data);
     
     -- only enable register when selected
-    leftkey_enable <= '1' when selector_dataxtea = "00" else '0';
-    rightkey_enable <= '1' when selector_dataxtea = "01" else '0';
-    fullmode_enable <= '1' when selector_dataxtea = "10" else '0';
-    dataxtea_enable <= '1' when selector_dataxtea = "11" else '0';
-
+    leftkey_enable <= '1' when (store_datatype = "00" and store_checkout = '1') else '0';
+    rightkey_enable <= '1' when (store_datatype = "01" and store_checkout = '1') else '0';
+    fullmode_enable <= '1' when (store_datatype = "10" and store_checkout = '1') else '0';
+    
     mux2data_inst: MUX2Data
     generic map (
       data_length => data_length
@@ -489,7 +493,7 @@ begin
         constant results_vector : std_logic_vector((8*results_text'length-1) downto 0) := to_slv(results_text);
         constant error_vector1 : std_logic_vector((8*error_text1'length-1) downto 0) := to_slv(error_text1);
         constant error_vector2 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
-        constant error_vector3 : std_logic_vector((8*error_text2'length-1) downto 0) := to_slv(error_text2);
+        constant error_vector3 : std_logic_vector((8*error_text3'length-1) downto 0) := to_slv(error_text3);
     begin
         for idx in 1 to (rom_length-1) loop
             if (idx <= results_vector'length/64) then 
@@ -524,18 +528,20 @@ begin
         sender_running          => sender_running,
         read_done               => read_done,
         send_done               => send_done,
+        send_convert            => send_convert,
         store_datatype          => store_datatype,
         error_type              => error_out,
         store_checkout          => store_checkout,
         force_enable            => force_enable,
         force_address           => force_address,
         address_atmax           => address_atmax,
+        maxadd_enable           => maxadd_enable,
         enable_write            => enable_write,
         xtea_done               => xtea_done,
+        dataxtea_enable         => dataxtea_enable,
         selector_datawrite      => selector_datawrite,
         selector_dataread       => selector_dataread,
         selector_datasend       => selector_datasend,
-        selector_dataxtea       => selector_dataxtea,
         selector_datatext       => selector_datatext,
         selector_dataidentifier => selector_dataidentifier,
         sender_pulse_enable     => sender_pulse_enable,

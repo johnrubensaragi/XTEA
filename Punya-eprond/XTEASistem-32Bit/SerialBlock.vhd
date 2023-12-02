@@ -43,7 +43,6 @@ architecture behavioral of SerialBlock is
     end component SerialReader;
 
     component SerialSender is
-    generic(data_length, address_length : natural);
     port(
         clock : in std_logic;
         nreset : in std_logic;
@@ -92,7 +91,7 @@ architecture behavioral of SerialBlock is
     signal uart_send : std_logic_vector(7 downto 0);
     signal uart_transmit : std_logic;
     signal sender_trigger, sender_enable, sender_start : std_logic;
-    signal sender_finish, sender_done : std_logic;
+    signal sender_done : std_logic;
     signal sender_trigger_signal : std_logic;
     signal sender_trigger_buffer : std_logic_vector(3 downto 0) := "0000";
 
@@ -104,7 +103,7 @@ begin
         reader_enable        => reader_enable,
         reader_trigger       => reader_trigger,
         reader_start         => reader_start,
-        reader_done          => read_done,
+        reader_done          => reader_done,
         reader_finish        => reader_finish,
         error_out            => internal_error,
         reader_data_in       => reader_data_in,
@@ -114,10 +113,6 @@ begin
     );
 
     serialsender_inst: SerialSender
-    generic map (
-      data_length    => data_length,
-      address_length => address_length
-    )
     port map (
       clock           => clock,
       nreset          => nreset,

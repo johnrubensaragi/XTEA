@@ -79,14 +79,14 @@ architecture behavioral of SerialReader is
     signal regout_datain : std_logic_vector(63 downto 0);
     signal regout_enable : std_logic;
     signal regout_enable_signal : std_logic;
-    signal regout_enable_buffer : std_logic_vector(6 downto 0);
+    signal regout_enable_buffer : std_logic_vector(15 downto 0);
 
     type states is (idle, start, read_kw, read_whitespace, read_attributes, read_startdata, read_data);
     signal c_state, n_state : states;
 
     signal temp_type : std_logic_vector(1 downto 0) := "00";
     signal temp_checkout : std_logic := '0';
-    signal checkout_buffer : std_logic_vector(7 downto 0);
+    signal checkout_buffer : std_logic_vector(15 downto 0) := (others => '1');
     signal done_mode, done_key, done_data : std_logic := '0';
     signal done_checkout : std_logic;
 
@@ -122,15 +122,15 @@ begin
             end if;
 
             -- make pulse for regout enable signal
-            regout_enable_buffer <= regout_enable_buffer(5 downto 0) & regout_enable_signal;
-            if (regout_enable_buffer = "0011111") then regout_enable <= '1';
-            elsif (regout_enable_buffer = "1111111") then regout_enable <= '0';
+            regout_enable_buffer <= regout_enable_buffer(14 downto 0) & regout_enable_signal;
+            if (regout_enable_buffer = "0011111111111111") then regout_enable <= '1';
+            elsif (regout_enable_buffer = "1111111111111111") then regout_enable <= '0';
             end if;
 
             -- make pulse for checkout signal
-            checkout_buffer <= checkout_buffer(6 downto 0) & temp_checkout;
-            if (checkout_buffer = "00111111") then reader_data_checkout <= '1';
-            elsif (checkout_buffer = "11111111") then reader_data_checkout <= '0';
+            checkout_buffer <= checkout_buffer(14 downto 0) & temp_checkout;
+            if (checkout_buffer = "0111111111111111") then reader_data_checkout <= '1';
+            elsif (checkout_buffer = "1111111111111111") then reader_data_checkout <= '0';
             end if;
 
         end if;
@@ -152,7 +152,29 @@ begin
         if (reader_enable = '1') then
 
         -- only check state when triggered
-        if rising_edge(reader_trigger) then     
+        if rising_edge(reader_trigger) then
+        
+            -- finish if no data is longer received
+            if (reader_finish = '1' and done_mode = '1') then
+                
+                -- trigger checkout if not yet checked out
+                if (done_checkout = '0') then
+                    done_checkout <= '1';
+                    temp_checkout <= '1';
+                    regout_enable_signal <= '1';
+                    max_shift <= '1';
+                end if;
+
+                -- check if all inputs are done
+                if (done_mode = '1' and done_key = '1' and done_data = '1') then  
+                    reader_done <= '1';
+                else -- error if not all is done
+                    error_out <= "01";
+                end if;
+
+                n_state <= idle;
+            else
+     
             case c_state is
             when idle =>
                 temp_checkout <= '0';
@@ -296,29 +318,9 @@ begin
                     done_checkout <= '1';
                 end if;
 
-                -- finish if no data is longer received
-                if (reader_finish = '1') then
-                    
-                    -- trigger checkout if not yet checked out
-                    if (done_checkout = '0') then
-                        done_checkout <= '1';
-                        temp_checkout <= '1';
-                        regout_enable_signal <= '1';
-                        max_shift <= '1';
-                    end if;
-
-                    -- check if all inputs are done
-                    if (done_mode = '1' or done_key = '1' or done_data = '1') then  
-                        reader_done <= '1';
-                    else -- error if not all is done
-                        error_out <= "01";
-                    end if;
-
-                    n_state <= idle;
-                end if;
-
             when others => n_state <= idle;
             end case;
+        end if;
         end if;
         end if;
     end process reader_fsm;

@@ -79,8 +79,8 @@ architecture behavioral of SerialSender is
     type states is (idle, sending);
     signal c_state, n_state : states := idle;
 
-    signal convdata_selector : std_logic_vector(4 downto 0) := (others => '0');
-    signal rawdata_selector : std_logic_vector(3 downto 0) := (others => '0');
+    signal convdata_selector : std_logic_vector(4 downto 0) := (others => '1');
+    signal rawdata_selector : std_logic_vector(3 downto 0) := (others => '1');
     signal converted_data : std_logic_vector(127 downto 0);
 
     signal temp_done : std_logic;
@@ -120,12 +120,17 @@ begin
     up_counter : process(sender_trigger)
     begin
         if rising_edge(sender_trigger) then
-            rawdata_selector <= rawdata_selector + 1;
-            convdata_selector <= convdata_selector + 1;
+            if (sender_convert = '0') then
+                rawdata_selector <= rawdata_selector + 1;
+                convdata_selector <= (others => '1');
+            else
+                convdata_selector <= convdata_selector + 1;
+                rawdata_selector <= (others => '1');
+            end if;
 
-            if (rawdata_selector > "111") then
+            if (rawdata_selector = "1000" and sender_convert = '0') then
                 rawdata_selector <= (others => '0');
-            elsif (convdata_selector > "1111") then
+            elsif (convdata_selector = "10000" and sender_convert = '1') then
                 convdata_selector <= (others => '0');
             end if;
         end if;
@@ -142,10 +147,9 @@ begin
                     n_state <= sending;
                 end if;
             when sending =>
-
                 if (sender_trigger = '1') then
-                    if (rawdata_selector > "111" and sender_convert = '0') or
-                        (convdata_selector > "1111" and sender_convert = '1') then
+                    if (rawdata_selector = "1000" and sender_convert = '0') or
+                        (convdata_selector = "10000" and sender_convert = '1') then
                         temp_done <= '1';
                     else
                         temp_done <= '0';

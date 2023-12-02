@@ -64,3 +64,33 @@ Exception c0000005 has occurred at address 00502839. Traceback:
 StackWalk failed 299
 # End of Stack Trace
 
+# Current time Fri Dec 01 21:09:54 2023
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 6dda9e6f. Traceback:
+# 0    0x6dda9e6f: 'Tcl_GetString + 0xf'
+# 1    0x6dd91f5a: 'TclListObjSetElement + 0x31a'
+# 2    0x6dd03a49: 'TclNRRunCallbacks + 0x49'
+StackWalk failed 299
+# End of Stack Trace
+
+# Current time Fri Dec 01 23:09:55 2023
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 6e899e6f. Traceback:
+# 0    0x6e899e6f: 'Tcl_GetString + 0xf'
+# 1    0x6e881f5a: 'TclListObjSetElement + 0x31a'
+# 2    0x6e7f3a49: 'TclNRRunCallbacks + 0x49'
+StackWalk failed 299
+# End of Stack Trace
+

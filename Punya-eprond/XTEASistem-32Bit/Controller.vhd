@@ -14,6 +14,7 @@ entity Controller is
     -- serial block port
     reader_running, sender_running : in std_logic;
     read_done, send_done : in std_logic;
+    send_convert : out std_logic;
     store_datatype : in std_logic_vector(1 downto 0);
     error_type : in std_logic_vector(1 downto 0);
 
@@ -29,11 +30,12 @@ entity Controller is
 
     -- xtea block port
     xtea_done : in std_logic;
+    dataxtea_enable : out std_logic;
 
     -- mux and demux selectors
     selector_datawrite : out std_logic;
     selector_dataread, selector_datasend : out std_logic;
-    selector_dataxtea, selector_datatext : out std_logic_vector(1 downto 0);
+    selector_datatext : out std_logic_vector(1 downto 0);
     selector_dataidentifier : out std_logic;
 
     -- pulse generator port
@@ -43,7 +45,7 @@ entity Controller is
 
     -- clock counter port
     ccounter_enable, ccounter_reset : out std_logic;
-    ccounter_out : in natural range 0 to 15;
+    ccounter_out : in natural range 0 to 63;
 
     -- text roms port
     rom_index_counter : out natural range 0 to 7
@@ -58,29 +60,16 @@ architecture behavioral of Controller is
     signal i_xpulse_trigger, i_spulse_trigger : std_logic := '0';
 
     -- buffers
-    signal store_datatype_buffer : std_logic_vector(1 downto 0);
+    signal store_datatype_buffer : std_logic_vector(1 downto 0) := (others => '0');
+    signal store_checkout_buffer : std_logic_vector(3 downto 0) := (others => '0');
     signal send_done_buffer, xtea_done_buffer : std_logic;
-    signal store_checkout_buffer1, store_checkout_buffer2 : std_logic;
-    signal store_checkout_buffer3, store_checkout_buffer4 : std_logic;
 
     -- for texts sending
     signal max_textrom_index : natural range 0 to 7;
     signal send_counter : natural range 0 to 7;
 
-    type states is (idle, reading_serial, sending_message, setup_xtea1, setup_xtea2, setup_xtea3, starting_xtea,
-                    processing_xtea, storing_xtea, reading_results, sending_results);
+    type states is (idle, reading_serial, sending_message, setup_xtea, starting_xtea, processing_xtea, storing_xtea, reading_results, sending_results);
     signal controller_cstate, controller_nstate : states;
- 
-    function to_slv(str : string) return std_logic_vector is
-        alias str_norm : string(str'length downto 1) is str;
-        variable res_v : std_logic_vector(8 * str'length - 1 downto 0);
-    begin
-        for idx in str_norm'range loop
-          res_v(8 * idx - 1 downto 8 * idx - 8) := 
-            std_logic_vector(conv_unsigned(character'pos(str_norm(idx)), 8));
-        end loop;
-        return res_v;
-    end function;
 
 begin
     countup_pulse_trigger <= i_countup_trigger;
@@ -126,10 +115,14 @@ begin
             i_spulse_trigger <= '0';
             enable_write <= '0';
             send_counter <= 0;
+            force_enable <= '1';
+            force_address <= "00";
 
             -- dont start if error
             if (error_type /= "01" and error_type /= "10") then
                 if (reader_running = '1') then
+                    force_enable <= '1';
+                    force_address <= "00";
                     controller_nstate <= reading_serial;
                 else
                     controller_nstate <= controller_cstate;
@@ -137,32 +130,24 @@ begin
             end if;
 
         when reading_serial =>
+            force_enable <= '0';
             selector_datawrite <= '0'; -- select serial output as memory write
             maxadd_enable <= '1';
-            force_address <= store_datatype;
 
             -- buffers for timing synchronization
-            store_datatype_buffer <= store_datatype;
-            store_checkout_buffer1 <= store_checkout;
-            store_checkout_buffer2 <= store_checkout_buffer1;
-            store_checkout_buffer3 <= store_checkout_buffer2;
-            store_checkout_buffer4 <= store_checkout_buffer3;
-
-            if (store_checkout_buffer4 = '1') then enable_write <= '1';
-            else enable_write <= '0';
+            store_checkout_buffer <= store_checkout_buffer(2 downto 0) & store_checkout;
+            if (store_checkout_buffer = "0001") then
+                store_datatype_buffer <= store_datatype;
             end if;
 
-            if (store_checkout = '1') then
-                if (store_datatype_buffer /= store_datatype) then
-                    force_enable <= '1';
-                else
-                    force_enable <= '0';
-                end if;
-            end if;
-
-            -- only count up trigger if data type doesnt change
-            if (store_checkout_buffer2 = '0' and store_checkout_buffer1 = '1' and store_datatype_buffer = store_datatype) then
+            if (store_datatype_buffer = "11" and store_datatype = "11" and store_checkout_buffer = "0010") then
                 i_countup_trigger <= not i_countup_trigger;
+            end if;
+
+            if (store_checkout_buffer = "0010") then
+                enable_write <= '1';
+            elsif (store_checkout_buffer = "1000") then
+                enable_write <= '0';
             end if;
 
             -- start send error if error
@@ -172,8 +157,13 @@ begin
 
             -- wait until reading is done
             elsif (read_done = '1') then
-                maxadd_enable <= '0';
-                controller_nstate <= setup_xtea1;
+                ccounter_enable <= '1';
+                if (ccounter_out >= 30) then
+                    maxadd_enable <= '0';
+                    i_ccounter_reset <= not i_ccounter_reset;
+                    ccounter_enable <= '0';
+                    controller_nstate <= setup_xtea;
+                end if;
             else
                 controller_nstate <= controller_cstate;
             end if;
@@ -182,6 +172,9 @@ begin
             selector_dataidentifier <= '0'; -- dont send newline character
             selector_dataread <= '1'; -- connect memory read to sender
             selector_datasend <= '1'; -- send data from text roms
+            
+            send_convert <= '0';
+            ccounter_enable <= '0';
 
             sender_pulse_enable <= '1';
             send_done_buffer <= send_done;
@@ -213,60 +206,29 @@ begin
                     i_spulse_trigger <= not i_spulse_trigger;
                     send_counter <= send_counter + 1;
                 else
-                    if (error_type = "00") then controller_nstate <= reading_results;
+                    if (error_type = "00") then
+                        send_convert <= '1';
+                        controller_nstate <= reading_results;
                     else controller_nstate <= idle;
                     end if;
                 end if;
             end if;
 
-        when setup_xtea1 => -- setup xtea mode
-            selector_dataread <= '0'; -- select memory read to xtea inputs
-            selector_dataxtea <= "00"; -- select memory read to xtea leftkey input
-            force_address <= "00"; -- force address to 00 to start setting up xtea
+        when setup_xtea => -- preparing for xtea
             force_enable <= '1';
+            force_address <= "00";
             ccounter_enable <= '1';
-
-            -- wait for 5 clock cycles before next state
             if (ccounter_out >= 5) then
-                i_countup_trigger <= not i_countup_trigger; -- count up address
-                i_ccounter_reset <= not i_ccounter_reset;
-                force_enable <= '0';
-                ccounter_enable <= '0';
-                controller_nstate <= setup_xtea2;
-            end if;
-
-        when setup_xtea2 => -- setup xtea key
-            selector_dataread <= '0'; -- select memory read to xtea inputs
-            selector_dataxtea <= "01"; -- select memory read to xtea rightkey input
-            force_enable <= '0';
-            ccounter_enable <= '1';
-
-            -- wait for 5 clock cycles before next state
-            if (ccounter_out >= 5) then
-                i_countup_trigger <= not i_countup_trigger; -- count up address
-                i_ccounter_reset <= not i_ccounter_reset;
-                ccounter_enable <= '0';
-                controller_nstate <= setup_xtea3;
-            end if;
-
-        when setup_xtea3 => -- setup xtea key
-            selector_dataread <= '0'; -- select memory read to xtea inputs
-            selector_dataxtea <= "10"; -- select memory read to xtea mode input
-            force_enable <= '0';
-            ccounter_enable <= '1';
-
-            -- wait for 5 clock cycles before next state
-            if (ccounter_out >= 5) then
-                i_countup_trigger <= not i_countup_trigger; -- count up address
                 i_ccounter_reset <= not i_ccounter_reset;
                 ccounter_enable <= '0';
                 controller_nstate <= starting_xtea;
             end if;
 
+
         when starting_xtea => -- read xtea input
             if (address_atmax /= '1') then
                 selector_dataread <= '0'; -- select memory read to xtea inputs
-                selector_dataxtea <= "11"; -- select memory read to xtea data input
+                dataxtea_enable <= '1'; -- enable the data xtea register
                 force_enable <= '0';
                 ccounter_enable <= '1';
 
@@ -284,13 +246,14 @@ begin
                 end if;
             else
                 force_enable <= '1';
-                force_address <= "11"; -- force address to 11 to start reading results
+                force_address <= "00"; -- force address to 11 to start reading results
                 i_ccounter_reset <= not i_ccounter_reset;
                 ccounter_enable <= '0';
                 controller_nstate <= sending_message;
             end if;
 
         when processing_xtea => -- process encrypt/decrypt
+            dataxtea_enable <= '1'; -- disable the data xtea register so it doesnt get overwritten
             xtea_done_buffer <= xtea_done;
             if (xtea_done_buffer = '0' and xtea_done = '1') then
                 controller_nstate <= storing_xtea;
@@ -321,6 +284,7 @@ begin
                 selector_dataidentifier <= '0'; -- dont send newline character yet
                 selector_dataread <= '1'; -- select memory read to sender
                 selector_datasend <= '0'; -- select sender input as from memory
+                send_convert <= '1'; -- convert encrypted data to hex
                 force_enable <= '0';
                 ccounter_enable <= '1';
 
@@ -337,6 +301,7 @@ begin
                     controller_nstate <= sending_results;
                 end if;
             else
+                send_convert <= '0';
                 selector_dataidentifier <= '1'; -- send newline character
                 if (ccounter_out = 5) then
                     sender_pulse_enable <= '1';

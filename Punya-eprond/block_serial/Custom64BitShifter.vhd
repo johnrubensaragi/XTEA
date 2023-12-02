@@ -27,12 +27,17 @@ begin
     begin
         shift_remaining := shift_length - shift_counter; 
 
-        if (max_shift = '1') then
-            if (shift_counter < shift_length) then
-            temp_data_out <= temp_data_out(data_size*shift_counter-1 downto 0) & conv_std_logic_vector(0, data_size*shift_remaining);
-            shift_counter <= shift_length;
-            end if;
-        elsif rising_edge(clock) then
+        if rising_edge(clock) then
+            
+            -- force shift to the max left
+            if (max_shift = '1') then
+                if (shift_counter < shift_length) then
+                    shift_counter <= shift_counter + 1;
+                    temp_data_out <= temp_data_out(63-data_size downto 0) & conv_std_logic_vector(0, data_size);
+                end if;
+            else
+
+            -- normal shift
             trigger_buffer <= trigger_buffer(0) & trigger_shift;
             if (trigger_buffer = "01") then
                 temp_data_out <= temp_data_out(63-data_size downto 0) & conv_std_logic_vector(0, data_size);
@@ -43,6 +48,8 @@ begin
                 end if;
             elsif (trigger_buffer = "11") then
                 temp_data_out((data_size-1) downto 0) <= data_in;
+            end if;
+
             end if;
         end if;
     end process shifter;

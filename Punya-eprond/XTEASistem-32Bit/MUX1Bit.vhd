@@ -22,4 +22,4 @@ begin
             when others =>
         end case;
     end process;
-end architecture;
+end behavioral;
