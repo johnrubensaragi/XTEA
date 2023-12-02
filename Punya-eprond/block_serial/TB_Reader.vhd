@@ -13,7 +13,7 @@ architecture sim of TB_Reader is
 
     constant data_length : natural := 64;
     constant address_length : natural := 10;
-    constant string_input : string :=  "-m 1 -k password1234 -d ABC241BACF910580A8070C0A";
+    constant string_input : string :=  "-m 0 -k password1234 -d Praktikum kali ini melibatkan berbagai percobaan terkait beberapa rangkaian sekuensial, yaitu sistem lampu merah serta sistem kalkulator dua fungsi. Terdapat empat percobaan yang berhasil dilakukan pada praktikum ini, yaitu percobaan pertama terkait desain sistem lampu merah berdasarkan spesifikasi, percobaan kedua terkait pengujian modul VGA, percobaan ketiga terkait penggabungan sistem lampu merah dengan modul VGA, serta percobaan keempat terkait desain sistem kalkulator penghitung FPB dan modulo dari dua angka. Hasil dari ketiga percobaan pertama membuktikan bahwa sistem lampu merah dengan tiga mode dapat diimplementasikan melalui FSM dengan jumlah state sebanyak 6 state. Sistem ini kemudian dapat digabungkan dengan modul VGA agar proses lampu merah dapat ditampilkan pada monitor LCD. Selain itu, percobaan terakhir membuktikan bahwa kalkulator pendekatan sekuensial dapat digunakan untuk melakukan perhitungan faktor persekutuan terbesar (FPB) serta modulo dari dua bilangan. Hasil desain FSM untuk kedua fungsi ini memiliki jumlah state sebanyak 7 state untuk perhitungan FPB dan sebanyak 5 state untuk perhitungan modulo. Pengujian melalui berbagai variasi input juga menunjukkan bahwa sistem ini dapat memerlukan waktu yang berbeda-beda untuk mendapatkan hasil perhitungan. Kecepatan perhitungan untuk kedua fungsi ini didasarkan kepada jumlah pengurangan yang harus dilakukan sistem. Jika sistem melibatkan dua bilangan yang perbedaannya sangat besar, sistem akan memerlukan waktu yang lama karena perlu dilakukan pengurangan satu per satu. Sedangkan, jika perbedaan kedua bilangan hanya melibatkan satu pengurangan, hasil perhitungan sistem akan lebih cepat didapatkan. Alhasil, seluruh percobaan pada praktikum ini membuktikan bahwa rangkaian sekuensial dapat digunakan untuk memodelkan berbagai sistem yang sering ditemukan, seperti sistem lampu merah serta kalkulator sekuensial.";
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
@@ -66,8 +66,8 @@ begin
         sender_running => sender_running,
         read_done      => read_done,
         send_done      => send_done,
+        send_convert    => '0',
         send_start     => send_start,
-        send_convert   => '0',
         error_out      => error_out,
         send_data      => send_data,
         store_data     => store_data,
