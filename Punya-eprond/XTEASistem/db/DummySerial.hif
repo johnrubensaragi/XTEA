@@ -1,0 +1,651 @@
+Quartus II
+Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+12
+1086
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+DummySerial
+# storage
+db|DummySerial.(0).cnf
+db|DummySerial.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+dummyserial.vhd
+9264f684f7e329c1d926a3db45d6bb24
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+SerialBlock
+# storage
+db|DummySerial.(1).cnf
+db|DummySerial.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serialblock.vhd
+8ee54f8d7f36af1bf95ba171408284
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+64
+PARAMETER_SIGNED_DEC
+USR
+address_length
+4
+PARAMETER_SIGNED_DEC
+USR
+ constraint(error_out)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(send_data)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(store_address)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(store_data)
+63 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+SerialReader
+# storage
+db|DummySerial.(2).cnf
+db|DummySerial.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serialreader.vhd
+c18145fb79f977aec36bb6e3f2fe224
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+64
+PARAMETER_SIGNED_DEC
+USR
+address_length
+4
+PARAMETER_SIGNED_DEC
+USR
+ constraint(error_out)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(reader_data_in)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(reader_address_out)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(reader_data_out)
+63 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialReader:serialreader_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+SerialSender
+# storage
+db|DummySerial.(3).cnf
+db|DummySerial.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serialsender.vhd
+fc6086bdd5ebbc43ff8e27cd1b8f186
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+64
+PARAMETER_SIGNED_DEC
+USR
+address_length
+4
+PARAMETER_SIGNED_DEC
+USR
+ constraint(sender_data_in)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(sender_data_out)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+PulseGenerator
+# storage
+db|DummySerial.(4).cnf
+db|DummySerial.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+pulsegenerator.vhd
+a4b4485075c8d3f6153866f7b068b6
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+pulse_width
+10
+PARAMETER_SIGNED_DEC
+USR
+pulse_max
+16
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst
+PulseGenerator:spulse10clock_int
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+my_uart_top
+# storage
+db|DummySerial.(5).cnf
+db|DummySerial.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+my_uart_top.vhd
+14962665ca656450ab8e31f714244a38
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(send_data)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(receive_data)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+speed_select
+# storage
+db|DummySerial.(6).cnf
+db|DummySerial.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+speed_select.vhd
+32cea0dcbe17b23598de6b917515baca
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx
+SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_tx
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+my_uart_rx
+# storage
+db|DummySerial.(7).cnf
+db|DummySerial.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+my_uart_rx.vhd
+8498f93126b9e12f597aaee45b6e755
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(rx_data)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+my_uart_tx
+# storage
+db|DummySerial.(8).cnf
+db|DummySerial.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+my_uart_tx.vhd
+d1dec454465bbc812b70be53243fb6
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(tx_data)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+ClockDiv
+# storage
+db|DummySerial.(9).cnf
+db|DummySerial.(9).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+clockdiv.vhd
+ce9815014a3b3987953559bcb461cf
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+div_frequency
+800
+PARAMETER_SIGNED_DEC
+USR
+clock_frequency
+50000000
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+ClockDiv
+# storage
+db|DummySerial.(10).cnf
+db|DummySerial.(10).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+clockdiv.vhd
+ce9815014a3b3987953559bcb461cf
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+div_frequency
+38400
+PARAMETER_SIGNED_DEC
+USR
+clock_frequency
+50000000
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|ClockDiv:rclockdiv_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+XTEA
+# storage
+db|DummySerial.(11).cnf
+db|DummySerial.(11).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+xtea.vhd
+676cc58079ece7d1522cc3f5e11d443
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(xtea_key)
+127 downto 0
+PARAMETER_STRING
+USR
+ constraint(xtea_input)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(xtea_output)
+63 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+XTEA:xteablock_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+SRAM
+# storage
+db|DummySerial.(12).cnf
+db|DummySerial.(12).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+sram.vhd
+47adb68a9dbba68778dc8ac04081652
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+64
+PARAMETER_SIGNED_DEC
+USR
+address_length
+4
+PARAMETER_SIGNED_DEC
+USR
+ constraint(memory_address)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(memory_write)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(memory_read)
+63 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SRAM:sram_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+ClockCounter
+# storage
+db|DummySerial.(13).cnf
+db|DummySerial.(13).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+clockcounter.vhd
+c5822e84eac9bfac92732a165c3db
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+count_max
+16
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+ClockCounter:clockcounter_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# complete
+

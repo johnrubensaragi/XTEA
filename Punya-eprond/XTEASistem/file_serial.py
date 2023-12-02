@@ -10,7 +10,7 @@ def get_port():
 
 def assign():
     print("insert port: ")
-    dock = "COM17"
+    dock = "COM14"
     print("insert baudrate: ")
     baud = int(9600)
     global ser
@@ -24,17 +24,22 @@ def assign():
 
 
 def write_read(x):
-    ser.write(x)
+    ser.write(bytes(x, 'utf-8'))
     time.sleep(0.05)
     data = ser.readline()
     return data
 
 def rewrite(x):
-    file = open("test.txt", "w")
-    file.write(x)
+    file = open("XTEA/Serial Yoga/test.txt", "w")
+    file.write(x.decode())
+    file.close()
 
-msg = open("test.txt", 'b')
-
-data = write_read(msg.read())
-
+get_port()
+assign()
+while True:
+    msg = open("XTEA/Serial Yoga/test.txt", 'r')
+    data = write_read(msg.read().encode())
+    msg.close()
+    rewrite(data)
+    print(data.decode())
 
