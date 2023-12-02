@@ -4,7 +4,7 @@ use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 
 entity SerialBlock is
-    generic(data_length, address_length : natural);
+    generic(data_length : natural := 64; address_length : natural := 10);
     port(
         clock : in std_logic;
         nreset : in std_logic;
@@ -13,6 +13,7 @@ entity SerialBlock is
         read_done : out std_logic;
         send_done : out std_logic;
         send_start : in std_logic;
+        send_convert : in std_logic;
         error_out : out std_logic_vector(1 downto 0);
         send_data : in std_logic_vector((data_length-1) downto 0);
         store_data : out std_logic_vector((data_length-1) downto 0);
@@ -24,18 +25,15 @@ entity SerialBlock is
 end SerialBlock;
 
 architecture behavioral of SerialBlock is
-    constant clock_frequency : natural := 50e6; -- 50 MHz
-    constant baud_rate : natural := 115200 ; -- 115200 bps
-
     component SerialReader is
-    generic(data_length, address_length : natural);
     port(
         clock : in std_logic;
         nreset : in std_logic;
         reader_enable : in std_logic;
         reader_trigger : in std_logic;
         reader_start : in std_logic;
-        reader_done : out std_logic := '0';
+        reader_done : out std_logic;
+        reader_finish : in std_logic;
         error_out : out std_logic_vector(1 downto 0);
         reader_data_in : in std_logic_vector(7 downto 0);
         reader_data_out : out std_logic_vector((data_length - 1) downto 0);
@@ -45,77 +43,60 @@ architecture behavioral of SerialBlock is
     end component SerialReader;
 
     component SerialSender is
-    generic(data_length, address_length : natural);
     port(
         clock : in std_logic;
         nreset : in std_logic;
-        sender_clock :  in std_logic;
         sender_enable : in std_logic;
-        sender_trigger : out std_logic;
         sender_start : in std_logic;
+        sender_convert : in std_logic;
+        sender_trigger : in std_logic;
+        sender_transmit : out std_logic;
         sender_done : out std_logic;
         sender_data_in : in std_logic_vector((data_length-1) downto 0);
         sender_data_out : out std_logic_vector(7 downto 0)
     );
     end component SerialSender;
 
-    component my_uart_top is
+    component uart_interpreter is
     port(
-        clock : in std_logic;
         nreset : in std_logic;
-        send : in std_logic;
-        send_data : in std_logic_vector(7 downto 0);
-        receive : out std_logic;
-        receive_data: out std_logic_vector(7 downto 0);
-        rs232_rx : in std_logic;
-        rs232_tx : out std_logic
-    );
-    end component my_uart_top;
+        clk : in std_logic;
 
-    component PulseGenerator is
-    generic(pulse_width, pulse_max : natural);
-    port(
-        clock : in std_logic;
-        nreset : in std_logic;
-        pulse_enable : in std_logic;
-        pulse_reset : in std_logic;
-        pulse_out : out std_logic
+        -- rx port
+        rx : in std_logic;
+        d_out : out std_logic_vector(7 downto 0);
+        d_out_ready : out std_logic;
+        serial_end: out std_logic;
+        
+        -- tx port        
+        tx : out std_logic;
+        d_in : in std_logic_vector(7 downto 0);
+        d_in_ready : in std_logic;
+        d_in_transmitted : out std_logic
     );
-    end component PulseGenerator;
-
-    component ClockDiv is
-    generic(div_frequency, clock_frequency : natural);
-    port(
-        clock_in: in std_logic;
-        clock_out: out std_logic
-    );
-    end component ClockDiv;
+    end component uart_interpreter;
 
     signal reader_data_in : std_logic_vector(7 downto 0);
     signal reader_trigger, reader_enable, reader_start : std_logic;
-    signal reader_done : std_logic;
-    signal receive, receive_c : std_logic;
+    signal reader_finish, reader_done : std_logic;
+    signal reader_trigger_signal : std_logic;
+    signal reader_trigger_buffer : std_logic_vector(3 downto 0) := "0000";
 
     signal reader_data_out : std_logic_vector((data_length-1) downto 0);
     signal reader_data_type : std_logic_vector(1 downto 0);
     signal reader_data_checkout : std_logic;
 
-    signal checkout_pulse_reset, checkout_pulse_enable : std_logic;
-    signal checkout_pulse : std_logic;
-
     signal internal_error : std_logic_vector(1 downto 0) := "00";
 
     signal uart_send : std_logic_vector(7 downto 0);
+    signal uart_transmit : std_logic;
     signal sender_trigger, sender_enable, sender_start : std_logic;
     signal sender_done : std_logic;
-    signal sender_clock : std_logic;
+    signal sender_trigger_signal : std_logic;
+    signal sender_trigger_buffer : std_logic_vector(3 downto 0) := "0000";
 
 begin
     serialreader_inst: SerialReader
-    generic map (
-        data_length    => data_length,
-        address_length => address_length
-    )
     port map (
         clock                => clock,
         nreset               => nreset,
@@ -123,6 +104,7 @@ begin
         reader_trigger       => reader_trigger,
         reader_start         => reader_start,
         reader_done          => reader_done,
+        reader_finish        => reader_finish,
         error_out            => internal_error,
         reader_data_in       => reader_data_in,
         reader_data_out      => reader_data_out,
@@ -131,128 +113,66 @@ begin
     );
 
     serialsender_inst: SerialSender
-    generic map (
-        data_length    => data_length,
-        address_length => address_length
-    )
     port map (
-        clock           => clock,
-        nreset          => nreset,
-        sender_clock    => sender_clock,
-        sender_enable   => sender_enable,
-        sender_trigger  => sender_trigger,
-        sender_start   => sender_start,
-        sender_done     => sender_done,
-        sender_data_in  => send_data,
-        sender_data_out => uart_send
+      clock           => clock,
+      nreset          => nreset,
+      sender_enable   => sender_enable,
+      sender_start    => sender_start,
+      sender_convert  => send_convert,
+      sender_trigger  => sender_trigger,
+      sender_transmit => uart_transmit,
+      sender_done     => sender_done,
+      sender_data_in  => send_data,
+      sender_data_out => uart_send
     );
 
-    my_uart_top_inst: my_uart_top
+    uart_interpreter_inst: uart_interpreter
     port map (
-        clock        => clock,
-        nreset       => nreset,
-        send         => sender_trigger,
-        send_data    => uart_send,
-        receive      => receive,
-        receive_data => reader_data_in,
-        rs232_rx     => rs232_rx,
-        rs232_tx     => rs232_tx
-    );
-
-    checkoutpulse_inst: PulseGenerator
-    generic map (
-      pulse_width => 5,
-      pulse_max   => 8
-    )
-    port map (
-      clock        => clock,
-      nreset       => nreset,
-      pulse_enable => '1',
-      pulse_reset  => checkout_pulse_reset,
-      pulse_out    => checkout_pulse
-    );
-
-    sclockdiv_inst: ClockDiv
-    generic map (
-        div_frequency   => baud_rate/6, -- slow frequency for sender
-        clock_frequency => clock_frequency
-    )
-    port map (
-        clock_in   => clock,
-        clock_out  => sender_clock
+        nreset           => nreset,
+        clk              => clock,
+        rx               => rs232_rx,
+        d_out            => reader_data_in,
+        d_out_ready      => reader_trigger_signal,
+        serial_end       => reader_finish,
+        tx               => rs232_tx,
+        d_in             => uart_send,
+        d_in_ready       => uart_transmit,
+        d_in_transmitted => sender_trigger_signal
     );
     
     error_out <= internal_error;
-    checkout_pulse_reset <= reader_data_checkout;
-    store_checkout <= checkout_pulse;
+    store_checkout <= reader_data_checkout;
+    store_datatype <= reader_data_type;
+    store_data <= reader_data_out;
 
-    checkout_pulse_checker : process(clock)
-    begin
-        if rising_edge(clock) then
-            if (checkout_pulse = '1') then
-                store_data <= reader_data_out;
-                store_datatype <= reader_data_type;
-            end if;
-        end if;
-    end process checkout_pulse_checker;
+    reader_start <= reader_trigger and not reader_finish;
 
-    reader_controller : process(clock)
-    begin
-        if rising_edge(clock) then
-            receive_c <= receive;
-        
-            -- to trigger the reader every data change
-            if (receive_c = '1' and receive = '0') then
-                reader_trigger <= '1';
-            else
-                reader_trigger <= '0';
-            end if;
+    read_done <= reader_done;
+    send_done <= sender_done;
+    sender_start <= send_start;
 
-            -- to tell the reader to start
-            if (receive_c = '1' and receive = '0') then
-                reader_start <= '1';
-            else
-                reader_start <= '0';
-            end if;
-
-        end if;
-    end process reader_controller;
-    
-    sender_controller : process(clock)
+    pulse_signals : process(clock)
     begin
         if rising_edge(clock) then
 
-            -- start and stop the sender
-            if (send_start = '1') then
-                sender_start <= '1';
-            elsif (sender_done = '1') then
-                sender_start <= '0';
+            -- make the reader trigger as pulse
+            reader_trigger_buffer <= reader_trigger_buffer(2 downto 0) & reader_trigger_signal;
+            if (reader_trigger_buffer = "0001") then reader_trigger <= '1';
+            elsif (reader_finish = '1') then reader_trigger <= '1';
+            elsif (reader_trigger_buffer = "1111") then reader_trigger <= '0';
+            else reader_trigger <= '0';
+            end if;
+
+            -- make the sender trigger as pulse
+            sender_trigger_buffer <= sender_trigger_buffer(2 downto 0) & sender_trigger_signal;
+            if (sender_trigger_buffer = "0001") then sender_trigger <= '1';
+            elsif (send_start = '1') then sender_trigger <= '1';
+            elsif (sender_trigger_buffer = "1111") then sender_trigger <= '0';
+            else sender_trigger <= '0';
             end if;
 
         end if;
-    end process sender_controller;
-
-    done_check : process(sender_clock)
-    begin
-        if rising_edge(sender_clock) then
-
-            -- to check if the sender is done
-            if (sender_done = '1') then
-                send_done <= '1';
-            else
-                send_done <= '0';
-            end if;
-
-            -- to check if the reader is done
-            if (reader_done = '1') then
-                read_done <= '1';
-            else
-                read_done <= '0';
-            end if;
-
-        end if;
-
-    end process;
+    end process pulse_signals;
 
     parallel_controller : process(clock)
     begin

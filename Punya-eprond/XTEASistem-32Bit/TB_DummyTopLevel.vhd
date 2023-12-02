@@ -14,7 +14,7 @@ architecture sim of TB_DummyTopLevel is
 
     constant data_length : natural := 64;
     constant address_length : natural := 10;
-    constant string_input : string := "-m 0 -d " & '"' & "Ini merupakan data yang sangat rahasia dan perlu diperahasiakan okey." & '"' & " -k password" & LF;
+    constant string_input : string := "-m 1 -k passwordku -d 60D48B909CC1ED0FE239D2A1FC635D6598347998226D92167C6782F0382D520D484D21AAB04C432E1A234163780522BD765BB9B489379F3C";
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
@@ -81,27 +81,22 @@ begin
         variable bit10_v : std_logic_vector(9 downto 0);
     begin
         nreset <= '0';
-        wait for 5*clock_period;
+        wait for 2*clock_period;
         nreset <= '1';
-        wait for 8*(2**address_length)*clock_period;
+        wait for 0.5 sec/baud_rate;
 
         for char in uart_vector'length/10 downto 1 loop
             bit10_v := uart_vector(10*char - 1 downto 10*char - 10);
             for num in 9 downto 0 loop
-            if (num /= 9 and num /= 0) then
-                uart_tx <= bit10_v(9-num);
-            else
-                uart_tx <= bit10_v(num);
-            end if;
-            counter  <= counter + 1;
-            wait until rising_edge(bps_clock);
+                if (num /= 9 and num /= 0) then
+                    uart_tx <= bit10_v(9-num);
+                else
+                    uart_tx <= bit10_v(num);
+                end if;
+                counter  <= counter + 1;
+                wait until rising_edge(bps_clock);
             end loop;
         end loop;
-        
-        wait for 24*string_input'length*baud_period;
-        nreset <= '0';
-        wait for 5*clock_period;
-        nreset <= '1';
 
         wait;
     end process serial_test;
