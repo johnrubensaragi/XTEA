@@ -31,6 +31,7 @@ entity Controller is
     -- xtea block port
     xtea_done : in std_logic;
     dataxtea_enable : out std_logic;
+    cont_xtea_mode : in std_logic;
 
     -- mux and demux selectors
     selector_datawrite : out std_logic;
@@ -206,9 +207,7 @@ begin
                     i_spulse_trigger <= not i_spulse_trigger;
                     send_counter <= send_counter + 1;
                 else
-                    if (error_type = "00") then
-                        send_convert <= '1';
-                        controller_nstate <= reading_results;
+                    if (error_type = "00") then controller_nstate <= reading_results;
                     else controller_nstate <= idle;
                     end if;
                 end if;
@@ -284,9 +283,13 @@ begin
                 selector_dataidentifier <= '0'; -- dont send newline character yet
                 selector_dataread <= '1'; -- select memory read to sender
                 selector_datasend <= '0'; -- select sender input as from memory
-                send_convert <= '1'; -- convert encrypted data to hex
                 force_enable <= '0';
                 ccounter_enable <= '1';
+
+                --  only convert encrypted data to hex if it is encrypting
+                if (cont_xtea_mode = '0') then send_convert <= '1';
+                else send_convert <= '0';
+                end if;
 
                 -- trigger the pulse to start the sending
                 if (ccounter_out = 5) then

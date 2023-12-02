@@ -195,6 +195,7 @@ architecture behavioral of DummyTopLevel is
         -- xtea block port
         xtea_done : in std_logic;
         dataxtea_enable : out std_logic;
+        cont_xtea_mode : in std_logic;
 
         -- mux and demux selectors
         selector_datawrite : out std_logic;
@@ -228,6 +229,7 @@ architecture behavioral of DummyTopLevel is
     signal xtea_start, xtea_done, xtea_mode : std_logic;
     signal xtea_input, xtea_output : std_logic_vector((data_length-1) downto 0);
     signal xtea_key : std_logic_vector(127 downto 0);
+    signal cont_xtea_mode : std_logic;
 
     -- memory block inout
     signal enable_write : std_logic;
@@ -441,6 +443,9 @@ begin
     xtea_mode <= xtea_fullmode(0);
     xtea_input <= xtea_data;
 
+    -- save the xtea mode to send to controller
+    cont_xtea_mode <= xtea_fullmode(0);
+
     -- xtea registers to preserve data
     leftkey_reg : Reg generic map(data_length) port map(clock, leftkey_enable, nreset, temp_leftkey, xtea_leftkey);
     rightkey_reg : Reg generic map(data_length) port map(clock, rightkey_enable, nreset, temp_rightkey, xtea_rightkey);
@@ -539,6 +544,7 @@ begin
         enable_write            => enable_write,
         xtea_done               => xtea_done,
         dataxtea_enable         => dataxtea_enable,
+        cont_xtea_mode          => cont_xtea_mode,
         selector_datawrite      => selector_datawrite,
         selector_dataread       => selector_dataread,
         selector_datasend       => selector_datasend,

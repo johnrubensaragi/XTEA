@@ -25,9 +25,9 @@ V^KC=g5;7g9:[6`O;2CN^^1
 !s100 dXBkX5KU<KaRbSCYe[dIM0
 Z8 OV;C;2020.1;71
 32
-Z9 !s110 1701447277
+Z9 !s110 1701497151
 !i10b 1
-Z10 !s108 1701447277.000000
+Z10 !s108 1701497151.000000
 Z11 !s90 -reportprogress|300|ascii2hex.vhd|hex2ascii.vhd|Register.vhd|MUX1Bit.vhd|MUX2Data.vhd|MUX4Data.vhd|MUX8Data.vhd|MUX16Data.vhd|DEMUX2Data.vhd|DEMUX4Data.vhd|ClockCounter.vhd|ClockDiv.vhd|PulseGenerator.vhd|uart_interpreter.vhd|SRAM.vhd|MemoryBlock.vhd|XTEA.vhd|Custom64BitShifter.vhd|SerialReader.vhd|SerialSender.vhd|SerialBlock.vhd|AddressCounter.vhd|Controller.vhd|DummyTopLevel.vhd|
 Z12 !s107 DummyTopLevel.vhd|Controller.vhd|AddressCounter.vhd|SerialBlock.vhd|SerialSender.vhd|SerialReader.vhd|Custom64BitShifter.vhd|XTEA.vhd|MemoryBlock.vhd|SRAM.vhd|uart_interpreter.vhd|PulseGenerator.vhd|ClockDiv.vhd|ClockCounter.vhd|DEMUX4Data.vhd|DEMUX2Data.vhd|MUX16Data.vhd|MUX8Data.vhd|MUX4Data.vhd|MUX2Data.vhd|MUX1Bit.vhd|Register.vhd|hex2ascii.vhd|ascii2hex.vhd|
 !i113 1
@@ -180,26 +180,26 @@ R12
 !i113 1
 R13
 Econtroller
-Z25 w1701453102
+Z25 w1701497132
 R2
 R3
 R4
 R5
-!i122 20
+!i122 0
 R0
 Z26 8Controller.vhd
 Z27 FController.vhd
 l0
 L6 1
-V9IJSjQHT4XJhZ4=:^z;^_3
-!s100 S_07?o4cgn2XTgh4>3=g23
+VDeLAj05SXMejU3:IZ4_lY0
+!s100 ;6H>14lD;hG`DnFO:7jW?2
 R8
 32
-Z28 !s110 1701454484
+R9
 !i10b 1
-Z29 !s108 1701454484.000000
-Z30 !s90 -reportprogress|300|SerialSender.vhd|SeriaLReader.vhd|Serialblock.vhd|DummyTopLevel.vhd|Controller.vhd|TB_DummyTopLevel.vhd|
-Z31 !s107 TB_DummyTopLevel.vhd|Controller.vhd|DummyTopLevel.vhd|Serialblock.vhd|SeriaLReader.vhd|SerialSender.vhd|
+R10
+R11
+R12
 !i113 1
 R13
 Abehavioral
@@ -207,31 +207,31 @@ R2
 R3
 R4
 R5
-Z32 DEx4 work 10 controller 0 22 9IJSjQHT4XJhZ4=:^z;^_3
-!i122 20
-l74
-Z33 L56 279
-Z34 V7Hj:HHl<i_70@5jnTl7k00
-Z35 !s100 BS;7:Jd8^AW;73GJN;>SY3
+DEx4 work 10 controller 0 22 DeLAj05SXMejU3:IZ4_lY0
+!i122 0
+l75
+L57 280
+VD_5Q2ozOYGzXP6kd8D]gP2
+!s100 aI>Cm?L97dNE6^ccNlK=G0
 R8
 32
-R28
+R9
 !i10b 1
-R29
-R30
-R31
+R10
+R11
+R12
 !i113 1
 R13
 Ecustom64bitshifter
-Z36 w1701439805
+Z28 w1701439805
 R2
 R3
 R4
 R5
 !i122 0
 R0
-Z37 8Custom64BitShifter.vhd
-Z38 FCustom64BitShifter.vhd
+Z29 8Custom64BitShifter.vhd
+Z30 FCustom64BitShifter.vhd
 l0
 L6 1
 VbKDDV50e6kH`aCDmY5nP12
@@ -266,15 +266,15 @@ R12
 !i113 1
 R13
 Edemux2data
-Z39 w1700930454
+Z31 w1700930454
 R3
 R2
 R4
 R5
 !i122 0
 R0
-Z40 8DEMUX2Data.vhd
-Z41 FDEMUX2Data.vhd
+Z32 8DEMUX2Data.vhd
+Z33 FDEMUX2Data.vhd
 l0
 L6 1
 VGPRXLH<VP7XlZ?398hM1b0
@@ -296,7 +296,7 @@ R5
 DEx4 work 10 demux2data 0 22 GPRXLH<VP7XlZ?398hM1b0
 !i122 0
 l19
-Z42 L18 11
+Z34 L18 11
 VJF3bT61V=Rchi@6^zf<JC0
 !s100 DH[k_DOa8fo9_2__;k?eK1
 R8
@@ -309,15 +309,15 @@ R12
 !i113 1
 R13
 Edemux4data
-Z43 w1700798286
+Z35 w1700798286
 R3
 R2
 R4
 R5
 !i122 0
 R0
-Z44 8DEMUX4Data.vhd
-Z45 FDEMUX4Data.vhd
+Z36 8DEMUX4Data.vhd
+Z37 FDEMUX4Data.vhd
 l0
 L6 1
 VQNEN=lM78<I108Ajj`_@]0
@@ -339,7 +339,7 @@ R5
 DEx4 work 10 demux4data 0 22 QNEN=lM78<I108Ajj`_@]0
 !i122 0
 l35
-Z46 L20 21
+Z38 L20 21
 VfV];WP_=X@@?XOjAI:3e32
 !s100 WEEC:D9<M9W?MjL>dS[b81
 R8
@@ -352,26 +352,26 @@ R12
 !i113 1
 R13
 Edummytoplevel
-Z47 w1701453972
+Z39 w1701496914
 R2
 R3
 R4
 R5
-!i122 20
+!i122 0
 R0
-Z48 8DummyTopLevel.vhd
-Z49 FDummyTopLevel.vhd
+Z40 8DummyTopLevel.vhd
+Z41 FDummyTopLevel.vhd
 l0
 L6 1
 VRXBYglF?GFGO><5>HGd3^2
 !s100 O;=Y4m`OTUB_S>DX8dX?K1
 R8
 32
-R28
+R9
 !i10b 1
-R29
-R30
-R31
+R10
+R11
+R12
 !i113 1
 R13
 Abehavioral
@@ -379,29 +379,29 @@ R2
 R3
 R4
 R5
-Z50 DEx4 work 13 dummytoplevel 0 22 RXBYglF?GFGO><5>HGd3^2
-!i122 20
-l292
-Z51 L18 543
-Z52 VM9B_Z;S_OAOfz1k6QWE<93
-Z53 !s100 >C@fAjJE3Wo:1B3IZ0Lml1
+Z42 DEx4 work 13 dummytoplevel 0 22 RXBYglF?GFGO><5>HGd3^2
+!i122 0
+l293
+L18 547
+VoT5i8=08cT?;gQT5zLD[g0
+!s100 1lEPG=SmZ=UB>3RT3fo2D3
 R8
 32
-R28
+R9
 !i10b 1
-R29
-R30
-R31
+R10
+R11
+R12
 !i113 1
 R13
 Ehex2ascii
-Z54 w1701438187
+Z43 w1701438187
 R4
 R5
 !i122 0
 R0
-Z55 8hex2ascii.vhd
-Z56 Fhex2ascii.vhd
+Z44 8hex2ascii.vhd
+Z45 Fhex2ascii.vhd
 l0
 L4 1
 VghLTSRbE_@>^Z0`ai:7Ba2
@@ -434,15 +434,15 @@ R12
 !i113 1
 R13
 Ememoryblock
-Z57 w1700740549
+Z46 w1700740549
 R3
 R2
 R4
 R5
 !i122 0
 R0
-Z58 8MemoryBlock.vhd
-Z59 FMemoryBlock.vhd
+Z47 8MemoryBlock.vhd
+Z48 FMemoryBlock.vhd
 l0
 L6 1
 Vo75hQE3oDX3QS;3HoZ4M:1
@@ -477,15 +477,15 @@ R12
 !i113 1
 R13
 Emux16data
-Z60 w1701418865
+Z49 w1701418865
 R3
 R2
 R4
 R5
 !i122 0
 R0
-Z61 8MUX16Data.vhd
-Z62 FMUX16Data.vhd
+Z50 8MUX16Data.vhd
+Z51 FMUX16Data.vhd
 l0
 L6 1
 VV[z<^Y?LHI`;H1oS[5]]^2
@@ -520,15 +520,15 @@ R12
 !i113 1
 R13
 Emux1bit
-Z63 w1701435599
+Z52 w1701435599
 R3
 R2
 R4
 R5
 !i122 0
 R0
-Z64 8MUX1Bit.vhd
-Z65 FMUX1Bit.vhd
+Z53 8MUX1Bit.vhd
+Z54 FMUX1Bit.vhd
 l0
 L6 1
 VX`bYM:4:MfNCgHXR]9YY33
@@ -563,15 +563,15 @@ R12
 !i113 1
 R13
 Emux2data
-Z66 w1700736552
+Z55 w1700736552
 R3
 R2
 R4
 R5
 !i122 0
 R0
-Z67 8MUX2Data.vhd
-Z68 FMUX2Data.vhd
+Z56 8MUX2Data.vhd
+Z57 FMUX2Data.vhd
 l0
 L6 1
 V_aYnB`UDzaQ]ATHXf>1zz3
@@ -593,7 +593,7 @@ R5
 DEx4 work 8 mux2data 0 22 _aYnB`UDzaQ]ATHXf>1zz3
 !i122 0
 l19
-R42
+R34
 V^d>>jzMoiz>;WFXEb_B`;3
 !s100 h[<VQU>Vfa<ZVQTohU5S00
 R8
@@ -606,15 +606,15 @@ R12
 !i113 1
 R13
 Emux4data
-Z69 w1700736784
+Z58 w1700736784
 R3
 R2
 R4
 R5
 !i122 0
 R0
-Z70 8MUX4Data.vhd
-Z71 FMUX4Data.vhd
+Z59 8MUX4Data.vhd
+Z60 FMUX4Data.vhd
 l0
 L6 1
 Vo?`c:L`@l=Dg7eaK7[fmT1
@@ -636,7 +636,7 @@ R5
 DEx4 work 8 mux4data 0 22 o?`c:L`@l=Dg7eaK7[fmT1
 !i122 0
 l35
-R46
+R38
 VLhQ6GfUe816<A9KO=bjEG2
 !s100 VD[94enfSJ1JJIb<8ee8Z2
 R8
@@ -649,15 +649,15 @@ R12
 !i113 1
 R13
 Emux8data
-Z72 w1701418842
+Z61 w1701418842
 R3
 R2
 R4
 R5
 !i122 0
 R0
-Z73 8MUX8Data.vhd
-Z74 FMUX8Data.vhd
+Z62 8MUX8Data.vhd
+Z63 FMUX8Data.vhd
 l0
 L6 1
 VlCQOI0hP87?j4hMd@a?7:2
@@ -692,15 +692,15 @@ R12
 !i113 1
 R13
 Epulsegenerator
-Z75 w1701178934
+Z64 w1701178934
 R2
 R3
 R4
 R5
 !i122 0
 R0
-Z76 8PulseGenerator.vhd
-Z77 FPulseGenerator.vhd
+Z65 8PulseGenerator.vhd
+Z66 FPulseGenerator.vhd
 l0
 L6 1
 VZIhz6kP1CF>dI=hRANAm61
@@ -735,15 +735,15 @@ R12
 !i113 1
 R13
 Ereg
-Z78 w1701312885
+Z67 w1701312885
 R2
 R3
 R4
 R5
 !i122 0
 R0
-Z79 8Register.vhd
-Z80 FRegister.vhd
+Z68 8Register.vhd
+Z69 FRegister.vhd
 l0
 L6 1
 V1Io3=GA@7=WPAUe4n4QC>1
@@ -778,26 +778,26 @@ R12
 !i113 1
 R13
 Eserialblock
-Z81 w1701436992
+Z70 w1701477192
 R2
 R3
 R4
 R5
-!i122 20
+!i122 0
 R0
-Z82 8Serialblock.vhd
-Z83 FSerialblock.vhd
+Z71 8SerialBlock.vhd
+Z72 FSerialBlock.vhd
 l0
 L6 1
 VZbMT@82na5hg8IWBbSU;P1
 !s100 6mLOH1YW5B]0eLRFAk9;N1
 R8
 32
-R28
+R9
 !i10b 1
-R29
-R30
-R31
+R10
+R11
+R12
 !i113 1
 R13
 Abehavioral
@@ -805,42 +805,42 @@ R2
 R3
 R4
 R5
-Z84 DEx4 work 11 serialblock 0 22 ZbMT@82na5hg8IWBbSU;P1
-!i122 20
+DEx4 work 11 serialblock 0 22 ZbMT@82na5hg8IWBbSU;P1
+!i122 0
 l98
-Z85 L27 179
-Z86 VPM?CAlFg[ai<h1=UVe7OE1
-Z87 !s100 n8SFKjNh[?WzETaSTFNIO0
+L27 179
+VU;B]8KTXbL_4Ph5Qimk7D0
+!s100 [i9TL[M_KcE9:f[]KWQ6M3
 R8
 32
-R28
+R9
 !i10b 1
-R29
-R30
-R31
+R10
+R11
+R12
 !i113 1
 R13
 Eserialreader
-Z88 w1701452503
+Z73 w1701452503
 R2
 R3
 R4
 R5
-!i122 20
+!i122 0
 R0
-Z89 8SeriaLReader.vhd
-Z90 FSeriaLReader.vhd
+Z74 8SerialReader.vhd
+Z75 FSerialReader.vhd
 l0
 L6 1
 Vi=BdO[PNPPXzQIkHGFAiS2
 !s100 iST^Gk=bmh8P;ICf0P3z23
 R8
 32
-R28
+R9
 !i10b 1
-R29
-R30
-R31
+R10
+R11
+R12
 !i113 1
 R13
 Abehavioral
@@ -848,42 +848,42 @@ R2
 R3
 R4
 R5
-Z91 DEx4 work 12 serialreader 0 22 i=BdO[PNPPXzQIkHGFAiS2
-!i122 20
+DEx4 work 12 serialreader 0 22 i=BdO[PNPPXzQIkHGFAiS2
+!i122 0
 l93
-Z92 L23 305
-Z93 Vg]aOO<QZT`Dz4]ljQbK=S3
-Z94 !s100 JaI3H?>:RZfnRja3^[m0C3
+L23 305
+Vg]aOO<QZT`Dz4]ljQbK=S3
+!s100 JaI3H?>:RZfnRja3^[m0C3
 R8
 32
-R28
+R9
 !i10b 1
-R29
-R30
-R31
+R10
+R11
+R12
 !i113 1
 R13
 Eserialsender
-Z95 w1701454474
+Z76 w1701454474
 R2
 R3
 R4
 R5
-!i122 20
+!i122 0
 R0
-Z96 8SerialSender.vhd
-Z97 FSerialSender.vhd
+Z77 8SerialSender.vhd
+Z78 FSerialSender.vhd
 l0
 L6 1
 VT_WhRj=;lRl3jlz<]Q8Pc0
 !s100 R[^>dd=f3167DiCfBZ4D33
 R8
 32
-R28
+R9
 !i10b 1
-R29
-R30
-R31
+R10
+R11
+R12
 !i113 1
 R13
 Abehavioral
@@ -891,31 +891,31 @@ R2
 R3
 R4
 R5
-Z98 DEx4 work 12 serialsender 0 22 T_WhRj=;lRl3jlz<]Q8Pc0
-!i122 20
+DEx4 work 12 serialsender 0 22 T_WhRj=;lRl3jlz<]Q8Pc0
+!i122 0
 l88
 L21 149
 VWMT4YPC`2m;GTMEMkC3]i1
 !s100 Pj_eN9De[X[fSbF[ZRod[0
 R8
 32
-R28
+R9
 !i10b 1
-R29
-R30
-R31
+R10
+R11
+R12
 !i113 1
 R13
 Esram
-Z99 w1700990830
+Z79 w1700990830
 R3
 R2
 R4
 R5
 !i122 0
 R0
-Z100 8SRAM.vhd
-Z101 FSRAM.vhd
+Z80 8SRAM.vhd
+Z81 FSRAM.vhd
 l0
 L6 1
 V@CF>aGU<0g[zmUCdmcfe73
@@ -950,60 +950,60 @@ R12
 !i113 1
 R13
 Etb_dummytoplevel
-Z102 w1701446748
+Z82 w1701446748
 R19
 R2
 R3
 R4
 R5
-!i122 20
+!i122 1
 R0
-Z103 8TB_DummyTopLevel.vhd
-Z104 FTB_DummyTopLevel.vhd
+Z83 8TB_DummyTopLevel.vhd
+Z84 FTB_DummyTopLevel.vhd
 l0
 L6 1
 VhQA7C@e:2l[co0K[KWZce3
 !s100 S5ie;lSH?h[_P^@id]LlP2
 R8
 32
-R28
+Z85 !s110 1701497152
 !i10b 1
-R29
-R30
-R31
+Z86 !s108 1701497152.000000
+Z87 !s90 -reportprogress|300|TB_DummyTopLevel.vhd|
+!s107 TB_DummyTopLevel.vhd|
 !i113 1
 R13
 Asim
-R50
+R42
 R19
 R2
 R3
 R4
 R5
-Z105 DEx4 work 16 tb_dummytoplevel 0 22 hQA7C@e:2l[co0K[KWZce3
-!i122 20
+DEx4 work 16 tb_dummytoplevel 0 22 hQA7C@e:2l[co0K[KWZce3
+!i122 1
 l52
-Z106 L9 95
-Z107 V3K@AOO1U`Kzj2H@Zo9=gl3
-Z108 !s100 5=Ab?IY2`4alLANVaNT;32
+L9 95
+V3K@AOO1U`Kzj2H@Zo9=gl3
+!s100 5=Ab?IY2`4alLANVaNT;32
 R8
 32
-R28
+R85
 !i10b 1
-R29
-R30
-R31
+R86
+R87
+Z88 !s107 TB_DummyTopLevel.vhd|
 !i113 1
 R13
 Euart_interpreter
-Z109 w1701318960
+Z89 w1701318960
 R19
 R4
 R5
 !i122 0
 R0
-Z110 8uart_interpreter.vhd
-Z111 Fuart_interpreter.vhd
+Z90 8uart_interpreter.vhd
+Z91 Fuart_interpreter.vhd
 l0
 L5 1
 VAZnCS^DmLn3TJehH:AFbW0
@@ -1037,7 +1037,7 @@ R12
 !i113 1
 R13
 Extea
-Z112 w1700984222
+Z92 w1700984222
 R19
 R2
 R3
@@ -1045,8 +1045,8 @@ R4
 R5
 !i122 0
 R0
-Z113 8XTEA.vhd
-Z114 FXTEA.vhd
+Z93 8XTEA.vhd
+Z94 FXTEA.vhd
 l0
 L6 1
 V`dl8ABYHUzhUOohS<9??R1
