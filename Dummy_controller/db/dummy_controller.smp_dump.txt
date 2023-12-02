@@ -1,11 +1,51 @@
 
+State Machine - |top|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|n_state
+Name n_state.read_data n_state.read_startdata n_state.read_key n_state.read_mode n_state.read_whitedata n_state.read_whitekey n_state.read_whitemode n_state.read_kw n_state.start n_state.idle 
+n_state.idle 0 0 0 0 0 0 0 0 0 0 
+n_state.start 0 0 0 0 0 0 0 0 1 1 
+n_state.read_kw 0 0 0 0 0 0 0 1 0 1 
+n_state.read_whitemode 0 0 0 0 0 0 1 0 0 1 
+n_state.read_whitekey 0 0 0 0 0 1 0 0 0 1 
+n_state.read_whitedata 0 0 0 0 1 0 0 0 0 1 
+n_state.read_mode 0 0 0 1 0 0 0 0 0 1 
+n_state.read_key 0 0 1 0 0 0 0 0 0 1 
+n_state.read_startdata 0 1 0 0 0 0 0 0 0 1 
+n_state.read_data 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |top|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state
+Name c_state.read_data c_state.read_startdata c_state.read_key c_state.read_mode c_state.read_whitedata c_state.read_whitekey c_state.read_whitemode c_state.read_kw c_state.start c_state.idle 
+c_state.idle 0 0 0 0 0 0 0 0 0 0 
+c_state.start 0 0 0 0 0 0 0 0 1 1 
+c_state.read_kw 0 0 0 0 0 0 0 1 0 1 
+c_state.read_whitemode 0 0 0 0 0 0 1 0 0 1 
+c_state.read_whitekey 0 0 0 0 0 1 0 0 0 1 
+c_state.read_whitedata 0 0 0 0 1 0 0 0 0 1 
+c_state.read_mode 0 0 0 1 0 0 0 0 0 1 
+c_state.read_key 0 0 1 0 0 0 0 0 0 1 
+c_state.read_startdata 0 1 0 0 0 0 0 0 0 1 
+c_state.read_data 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |top|xtea:xtea0|s
+Name s.s1 s.s0 s.init 
+s.init 0 0 0 
+s.s0 0 1 1 
+s.s1 1 0 1 
+
 State Machine - |top|controlFSM:controlFSM0|current_state
-Name current_state.send_to_serial current_state.write_encrypted_data current_state.encrypt_data current_state.read_data current_state.read_attributes current_state.send_error current_state.write_raw_data current_state.idle 
-current_state.idle 0 0 0 0 0 0 0 0 
-current_state.write_raw_data 0 0 0 0 0 0 1 1 
-current_state.send_error 0 0 0 0 0 1 0 1 
-current_state.read_attributes 0 0 0 0 1 0 0 1 
-current_state.read_data 0 0 0 1 0 0 0 1 
-current_state.encrypt_data 0 0 1 0 0 0 0 1 
-current_state.write_encrypted_data 0 1 0 0 0 0 0 1 
-current_state.send_to_serial 1 0 0 0 0 0 0 1 
+Name current_state.SendToSerial current_state.WriteEncrypted current_state.Encrypt current_state.StartEncrypt current_state.ReadData current_state.ReadMode current_state.ReadKey1 current_state.ReadKey0 current_state.PrepareRead current_state.SendError current_state.ReceiveWriteData current_state.ReceiveData current_state.ReceiveFirstData current_state.ReceiveAttributes current_state.PrepareReceive current_state.Idle 
+current_state.Idle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+current_state.PrepareReceive 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+current_state.ReceiveAttributes 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+current_state.ReceiveFirstData 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+current_state.ReceiveData 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+current_state.ReceiveWriteData 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+current_state.SendError 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+current_state.PrepareRead 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+current_state.ReadKey0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+current_state.ReadKey1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+current_state.ReadMode 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+current_state.ReadData 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+current_state.StartEncrypt 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.Encrypt 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.WriteEncrypted 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.SendToSerial 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
