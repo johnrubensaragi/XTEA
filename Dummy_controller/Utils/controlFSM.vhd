@@ -37,14 +37,12 @@ entity controlFSM is
     store_checkout        : in  std_logic;
 
     -- mux controls
-    dataIn_mux            : out std_logic;
-    dataType              : out std_logic_vector(1 downto 0);
-    address_sel           : out std_logic
+    dataIn_mux            : out std_logic
   );
 end entity;
 
 architecture behavioral of controlFSM is
-  type states is (Idle, PrepareReceive, ReceiveAttributes, ReceiveFirstData, ReceiveData, ReceiveWriteData, SendError, PrepareRead, ReadKey0, ReadKey1, ReadMode, ReadData, StartEncrypt, Encrypt, WriteEncrypted, PrepareSend, SendToSerial, Sending);
+  type states is (Idle, PrepareReceive, ReceiveAttributes, ReceiveFirstData, ReceiveData, ReceiveWriteData, SendError, PrepareRead, ReadData, StartEncrypt, Encrypt, WriteEncrypted, PrepareSend, SendToSerial, Sending);
   signal current_state, next_state : states;
 
 begin
@@ -71,8 +69,6 @@ begin
         address_reset <= '0';
         address_to_attributes <= '0';
         dataIn_mux <= '0';
-        dataType <= "00";
-        address_sel <= '0';
         if (enable = '1') and (reader_running = '1') and (store_checkout = '1') then
           next_state <= PrepareReceive;
         else
@@ -88,8 +84,6 @@ begin
         address_reset <= '1';
         address_to_attributes <= '0';
         dataIn_mux <= '0';
-        dataType <= "00";
-        address_sel <= '0';
         if (error_check = "01" or error_check = "10") then
           next_state <= SendError;
         elsif store_datatype = "00" or store_datatype = "01" or store_datatype = "10" then
@@ -102,14 +96,12 @@ begin
 
       when ReceiveAttributes =>
         enable_read <= '0';
-        enable_write <= '1';
+        enable_write <= '0';
         xtea_start <= '0';
         sender_start <= '0';
         address_countup <= '0';
         address_reset <= '1';
-        dataIn_mux <= '0';
-        dataType <= "00";
-        address_sel <= '0';
+        dataIn_mux <= '1';
         if (error_check = "01" or error_check = "10") then
           next_state <= SendError;
           address_countup <= '0';
@@ -143,8 +135,6 @@ begin
         xtea_start <= '0';
         sender_start <= '0';
         dataIn_mux <= '0';
-        dataType <= "00";
-        address_sel <= '0';
         if (error_check = "01" or error_check = "10") then
           next_state <= SendError;
           address_countup <= '0';
@@ -178,8 +168,6 @@ begin
         xtea_start <= '0';
         sender_start <= '0';
         dataIn_mux <= '0';
-        dataType <= "00";
-        address_sel <= '0';
         if (error_check = "01" or error_check = "10") then
           next_state <= SendError;
           address_countup <= '0';
@@ -215,8 +203,6 @@ begin
         address_countup <= '0';
         address_reset <= '0';
         dataIn_mux <= '0';
-        dataType <= "00";
-        address_sel <= '0';
         if (error_check = "01" or error_check = "10") then
           next_state <= SendError;
           address_countup <= '0';
@@ -253,8 +239,6 @@ begin
         address_reset <= '0';
         address_to_attributes <= '0';
         dataIn_mux <= '0';
-        dataType <= "00";
-        address_sel <= '0';
         if (reader_done = '1') then
           next_state <= Idle;
         else
@@ -266,51 +250,10 @@ begin
         enable_write <= '0';
         xtea_start <= '0';
         sender_start <= '0';
-        address_countup <= '1';
-        address_reset <= '0';
-        address_to_attributes <= '0';
-        dataIn_mux <= '1';
-        dataType <= "00";
-        address_sel <= '1';
-        next_state <= ReadKey0;
-
-      when ReadKey0 => -- key0 sudah di dataOut, masukkan ke register key xtea sambil masukkan key1 ke dataOut
-        enable_read <= '1';
-        enable_write <= '0';
-        xtea_start <= '0';
-        sender_start <= '0';
-        address_countup <= '1';
-        address_reset <= '0';
-        address_to_attributes <= '0';
-        dataIn_mux <= '1';
-        dataType <= "00";
-        address_sel <= '1';
-        next_state <= ReadKey1;
-
-      when ReadKey1 => -- key1 sudah di dataOut, masukkan ke register key xtea sambil masukkan mode ke dataOut
-        enable_read <= '1';
-        enable_write <= '0';
-        xtea_start <= '0';
-        sender_start <= '0';
-        address_countup <= '1';
-        address_reset <= '0';
-        address_to_attributes <= '0';
-        dataIn_mux <= '1';
-        dataType <= "01";
-        address_sel <= '1';
-        next_state <= ReadMode;
-
-      when ReadMode => -- mode sudah di dataOut, masukkan ke register mode xtea sambil masukkan data ke dataOut
-        enable_read <= '1';
-        enable_write <= '0';
-        xtea_start <= '0';
-        sender_start <= '0';
         address_countup <= '0';
         address_reset <= '0';
         address_to_attributes <= '0';
         dataIn_mux <= '1';
-        dataType <= "10";
-        address_sel <= '1';
         next_state <= ReadData;
 
       when ReadData =>
@@ -322,8 +265,6 @@ begin
         address_reset <= '0';
         address_to_attributes <= '0';
         dataIn_mux <= '1';
-        dataType <= "11";
-        address_sel <= '1';
         next_state <= StartEncrypt;
 
       when StartEncrypt =>
@@ -332,8 +273,6 @@ begin
         address_countup <= '0';
         address_to_attributes <= '0';
         dataIn_mux <= '1';
-        dataType <= "11";
-        address_sel <= '1';
         if (memory = "0000000000000000000000000000000000000000000000000000000000000000") then -- jangan lupa dirubah jadi semestinya
           next_state <= PrepareSend;
           xtea_start <= '0'; -- dibuat sbg Mealy agar XTEA tidak berjalan jika memory null
@@ -355,8 +294,6 @@ begin
         address_reset <= '0';
         address_to_attributes <= '0';
         dataIn_mux <= '1';
-        dataType <= "11";
-        address_sel <= '1';
         if (xtea_done = '1') then
           next_state <= WriteEncrypted;
         else
@@ -372,8 +309,6 @@ begin
         address_reset <= '0';
         address_to_attributes <= '0';
         dataIn_mux <= '1';
-        dataType <= "11";
-        address_sel <= '1';
         next_state <= ReadData;
 
       when PrepareSend =>
@@ -385,8 +320,6 @@ begin
         address_reset <= '0';
         address_to_attributes <= '0';
         dataIn_mux <= '1';
-        dataType <= "11";
-        address_sel <= '1';
         next_state <= SendToSerial;
 
       when SendToSerial =>
@@ -395,9 +328,7 @@ begin
         xtea_start <= '0';
         sender_start <= '0';
         address_reset <= '0';
-        dataIn_mux <= '0';
-        dataType <= "11";
-        address_sel <= '1';
+        dataIn_mux <= '1';
         if (memory /= "0000000000000000000000000000000000000000000000000000000000000000") then
           if sender_done = '0' then
             next_state <= Sending;
@@ -420,9 +351,7 @@ begin
         xtea_start <= '0';
         sender_start <= '0';
         address_reset <= '0';
-        dataIn_mux <= '0';
-        dataType <= "11";
-        address_sel <= '1';
+        dataIn_mux <= '1';
         if (memory /= "0000000000000000000000000000000000000000000000000000000000000000") then
           if sender_done = '1' then
             next_state <= PrepareSend;
