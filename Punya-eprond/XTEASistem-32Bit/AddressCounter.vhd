@@ -11,7 +11,8 @@ entity AddressCounter is
         countup_trigger : in std_logic;
         force_enable : in std_logic;
         force_address : in std_logic_vector(1 downto 0);        
-        address_out : out std_logic_vector((address_length-1) downto 0)
+        address_out : out std_logic_vector((address_length-1) downto 0);
+        error_storage : out std_logic := '0'
     );
 end AddressCounter;
 
@@ -32,6 +33,10 @@ begin
             trigger_buffer <= countup_trigger;
             if (trigger_buffer = '0' and countup_trigger = '1') then
                 temp_address <= temp_address + 1;
+            end if;
+
+            if (temp_address = "1111111111" and countup_trigger = '1') then
+                error_storage <= '1';
             end if;
         end if;
     end process;

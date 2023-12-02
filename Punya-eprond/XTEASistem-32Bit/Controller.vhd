@@ -16,7 +16,6 @@ entity Controller is
     read_done, send_done : in std_logic;
     send_convert : out std_logic;
     store_datatype : in std_logic_vector(1 downto 0);
-    error_type : in std_logic_vector(1 downto 0);
 
     -- address countup port
     store_checkout : in std_logic;
@@ -49,7 +48,12 @@ entity Controller is
     ccounter_out : in natural range 0 to 63;
 
     -- text roms port
-    rom_index_counter : out natural range 0 to 7
+    rom_index_counter : out natural range 0 to 7;
+
+    -- system errors
+    error_format : in std_logic;
+    error_storage : in std_logic;
+    error_busy : out std_logic
 
   );
 end Controller;
@@ -69,6 +73,8 @@ architecture behavioral of Controller is
     signal max_textrom_index : natural range 0 to 7;
     signal send_counter : natural range 0 to 7;
 
+    signal internal_error : std_logic := '0';
+
     type states is (idle, reading_serial, sending_message, setup_xtea, starting_xtea, processing_xtea, storing_xtea, reading_results, sending_results);
     signal controller_cstate, controller_nstate : states;
 
@@ -79,6 +85,8 @@ begin
     sender_pulse_trigger <= i_spulse_trigger;
 
     rom_index_counter <= send_counter;
+
+    error_busy <= internal_error;
 
     change_state: process(clock)
     begin
@@ -120,7 +128,7 @@ begin
             force_address <= "00";
 
             -- dont start if error
-            if (error_type /= "01" and error_type /= "10") then
+            if (error_format /= '1' and error_storage /= '1') then
                 if (reader_running = '1') then
                     force_enable <= '1';
                     force_address <= "00";
@@ -152,7 +160,7 @@ begin
             end if;
 
             -- start send error if error
-            if (error_type = "01" or error_type = "10") then
+            if (error_format = '1') then
                 controller_nstate <= sending_message;
                 enable_write <= '0';
 
@@ -181,18 +189,18 @@ begin
             send_done_buffer <= send_done;
             
             -- if not error = send results message
-            if (error_type = "00") then
+            if (error_format = '0') then
                 selector_datatext <= "00"; -- send text results
                 max_textrom_index <= results_text'length/8;
             
             -- if error = send error messages
-            elsif (error_type = "01") then 
+            elsif (error_format = '1') then 
                 selector_datatext <= "01"; -- send error message for wrong format
                 max_textrom_index <= error_text1'length/8;
-            elsif (error_type = "10") then
+            elsif (error_storage = '1') then
                 selector_datatext <= "10"; -- send error message for max storage exceeded
                 max_textrom_index <= error_text2'length/8;
-            elsif (error_type = "11") then
+            elsif (internal_error = '1') then
                 selector_datatext <= "11"; -- send error message for system still busy
                 max_textrom_index <= error_text3'length/8;
             end if;
@@ -207,7 +215,7 @@ begin
                     i_spulse_trigger <= not i_spulse_trigger;
                     send_counter <= send_counter + 1;
                 else
-                    if (error_type = "00") then controller_nstate <= reading_results;
+                    if (error_format = '0') then controller_nstate <= reading_results;
                     else controller_nstate <= idle;
                     end if;
                 end if;

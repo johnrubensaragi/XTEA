@@ -14,7 +14,7 @@ vsim tb_sender
 quietly WaveActivateNextPane {} 0
 add wave -noupdate /tb_sender/rs232_rx
 add wave -noupdate /tb_sender/rs232_tx
-add wave -noupdate /tb_sender/error_out
+add wave -noupdate /tb_sender/error_format
 add wave -noupdate /tb_sender/sender_running
 add wave -noupdate /tb_sender/send_done
 add wave -noupdate -radix ascii /tb_sender/send_data

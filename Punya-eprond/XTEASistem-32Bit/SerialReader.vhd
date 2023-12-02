@@ -12,7 +12,7 @@ entity SerialReader is
         reader_start : in std_logic;
         reader_done : out std_logic := '0';
         reader_finish : in std_logic;
-        error_out : out std_logic_vector(1 downto 0) := "00";
+        error_format : out std_logic := '0';
         reader_data_in : in std_logic_vector(7 downto 0);
         reader_data_out : out std_logic_vector(63 downto 0) := (others => '0');
         reader_data_type : out std_logic_vector(1 downto 0);
@@ -147,9 +147,12 @@ begin
         end if;
     end process next_state;
 
-    reader_fsm : process(reader_trigger)
+    reader_fsm : process(reader_trigger, nreset)
     begin
-        if (reader_enable = '1') then
+        if (nreset = '0') then -- to reset if error
+            error_format <= '0';
+
+        else
 
         -- only check state when triggered
         if rising_edge(reader_trigger) then
@@ -169,7 +172,7 @@ begin
                 if (done_mode = '1' and done_key = '1' and done_data = '1') then  
                     reader_done <= '1';
                 else -- error if not all is done
-                    error_out <= "01";
+                    error_format <= '1';
                 end if;
 
                 n_state <= idle;
@@ -178,7 +181,6 @@ begin
             case c_state is
             when idle =>
                 temp_checkout <= '0';
-                error_out <= "00";
                 done_mode <= '0'; done_key <= '0'; done_data <='0'; done_checkout <= '0';
                 regout_enable_signal <= '0'; trigger_shift_signal <= '0';
                 reader_done <= '0'; mode_selector <= '0';
@@ -206,7 +208,7 @@ begin
                 elsif (reader_data_in = "00100000") then -- ASCII " "
                     n_state <= c_state;       
                 else
-                    error_out <= "01";
+                    error_format <= '1';
                     n_state <= idle;
                 end if;
 
@@ -227,7 +229,7 @@ begin
                         n_state <= read_whitespace;
                     end if;
                 else -- Send error if wrong format
-                    error_out <= "01";
+                    error_format <= '1';
                     n_state <= idle;
                 end if;
 
@@ -240,7 +242,7 @@ begin
                         n_state <= read_attributes;
                     end if;
                 else -- Send error if wrong format
-                    error_out <= "01";
+                    error_format <= '1';
                     n_state <= idle;
                 end if;
 
@@ -268,7 +270,7 @@ begin
                         temp_mode <= '1';
                         n_state <= start;
                     else -- Send error if wrong format
-                        error_out <= "01";
+                        error_format <= '1';
                         n_state <= idle;
                     end if;
                 else

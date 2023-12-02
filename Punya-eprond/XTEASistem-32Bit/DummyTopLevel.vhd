@@ -34,7 +34,7 @@ architecture behavioral of DummyTopLevel is
         send_done : out std_logic;
         send_start : in std_logic;
         send_convert : in std_logic;
-        error_out : out std_logic_vector(1 downto 0);
+        error_format : out std_logic;
         send_data : in std_logic_vector((data_length-1) downto 0);
         store_data : out std_logic_vector((data_length-1) downto 0);
         store_datatype : out std_logic_vector(1 downto 0);
@@ -75,7 +75,8 @@ architecture behavioral of DummyTopLevel is
         countup_trigger : in std_logic;
         force_enable : in std_logic;
         force_address : in std_logic_vector(1 downto 0);        
-        address_out : out std_logic_vector((address_length-1) downto 0)
+        address_out : out std_logic_vector((address_length-1) downto 0);
+        error_storage : out std_logic
     );
     end component AddressCounter;
 
@@ -180,7 +181,6 @@ architecture behavioral of DummyTopLevel is
         read_done, send_done : in std_logic;
         send_convert : out std_logic;
         store_datatype : in std_logic_vector(1 downto 0);
-        error_type : in std_logic_vector(1 downto 0);
 
         -- address countup port
         store_checkout : in std_logic;
@@ -213,13 +213,17 @@ architecture behavioral of DummyTopLevel is
         ccounter_out : in natural range 0 to 63;
 
         -- text roms port
-        rom_index_counter : out natural range 0 to 7
+        rom_index_counter : out natural range 0 to 7;
+
+        -- system errors
+        error_format : in std_logic;
+        error_storage : in std_logic;
+        error_busy : out std_logic
     );
     end component Controller;
 
     -- serial block inout
     signal reader_running, sender_running, read_done, send_done, send_start :  std_logic;
-    signal error_out : std_logic_vector(1 downto 0);
     signal send_data, store_data : std_logic_vector((data_length-1) downto 0);
     signal send_convert : std_logic;
     signal store_datatype : std_logic_vector(1 downto 0);
@@ -278,6 +282,9 @@ architecture behavioral of DummyTopLevel is
     signal rom_text0, rom_text1, rom_text2, rom_text3 : simple_rom;
     signal rom_index : natural range 0 to (rom_length-1);
 
+    -- system errors
+    signal error_format, error_storage, error_busy : std_logic;
+
     -- function for changing string to slv
     function to_slv(str : string) return std_logic_vector is
         alias str_norm : string(str'length downto 1) is str;
@@ -306,7 +313,7 @@ begin
         send_done      => send_done,
         send_start     => send_start,
         send_convert   => send_convert,
-        error_out      => error_out,
+        error_format   => error_format,
         send_data      => send_data,
         store_data     => store_data,
         store_datatype => store_datatype,
@@ -401,7 +408,8 @@ begin
         countup_trigger => countup_pulse,
         force_enable    => force_enable,
         force_address   => force_address,
-        address_out     => address_out
+        address_out     => address_out,
+        error_storage   => error_storage
     );
 
     datawrite_mux_inst: MUX2Data
@@ -535,7 +543,9 @@ begin
         send_done               => send_done,
         send_convert            => send_convert,
         store_datatype          => store_datatype,
-        error_type              => error_out,
+        error_format            => error_format,
+        error_storage           => error_storage,
+        error_busy              => error_busy,
         store_checkout          => store_checkout,
         force_enable            => force_enable,
         force_address           => force_address,

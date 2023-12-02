@@ -16,7 +16,7 @@ add wave -noupdate /tb_reader/serialblock_inst/rs232_rx
 add wave -noupdate /tb_reader/serialblock_inst/rs232_tx
 add wave -noupdate /tb_reader/serialblock_inst/reader_running
 add wave -noupdate /tb_reader/serialblock_inst/read_done
-add wave -noupdate /tb_reader/serialblock_inst/error_out
+add wave -noupdate /tb_reader/serialblock_inst/error_format
 add wave -noupdate -radix hexadecimal /tb_reader/serialblock_inst/store_data
 add wave -noupdate /tb_reader/serialblock_inst/store_datatype
 add wave -noupdate /tb_reader/serialblock_inst/store_checkout

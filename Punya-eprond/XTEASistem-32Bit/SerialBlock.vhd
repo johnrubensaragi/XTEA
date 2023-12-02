@@ -14,7 +14,7 @@ entity SerialBlock is
         send_done : out std_logic;
         send_start : in std_logic;
         send_convert : in std_logic;
-        error_out : out std_logic_vector(1 downto 0);
+        error_format : out std_logic;
         send_data : in std_logic_vector((data_length-1) downto 0);
         store_data : out std_logic_vector((data_length-1) downto 0);
         store_datatype : out std_logic_vector(1 downto 0);
@@ -34,7 +34,7 @@ architecture behavioral of SerialBlock is
         reader_start : in std_logic;
         reader_done : out std_logic;
         reader_finish : in std_logic;
-        error_out : out std_logic_vector(1 downto 0);
+        error_format : out std_logic;
         reader_data_in : in std_logic_vector(7 downto 0);
         reader_data_out : out std_logic_vector((data_length - 1) downto 0);
         reader_data_type : out std_logic_vector(1 downto 0);
@@ -77,7 +77,7 @@ architecture behavioral of SerialBlock is
     end component uart_interpreter;
 
     signal reader_data_in : std_logic_vector(7 downto 0);
-    signal reader_trigger, reader_enable, reader_start : std_logic;
+    signal reader_trigger, reader_start : std_logic;
     signal reader_finish, reader_done : std_logic;
     signal reader_trigger_signal : std_logic;
     signal reader_trigger_buffer : std_logic_vector(3 downto 0) := "0000";
@@ -86,11 +86,9 @@ architecture behavioral of SerialBlock is
     signal reader_data_type : std_logic_vector(1 downto 0);
     signal reader_data_checkout : std_logic;
 
-    signal internal_error : std_logic_vector(1 downto 0) := "00";
-
     signal uart_send : std_logic_vector(7 downto 0);
     signal uart_transmit : std_logic;
-    signal sender_trigger, sender_enable, sender_start : std_logic;
+    signal sender_trigger, sender_start : std_logic;
     signal sender_done : std_logic;
     signal sender_trigger_signal : std_logic;
     signal sender_trigger_buffer : std_logic_vector(3 downto 0) := "0000";
@@ -100,12 +98,12 @@ begin
     port map (
         clock                => clock,
         nreset               => nreset,
-        reader_enable        => reader_enable,
+        reader_enable        => '1',
         reader_trigger       => reader_trigger,
         reader_start         => reader_start,
         reader_done          => reader_done,
         reader_finish        => reader_finish,
-        error_out            => internal_error,
+        error_format         => error_format,
         reader_data_in       => reader_data_in,
         reader_data_out      => reader_data_out,
         reader_data_type     => reader_data_type,
@@ -116,7 +114,7 @@ begin
     port map (
       clock           => clock,
       nreset          => nreset,
-      sender_enable   => sender_enable,
+      sender_enable   => '1',
       sender_start    => sender_start,
       sender_convert  => send_convert,
       sender_trigger  => sender_trigger,
@@ -140,7 +138,6 @@ begin
         d_in_transmitted => sender_trigger_signal
     );
     
-    error_out <= internal_error;
     store_checkout <= reader_data_checkout;
     store_datatype <= reader_data_type;
     store_data <= reader_data_out;
@@ -157,7 +154,7 @@ begin
 
             -- make the reader trigger as pulse
             reader_trigger_buffer <= reader_trigger_buffer(2 downto 0) & reader_trigger_signal;
-            if (reader_trigger_buffer = "0001") then reader_trigger <= '1';
+            if (reader_trigger_buffer = "0011") then reader_trigger <= '1';
             elsif (reader_finish = '1') then reader_trigger <= '1';
             elsif (reader_trigger_buffer = "1111") then reader_trigger <= '0';
             else reader_trigger <= '0';
@@ -189,14 +186,6 @@ begin
                 sender_running <= '1';
             elsif (sender_done = '1') then
                 sender_running <= '0';
-            end if;
-
-            -- to disable reader and sender if error
-            if (internal_error = "01" or internal_error = "10") then
-                reader_enable <= '0';
-            else
-                reader_enable <= '1';
-                sender_enable <= '1';
             end if;
 
         end if;

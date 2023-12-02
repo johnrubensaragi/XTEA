@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dC:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit
 Eaddresscounter
-Z1 w1700922724
+Z1 w1701512491
 Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
@@ -21,13 +21,13 @@ Z6 8AddressCounter.vhd
 Z7 FAddressCounter.vhd
 l0
 L6 1
-V^KC=g5;7g9:[6`O;2CN^^1
-!s100 dXBkX5KU<KaRbSCYe[dIM0
+V?P7EEc5HS0c7c@MCU;WeH3
+!s100 jcd5A0L1g=MWhTmn3_b[@1
 Z8 OV;C;2020.1;71
 32
-Z9 !s110 1701497151
+Z9 !s110 1701513019
 !i10b 1
-Z10 !s108 1701497151.000000
+Z10 !s108 1701513019.000000
 Z11 !s90 -reportprogress|300|ascii2hex.vhd|hex2ascii.vhd|Register.vhd|MUX1Bit.vhd|MUX2Data.vhd|MUX4Data.vhd|MUX8Data.vhd|MUX16Data.vhd|DEMUX2Data.vhd|DEMUX4Data.vhd|ClockCounter.vhd|ClockDiv.vhd|PulseGenerator.vhd|uart_interpreter.vhd|SRAM.vhd|MemoryBlock.vhd|XTEA.vhd|Custom64BitShifter.vhd|SerialReader.vhd|SerialSender.vhd|SerialBlock.vhd|AddressCounter.vhd|Controller.vhd|DummyTopLevel.vhd|
 Z12 !s107 DummyTopLevel.vhd|Controller.vhd|AddressCounter.vhd|SerialBlock.vhd|SerialSender.vhd|SerialReader.vhd|Custom64BitShifter.vhd|XTEA.vhd|MemoryBlock.vhd|SRAM.vhd|uart_interpreter.vhd|PulseGenerator.vhd|ClockDiv.vhd|ClockCounter.vhd|DEMUX4Data.vhd|DEMUX2Data.vhd|MUX16Data.vhd|MUX8Data.vhd|MUX4Data.vhd|MUX2Data.vhd|MUX1Bit.vhd|Register.vhd|hex2ascii.vhd|ascii2hex.vhd|
 !i113 1
@@ -37,12 +37,12 @@ R2
 R3
 R4
 R5
-DEx4 work 14 addresscounter 0 22 ^KC=g5;7g9:[6`O;2CN^^1
+DEx4 work 14 addresscounter 0 22 ?P7EEc5HS0c7c@MCU;WeH3
 !i122 0
-l21
-L18 21
-V=<[Y0=n63NHCmY:en`3052
-!s100 ldNP^EnECaR9YdYbXTZ?J0
+l22
+L19 25
+VBX4JHDmQFXCEU1Mh3e@LX2
+!s100 10>N=Hl72zWDeJ:2c7K9^3
 R8
 32
 R9
@@ -180,7 +180,7 @@ R12
 !i113 1
 R13
 Econtroller
-Z25 w1701497132
+Z25 w1701512945
 R2
 R3
 R4
@@ -191,8 +191,8 @@ Z26 8Controller.vhd
 Z27 FController.vhd
 l0
 L6 1
-VDeLAj05SXMejU3:IZ4_lY0
-!s100 ;6H>14lD;hG`DnFO:7jW?2
+V9Gl<Wi=9GdMomYh9:BLV02
+!s100 ;HWP^Od8B9fA8DP?>M^;10
 R8
 32
 R9
@@ -207,12 +207,12 @@ R2
 R3
 R4
 R5
-DEx4 work 10 controller 0 22 DeLAj05SXMejU3:IZ4_lY0
+DEx4 work 10 controller 0 22 9Gl<Wi=9GdMomYh9:BLV02
 !i122 0
-l75
-L57 280
-VD_5Q2ozOYGzXP6kd8D]gP2
-!s100 aI>Cm?L97dNE6^ccNlK=G0
+l81
+L61 284
+VcfE3bcf;dW8Y>W@@CXK]G3
+!s100 ]1kHPb::RV8Z_DnOVRX>K0
 R8
 32
 R9
@@ -352,7 +352,7 @@ R12
 !i113 1
 R13
 Edummytoplevel
-Z39 w1701496914
+Z39 w1701512730
 R2
 R3
 R4
@@ -381,10 +381,10 @@ R4
 R5
 Z42 DEx4 work 13 dummytoplevel 0 22 RXBYglF?GFGO><5>HGd3^2
 !i122 0
-l293
-L18 547
-VoT5i8=08cT?;gQT5zLD[g0
-!s100 1lEPG=SmZ=UB>3RT3fo2D3
+l300
+L18 557
+V8:Ph9@0N_:Clh4g1M]eJF1
+!s100 mfL6iCF2HSzBXHS;NgLFG3
 R8
 32
 R9
@@ -778,7 +778,7 @@ R12
 !i113 1
 R13
 Eserialblock
-Z70 w1701477192
+Z70 w1701512812
 R2
 R3
 R4
@@ -789,8 +789,8 @@ Z71 8SerialBlock.vhd
 Z72 FSerialBlock.vhd
 l0
 L6 1
-VZbMT@82na5hg8IWBbSU;P1
-!s100 6mLOH1YW5B]0eLRFAk9;N1
+V>Fj@bLnTWS1jT>gOL7`]R2
+!s100 1nWGI1VR1<UlUYDl6chjK3
 R8
 32
 R9
@@ -805,12 +805,12 @@ R2
 R3
 R4
 R5
-DEx4 work 11 serialblock 0 22 ZbMT@82na5hg8IWBbSU;P1
+DEx4 work 11 serialblock 0 22 >Fj@bLnTWS1jT>gOL7`]R2
 !i122 0
-l98
-L27 179
-VU;B]8KTXbL_4Ph5Qimk7D0
-!s100 [i9TL[M_KcE9:f[]KWQ6M3
+l96
+L27 168
+Vo9mD=YfUlLHe:Xagz6ZBM2
+!s100 RIkGhNHOJ9O<1`bRH]Tlm2
 R8
 32
 R9
@@ -821,7 +821,7 @@ R12
 !i113 1
 R13
 Eserialreader
-Z73 w1701452503
+Z73 w1701512144
 R2
 R3
 R4
@@ -832,8 +832,8 @@ Z74 8SerialReader.vhd
 Z75 FSerialReader.vhd
 l0
 L6 1
-Vi=BdO[PNPPXzQIkHGFAiS2
-!s100 iST^Gk=bmh8P;ICf0P3z23
+V:X_>c>dU^kEXChj8XeA]?3
+!s100 E=P]:GRIEm6A4>MgRi?eN3
 R8
 32
 R9
@@ -848,12 +848,12 @@ R2
 R3
 R4
 R5
-DEx4 work 12 serialreader 0 22 i=BdO[PNPPXzQIkHGFAiS2
+DEx4 work 12 serialreader 0 22 :X_>c>dU^kEXChj8XeA]?3
 !i122 0
 l93
-L23 305
-Vg]aOO<QZT`Dz4]ljQbK=S3
-!s100 JaI3H?>:RZfnRja3^[m0C3
+L23 307
+V:i9Tn?mkGz0IA5G7MmCHO1
+!s100 C<28H=35j]RDEP:fQbXcZ1
 R8
 32
 R9
@@ -950,13 +950,13 @@ R12
 !i113 1
 R13
 Etb_dummytoplevel
-Z82 w1701446748
+Z82 w1701513170
 R19
 R2
 R3
 R4
 R5
-!i122 1
+!i122 2
 R0
 Z83 8TB_DummyTopLevel.vhd
 Z84 FTB_DummyTopLevel.vhd
@@ -966,11 +966,11 @@ VhQA7C@e:2l[co0K[KWZce3
 !s100 S5ie;lSH?h[_P^@id]LlP2
 R8
 32
-Z85 !s110 1701497152
+Z85 !s110 1701513176
 !i10b 1
-Z86 !s108 1701497152.000000
+Z86 !s108 1701513176.000000
 Z87 !s90 -reportprogress|300|TB_DummyTopLevel.vhd|
-!s107 TB_DummyTopLevel.vhd|
+Z88 !s107 TB_DummyTopLevel.vhd|
 !i113 1
 R13
 Asim
@@ -980,30 +980,30 @@ R2
 R3
 R4
 R5
-DEx4 work 16 tb_dummytoplevel 0 22 hQA7C@e:2l[co0K[KWZce3
-!i122 1
+Z89 DEx4 work 16 tb_dummytoplevel 0 22 hQA7C@e:2l[co0K[KWZce3
+!i122 2
 l52
-L9 95
-V3K@AOO1U`Kzj2H@Zo9=gl3
-!s100 5=Ab?IY2`4alLANVaNT;32
+Z90 L9 95
+VRiLR0HT3kAkdo2GRP9m:B1
+!s100 AzHU[9YAm4PYG96`GGDEI1
 R8
 32
 R85
 !i10b 1
 R86
 R87
-Z88 !s107 TB_DummyTopLevel.vhd|
+R88
 !i113 1
 R13
 Euart_interpreter
-Z89 w1701318960
+Z91 w1701318960
 R19
 R4
 R5
 !i122 0
 R0
-Z90 8uart_interpreter.vhd
-Z91 Fuart_interpreter.vhd
+Z92 8uart_interpreter.vhd
+Z93 Fuart_interpreter.vhd
 l0
 L5 1
 VAZnCS^DmLn3TJehH:AFbW0
@@ -1037,7 +1037,7 @@ R12
 !i113 1
 R13
 Extea
-Z92 w1700984222
+Z94 w1700984222
 R19
 R2
 R3
@@ -1045,8 +1045,8 @@ R4
 R5
 !i122 0
 R0
-Z93 8XTEA.vhd
-Z94 FXTEA.vhd
+Z95 8XTEA.vhd
+Z96 FXTEA.vhd
 l0
 L6 1
 V`dl8ABYHUzhUOohS<9??R1

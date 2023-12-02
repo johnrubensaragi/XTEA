@@ -15,7 +15,9 @@ quietly WaveActivateNextPane {} 0
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/nreset
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/rs232_rx
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/rs232_tx
-add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/error_out
+add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/error_format
+add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/error_storage
+add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/error_busy
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/reader_running
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/sender_running
 add wave -noupdate /tb_dummytoplevel/dummytoplevel_inst/read_done

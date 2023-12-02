@@ -14,7 +14,7 @@ architecture sim of TB_DummyTopLevel is
 
     constant data_length : natural := 64;
     constant address_length : natural := 10;
-    constant string_input : string := "-m 0 -k passwordku -d ini merupakan sebuah perubahan yang mesti dirubahkan.";
+    constant string_input : string := "-m 1 -k passwordku -d 60D48B909CC1ED0FE239D2A1FC635D6598347998226D92167C6782F0382D520D484D21AAB04C432E1A234163780522BD765BB9B489379F3C";
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
