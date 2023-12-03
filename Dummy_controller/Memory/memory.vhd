@@ -98,60 +98,6 @@ begin
 
   rd_demux: demux port map (memory_address, rd, rd0, rd1, rd2, rd3);
   wrt_demux: demux port map (memory_address, wrt, wrt0, wrt1, wrt2, wrt3);
-  --   rd_demux: process (memory_address)
-  --   begin
-  --     case memory_address is
-  --       when "00" =>
-  --         rd0 <= rd;
-  --         rd1 <= '0';
-  --         rd2 <= '0';
-  --         rd3 <= '0';
-  --       when "01" =>
-  --         rd0 <= '0';
-  --         rd1 <= rd;
-  --         rd2 <= '0';
-  --         rd3 <= '0';
-  --       when "10" =>
-  --         rd0 <= '0';
-  --         rd1 <= '0';
-  --         rd2 <= rd;
-  --         rd3 <= '0';
-  --       when "11" =>
-  --         rd0 <= '0';
-  --         rd1 <= '0';
-  --         rd2 <= '0';
-  --         rd3 <= rd;
-  --       when others =>
-  --         null;
-  --     end case;
-  --   end process;
-  --   wrt_demux: process (memory_address)
-  --   begin
-  --     case memory_address is
-  --       when "00" =>
-  --         wrt0 <= wrt;
-  --         wrt1 <= '0';
-  --         wrt2 <= '0';
-  --         wrt3 <= '0';
-  --       when "01" =>
-  --         wrt0 <= '0';
-  --         wrt1 <= wrt;
-  --         wrt2 <= '0';
-  --         wrt3 <= '0';
-  --       when "10" =>
-  --         wrt0 <= '0';
-  --         wrt1 <= '0';
-  --         wrt2 <= wrt;
-  --         wrt3 <= '0';
-  --       when "11" =>
-  --         wrt0 <= '0';
-  --         wrt1 <= '0';
-  --         wrt2 <= '0';
-  --         wrt3 <= wrt;
-  --       when others =>
-  --         null;
-  --     end case;
-  --   end process;
   dataOut_mux0: vector_mux port map (memory_address, dataOut0, dataOut1, dataOut2, dataOut3, dataOut);
 
 end architecture;

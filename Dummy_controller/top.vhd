@@ -18,14 +18,6 @@ entity top is
         keys     : in  std_logic_vector(3 downto 0);
         switch   : in  std_logic_vector(3 downto 0);
         leds     : out std_logic_vector(3 downto 0)
-          -- -- control input signals
-          -- serial_running : in  std_logic;
-          -- reader_done    : in  std_logic;
-          -- error_check    : in  std_logic;
-          -- store_datatype : in  std_logic_vector(1 downto 0);
-          -- store_checkout : in  std_logic;
-          -- -- input data
-          -- serial_output  : in  std_logic_vector(bitSize - 1 downto 0)
        );
 
 end entity;
@@ -39,12 +31,9 @@ architecture behavioral of top is
   signal r_enable_write : std_logic;
 
   -- address
-  signal r_address_countup       : std_logic;
-  signal r_address_reset         : std_logic;
-  signal r_address_to_attributes : std_logic;
-  signal r_address_from_serial   : std_logic_vector(addressSize - 1 downto 0);
-  signal r_address_from_counter  : std_logic_vector(addressSize - 1 downto 0);
-  signal r_address               : std_logic_vector(addressSize - 1 downto 0);
+  signal r_address_countup : std_logic;
+  signal r_address_reset   : std_logic;
+  signal r_address         : std_logic_vector(addressSize - 1 downto 0);
 
   -- xtea
   signal r_xtea_start : std_logic;
@@ -64,56 +53,48 @@ architecture behavioral of top is
   signal r_store_checkout_buffer : std_logic;
 
   -- mux
-  signal r_mux0           : std_logic_vector(bitSize - 1 downto 0); -- dari serial
-  signal r_mux1           : std_logic_vector(bitSize - 1 downto 0); -- dari memory
-  signal r_dataIn_mux_sel : std_logic;
-  signal r_demux0         : std_logic_vector(bitSize - 1 downto 0); -- ke key1
-  signal r_demux1         : std_logic_vector(bitSize - 1 downto 0); -- ke key2
-  signal r_demux2         : std_logic_vector(bitSize - 1 downto 0); -- ke mode
-  signal r_demux3         : std_logic_vector(bitSize - 1 downto 0); -- ke d_in
-  signal r_dataType       : std_logic_vector(1 downto 0);
-  signal r_address_sel    : std_logic;
-
-  signal r_key : std_logic_vector(2 * bitSize - 1 downto 0);
-  alias r_mode is r_demux2(0);
-
+  signal r_dataType         : std_logic_vector(1 downto 0);
+  signal r_dataIn_mux_sel   : std_logic;
+  signal r_data_from_serial : std_logic_vector(bitSize - 1 downto 0);
+  signal r_data_from_xtea   : std_logic_vector(bitSize - 1 downto 0);
+  signal r_key0             : std_logic_vector(bitSize - 1 downto 0);
+  signal r_key1             : std_logic_vector(bitSize - 1 downto 0);
+  signal r_longkey          : std_logic_vector(2 * bitSize - 1 downto 0);
+  signal r_mode             : std_logic;
   component controlFSM is
     generic (
       bitSize : integer := 8
     );
     port (
-      enable                : in  std_logic;
-      nreset                : in  std_logic;
-      clk                   : in  std_logic;
+      enable          : in  std_logic;
+      nreset          : in  std_logic;
+      clk             : in  std_logic;
 
       -- memory controls
-      memory                : in  std_logic_vector(bitSize - 1 downto 0);
-      enable_read           : out std_logic;
-      enable_write          : out std_logic;
+      memory          : in  std_logic_vector(bitSize - 1 downto 0);
+      enable_read     : out std_logic;
+      enable_write    : out std_logic;
 
       -- address controls
-      address_countup       : out std_logic;
-      address_reset         : out std_logic;
-      address_to_attributes : out std_logic;
+      address_countup : out std_logic;
+      address_reset   : out std_logic;
 
       -- xtea controls
-      xtea_done             : in  std_logic;
-      xtea_start            : out std_logic;
+      xtea_done       : in  std_logic;
+      xtea_start      : out std_logic;
 
       -- serial controls
-      reader_running        : in  std_logic;
-      sender_running        : in  std_logic;
-      reader_done           : in  std_logic;
-      sender_done           : in  std_logic;
-      sender_start          : out std_logic;
-      error_check           : in  std_logic_vector(1 downto 0);
-      store_datatype        : in  std_logic_vector(1 downto 0);
-      store_checkout        : in  std_logic;
+      reader_running  : in  std_logic;
+      sender_running  : in  std_logic;
+      reader_done     : in  std_logic;
+      sender_done     : in  std_logic;
+      sender_start    : out std_logic;
+      error_check     : in  std_logic_vector(1 downto 0);
+      store_datatype  : in  std_logic_vector(1 downto 0);
+      store_checkout  : in  std_logic;
 
       -- mux controls
-      dataIn_mux            : out std_logic;
-      dataType              : out std_logic_vector(1 downto 0);
-      address_sel           : out std_logic
+      dataIn_mux      : out std_logic
     );
   end component;
 
@@ -138,12 +119,11 @@ architecture behavioral of top is
       max        : integer := 2 **(addressSize)
     );
     port (
-      i_clk               : in  std_logic;
-      i_countup           : in  std_logic;
-      i_rst               : in  std_logic;
-      i_rst_to_attributes : in  std_logic;
+      i_clk     : in  std_logic;
+      i_countup : in  std_logic;
+      i_rst     : in  std_logic;
 
-      o_count             : out std_logic_vector(outputSize - 1 downto 0)
+      o_count   : out std_logic_vector(outputSize - 1 downto 0)
     );
   end component;
 
@@ -186,38 +166,35 @@ begin
       bitSize => bitSize
     )
     port map (
-      enable                => enable,
-      nreset                => nreset,
-      clk                   => clk,
+      enable          => enable,
+      nreset          => nreset,
+      clk             => clk,
 
       -- memory controls
-      memory                => r_dataOut,
-      enable_read           => r_enable_read,
-      enable_write          => r_enable_write,
+      memory          => r_dataOut,
+      enable_read     => r_enable_read,
+      enable_write    => r_enable_write,
 
       -- address controls
-      address_countup       => r_address_countup,
-      address_reset         => r_address_reset,
-      address_to_attributes => r_address_to_attributes,
+      address_countup => r_address_countup,
+      address_reset   => r_address_reset,
 
       -- xtea controls
-      xtea_done             => r_xtea_done,
-      xtea_start            => r_xtea_start,
+      xtea_done       => r_xtea_done,
+      xtea_start      => r_xtea_start,
 
       -- serial controls
-      reader_running        => r_reader_running,
-      sender_running        => r_sender_running,
-      reader_done           => r_serial_read_done,
-      sender_done           => r_serial_send_done,
-      sender_start          => r_serial_send_start,
-      error_check           => r_error_check,
-      store_datatype        => r_store_datatype,
-      store_checkout        => r_store_checkout,
+      reader_running  => r_reader_running,
+      sender_running  => r_sender_running,
+      reader_done     => r_serial_read_done,
+      sender_done     => r_serial_send_done,
+      sender_start    => r_serial_send_start,
+      error_check     => r_error_check,
+      store_datatype  => r_store_datatype,
+      store_checkout  => r_store_checkout,
 
       -- mux controls
-      dataIn_mux            => r_dataIn_mux_sel,
-      dataType              => r_dataType,
-      address_sel           => r_address_sel
+      dataIn_mux      => r_dataIn_mux_sel
     );
 
   memory0: memory
@@ -240,21 +217,20 @@ begin
       max        => 2 **(addressSize)
     )
     port map (
-      i_clk               => clk,
-      i_countup           => r_address_countup,
-      i_rst               => r_address_reset,
-      i_rst_to_attributes => r_address_to_attributes,
-      o_count             => r_address_from_counter
+      i_clk     => clk,
+      i_countup => r_address_countup,
+      i_rst     => r_address_reset,
+      o_count   => r_address
     );
 
   xtea0: xtea
     port map (
       d_in_ready  => r_xtea_start,
-      d_in        => r_demux3,
-      key         => r_key,
+      d_in        => r_dataOut,
+      key         => r_longkey,
       clk         => clk,
       mode        => r_mode,
-      d_out       => r_mux1,
+      d_out       => r_data_from_xtea,
       d_out_ready => r_xtea_done
     );
 
@@ -280,69 +256,43 @@ begin
       rs232_tx       => rs232_tx
     );
 
-  dataIn_mux: process (r_dataIn_mux_sel, r_mux0, r_mux1) -- dataIn mux
-  begin
-    if r_dataIn_mux_sel = '0' then
-      r_dataIn <= r_mux0;
-    else
-      r_dataIn <= r_mux1;
-    end if;
-  end process;
-
-  attributeType: process (clk) -- xtea input register
+  attributes_reg: process (clk)
   begin
     if rising_edge(clk) then
-      if r_dataType = "00" then
-        r_demux0 <= r_dataOut;
-        r_demux1 <= r_demux1;
-        r_demux2 <= r_demux2;
-      elsif r_dataType = "01" then
-        r_demux0 <= r_demux0;
-        r_demux1 <= r_dataOut;
-        r_demux2 <= r_demux2;
-      elsif r_dataType = "10" then
-        r_demux0 <= r_demux0;
-        r_demux1 <= r_demux1;
-        r_demux2 <= r_dataOut;
-      elsif r_dataType = "11" then
-        r_demux0 <= r_demux0;
-        r_demux1 <= r_demux1;
-        r_demux2 <= r_demux2;
-      else
-        null;
-      end if;
+      case r_store_datatype is
+        when "00" => -- key0
+          r_key0 <= r_store_data;
+          r_key1 <= r_key1;
+          r_mode <= r_mode;
+        when "01" => -- key1
+          r_key0 <= r_key0;
+          r_key1 <= r_store_data;
+          r_mode <= r_mode;
+        when "10" => -- mode
+          r_key0 <= r_key0;
+          r_key1 <= r_key1;
+          r_mode <= r_store_data(0);
+        when others =>
+          null;
+      end case;
     end if;
   end process;
 
-  dataType: process (r_dataType, r_dataOut) -- xtea d_in gak boleh ada register, nanti telat
+  mem_dataIn_buffer: process (r_store_datatype, r_store_data)
   begin
-    if r_dataType = "11" then
-      r_demux3 <= r_dataOut;
+    if r_store_datatype = "11" then
+      r_data_from_serial <= r_store_data;
     else
-      r_demux3 <= (others => '0');
+      r_data_from_serial <= (others => 'Z');
     end if;
   end process;
 
-  serial_address_LUT: process (r_store_datatype, r_address_from_counter) -- address LUT
+  mem_dataIn_mux: process (r_dataIn_mux_sel, r_data_from_serial, r_data_from_xtea)
   begin
-    case r_store_datatype is
-      when "00" =>
-        r_address_from_serial <= "0000000000";
-      when "01" =>
-        r_address_from_serial <= "0000000001";
-      when "10" =>
-        r_address_from_serial <= "0000000010";
-      when others =>
-        r_address_from_serial <= r_address_from_counter;
-    end case;
-  end process;
-
-  address_sel: process (r_address_sel, r_address_from_serial, r_address_from_counter) -- address selector
-  begin
-    if r_address_sel = '0' then
-      r_address <= r_address_from_serial;
+    if r_dataIn_mux_sel = '0' then
+      r_dataIn <= r_data_from_serial;
     else
-      r_address <= r_address_from_counter;
+      r_dataIn <= r_data_from_xtea;
     end if;
   end process;
 
@@ -353,8 +303,6 @@ begin
     end if;
   end process;
 
-  r_key  <= r_demux0 & r_demux1;
-  r_mux0 <= r_store_data;
+  r_longkey <= r_key0 & r_key1;
 
 end architecture;
-
