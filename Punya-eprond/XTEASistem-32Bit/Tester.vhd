@@ -27,9 +27,7 @@ architecture sim of Tester is
     signal var_b : std_logic_vector(7 downto 0);
     signal var_c : std_logic_vector(7 downto 0);
     
-    signal countup_trigger, force_enable : std_logic;
-    signal force_address : std_logic_vector(1 downto 0);
-    signal address_out : std_logic_vector(9 downto 0);
+    signal pulse_reset, pulse_out : std_logic := '0';
 
     function to_rs232(str : string) return std_logic_vector is
         alias str_norm : string(str'length downto 1) is str;
@@ -43,18 +41,21 @@ architecture sim of Tester is
     end function;
 
 begin
-  addresscounter_inst: entity work.AddressCounter
-  generic map (
-    address_length => 10
-  )
-  port map (
-    clock           => clock,
-    nreset          => nreset,
-    countup_trigger => countup_trigger,
-    force_enable    => force_enable,
-    force_address   => force_address,
-    address_out     => address_out
-  );
+    clock <= not clock after clock_period/2;
+
+    pulsegenerator_inst: entity work.PulseGenerator
+    generic map (
+      pulse_width  => 5,
+      pulse_max    => 32,
+      pulse_offset => 20
+    )
+    port map (
+      clock        => clock,
+      nreset       => nreset,
+      pulse_enable => '1',
+      pulse_reset  => pulse_reset,
+      pulse_out    => pulse_out
+    );
 
     process
     begin
@@ -62,6 +63,16 @@ begin
       wait for 2*clock_period;
       nreset <= '1';
       wait for 10*clock_period;
+
+      pulse_reset <= not pulse_reset;
+      wait for 32*clock_period;
+      pulse_reset <= not pulse_reset;
+      wait for 32*clock_period;
+      pulse_reset <= not pulse_reset;
+      wait for 32*clock_period;
+      pulse_reset <= not pulse_reset;
+      wait for 32*clock_period;
+
     end process;
 
 end sim;

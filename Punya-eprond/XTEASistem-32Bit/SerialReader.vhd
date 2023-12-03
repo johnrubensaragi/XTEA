@@ -60,6 +60,17 @@ architecture behavioral of SerialReader is
     );
     end component ascii2hex;
 
+    component PulseGenerator
+    generic(pulse_width, pulse_max : natural; pulse_offset : natural := 0);
+    port(
+        clock : in std_logic;
+        nreset : in std_logic;
+        pulse_enable : in std_logic;
+        pulse_reset : in std_logic;
+        pulse_out : out std_logic
+    );
+    end component PulseGenerator;
+
     signal mode_selector : std_logic; -- '0' for encrypt '1' for decrypt
     signal temp_mode : std_logic;
 
@@ -78,29 +89,34 @@ architecture behavioral of SerialReader is
     -- regout inout
     signal regout_datain : std_logic_vector(63 downto 0);
     signal regout_enable : std_logic;
-    signal regout_enable_signal : std_logic;
-    signal regout_enable_buffer : std_logic_vector(15 downto 0);
+    signal regout_trigger : std_logic;
+
+    -- pulse gen inout
+    signal regout_pulse_enable, checkout_pulse_enable : std_logic := '0';
 
     type states is (idle, start, read_kw, read_whitespace, read_attributes, read_startdata, read_data);
     signal c_state, n_state : states;
 
     signal temp_type : std_logic_vector(1 downto 0) := "00";
-    signal temp_checkout : std_logic := '0';
-    signal checkout_buffer : std_logic_vector(15 downto 0) := (others => '1');
+    signal checkout_trigger : std_logic := '0';
     signal done_mode, done_key, done_data : std_logic := '0';
     signal done_checkout : std_logic;
+    signal internal_done : std_logic := '0';
 
 begin 
 
     reader_data_type <= temp_type;
     shifter_8bit_datain <= reader_data_in;
+    reader_done <= internal_done;
 
+    -- shifters for 8 bit data and 4 bit data
     shifter_8bit : Custom64BitShifter generic map(8)
     port map(clock, trigger_shift, max_shift, shifter_8bit_datain, shifter_8bit_dataout);
 
     shifter_4bit : Custom64BitShifter generic map(4)
     port map(clock, trigger_shift, max_shift, shifter_4bit_datain, shifter_4bit_dataout);
 
+    -- register for temporary data output
     regout : Reg generic map (64)
         port map (clock, regout_enable, '1', regout_datain, reader_data_out);
 
@@ -108,6 +124,12 @@ begin
         port map(mode_selector, shifter_8bit_dataout, shifter_4bit_dataout, regout_datain);
 
     asciitohex : ascii2hex port map(reader_data_in, shifter_4bit_datain);
+
+    -- pulse gen for regout register and checkout
+    regout_pulse : PulseGenerator generic map(2, 32, 20)
+        port map(clock, nreset, regout_pulse_enable, regout_trigger, regout_enable);
+    checkout_pulse : PulseGenerator generic map(5, 32, 21)
+        port map(clock, nreset, checkout_pulse_enable, checkout_trigger, reader_data_checkout);
 
     pulse_signals : process(clock)
     begin
@@ -119,18 +141,6 @@ begin
                 trigger_shift <= '1';
             elsif (trigger_shift_buffer = "00000" or trigger_shift_buffer = "11111") then
                 trigger_shift <= '0';
-            end if;
-
-            -- make pulse for regout enable signal
-            regout_enable_buffer <= regout_enable_buffer(14 downto 0) & regout_enable_signal;
-            if (regout_enable_buffer = "0011111111111111") then regout_enable <= '1';
-            elsif (regout_enable_buffer = "1111111111111111") then regout_enable <= '0';
-            end if;
-
-            -- make pulse for checkout signal
-            checkout_buffer <= checkout_buffer(14 downto 0) & temp_checkout;
-            if (checkout_buffer = "0111111111111111") then reader_data_checkout <= '1';
-            elsif (checkout_buffer = "1111111111111111") then reader_data_checkout <= '0';
             end if;
 
         end if;
@@ -151,7 +161,6 @@ begin
     begin
         if (nreset = '0') then -- to reset if error
             error_format <= '0';
-
         else
 
         -- only check state when triggered
@@ -163,14 +172,14 @@ begin
                 -- trigger checkout if not yet checked out
                 if (done_checkout = '0') then
                     done_checkout <= '1';
-                    temp_checkout <= '1';
-                    regout_enable_signal <= '1';
+                    checkout_trigger <= not checkout_trigger;
+                    regout_trigger <= not regout_trigger;
                     max_shift <= '1';
                 end if;
 
                 -- check if all inputs are done
                 if (done_mode = '1' and done_key = '1' and done_data = '1') then  
-                    reader_done <= '1';
+                    internal_done <= not internal_done;
                 else -- error if not all is done
                     error_format <= '1';
                 end if;
@@ -180,10 +189,13 @@ begin
      
             case c_state is
             when idle =>
-                temp_checkout <= '0';
+
+                -- initialization
+                checkout_trigger <= '0'; regout_trigger <= '0'; 
+                checkout_pulse_enable <= '0'; regout_pulse_enable <= '0';
                 done_mode <= '0'; done_key <= '0'; done_data <='0'; done_checkout <= '0';
-                regout_enable_signal <= '0'; trigger_shift_signal <= '0';
-                reader_done <= '0'; mode_selector <= '0';
+                trigger_shift_signal <= '0';
+                mode_selector <= '0';
                 max_shift <= '0';
 
                 -- reset both reg bank selector
@@ -196,8 +208,6 @@ begin
 
             when start => -- wait for "-"
                 max_shift <= '1'; -- reset the shifter by max shifting
-                regout_enable_signal <= '0'; -- dont enable the reg out yet
-                temp_checkout <= '0';
 
                 -- reset both reg bank selector
                 data_4bit_counter <= (others => '0');
@@ -213,6 +223,8 @@ begin
                 end if;
 
             when read_kw => -- read type keyword
+                regout_pulse_enable <= '1';
+                checkout_pulse_enable <= '1';
                 if (reader_data_in = "01101011") then -- ASCII "k"
                     if (done_mode = '1' and done_key = '0' and done_data = '0') then -- to make sure the input is in order
                         temp_type <= "00";
@@ -248,8 +260,6 @@ begin
 
             when read_attributes => -- read xtea mode and key
                 max_shift <= '0';
-                regout_enable_signal <= '0';
-                temp_checkout <= '0';
                 done_checkout <= '0';
 
                 -- count how many data has been in
@@ -260,8 +270,8 @@ begin
                 trigger_shift_signal <= not trigger_shift_signal;
 
                 if (temp_type = "10") then
-                    regout_enable_signal <= '1';
-                    temp_checkout <= '1';
+                    regout_trigger <= not regout_trigger;
+                    checkout_trigger <= not checkout_trigger;
                     done_mode <= '1';
                     if (reader_data_in = "00110000") then -- ASCII "0"
                         temp_mode <= '0';
@@ -285,22 +295,20 @@ begin
 
                     if (reader_data_in = "00100000") then -- ASCII " "
                         max_shift <= '1';
-                        regout_enable_signal <= '1';
-                        temp_checkout <= '1';
+                        regout_trigger <= not regout_trigger;
+                        checkout_trigger <= not checkout_trigger;
                         n_state <= start;
                     else
                         if (data_8bit_counter = "111") then
-                            regout_enable_signal <= '1';
-                            temp_checkout <= '1';
+                            regout_trigger <= not regout_trigger;
+                            checkout_trigger <= not checkout_trigger;
                         end if;
                     end if;
                 end if;
 
             when read_data => -- read input data
                 max_shift <= '0';
-                temp_checkout <= '0';
                 done_checkout <= '0';
-                regout_enable_signal <= '0';
                 done_data <= '1';
 
                 -- count how many data has been in
@@ -311,12 +319,12 @@ begin
                 trigger_shift_signal <= not trigger_shift_signal;
 
                 if (data_8bit_counter = "111" and mode_selector = '0') then
-                    regout_enable_signal <= '1';
-                    temp_checkout <= '1';
+                    regout_trigger <= not regout_trigger;
+                    checkout_trigger <= not checkout_trigger;
                     done_checkout <= '1';
                 elsif (data_4bit_counter = "1111" and mode_selector = '1') then
-                    regout_enable_signal <= '1';
-                    temp_checkout <= '1';
+                    regout_trigger <= not regout_trigger;
+                    checkout_trigger <= not checkout_trigger;
                     done_checkout <= '1';
                 end if;
 

@@ -22,7 +22,6 @@ add wave -noupdate /tb_reader/serialblock_inst/store_datatype
 add wave -noupdate /tb_reader/serialblock_inst/store_checkout
 add wave -noupdate /tb_reader/serialblock_inst/reader_data_in
 add wave -noupdate /tb_reader/serialblock_inst/reader_trigger
-add wave -noupdate /tb_reader/serialblock_inst/reader_enable
 add wave -noupdate /tb_reader/serialblock_inst/reader_start
 add wave -noupdate /tb_reader/serialblock_inst/reader_finish
 add wave -noupdate /tb_reader/serialblock_inst/reader_done
@@ -33,7 +32,6 @@ add wave -noupdate -radix hexadecimal /tb_reader/serialblock_inst/serialreader_i
 add wave -noupdate -radix ascii /tb_reader/serialblock_inst/reader_data_out
 add wave -noupdate /tb_reader/serialblock_inst/reader_data_type
 add wave -noupdate /tb_reader/serialblock_inst/reader_data_checkout
-add wave -noupdate /tb_reader/serialblock_inst/internal_error
 add wave -noupdate /tb_reader/serialblock_inst/serialreader_inst/c_state
 
 TreeUpdate [SetDefaultTree]

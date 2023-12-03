@@ -17,7 +17,7 @@ architecture sim of TB_Reader is
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
-    signal error_out : std_logic_vector(1 downto 0) := (others => '0');
+    signal error_format : std_logic;
 
     signal reader_running, sender_running, send_done, read_done : std_logic;
     signal store_data : std_logic_vector((data_length - 1) downto 0);
@@ -66,9 +66,9 @@ begin
         sender_running => sender_running,
         read_done      => read_done,
         send_done      => send_done,
-        send_convert    => '0',
+        send_convert   => '0',
         send_start     => send_start,
-        error_out      => error_out,
+        error_format   => error_format,
         send_data      => send_data,
         store_data     => store_data,
         store_datatype => store_datatype,

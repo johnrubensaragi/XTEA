@@ -76,16 +76,30 @@ architecture behavioral of SerialBlock is
     );
     end component uart_interpreter;
 
+    component PulseGenerator is
+    generic(pulse_width, pulse_max : natural; pulse_offset : natural := 0);
+    port(
+        clock : in std_logic;
+        nreset : in std_logic;
+        pulse_enable : in std_logic;
+        pulse_reset : in std_logic;
+        pulse_out : out std_logic
+    );
+    end component PulseGenerator;
+
+    -- reader signals
     signal reader_data_in : std_logic_vector(7 downto 0);
     signal reader_trigger, reader_start : std_logic;
     signal reader_finish, reader_done : std_logic;
-    signal reader_trigger_signal : std_logic;
     signal reader_trigger_buffer : std_logic_vector(3 downto 0) := "0000";
+    signal reader_trigger_signal : std_logic;
 
+    -- reader main output
     signal reader_data_out : std_logic_vector((data_length-1) downto 0);
     signal reader_data_type : std_logic_vector(1 downto 0);
     signal reader_data_checkout : std_logic;
 
+    -- sender signals
     signal uart_send : std_logic_vector(7 downto 0);
     signal uart_transmit : std_logic;
     signal sender_trigger, sender_start : std_logic;
@@ -138,13 +152,26 @@ begin
         d_in_transmitted => sender_trigger_signal
     );
     
+    pulsegenerator_inst: PulseGenerator
+    generic map (
+      pulse_width  => 7,
+      pulse_max    => 64,
+      pulse_offset => 48
+    )
+    port map (
+      clock        => clock,
+      nreset       => nreset,
+      pulse_enable => '1',
+      pulse_reset  => reader_done,
+      pulse_out    => read_done
+    );
+
     store_checkout <= reader_data_checkout;
-    store_datatype <= reader_data_type;
+    store_datatype <= reader_data_type when reader_data_checkout = '1' else "ZZ";
     store_data <= reader_data_out;
 
     reader_start <= reader_trigger and not reader_finish;
 
-    read_done <= reader_done;
     send_done <= sender_done;
     sender_start <= send_start;
 
@@ -178,7 +205,7 @@ begin
             -- to check reader or sender is running
             if (reader_start = '1') then
                 reader_running <= '1';
-            elsif (reader_done = '1') then
+            elsif (reader_finish = '1') then
                 reader_running <= '0';
             end if;
 
