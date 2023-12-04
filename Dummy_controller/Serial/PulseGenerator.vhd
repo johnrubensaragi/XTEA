@@ -4,7 +4,7 @@ use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 
 entity PulseGenerator is
-    generic(pulse_width, pulse_max : natural);
+    generic(pulse_width, pulse_max : natural; pulse_offset : natural := 0);
     port(
         clock : in std_logic;
         nreset : in std_logic;
@@ -31,18 +31,18 @@ begin
         if (nreset = '0') then
             counter <= 0;
             pulse_out <= '0';
-        elsif (pulse_enable = '1') then
-            if rising_edge(clock) then
+        elsif rising_edge(clock) then
 
-                -- reset for both edges
-                pulse_reset1 <= pulse_reset;
-                if both_edge(pulse_reset, pulse_reset1) then
-                    counter <= 0;
-                elsif (counter < pulse_width) then
-                    counter <= counter + 1;
-                end if;
+            -- reset for both edges
+            pulse_reset1 <= pulse_reset;
+            if both_edge(pulse_reset, pulse_reset1) then
+                counter <= 0;
+            elsif (counter < pulse_offset + pulse_width - 1) then
+                counter <= counter + 1;
+            end if;
 
-                if (counter < pulse_width) then
+            if (pulse_enable = '1') then
+                if (counter >= pulse_offset and counter < pulse_offset + pulse_width - 1) then
                     pulse_out <= '1';
                 else
                     pulse_out <= '0';

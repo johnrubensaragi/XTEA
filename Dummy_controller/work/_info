@@ -8,828 +8,1045 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller
-Eclockdiv
-Z1 w1701097029
-Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Eascii2hex
+Z1 w1701518086
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z6 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ClockDiv.vhd
-Z7 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ClockDiv.vhd
+Z4 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ascii2hex.vhd
+Z5 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ascii2hex.vhd
 l0
-L6
-VQK:z4cFEnjLVW^C@1AZF32
-!s100 Cf8?I5aLMSmoNnQ?4H6732
-Z8 OV;C;10.6d;65
+L4
+Vfk>nK<5?29Oa9WPzCa`fj1
+!s100 FX`59KOOef4keMn4[BXG82
+Z6 OV;C;10.6d;65
 32
-Z9 !s110 1701428536
+Z7 !s110 1701713597
 !i10b 1
-Z10 !s108 1701428536.000000
-Z11 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ClockDiv.vhd|
-Z12 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ClockDiv.vhd|
+Z8 !s108 1701713597.000000
+Z9 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ascii2hex.vhd|
+Z10 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ascii2hex.vhd|
 !i113 1
-Z13 o-work work
-Z14 tExplicit 1 CvgOpt 0
-Abehavioral
+Z11 o-work work
+Z12 tExplicit 1 CvgOpt 0
+Aarc
 R2
 R3
-R4
-R5
-DEx4 work 8 clockdiv 0 22 QK:z4cFEnjLVW^C@1AZF32
-l16
-L14
-VQ]InPjj4c^XnDijZUiN9c0
-!s100 2zh5>7JM0<I2]kj_FcZ6F0
-R8
+DEx4 work 9 ascii2hex 0 22 fk>nK<5?29Oa9WPzCa`fj1
+l12
+L11
+V`E?dG:``n8Ue4[I1kTH1N1
+!s100 ATY8@eh?Kh0>ZQJ^]H@Kh0
+R6
 32
-R9
+R7
 !i10b 1
+R8
+R9
 R10
+!i113 1
 R11
 R12
-!i113 1
-R13
-R14
-Econtrolfsm
-Z15 w1701428918
-Z16 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Eclockdiv
+Z13 w1701698343
+Z14 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z15 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 R2
-R4
-R5
+R3
 R0
-Z17 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/controlFSM.vhd
-Z18 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/controlFSM.vhd
+Z16 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ClockDiv.vhd
+Z17 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ClockDiv.vhd
 l0
 L6
-Vam<aj1Bff_zc:XA:LG8M80
-!s100 n4Cg:l9KmKZ66b=`n=^G93
-R8
+Vh[l=X11Qn5o990YX:6<m42
+!s100 ?zlboCd28fX]NL9dF7:4E3
+R6
 32
-Z19 !s110 1701428934
+R7
 !i10b 1
-Z20 !s108 1701428933.000000
-Z21 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/controlFSM.vhd|
-Z22 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/controlFSM.vhd|
+R8
+Z18 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ClockDiv.vhd|
+Z19 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/ClockDiv.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Abehavioral
-R16
-R2
-R4
-R5
-DEx4 work 10 controlfsm 0 22 am<aj1Bff_zc:XA:LG8M80
-l48
-L44
-V2a]:dXz]?2?IQCNhbO05j0
-!s100 KSo_M]H1lMgUPdBnR01Zc2
-R8
-32
-R19
-!i10b 1
-R20
-R21
-R22
-!i113 1
-R13
 R14
-Ecounter
-Z23 w1701427988
-R16
-R4
-R5
+R15
+R2
+R3
+DEx4 work 8 clockdiv 0 22 h[l=X11Qn5o990YX:6<m42
+l16
+L14
+Voihc3Ck4?e1W_ACL9:9]j3
+!s100 TQ[]6;h[a?XcATAMXFWj33
+R6
+32
+R7
+!i10b 1
+R8
+R18
+R19
+!i113 1
+R11
+R12
+Econtrolfsm
+Z20 w1701709760
+Z21 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R14
+R2
+R3
 R0
-Z24 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/counter.vhd
-Z25 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/counter.vhd
+Z22 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/controlFSM.vhd
+Z23 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/controlFSM.vhd
+l0
+L6
+V8PYRj@_A0TV4Rg=[Z2Tm60
+!s100 cBl>gLTOE]cVf3SSjXUEJ1
+R6
+32
+R7
+!i10b 1
+R8
+Z24 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/controlFSM.vhd|
+Z25 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/controlFSM.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R21
+R14
+R2
+R3
+DEx4 work 10 controlfsm 0 22 8PYRj@_A0TV4Rg=[Z2Tm60
+l50
+L46
+VUT9mzQDA5YRT7K6dUPLb`2
+!s100 c90^6SVJRSITZ;A0DDfmn0
+R6
+32
+R7
+!i10b 1
+R8
+R24
+R25
+!i113 1
+R11
+R12
+Ecounter
+Z26 w1701696167
+R21
+R2
+R3
+R0
+Z27 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/counter.vhd
+Z28 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/counter.vhd
 l0
 L5
 VU4k8H4o9mTbXOkPTAgM>]3
 !s100 ]h0^@?MU0Tg?z0J9PP[SJ0
-R8
+R6
 32
-Z26 !s110 1701428537
+R7
 !i10b 1
-R10
-Z27 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/counter.vhd|
-Z28 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/counter.vhd|
+R8
+Z29 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/counter.vhd|
+Z30 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Utils/counter.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Abehavioral
-R16
-R4
-R5
+R21
+R2
+R3
 DEx4 work 7 counter 0 22 U4k8H4o9mTbXOkPTAgM>]3
 l21
 L19
 V=DG9GWPOFkSRjSANDXF;V1
 !s100 VAdWl=5AY;6^7A_6eeiIl1
-R8
+R6
 32
-R26
+R7
 !i10b 1
-R10
-R27
-R28
+R8
+R29
+R30
 !i113 1
-R13
+R11
+R12
+Ecustom64bitshifter
+R1
 R14
-Edemux
-Z29 w1700753512
-R4
-R5
+R15
+R2
+R3
 R0
-Z30 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/demux.vhd
-Z31 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/demux.vhd
+Z31 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/Custom64BitShifter.vhd
+Z32 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/Custom64BitShifter.vhd
+l0
+L6
+VH_lVOQmWb<O0gg1obIQK80
+!s100 ER<]S6WfC`9DJ?hOk9AMS3
+R6
+32
+R7
+!i10b 1
+R8
+Z33 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/Custom64BitShifter.vhd|
+Z34 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/Custom64BitShifter.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R14
+R15
+R2
+R3
+DEx4 work 18 custom64bitshifter 0 22 H_lVOQmWb<O0gg1obIQK80
+l21
+L17
+V88[J30E5d4jm`SAFLEI4B0
+!s100 GdJR7<:3Qg0mURFUdRSUj3
+R6
+32
+R7
+!i10b 1
+R8
+R33
+R34
+!i113 1
+R11
+R12
+Edemux
+R26
+R2
+R3
+R0
+Z35 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/demux.vhd
+Z36 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/demux.vhd
 l0
 L4
 VKk;<XQKh=?=ZS`?E4CP>c3
 !s100 BNjm1Fl0ZHT9lgc5gKhLm0
-R8
+R6
 32
-R26
+R7
 !i10b 1
-Z32 !s108 1701428537.000000
-Z33 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/demux.vhd|
-Z34 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/demux.vhd|
+R8
+Z37 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/demux.vhd|
+Z38 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/demux.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Abehavioral
-R4
-R5
+R2
+R3
 DEx4 work 5 demux 0 22 Kk;<XQKh=?=ZS`?E4CP>c3
 l14
 L12
 V:LBgGc=A`<nP81mIAYQcV1
 !s100 NcEO3eJd9XiQko@<W`E9U3
-R8
+R6
 32
-R26
+R7
 !i10b 1
-R32
-R33
-R34
+R8
+R37
+R38
 !i113 1
-R13
-R14
-Ememory
-Z35 w1701129812
-R16
-R4
-R5
+R11
+R12
+Ehex2ascii
+R1
+R2
+R3
 R0
-Z36 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/memory.vhd
-Z37 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/memory.vhd
+Z39 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/hex2ascii.vhd
+Z40 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/hex2ascii.vhd
+l0
+L4
+Vn]:o6oJ<0R6J<zhcFcin40
+!s100 Nf;T5=IN^`D^j0=>dPENU0
+R6
+32
+Z41 !s110 1701713598
+!i10b 1
+Z42 !s108 1701713598.000000
+Z43 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/hex2ascii.vhd|
+Z44 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/hex2ascii.vhd|
+!i113 1
+R11
+R12
+Aarc
+R2
+R3
+DEx4 work 9 hex2ascii 0 22 n]:o6oJ<0R6J<zhcFcin40
+l12
+L11
+VU9^5j=1@kaRNzZ5enNaeN2
+!s100 Y;hCE3HGUPYGNLmLaJ_A93
+R6
+32
+R41
+!i10b 1
+R42
+R43
+R44
+!i113 1
+R11
+R12
+Ememory
+R26
+R21
+R2
+R3
+R0
+Z45 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/memory.vhd
+Z46 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/memory.vhd
 l0
 L5
 Vlk]Gn2EGEYM^Ymc8;E<kC3
 !s100 VP0@iZb8BN1ZFK]gnhcD:0
-R8
+R6
 32
-R26
+R41
 !i10b 1
-R32
-Z38 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/memory.vhd|
-Z39 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/memory.vhd|
+R42
+Z47 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/memory.vhd|
+Z48 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/memory.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Abehavioral
-R16
-R4
-R5
+R21
+R2
+R3
 DEx4 work 6 memory 0 22 lk]Gn2EGEYM^Ymc8;E<kC3
 l83
 L20
 VCVB28A[fUZVJ47Tf63T`53
 !s100 ^Chc4Ylg3W<Y>d55:?zd@1
-R8
+R6
 32
-R26
+R41
 !i10b 1
-R32
-R38
-R39
+R42
+R47
+R48
 !i113 1
-R13
-R14
+R11
+R12
 Emux
-Z40 w1700736541
-R4
-R5
+R26
+R2
+R3
 R0
-Z41 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/mux.vhd
-Z42 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/mux.vhd
+Z49 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/mux.vhd
+Z50 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/mux.vhd
 l0
 L4
 V2?NMd?OZg`=B;0UNK37ZX0
 !s100 QLB8M6N^`GXX<F^j>X6da1
-R8
+R6
 32
-R26
+R41
 !i10b 1
-R32
-Z43 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/mux.vhd|
-Z44 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/mux.vhd|
+R42
+Z51 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/mux.vhd|
+Z52 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/mux.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Abehavioral
-R4
-R5
+R2
+R3
 DEx4 work 3 mux 0 22 2?NMd?OZg`=B;0UNK37ZX0
 l14
 L12
 V=M9ne3?JhXUQ_6lYLnz_;2
 !s100 bJj[RL=RJ5IUGha^gJ9?H0
-R8
+R6
 32
-R26
+R41
 !i10b 1
-R32
-R43
-R44
-!i113 1
-R13
-R14
-Emy_uart_rx
-R1
-R16
-R4
-R5
-R0
-Z45 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_rx.vhd
-Z46 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_rx.vhd
-l0
-L7
-V0:ld=U8^9=Hk?cJW1D>Ne0
-!s100 BR5G>Kb[bfZCan4QCTz1g3
-R8
-32
-R26
-!i10b 1
-R32
-Z47 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_rx.vhd|
-Z48 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_rx.vhd|
-!i113 1
-R13
-R14
-Artl
-R16
-R4
-R5
-DEx4 work 10 my_uart_rx 0 22 0:ld=U8^9=Hk?cJW1D>Ne0
-l34
-L21
-V;I_Ch8jBdT9NWcjM8KT[V0
-!s100 @L5C0oD9CnMV1gIBF2j]o3
-R8
-32
-R26
-!i10b 1
-R32
-R47
-R48
-!i113 1
-R13
-R14
-Emy_uart_top
-R1
-R4
-R5
-R0
-Z49 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_top.vhd
-Z50 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_top.vhd
-l0
-L10
-V=e_olDknWFdQH6gd;I:L:2
-!s100 a5K4m?MbEYIlT5`NjI<ek1
-R8
-32
-Z51 !s110 1701428538
-!i10b 1
-R32
-Z52 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_top.vhd|
-Z53 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_top.vhd|
-!i113 1
-R13
-R14
-Astructural
-R4
-R5
-DEx4 work 11 my_uart_top 0 22 =e_olDknWFdQH6gd;I:L:2
-l66
-L28
-Vg19dZMdGcDC8R0n_ic54Y2
-!s100 0_RN9m@UDL6=;A:O^DUEi0
-R8
-32
+R42
 R51
-!i10b 1
-R32
 R52
-R53
 !i113 1
-R13
-R14
-Emy_uart_tx
+R11
+R12
+Emux16data
 R1
-R16
-R4
-R5
-R0
-Z54 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_tx.vhd
-Z55 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_tx.vhd
-l0
-L9
-VF8AJA>jdRfC6?V9e9e61T0
-!s100 @?@W3i7I^j:Th;QSTWePz3
-R8
-32
-R51
-!i10b 1
-Z56 !s108 1701428538.000000
-Z57 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_tx.vhd|
-Z58 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/my_uart_tx.vhd|
-!i113 1
-R13
+R15
 R14
-Artl
-R16
-R4
-R5
-DEx4 work 10 my_uart_tx 0 22 F8AJA>jdRfC6?V9e9e61T0
-l32
-L23
-Vg8aBI9=Oa1?:ICI45VidN2
-!s100 ?1gJ[ORYTN=A5G6i5za`b3
-R8
-32
-R51
-!i10b 1
-R56
-R57
-R58
-!i113 1
-R13
-R14
-Epulsegenerator
-R1
 R2
 R3
-R4
-R5
 R0
-Z59 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/PulseGenerator.vhd
-Z60 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/PulseGenerator.vhd
+Z53 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX16Data.vhd
+Z54 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX16Data.vhd
 l0
 L6
-VY;FlkjmlYO>@f:H]0]:;L2
-!s100 cUKmmGQg2=h@TcX1QBR150
-R8
+VFGjN0`ON>89Lk:D1C?j8W2
+!s100 T0gD<?T>mReACblJTCbBo3
+R6
 32
-R51
+R41
 !i10b 1
-R56
-Z61 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/PulseGenerator.vhd|
-Z62 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/PulseGenerator.vhd|
+R42
+Z55 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX16Data.vhd|
+Z56 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX16Data.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Abehavioral
+R15
+R14
 R2
 R3
-R4
-R5
-DEx4 work 14 pulsegenerator 0 22 Y;FlkjmlYO>@f:H]0]:;L2
+DEx4 work 9 mux16data 0 22 FGjN0`ON>89Lk:D1C?j8W2
+l65
+L32
+VDbaS]3Gm83VA<d9XR2_oH2
+!s100 MIX?UBMj]a9g2JbAz`FR03
+R6
+32
+R41
+!i10b 1
+R42
+R55
+R56
+!i113 1
+R11
+R12
+Emux2data
+Z57 w1700740941
+R15
+R14
+R2
+R3
+R0
+Z58 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX2Data.vhd
+Z59 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX2Data.vhd
+l0
+L6
+VCODVm4[mKFbJ2D4Ybc:?31
+!s100 3GieGfAEeFPN^M4YE@IF`0
+R6
+32
+R41
+!i10b 1
+R42
+Z60 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX2Data.vhd|
+Z61 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX2Data.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R15
+R14
+R2
+R3
+DEx4 work 8 mux2data 0 22 CODVm4[mKFbJ2D4Ybc:?31
+l19
+L18
+V<gkmPzk[d:?OPMXb`z?lD1
+!s100 h[<VQU>Vfa<ZVQTohU5S00
+R6
+32
+R41
+!i10b 1
+R42
+R60
+R61
+!i113 1
+R11
+R12
+Emux4data
+R57
+R15
+R14
+R2
+R3
+R0
+Z62 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX4Data.vhd
+Z63 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX4Data.vhd
+l0
+L6
+VCeo1a^Ee2DH;X`nVW[Ld^0
+!s100 ;A9?UR7oV4Z_n3aVeg5RJ1
+R6
+32
+R41
+!i10b 1
+R42
+Z64 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX4Data.vhd|
+Z65 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX4Data.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R15
+R14
+R2
+R3
+DEx4 work 8 mux4data 0 22 Ceo1a^Ee2DH;X`nVW[Ld^0
+l35
+L20
+VVDz[8e1C9OS<]8E70H^ZE1
+!s100 VD[94enfSJ1JJIb<8ee8Z2
+R6
+32
+R41
+!i10b 1
+R42
+R64
+R65
+!i113 1
+R11
+R12
+Emux8data
+R1
+R15
+R14
+R2
+R3
+R0
+Z66 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX8Data.vhd
+Z67 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX8Data.vhd
+l0
+L6
+VXbG;iDGb;[8dQ__[3KYEh2
+!s100 V_lb`<KIF^;gaFBRgV_:P1
+R6
+32
+R41
+!i10b 1
+R42
+Z68 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX8Data.vhd|
+Z69 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/MUX8Data.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R15
+R14
+R2
+R3
+DEx4 work 8 mux8data 0 22 XbG;iDGb;[8dQ__[3KYEh2
+l53
+L24
+VdK42ZfMm0ZC;j^:V3;SM62
+!s100 mhD4VVhTViO@?f3e>a@5n1
+R6
+32
+R41
+!i10b 1
+R42
+R68
+R69
+!i113 1
+R11
+R12
+Epulsegenerator
+Z70 w1701696191
+R14
+R15
+R2
+R3
+R0
+Z71 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/PulseGenerator.vhd
+Z72 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/PulseGenerator.vhd
+l0
+L6
+VLTd8zHB>k0>U4<9Pb;:1G3
+!s100 d2oGW4:FiKRS;C>o?TO5T2
+R6
+32
+R41
+!i10b 1
+R42
+Z73 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/PulseGenerator.vhd|
+Z74 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/PulseGenerator.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R14
+R15
+R2
+R3
+DEx4 work 14 pulsegenerator 0 22 LTd8zHB>k0>U4<9Pb;:1G3
 l28
 L17
-VISSVRShBoFOI7hFmR;mI;0
-!s100 k9SakijVkPTT]:ZPiCPVo0
-R8
+VR4DMldlb^10K@Ozj?<F7;3
+!s100 =o9MbcF<KmJGWja19YTUi0
+R6
 32
-R51
+R41
 !i10b 1
-R56
-R61
-R62
+R42
+R73
+R74
 !i113 1
-R13
-R14
-Eserialblock
-Z63 w1701101201
-R2
-R3
-R4
-R5
-R0
-Z64 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialBlock.vhd
-Z65 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialBlock.vhd
-l0
-L6
-V1@ScznmaYe<m3JaA5iV@m3
-!s100 @eEhEg:;J>f4R8ITHj38l3
-R8
-32
-R51
-!i10b 1
-R56
-Z66 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialBlock.vhd|
-Z67 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialBlock.vhd|
-!i113 1
-R13
-R14
-Abehavioral
-R2
-R3
-R4
-R5
-DEx4 work 11 serialblock 0 22 1@ScznmaYe<m3JaA5iV@m3
-l113
-L26
-V]_=hXh]gXmh3ULT9?aga:2
-!s100 4[g<MVT_4@oQg]SHn1Lda0
-R8
-32
-R51
-!i10b 1
-R56
-R66
-R67
-!i113 1
-R13
-R14
-Eserialreader
+R11
+R12
+Ereg
 R1
+R14
+R15
 R2
 R3
-R4
-R5
 R0
-Z68 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialReader.vhd
-Z69 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialReader.vhd
+Z75 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/Register.vhd
+Z76 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/Register.vhd
 l0
 L6
-V@PZZe:S18Oz5AHzTMhDTo3
-!s100 AKF0nX6:XAB^04Bb_f_Re2
-R8
+V4:hSUmMzb:aLI5UfY0fzb1
+!s100 `9z<hj=6:B?YLQ[Po6W3e1
+R6
 32
-R51
+Z77 !s110 1701713599
 !i10b 1
-R56
-Z70 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialReader.vhd|
-Z71 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialReader.vhd|
+R42
+Z78 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/Register.vhd|
+Z79 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/Register.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Abehavioral
+R14
+R15
 R2
 R3
-R4
-R5
-DEx4 work 12 serialreader 0 22 @PZZe:S18Oz5AHzTMhDTo3
-l34
-L23
-Vn1ND2I^Z5WFVdM1GhmZO90
-!s100 ^>VkzJa3YS^MM5QejPY5?2
-R8
+DEx4 work 3 reg 0 22 4:hSUmMzb:aLI5UfY0fzb1
+l19
+L17
+V[VWVn16Mj6ZS6oJmI<iN53
+!s100 C3oTAazf3RhA4TXi]BS[53
+R6
 32
-R51
+R77
 !i10b 1
-R56
-R70
-R71
+R42
+R78
+R79
 !i113 1
-R13
+R11
+R12
+Eserialblock
+Z80 w1701703760
 R14
+R15
+R2
+R3
+R0
+Z81 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialBlock.vhd
+Z82 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialBlock.vhd
+l0
+L6
+VRBacni8Z<92Q`Vi3chB;Q1
+!s100 CYJfXGHaJ:;;DzI0;W41c3
+R6
+32
+R77
+!i10b 1
+Z83 !s108 1701713599.000000
+Z84 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialBlock.vhd|
+Z85 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialBlock.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R14
+R15
+R2
+R3
+DEx4 work 11 serialblock 0 22 RBacni8Z<92Q`Vi3chB;Q1
+l112
+L28
+VG8Y94b7To3f?42l0;cY?13
+!s100 j^^2V8YFedYlXnWN6jJQ51
+R6
+32
+R77
+!i10b 1
+R83
+R84
+R85
+!i113 1
+R11
+R12
+Eserialreader
+R70
+R14
+R15
+R2
+R3
+R0
+Z86 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialReader.vhd
+Z87 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialReader.vhd
+l0
+L6
+V[P1@2^QOdAR?dcAh8Za4O0
+!s100 l[YUh?26[l:VlXhJD<2>f0
+R6
+32
+R77
+!i10b 1
+R83
+Z88 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialReader.vhd|
+Z89 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialReader.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R14
+R15
+R2
+R3
+DEx4 work 12 serialreader 0 22 [P1@2^QOdAR?dcAh8Za4O0
+l107
+L24
+VH5iGHj2eE7lPNEC1J2D1i2
+!s100 3mB_Hf92AR;c>Aa2=]WCM2
+R6
+32
+R77
+!i10b 1
+R83
+R88
+R89
+!i113 1
+R11
+R12
 Eserialsender
 R1
+R14
+R15
 R2
 R3
-R4
-R5
 R0
-Z72 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialSender.vhd
-Z73 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialSender.vhd
+Z90 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialSender.vhd
+Z91 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialSender.vhd
 l0
 L6
-Vc<NDP1?jzBi:lGAo6z3[`1
-!s100 7O7RLGU`2952Ea;YNC=i11
-R8
+V5Uj1fffAIg5?N^;eb4^ab1
+!s100 R[^>dd=f3167DiCfBZ4D33
+R6
 32
-Z74 !s110 1701428539
-!i10b 1
-Z75 !s108 1701428539.000000
-Z76 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialSender.vhd|
-Z77 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialSender.vhd|
-!i113 1
-R13
-R14
-Abehavioral
-R2
-R3
-R4
-R5
-DEx4 work 12 serialsender 0 22 c<NDP1?jzBi:lGAo6z3[`1
-l36
-L21
-VUYmFN3gUHX5XS2JMeNe4I1
-!s100 56ON@?B`2ENQhoSn_2?U03
-R8
-32
-R74
-!i10b 1
-R75
-R76
 R77
-!i113 1
-R13
-R14
-Espeed_select
-R1
-R4
-R5
-R0
-Z78 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/speed_select.vhd
-Z79 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/speed_select.vhd
-l0
-L6
-VC=7In[?0S_<?@<dHi?nQK1
-!s100 _Uh99P<j1=f8hYSgdP6?O0
-R8
-32
-R74
 !i10b 1
-R75
-Z80 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/speed_select.vhd|
-Z81 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/speed_select.vhd|
+R83
+Z92 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialSender.vhd|
+Z93 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/SerialSender.vhd|
 !i113 1
-R13
+R11
+R12
+Abehavioral
 R14
-Artl
-R4
-R5
-DEx4 work 12 speed_select 0 22 C=7In[?0S_<?@<dHi?nQK1
-l37
-L29
-VBhNjK>U8AVRSlY^;O^CP20
-!s100 BI<=JMV301gElAWS2L6=T3
-R8
+R15
+R2
+R3
+DEx4 work 12 serialsender 0 22 5Uj1fffAIg5?N^;eb4^ab1
+l88
+L21
+V@f8fDlj@NNigUX[IF]=K42
+!s100 Pj_eN9De[X[fSbF[ZRod[0
+R6
 32
-R74
+R77
 !i10b 1
-R75
-R80
-R81
+R83
+R92
+R93
 !i113 1
-R13
-R14
+R11
+R12
 Esram
-Z82 w1700829375
-R16
-R4
-R5
+R26
+R21
+R2
+R3
 R0
-Z83 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/sram.vhd
-Z84 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/sram.vhd
+Z94 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/sram.vhd
+Z95 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/sram.vhd
 l0
 L5
 Vil]4?9DU17S_elJ7jnaGS1
 !s100 U6U3[3Fo<MTH:RZZ_z^C21
-R8
+R6
 32
-R74
+R77
 !i10b 1
-R75
-Z85 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/sram.vhd|
-Z86 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/sram.vhd|
+R83
+Z96 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/sram.vhd|
+Z97 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/sram.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Abehavioral
-R16
-R4
-R5
+R21
+R2
+R3
 DEx4 work 4 sram 0 22 il]4?9DU17S_elJ7jnaGS1
 l26
 L20
 Vd2WWHaMQYF4ZZAnQ3LF[L1
 !s100 bJBaaMhk;SFLS]@XAec8P3
-R8
+R6
 32
-R74
+R77
 !i10b 1
-R75
-R85
-R86
+R83
+R96
+R97
 !i113 1
-R13
-R14
+R11
+R12
 Etb_dummytoplevel
-Z87 w1701430955
-R16
+Z98 w1701714584
+R21
+R14
+R15
 R2
 R3
-R4
-R5
 R0
-Z88 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/tb_top.vhd
-Z89 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/tb_top.vhd
+Z99 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/tb_top.vhd
+Z100 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/tb_top.vhd
 l0
 L6
 VYXHA9d`40]QX=BbF1@WPc3
 !s100 I7^KMCYOf_=>0<^bZ[kKf3
-R8
+R6
 32
-Z90 !s110 1701430969
+Z101 !s110 1701714588
 !i10b 1
-Z91 !s108 1701430969.000000
-Z92 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/tb_top.vhd|
-Z93 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/tb_top.vhd|
+Z102 !s108 1701714588.000000
+Z103 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/tb_top.vhd|
+Z104 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/tb_top.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Asim
-Z94 DEx4 work 3 top 0 22 nPMCO4ODY?;Vko95JoJdG0
-R16
+Z105 DEx4 work 3 top 0 22 nPMCO4ODY?;Vko95JoJdG0
+R21
+R14
+R15
 R2
 R3
-R4
-R5
-Z95 DEx4 work 16 tb_dummytoplevel 0 22 YXHA9d`40]QX=BbF1@WPc3
-l52
+Z106 DEx4 work 16 tb_dummytoplevel 0 22 YXHA9d`40]QX=BbF1@WPc3
+l64
 L9
-VOl6dHdzDAT:8bW0Jz3VaY2
-!s100 H@L7Eald4hOhbJaG`1bXe2
-R8
+VaX_Q83EkE2:l0g;jMUKEh3
+!s100 0?6Q^Xz;U:f`Kj6YHkYOg3
+R6
 32
-R90
+R101
 !i10b 1
-R91
-R92
-R93
+R102
+R103
+R104
 !i113 1
-R13
-R14
+R11
+R12
 Etop
-Z96 w1701427747
+Z107 w1701713698
+R14
 R2
-R4
-R5
+R3
 R0
-Z97 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd
-Z98 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd
+Z108 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd
+Z109 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd
 l0
 L5
 VnPMCO4ODY?;Vko95JoJdG0
 !s100 2>h9j6CIPlLloFGdUQ3AH2
-R8
+R6
 32
-Z99 !s110 1701428540
+Z110 !s110 1701713706
 !i10b 1
-R75
-Z100 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd|
-Z101 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd|
+Z111 !s108 1701713706.000000
+Z112 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd|
+Z113 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Abehavioral
-R2
-R4
-R5
-R94
-l162
-L25
-V4laQLc_3Qa;]YDUgQ@T@i2
-!s100 7gX4P5?O320lbDW3^mSTZ1
-R8
-32
-R99
-!i10b 1
-R75
-R100
-R101
-!i113 1
-R13
 R14
-Evector_demux
-Z102 w1700736585
-R4
-R5
+R2
+R3
+R105
+l169
+L25
+Vc@P7:QhKDL3Pl^VJ=g^GX3
+!s100 Xj]WPRnDSRMmMO3P=Ue4D3
+R6
+32
+R110
+!i10b 1
+R111
+R112
+R113
+!i113 1
+R11
+R12
+Euart_interpreter
+R1
+R21
+R2
+R3
 R0
-Z103 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_demux.vhd
-Z104 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_demux.vhd
+Z114 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/uart_interpreter.vhd
+Z115 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/uart_interpreter.vhd
+l0
+L5
+V4cDlg1AM]:6fBO^;zQ08k1
+!s100 JEP7Mz`2B3h@1DMf8XDKF3
+R6
+32
+R77
+!i10b 1
+R83
+Z116 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/uart_interpreter.vhd|
+Z117 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Serial/uart_interpreter.vhd|
+!i113 1
+R11
+R12
+Aarch
+R21
+R2
+R3
+DEx4 work 16 uart_interpreter 0 22 4cDlg1AM]:6fBO^;zQ08k1
+l39
+L24
+VYnXkH3V99KVJ:@SQYlmeM0
+!s100 _cUBZNPC2?XTcNJ@KP^zE3
+R6
+32
+R77
+!i10b 1
+R83
+R116
+R117
+!i113 1
+R11
+R12
+Evector_demux
+R26
+R2
+R3
+R0
+Z118 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_demux.vhd
+Z119 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_demux.vhd
 l0
 L4
 VK_HIZd8]Ked98nCWZ@1Vi1
 !s100 d74<2FDK360W21I1kU8z@3
-R8
+R6
 32
-R99
+R77
 !i10b 1
-Z105 !s108 1701428540.000000
-Z106 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_demux.vhd|
-Z107 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_demux.vhd|
+R83
+Z120 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_demux.vhd|
+Z121 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_demux.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Abehavioral
-R4
-R5
+R2
+R3
 DEx4 work 12 vector_demux 0 22 K_HIZd8]Ked98nCWZ@1Vi1
 l17
 L15
 V1AhLhd>1ZHFg@Ag>4^[F:0
 !s100 J8m0@V9AQfNc<_?=Khn3i1
-R8
+R6
 32
-R99
+R77
 !i10b 1
-R105
-R106
-R107
+R83
+R120
+R121
 !i113 1
-R13
-R14
+R11
+R12
 Evector_mux
-Z108 w1700736578
-R4
-R5
+R26
+R2
+R3
 R0
-Z109 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_mux.vhd
-Z110 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_mux.vhd
+Z122 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_mux.vhd
+Z123 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_mux.vhd
 l0
 L4
 V>fPWXhgM4gL6Xm27@WzfA1
 !s100 aJ7FMSH?MOGX7D0S1c_EM2
-R8
+R6
 32
-R99
+R77
 !i10b 1
-R105
-Z111 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_mux.vhd|
-Z112 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_mux.vhd|
+R83
+Z124 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_mux.vhd|
+Z125 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/Memory/vector_mux.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Abehavioral
-R4
-R5
+R2
+R3
 DEx4 work 10 vector_mux 0 22 >fPWXhgM4gL6Xm27@WzfA1
 l17
 L15
 VQ9^2`P?PTOZCC5fM>U6j@0
 !s100 QkgQH1n>>h?IQgVB0YnMV3
-R8
+R6
 32
-R99
+R77
 !i10b 1
-R105
-R111
-R112
+R83
+R124
+R125
 !i113 1
-R13
-R14
+R11
+R12
 Extea
-Z113 w1700539820
-R16
-R4
-R5
+R26
+R21
+R2
+R3
 R0
-Z114 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/XTEA/xtea.vhd
-Z115 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/XTEA/xtea.vhd
+Z126 8C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/XTEA/xtea.vhd
+Z127 FC:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/XTEA/xtea.vhd
 l0
 L5
 VI]ZIXnO]gDaLNA>1WWV]W3
 !s100 6ooW:Ha?EB9;7eHnb5K:m3
-R8
+R6
 32
-R99
+Z128 !s110 1701713600
 !i10b 1
-R105
-Z116 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/XTEA/xtea.vhd|
-Z117 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/XTEA/xtea.vhd|
+Z129 !s108 1701713600.000000
+Z130 !s90 -reportprogress|300|-work|work|C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/XTEA/xtea.vhd|
+Z131 !s107 C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/XTEA/xtea.vhd|
 !i113 1
-R13
-R14
+R11
+R12
 Aarc
-R16
-R4
-R5
+R21
+R2
+R3
 DEx4 work 4 xtea 0 22 I]ZIXnO]gDaLNA>1WWV]W3
 l80
 L17
 VXK;hLdF7bIOi@7NZzIDee1
 !s100 5ljI0W26Ii2fnmfXXB@FK2
-R8
+R6
 32
-R99
+R128
 !i10b 1
-R105
-R116
-R117
+R129
+R130
+R131
 !i113 1
-R13
-R14
+R11
+R12

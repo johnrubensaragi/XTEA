@@ -1,2 +1,11 @@
 xtea.exe
 .vscode/tasks.json
+
+Dummy_controller\**
+!Dummy_controller\*.vhd
+!Dummy_controller\*.qsf
+!Dummy_controller\*.qpf
+!Dummy_controller\Scripts
+!Dummy_controller\Serial
+!Dummy_controller\Utils
+!Dummy_controller\XTEA

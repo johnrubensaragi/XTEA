@@ -31,10 +31,11 @@ architecture behavioral of top is
   signal r_enable_write : std_logic;
 
   -- address
-  signal r_address_countup : std_logic;
-  signal r_address_reset   : std_logic;
-  signal r_address         : std_logic_vector(addressSize - 1 downto 0);
-
+  signal r_address_countup     : std_logic;
+  signal r_address_reset       : std_logic;
+  signal r_address             : std_logic_vector(addressSize - 1 downto 0);
+  signal r_last_address        : std_logic_vector(addressSize - 1 downto 0);
+  signal r_update_last_address : std_logic;
   -- xtea
   signal r_xtea_start : std_logic;
   signal r_xtea_done  : std_logic;
@@ -45,7 +46,9 @@ architecture behavioral of top is
   signal r_serial_read_done      : std_logic;
   signal r_serial_send_done      : std_logic;
   signal r_serial_send_start     : std_logic;
-  signal r_error_check           : std_logic_vector(1 downto 0);
+  signal r_read_convert          : std_logic := '0';
+  signal r_send_convert          : std_logic := '0';
+  signal r_error_format          : std_logic;
   signal r_send_data             : std_logic_vector((bitSize - 1) downto 0);
   signal r_store_data            : std_logic_vector((bitSize - 1) downto 0);
   signal r_store_datatype        : std_logic_vector(1 downto 0);
@@ -63,38 +66,40 @@ architecture behavioral of top is
   signal r_mode             : std_logic;
   component controlFSM is
     generic (
-      bitSize : integer := 8
+      bitSize     : integer := 8;
+      addressSize : integer := 10
     );
     port (
-      enable          : in  std_logic;
-      nreset          : in  std_logic;
-      clk             : in  std_logic;
+      enable              : in  std_logic;
+      nreset              : in  std_logic;
+      clk                 : in  std_logic;
 
       -- memory controls
-      memory          : in  std_logic_vector(bitSize - 1 downto 0);
-      enable_read     : out std_logic;
-      enable_write    : out std_logic;
+      enable_read         : out std_logic;
+      enable_write        : out std_logic;
 
       -- address controls
-      address_countup : out std_logic;
-      address_reset   : out std_logic;
-
+      last_address        : in  std_logic_vector(addressSize - 1 downto 0);
+      address             : in  std_logic_vector(addressSize - 1 downto 0);
+      address_countup     : out std_logic;
+      address_reset       : out std_logic;
+      update_last_address : out std_logic;
       -- xtea controls
-      xtea_done       : in  std_logic;
-      xtea_start      : out std_logic;
+      xtea_done           : in  std_logic;
+      xtea_start          : out std_logic;
 
       -- serial controls
-      reader_running  : in  std_logic;
-      sender_running  : in  std_logic;
-      reader_done     : in  std_logic;
-      sender_done     : in  std_logic;
-      sender_start    : out std_logic;
-      error_check     : in  std_logic_vector(1 downto 0);
-      store_datatype  : in  std_logic_vector(1 downto 0);
-      store_checkout  : in  std_logic;
+      reader_running      : in  std_logic;
+      sender_running      : in  std_logic;
+      reader_done         : in  std_logic;
+      sender_done         : in  std_logic;
+      sender_start        : out std_logic;
+      error_format        : in  std_logic;
+      store_datatype      : in  std_logic_vector(1 downto 0);
+      store_checkout      : in  std_logic;
 
       -- mux controls
-      dataIn_mux      : out std_logic
+      dataIn_mux          : out std_logic
     );
   end component;
 
@@ -149,7 +154,9 @@ architecture behavioral of top is
       read_done      : out std_logic;
       send_done      : out std_logic;
       send_start     : in  std_logic;
-      error_out      : out std_logic_vector(1 downto 0);
+      read_convert   : in  std_logic;
+      send_convert   : in  std_logic;
+      error_format   : out std_logic;
       send_data      : in  std_logic_vector((data_length - 1) downto 0);
       store_data     : out std_logic_vector((data_length - 1) downto 0);
       store_datatype : out std_logic_vector(1 downto 0);
@@ -166,35 +173,37 @@ begin
       bitSize => bitSize
     )
     port map (
-      enable          => enable,
-      nreset          => nreset,
-      clk             => clk,
+      enable              => enable,
+      nreset              => nreset,
+      clk                 => clk,
 
       -- memory controls
-      memory          => r_dataOut,
-      enable_read     => r_enable_read,
-      enable_write    => r_enable_write,
+      enable_read         => r_enable_read,
+      enable_write        => r_enable_write,
 
       -- address controls
-      address_countup => r_address_countup,
-      address_reset   => r_address_reset,
+      last_address        => r_last_address,
+      address             => r_address,
+      address_countup     => r_address_countup,
+      address_reset       => r_address_reset,
+      update_last_address => r_update_last_address,
 
       -- xtea controls
-      xtea_done       => r_xtea_done,
-      xtea_start      => r_xtea_start,
+      xtea_done           => r_xtea_done,
+      xtea_start          => r_xtea_start,
 
       -- serial controls
-      reader_running  => r_reader_running,
-      sender_running  => r_sender_running,
-      reader_done     => r_serial_read_done,
-      sender_done     => r_serial_send_done,
-      sender_start    => r_serial_send_start,
-      error_check     => r_error_check,
-      store_datatype  => r_store_datatype,
-      store_checkout  => r_store_checkout,
+      reader_running      => r_reader_running,
+      sender_running      => r_sender_running,
+      reader_done         => r_serial_read_done,
+      sender_done         => r_serial_send_done,
+      sender_start        => r_serial_send_start,
+      error_format        => r_error_format,
+      store_datatype      => r_store_datatype,
+      store_checkout      => r_store_checkout,
 
       -- mux controls
-      dataIn_mux      => r_dataIn_mux_sel
+      dataIn_mux          => r_dataIn_mux_sel
     );
 
   memory0: memory
@@ -247,11 +256,13 @@ begin
       read_done      => r_serial_read_done,
       send_done      => r_serial_send_done,
       send_start     => r_serial_send_start,
-      error_out      => r_error_check,
+      read_convert   => r_read_convert,
+      send_convert   => r_send_convert,
+      error_format   => r_error_format,
       send_data      => r_dataOut,
       store_data     => r_store_data,
       store_datatype => r_store_datatype,
-      store_checkout => r_store_checkout_buffer,
+      store_checkout => r_store_checkout,
       rs232_rx       => rs232_rx,
       rs232_tx       => rs232_tx
     );
@@ -287,19 +298,23 @@ begin
     end if;
   end process;
 
+  address_saver: process (clk)
+  begin
+    if rising_edge(clk) then
+      if r_update_last_address = '1' then
+        r_last_address <= unsigned(r_address) + unsigned(std_logic_vector'("0000000001"));
+      else
+        r_last_address <= r_last_address;
+      end if;
+    end if;
+  end process;
+
   mem_dataIn_mux: process (r_dataIn_mux_sel, r_data_from_serial, r_data_from_xtea)
   begin
     if r_dataIn_mux_sel = '0' then
       r_dataIn <= r_data_from_serial;
     else
       r_dataIn <= r_data_from_xtea;
-    end if;
-  end process;
-
-  serial_store_checkout_buffer: process (clk) -- delays store_checkout by 1 clock
-  begin
-    if rising_edge(clk) then
-      r_store_checkout <= r_store_checkout_buffer;
     end if;
   end process;
 
