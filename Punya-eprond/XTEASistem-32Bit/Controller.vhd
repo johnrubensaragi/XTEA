@@ -14,7 +14,7 @@ entity Controller is
     -- serial block port
     reader_running, sender_running : in std_logic;
     read_done, send_done : in std_logic;
-    send_convert : out std_logic;
+    cont_send_convert : out std_logic;
     store_datatype : in std_logic_vector(1 downto 0);
 
     -- address countup port
@@ -53,8 +53,10 @@ entity Controller is
     -- system errors
     error_format : in std_logic;
     error_storage : in std_logic;
-    error_busy : out std_logic
+    error_busy : out std_logic;
 
+    -- toggle convert
+    convert_signal : in std_logic
   );
 end Controller;
 
@@ -154,12 +156,14 @@ begin
                 i_countup_trigger <= not i_countup_trigger;
             end if;
 
-            if (store_checkout_buffer = "00000000") then
-                enable_write <= '0';
-            elsif (store_checkout_buffer = "00001111") then
-                enable_write <= '1';
-            elsif (store_checkout_buffer = "11111111") then
-                enable_write <= '0';
+            if (store_datatype_buffer = "11") then
+                if (store_checkout_buffer = "00000000") then
+                    enable_write <= '0';
+                elsif (store_checkout_buffer = "00001111") then
+                    enable_write <= '1';
+                elsif (store_checkout_buffer = "11111111") then
+                    enable_write <= '0';
+                end if;
             end if;
 
             -- start send error if error
@@ -180,7 +184,7 @@ begin
             selector_dataread <= '1'; -- connect memory read to sender
             selector_datasend <= '1'; -- send data from text roms
             
-            send_convert <= '0';
+            cont_send_convert <= '0';
             ccounter_enable <= '0';
 
             sender_pulse_enable <= '1';
@@ -277,7 +281,12 @@ begin
                         force_enable <= '1';
                         force_address <= "00"; -- force address to 11 to start reading results
                         ccounter_enable <= '0';
-                        controller_nstate <= sending_message;
+
+                        if (convert_signal = '1') then -- dont send results message if not toggled
+                            controller_nstate <= sending_message;
+                        else
+                            controller_nstate <= reading_results;
+                        end if;
                     end if;
                 end if;
 
@@ -291,8 +300,8 @@ begin
             ccounter_enable <= '1';
 
             --  only convert encrypted data to hex if it is encrypting
-            if (cont_xtea_mode = '0') then send_convert <= '1';
-            else send_convert <= '0';
+            if (cont_xtea_mode = '0') then cont_send_convert <= '1';
+            else cont_send_convert <= '0';
             end if;
 
             -- trigger the pulse to start the sending

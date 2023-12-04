@@ -39,7 +39,8 @@ architecture sim of TB_DummyTopLevel is
 
     signal counter : natural := 0;
 
-    signal keys, switch, leds : std_logic_vector(3 downto 0);
+    signal keys : std_logic_vector(3 downto 0) := "1111";
+    signal switch, leds : std_logic_vector(3 downto 0);
 
     component ClockDiv is
         generic(div_frequency, clock_frequency : natural);
@@ -113,9 +114,12 @@ begin
     end procedure;
 
     begin
+        wait for 5*clock_period;
         nreset <= '0';
+        keys(0) <= '0';
         wait for 2*clock_period;
         nreset <= '1';
+        keys(0) <= '1';
         wait for 0.5 sec/baud_rate;
 
         send_tx(uart_vector1);

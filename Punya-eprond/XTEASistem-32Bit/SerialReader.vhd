@@ -12,6 +12,7 @@ entity SerialReader is
         reader_start : in std_logic;
         reader_done : out std_logic := '0';
         reader_finish : in std_logic;
+        reader_convert : in std_logic;
         error_format : out std_logic := '0';
         reader_data_in : in std_logic_vector(7 downto 0);
         reader_data_out : out std_logic_vector(63 downto 0) := (others => '0');
@@ -71,7 +72,7 @@ architecture behavioral of SerialReader is
     );
     end component PulseGenerator;
 
-    signal mode_selector : std_logic; -- '0' for encrypt '1' for decrypt
+    signal convert_selector : std_logic; -- '0' for no convert '1' for convert (ASCII -> HEX)
     signal temp_mode : std_logic;
 
     -- shifters inout
@@ -121,7 +122,7 @@ begin
         port map (clock, regout_enable, '1', regout_datain, reader_data_out);
 
     dataout_mux : MUX2Data generic map (64)
-        port map(mode_selector, shifter_8bit_dataout, shifter_4bit_dataout, regout_datain);
+        port map(convert_selector, shifter_8bit_dataout, shifter_4bit_dataout, regout_datain);
 
     asciitohex : ascii2hex port map(reader_data_in, shifter_4bit_datain);
 
@@ -195,7 +196,7 @@ begin
                 checkout_pulse_enable <= '0'; regout_pulse_enable <= '0';
                 done_mode <= '0'; done_key <= '0'; done_data <='0'; done_checkout <= '0';
                 trigger_shift_signal <= '0';
-                mode_selector <= '0';
+                convert_selector <= '0';
                 max_shift <= '0';
 
                 -- reset both reg bank selector
@@ -248,7 +249,14 @@ begin
             when read_whitespace => -- read whitespace (" ")
                 if (reader_data_in = "00100000") then -- ASCII " "
                     if (temp_type = "11") then
-                        mode_selector <= temp_mode;
+
+                        -- convert input data to hex if ordered
+                        if (reader_convert = '1') then
+                            convert_selector <= temp_mode;
+                        else
+                            convert_selector <= '0';
+                        end if;
+                        
                         n_state <= read_data;
                     else
                         n_state <= read_attributes;
@@ -318,11 +326,11 @@ begin
                 -- shift the data every new data in
                 trigger_shift_signal <= not trigger_shift_signal;
 
-                if (data_8bit_counter = "111" and mode_selector = '0') then
+                if (data_8bit_counter = "111" and convert_selector = '0') then
                     regout_trigger <= not regout_trigger;
                     checkout_trigger <= not checkout_trigger;
                     done_checkout <= '1';
-                elsif (data_4bit_counter = "1111" and mode_selector = '1') then
+                elsif (data_4bit_counter = "1111" and convert_selector = '1') then
                     regout_trigger <= not regout_trigger;
                     checkout_trigger <= not checkout_trigger;
                     done_checkout <= '1';

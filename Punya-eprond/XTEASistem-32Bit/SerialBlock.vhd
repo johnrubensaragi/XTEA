@@ -13,6 +13,7 @@ entity SerialBlock is
         read_done : out std_logic;
         send_done : out std_logic;
         send_start : in std_logic;
+        read_convert : in std_logic;
         send_convert : in std_logic;
         error_format : out std_logic;
         send_data : in std_logic_vector((data_length-1) downto 0);
@@ -34,6 +35,7 @@ architecture behavioral of SerialBlock is
         reader_start : in std_logic;
         reader_done : out std_logic;
         reader_finish : in std_logic;
+        reader_convert : in std_logic;
         error_format : out std_logic;
         reader_data_in : in std_logic_vector(7 downto 0);
         reader_data_out : out std_logic_vector((data_length - 1) downto 0);
@@ -117,6 +119,7 @@ begin
         reader_start         => reader_start,
         reader_done          => reader_done,
         reader_finish        => reader_finish,
+        reader_convert       => read_convert,
         error_format         => error_format,
         reader_data_in       => reader_data_in,
         reader_data_out      => reader_data_out,

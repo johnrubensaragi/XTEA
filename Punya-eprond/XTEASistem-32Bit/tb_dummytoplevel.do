@@ -95,4 +95,4 @@ configure wave -timelineunits sec
 update
 WaveRestoreZoom {0 ps} {52500103168 ps}
 
-run 30 ms
+run 75 ms

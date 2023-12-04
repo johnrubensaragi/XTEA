@@ -20,8 +20,8 @@ architecture behavioral of DummyTopLevel is
     constant address_length : natural := 10;
     constant default_key : std_logic_vector(127 downto 0) := x"6c7bd673045e9d5c29ac6c25db7a3191";
     constant empty_data : std_logic_vector((data_length-1) downto 0) := (others => '0');
-    constant empty_address : std_logic_vector((address_length-1) downto 0) := (others => '0');
     constant newline_vector : std_logic_vector(63 downto 0) := "00001010" & conv_std_logic_vector(0, 48) & "00001010";
+    alias convert_button is keys(0);
 
     component SerialBlock is
     generic(data_length : natural := 64; address_length : natural := 10);
@@ -33,6 +33,7 @@ architecture behavioral of DummyTopLevel is
         read_done : out std_logic;
         send_done : out std_logic;
         send_start : in std_logic;
+        read_convert : in std_logic;
         send_convert : in std_logic;
         error_format : out std_logic;
         send_data : in std_logic_vector((data_length-1) downto 0);
@@ -179,7 +180,7 @@ architecture behavioral of DummyTopLevel is
         -- serial block port
         reader_running, sender_running : in std_logic;
         read_done, send_done : in std_logic;
-        send_convert : out std_logic;
+        cont_send_convert : out std_logic;
         store_datatype : in std_logic_vector(1 downto 0);
 
         -- address countup port
@@ -218,14 +219,17 @@ architecture behavioral of DummyTopLevel is
         -- system errors
         error_format : in std_logic;
         error_storage : in std_logic;
-        error_busy : out std_logic
+        error_busy : out std_logic;
+
+        -- toggle convert
+        convert_signal : in std_logic
     );
     end component Controller;
 
     -- serial block inout
     signal reader_running, sender_running, read_done, send_done, send_start :  std_logic;
     signal send_data, store_data : std_logic_vector((data_length-1) downto 0);
-    signal send_convert : std_logic;
+    signal read_convert, send_convert : std_logic;
     signal store_datatype : std_logic_vector(1 downto 0);
     signal store_checkout : std_logic;
 
@@ -285,6 +289,10 @@ architecture behavioral of DummyTopLevel is
     -- system errors
     signal error_format, error_storage, error_busy : std_logic;
 
+    -- convert button
+    signal convert_signal : std_logic := '1';
+    signal cont_send_convert : std_logic;
+
     -- function for changing string to slv
     function to_slv(str : string) return std_logic_vector is
         alias str_norm : string(str'length downto 1) is str;
@@ -312,6 +320,7 @@ begin
         read_done      => read_done,
         send_done      => send_done,
         send_start     => send_start,
+        read_convert   => read_convert,
         send_convert   => send_convert,
         error_format   => error_format,
         send_data      => send_data,
@@ -531,6 +540,18 @@ begin
         end if;
     end process text_roms;
 
+    convert_toggle : process(convert_button)
+    begin
+        if falling_edge(convert_button) then
+            convert_signal <= not convert_signal;
+        else
+            convert_signal <= convert_signal;
+        end if;
+    end process convert_toggle;
+
+    read_convert <= convert_signal;
+    send_convert <= cont_send_convert and convert_signal;
+
     controller_inst: Controller
     port map (
         clock                   => clock,
@@ -541,7 +562,7 @@ begin
         sender_running          => sender_running,
         read_done               => read_done,
         send_done               => send_done,
-        send_convert            => send_convert,
+        cont_send_convert       => cont_send_convert,
         store_datatype          => store_datatype,
         error_format            => error_format,
         error_storage           => error_storage,
@@ -568,7 +589,8 @@ begin
         ccounter_enable         => ccounter_enable,
         ccounter_reset          => ccounter_reset,
         ccounter_out            => ccounter_out,
-        rom_index_counter       => rom_index
+        rom_index_counter       => rom_index,
+        convert_signal          => convert_signal
     );
 
 end architecture;
