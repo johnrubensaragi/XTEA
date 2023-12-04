@@ -13,7 +13,11 @@ architecture sim of TB_Reader is
 
     constant data_length : natural := 64;
     constant address_length : natural := 10;
+<<<<<<< HEAD
+    constant string_input : string := "-m 0 -d " & '"' & "itb! bjir????????" & '"' & " -k pass";
+=======
     constant string_input : string := "-m 0 -d " & '"' & "Ini merupakan sebuah percobaan" & '"' & " -k pass";
+>>>>>>> 1c23176fb09d6fdc46ce9340eb5facb4548f49c2
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';

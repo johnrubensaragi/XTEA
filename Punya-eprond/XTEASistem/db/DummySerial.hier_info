@@ -1,203 +1,7 @@
-|DummyTopLevel
+|DummySerial
 clock => SerialBlock:serialblock_inst.clock
-clock => xtea_done_buffer.CLK
-clock => xtea_pulse_trigger.CLK
-clock => xtea_input[0].CLK
-clock => xtea_input[1].CLK
-clock => xtea_input[2].CLK
-clock => xtea_input[3].CLK
-clock => xtea_input[4].CLK
-clock => xtea_input[5].CLK
-clock => xtea_input[6].CLK
-clock => xtea_input[7].CLK
-clock => xtea_input[8].CLK
-clock => xtea_input[9].CLK
-clock => xtea_input[10].CLK
-clock => xtea_input[11].CLK
-clock => xtea_input[12].CLK
-clock => xtea_input[13].CLK
-clock => xtea_input[14].CLK
-clock => xtea_input[15].CLK
-clock => xtea_input[16].CLK
-clock => xtea_input[17].CLK
-clock => xtea_input[18].CLK
-clock => xtea_input[19].CLK
-clock => xtea_input[20].CLK
-clock => xtea_input[21].CLK
-clock => xtea_input[22].CLK
-clock => xtea_input[23].CLK
-clock => xtea_input[24].CLK
-clock => xtea_input[25].CLK
-clock => xtea_input[26].CLK
-clock => xtea_input[27].CLK
-clock => xtea_input[28].CLK
-clock => xtea_input[29].CLK
-clock => xtea_input[30].CLK
-clock => xtea_input[31].CLK
-clock => xtea_input[32].CLK
-clock => xtea_input[33].CLK
-clock => xtea_input[34].CLK
-clock => xtea_input[35].CLK
-clock => xtea_input[36].CLK
-clock => xtea_input[37].CLK
-clock => xtea_input[38].CLK
-clock => xtea_input[39].CLK
-clock => xtea_input[40].CLK
-clock => xtea_input[41].CLK
-clock => xtea_input[42].CLK
-clock => xtea_input[43].CLK
-clock => xtea_input[44].CLK
-clock => xtea_input[45].CLK
-clock => xtea_input[46].CLK
-clock => xtea_input[47].CLK
-clock => xtea_input[48].CLK
-clock => xtea_input[49].CLK
-clock => xtea_input[50].CLK
-clock => xtea_input[51].CLK
-clock => xtea_input[52].CLK
-clock => xtea_input[53].CLK
-clock => xtea_input[54].CLK
-clock => xtea_input[55].CLK
-clock => xtea_input[56].CLK
-clock => xtea_input[57].CLK
-clock => xtea_input[58].CLK
-clock => xtea_input[59].CLK
-clock => xtea_input[60].CLK
-clock => xtea_input[61].CLK
-clock => xtea_input[62].CLK
-clock => xtea_input[63].CLK
-clock => xtea_key[0].CLK
-clock => xtea_key[1].CLK
-clock => xtea_key[2].CLK
-clock => xtea_key[3].CLK
-clock => xtea_key[4].CLK
-clock => xtea_key[5].CLK
-clock => xtea_key[6].CLK
-clock => xtea_key[7].CLK
-clock => xtea_key[8].CLK
-clock => xtea_key[9].CLK
-clock => xtea_key[10].CLK
-clock => xtea_key[11].CLK
-clock => xtea_key[12].CLK
-clock => xtea_key[13].CLK
-clock => xtea_key[14].CLK
-clock => xtea_key[15].CLK
-clock => xtea_key[16].CLK
-clock => xtea_key[17].CLK
-clock => xtea_key[18].CLK
-clock => xtea_key[19].CLK
-clock => xtea_key[20].CLK
-clock => xtea_key[21].CLK
-clock => xtea_key[22].CLK
-clock => xtea_key[23].CLK
-clock => xtea_key[24].CLK
-clock => xtea_key[25].CLK
-clock => xtea_key[26].CLK
-clock => xtea_key[27].CLK
-clock => xtea_key[28].CLK
-clock => xtea_key[29].CLK
-clock => xtea_key[30].CLK
-clock => xtea_key[31].CLK
-clock => xtea_key[32].CLK
-clock => xtea_key[33].CLK
-clock => xtea_key[34].CLK
-clock => xtea_key[35].CLK
-clock => xtea_key[36].CLK
-clock => xtea_key[37].CLK
-clock => xtea_key[38].CLK
-clock => xtea_key[39].CLK
-clock => xtea_key[40].CLK
-clock => xtea_key[41].CLK
-clock => xtea_key[42].CLK
-clock => xtea_key[43].CLK
-clock => xtea_key[44].CLK
-clock => xtea_key[45].CLK
-clock => xtea_key[46].CLK
-clock => xtea_key[47].CLK
-clock => xtea_key[48].CLK
-clock => xtea_key[49].CLK
-clock => xtea_key[50].CLK
-clock => xtea_key[51].CLK
-clock => xtea_key[52].CLK
-clock => xtea_key[53].CLK
-clock => xtea_key[54].CLK
-clock => xtea_key[55].CLK
-clock => xtea_key[56].CLK
-clock => xtea_key[57].CLK
-clock => xtea_key[58].CLK
-clock => xtea_key[59].CLK
-clock => xtea_key[60].CLK
-clock => xtea_key[61].CLK
-clock => xtea_key[62].CLK
-clock => xtea_key[63].CLK
-clock => xtea_key[64].CLK
-clock => xtea_key[65].CLK
-clock => xtea_key[66].CLK
-clock => xtea_key[67].CLK
-clock => xtea_key[68].CLK
-clock => xtea_key[69].CLK
-clock => xtea_key[70].CLK
-clock => xtea_key[71].CLK
-clock => xtea_key[72].CLK
-clock => xtea_key[73].CLK
-clock => xtea_key[74].CLK
-clock => xtea_key[75].CLK
-clock => xtea_key[76].CLK
-clock => xtea_key[77].CLK
-clock => xtea_key[78].CLK
-clock => xtea_key[79].CLK
-clock => xtea_key[80].CLK
-clock => xtea_key[81].CLK
-clock => xtea_key[82].CLK
-clock => xtea_key[83].CLK
-clock => xtea_key[84].CLK
-clock => xtea_key[85].CLK
-clock => xtea_key[86].CLK
-clock => xtea_key[87].CLK
-clock => xtea_key[88].CLK
-clock => xtea_key[89].CLK
-clock => xtea_key[90].CLK
-clock => xtea_key[91].CLK
-clock => xtea_key[92].CLK
-clock => xtea_key[93].CLK
-clock => xtea_key[94].CLK
-clock => xtea_key[95].CLK
-clock => xtea_key[96].CLK
-clock => xtea_key[97].CLK
-clock => xtea_key[98].CLK
-clock => xtea_key[99].CLK
-clock => xtea_key[100].CLK
-clock => xtea_key[101].CLK
-clock => xtea_key[102].CLK
-clock => xtea_key[103].CLK
-clock => xtea_key[104].CLK
-clock => xtea_key[105].CLK
-clock => xtea_key[106].CLK
-clock => xtea_key[107].CLK
-clock => xtea_key[108].CLK
-clock => xtea_key[109].CLK
-clock => xtea_key[110].CLK
-clock => xtea_key[111].CLK
-clock => xtea_key[112].CLK
-clock => xtea_key[113].CLK
-clock => xtea_key[114].CLK
-clock => xtea_key[115].CLK
-clock => xtea_key[116].CLK
-clock => xtea_key[117].CLK
-clock => xtea_key[118].CLK
-clock => xtea_key[119].CLK
-clock => xtea_key[120].CLK
-clock => xtea_key[121].CLK
-clock => xtea_key[122].CLK
-clock => xtea_key[123].CLK
-clock => xtea_key[124].CLK
-clock => xtea_key[125].CLK
-clock => xtea_key[126].CLK
-clock => xtea_key[127].CLK
 clock => ccounter_reset.CLK
-clock => xtea_mode.CLK
 clock => enable_read.CLK
-clock => ccounter_enable.CLK
 clock => sender_pulse_trigger.CLK
 clock => send_data[0].CLK
 clock => send_data[1].CLK
@@ -333,19 +137,14 @@ clock => memory_address[1].CLK
 clock => memory_address[2].CLK
 clock => memory_address[3].CLK
 clock => enable_write.CLK
-clock => xtea_pulse_enable.CLK
+clock => ccounter_enable.CLK
 clock => sender_pulse_enable.CLK
 clock => send_counter[0].CLK
 clock => send_counter[1].CLK
 clock => send_counter[2].CLK
-clock => leds[0]~reg0.CLK
-clock => leds[1]~reg0.CLK
-clock => leds[2]~reg0.CLK
-clock => leds[3]~reg0.CLK
 clock => XTEA:xteablock_inst.clock
 clock => SRAM:sram_inst.clock
 clock => PulseGenerator:spulse10clock_int.clock
-clock => PulseGenerator:xpulse10clock_int.clock
 clock => ClockCounter:clockcounter_inst.clock
 clock => controller_nstate~12.DATAIN
 clock => controller_cstate~1.DATAIN
@@ -353,26 +152,41 @@ nreset => SerialBlock:serialblock_inst.nreset
 nreset => XTEA:xteablock_inst.nreset
 nreset => SRAM:sram_inst.nreset
 nreset => PulseGenerator:spulse10clock_int.nreset
-nreset => PulseGenerator:xpulse10clock_int.nreset
 nreset => ClockCounter:clockcounter_inst.nreset
 nreset => controller_cstate~3.DATAIN
 rs232_rx => SerialBlock:serialblock_inst.rs232_rx
-rs232_tx << SerialBlock:serialblock_inst.rs232_tx
+rs232_tx <= SerialBlock:serialblock_inst.rs232_tx
 keys[0] => ~NO_FANOUT~
 keys[1] => ~NO_FANOUT~
 keys[2] => ~NO_FANOUT~
-keys[3] => ~NO_FANOUT~
+keys[3] => enable_write.DATAB
+keys[3] => memory_address.OUTPUTSELECT
+keys[3] => memory_address.OUTPUTSELECT
+keys[3] => memory_address.OUTPUTSELECT
+keys[3] => memory_address.OUTPUTSELECT
+keys[3] => controller_nstate.OUTPUTSELECT
+keys[3] => controller_nstate.OUTPUTSELECT
+keys[3] => controller_nstate.OUTPUTSELECT
+keys[3] => controller_nstate.OUTPUTSELECT
+keys[3] => controller_nstate.OUTPUTSELECT
+keys[3] => controller_nstate.OUTPUTSELECT
+keys[3] => controller_nstate.OUTPUTSELECT
+keys[3] => controller_nstate.OUTPUTSELECT
+keys[3] => controller_nstate.OUTPUTSELECT
+keys[3] => controller_nstate.OUTPUTSELECT
+keys[3] => controller_nstate.OUTPUTSELECT
+keys[3] => ccounter_enable.OUTPUTSELECT
 switch[0] => ~NO_FANOUT~
 switch[1] => ~NO_FANOUT~
 switch[2] => ~NO_FANOUT~
 switch[3] => ~NO_FANOUT~
-leds[0] << leds[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-leds[1] << leds[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-leds[2] << leds[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-leds[3] << leds[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[0] <= memory_address[0].DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= memory_address[1].DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= memory_address[2].DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= memory_address[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst
+|DummySerial|SerialBlock:serialblock_inst
 clock => SerialReader:serialreader_inst.clock
 clock => sender_enable.CLK
 clock => reader_enable.CLK
@@ -527,7 +341,7 @@ rs232_rx => my_uart_top:my_uart_top_inst.rs232_rx
 rs232_tx <= my_uart_top:my_uart_top_inst.rs232_tx
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|SerialReader:serialreader_inst
+|DummySerial|SerialBlock:serialblock_inst|SerialReader:serialreader_inst
 clock => c_state~11.DATAIN
 nreset => counter[2].IN1
 nreset => n_state.read_data.IN1
@@ -1166,7 +980,7 @@ reader_data_out[62] <= reader_data_out[62]$latch.DB_MAX_OUTPUT_PORT_TYPE
 reader_data_out[63] <= reader_data_out[63]$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|SerialSender:serialsender_inst
+|DummySerial|SerialBlock:serialblock_inst|SerialSender:serialsender_inst
 clock => PulseGenerator:pulsegenerator_inst.clock
 clock => c_state.CLK
 nreset => PulseGenerator:pulsegenerator_inst.nreset
@@ -1279,7 +1093,7 @@ sender_data_out[6] <= sender_data_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 sender_data_out[7] <= sender_data_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst
+|DummySerial|SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst
 clock => pulse_reset1.CLK
 clock => pulse_out~reg0.CLK
 clock => counter[0].CLK
@@ -1304,7 +1118,7 @@ pulse_reset => result_signal.IN1
 pulse_out <= pulse_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst
+|DummySerial|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst
 clock => speed_select:speed_rx.clk
 clock => speed_select:speed_tx.clk
 clock => my_uart_rx:receiver.clk
@@ -1335,7 +1149,7 @@ rs232_rx => my_uart_rx:receiver.rs232_rx
 rs232_tx <= my_uart_tx:transmitter.rs232_tx
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx
+|DummySerial|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx
 clk => clk_bps_r.CLK
 clk => cnt[0].CLK
 clk => cnt[1].CLK
@@ -1369,7 +1183,7 @@ bps_start => process_0.IN1
 clk_bps <= clk_bps_r.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_tx
+|DummySerial|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_tx
 clk => clk_bps_r.CLK
 clk => cnt[0].CLK
 clk => cnt[1].CLK
@@ -1403,7 +1217,7 @@ bps_start => process_0.IN1
 clk_bps <= clk_bps_r.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver
+|DummySerial|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver
 clk => rx_data_r[0].CLK
 clk => rx_data_r[1].CLK
 clk => rx_data_r[2].CLK
@@ -1498,7 +1312,7 @@ rx_data[7] <= rx_data_r[7].DB_MAX_OUTPUT_PORT_TYPE
 rx_int <= rx_int_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter
+|DummySerial|SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter
 clk => rs232_tx_r.CLK
 clk => num[0].CLK
 clk => num[1].CLK
@@ -1554,7 +1368,7 @@ clk_bps => rs232_tx_r.OUTPUTSELECT
 bps_start <= bps_start_r.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst
+|DummySerial|SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst
 clock_in => internal_clock.CLK
 clock_in => count[0].CLK
 clock_in => count[1].CLK
@@ -1590,7 +1404,7 @@ clock_in => count[30].CLK
 clock_out <= internal_clock.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SerialBlock:serialblock_inst|ClockDiv:rclockdiv_inst
+|DummySerial|SerialBlock:serialblock_inst|ClockDiv:rclockdiv_inst
 clock_in => internal_clock.CLK
 clock_in => count[0].CLK
 clock_in => count[1].CLK
@@ -1626,7 +1440,7 @@ clock_in => count[30].CLK
 clock_out <= internal_clock.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|XTEA:xteablock_inst
+|DummySerial|XTEA:xteablock_inst
 clock => counter[0].CLK
 clock => counter[1].CLK
 clock => counter[2].CLK
@@ -2029,7 +1843,7 @@ xtea_output[63] <= xtea_output[63]$latch.DB_MAX_OUTPUT_PORT_TYPE
 xtea_done <= xtea_done$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|SRAM:sram_inst
+|DummySerial|SRAM:sram_inst
 clock => memory_read[0]~reg0.CLK
 clock => memory_read[1]~reg0.CLK
 clock => memory_read[2]~reg0.CLK
@@ -7668,7 +7482,7 @@ memory_read[62] <= memory_read[62]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 memory_read[63] <= memory_read[63]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|PulseGenerator:spulse10clock_int
+|DummySerial|PulseGenerator:spulse10clock_int
 clock => pulse_reset1.CLK
 clock => pulse_out~reg0.CLK
 clock => counter[0].CLK
@@ -7693,32 +7507,7 @@ pulse_reset => result_signal.IN1
 pulse_out <= pulse_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DummyTopLevel|PulseGenerator:xpulse10clock_int
-clock => pulse_reset1.CLK
-clock => pulse_out~reg0.CLK
-clock => counter[0].CLK
-clock => counter[1].CLK
-clock => counter[2].CLK
-clock => counter[3].CLK
-nreset => pulse_out~reg0.ACLR
-nreset => counter[0].ACLR
-nreset => counter[1].ACLR
-nreset => counter[2].ACLR
-nreset => counter[3].ACLR
-nreset => pulse_reset1.ENA
-pulse_enable => pulse_reset1.OUTPUTSELECT
-pulse_enable => counter[3].ENA
-pulse_enable => counter[2].ENA
-pulse_enable => counter[1].ENA
-pulse_enable => counter[0].ENA
-pulse_enable => pulse_out~reg0.ENA
-pulse_reset => result_signal.IN1
-pulse_reset => pulse_reset1.DATAB
-pulse_reset => result_signal.IN1
-pulse_out <= pulse_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|DummyTopLevel|ClockCounter:clockcounter_inst
+|DummySerial|ClockCounter:clockcounter_inst
 clock => creset1.CLK
 clock => counter[0].CLK
 clock => counter[1].CLK

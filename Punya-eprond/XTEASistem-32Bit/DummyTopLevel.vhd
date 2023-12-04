@@ -175,7 +175,6 @@ architecture behavioral of DummyTopLevel is
         clock : in std_logic;
         nreset : in std_logic;
         enable : in std_logic;
-        leds : out std_logic_vector(3 downto 0);
 
         -- serial block port
         reader_running, sender_running : in std_logic;
@@ -549,6 +548,7 @@ begin
         end if;
     end process convert_toggle;
 
+    
     read_convert <= convert_signal;
     send_convert <= cont_send_convert and convert_signal;
     leds(0) <= not convert_signal;
@@ -558,7 +558,6 @@ begin
         clock                   => clock,
         nreset                  => nreset,
         enable                  => '1',
-        leds                    => leds,
         reader_running          => reader_running,
         sender_running          => sender_running,
         read_done               => read_done,
