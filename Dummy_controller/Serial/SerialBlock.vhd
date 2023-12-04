@@ -8,7 +8,8 @@ entity SerialBlock is
   port (
     clock          : in  std_logic;
     nreset         : in  std_logic;
-    serial_running : out std_logic;
+    reader_running : out std_logic;
+    sender_running : out std_logic;
     read_done      : out std_logic;
     send_done      : out std_logic;
     send_start     : in  std_logic;
@@ -160,8 +161,8 @@ begin
 
   checkoutpulse_inst: PulseGenerator
     generic map (
-      pulse_width => 10,
-      pulse_max   => 16
+      pulse_width => 5,
+      pulse_max   => 8
     )
     port map (
       clock        => clock,
@@ -183,7 +184,7 @@ begin
 
   error_out            <= internal_error;
   checkout_pulse_reset <= reader_data_checkout;
-  store_checkout       <= checkout_pulse when reader_done = '0' else '0';
+  store_checkout       <= checkout_pulse and not reader_done;
 
   checkout_pulse_checker: process (clock)
   begin
@@ -259,13 +260,15 @@ begin
 
       -- to check reader or sender is running
       if (reader_start = '1') then
-        serial_running <= '1';
-      elsif (sender_start = '1') then
-        serial_running <= '1';
+        reader_running <= '1';
       elsif (reader_done = '1') then
-        serial_running <= '0';
+        reader_running <= '0';
+      end if;
+
+      if (sender_start = '1') then
+        sender_running <= '1';
       elsif (sender_done = '1') then
-        serial_running <= '0';
+        sender_running <= '0';
       end if;
 
       -- to disable reader and sender if error

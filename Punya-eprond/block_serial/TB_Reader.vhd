@@ -9,19 +9,20 @@ end TB_Reader;
 architecture sim of TB_Reader is
     constant clock_frequency : natural := 50e6; -- 50 MHz
     constant clock_period : time := 1 sec / clock_frequency;
-    constant baud_rate : natural := 9600; -- 9600 bps
+    constant baud_rate : natural := 115200; -- 115200 bps
 
     constant data_length : natural := 64;
     constant address_length : natural := 10;
-    constant string_input : string := "-m 0 -d " & '"' & "itb! KAKI LU TUH BAU BANGETTTT!!! BIKIN GAK FOKUS KULIAH BAHKAN UJIAN!!! seenggaknya ganti kaos kaki tiap hari sama rajin cuci sepatu lah, masa space tiga bangku dari lu aja masih kecium bjir????????" & '"' & " -k pass";
+    constant string_input : string :=  "-m 0 -k password1234 -d Praktikum kali ini melibatkan berbagai percobaan terkait beberapa rangkaian sekuensial, yaitu sistem lampu merah serta sistem kalkulator dua fungsi. Terdapat empat percobaan yang berhasil dilakukan pada praktikum ini, yaitu percobaan pertama terkait desain sistem lampu merah berdasarkan spesifikasi, percobaan kedua terkait pengujian modul VGA, percobaan ketiga terkait penggabungan sistem lampu merah dengan modul VGA, serta percobaan keempat terkait desain sistem kalkulator penghitung FPB dan modulo dari dua angka. Hasil dari ketiga percobaan pertama membuktikan bahwa sistem lampu merah dengan tiga mode dapat diimplementasikan melalui FSM dengan jumlah state sebanyak 6 state. Sistem ini kemudian dapat digabungkan dengan modul VGA agar proses lampu merah dapat ditampilkan pada monitor LCD. Selain itu, percobaan terakhir membuktikan bahwa kalkulator pendekatan sekuensial dapat digunakan untuk melakukan perhitungan faktor persekutuan terbesar (FPB) serta modulo dari dua bilangan. Hasil desain FSM untuk kedua fungsi ini memiliki jumlah state sebanyak 7 state untuk perhitungan FPB dan sebanyak 5 state untuk perhitungan modulo. Pengujian melalui berbagai variasi input juga menunjukkan bahwa sistem ini dapat memerlukan waktu yang berbeda-beda untuk mendapatkan hasil perhitungan. Kecepatan perhitungan untuk kedua fungsi ini didasarkan kepada jumlah pengurangan yang harus dilakukan sistem. Jika sistem melibatkan dua bilangan yang perbedaannya sangat besar, sistem akan memerlukan waktu yang lama karena perlu dilakukan pengurangan satu per satu. Sedangkan, jika perbedaan kedua bilangan hanya melibatkan satu pengurangan, hasil perhitungan sistem akan lebih cepat didapatkan. Alhasil, seluruh percobaan pada praktikum ini membuktikan bahwa rangkaian sekuensial dapat digunakan untuk memodelkan berbagai sistem yang sering ditemukan, seperti sistem lampu merah serta kalkulator sekuensial.";
 
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
     signal error_out : std_logic_vector(1 downto 0) := (others => '0');
 
-    signal serial_running, send_done, read_done : std_logic;
-    signal store_address : std_logic_vector((address_length - 1 ) downto 0);
+    signal reader_running, sender_running, send_done, read_done : std_logic;
     signal store_data : std_logic_vector((data_length - 1) downto 0);
+    signal store_datatype : std_logic_vector(1 downto 0);
+    signal store_checkout : std_logic;
     signal send_data : std_logic_vector((data_length - 1) downto 0);
     signal send_start : std_logic;
 
@@ -55,27 +56,30 @@ architecture sim of TB_Reader is
 begin
     serialblock_inst: entity work.SerialBlock
     generic map (
-      data_length    => data_length,
-      address_length => address_length
+        data_length    => data_length,
+        address_length => address_length
     )
     port map (
-      clock          => clock,
-      nreset         => nreset,
-      serial_running => serial_running,
-      read_done      => read_done,
-      send_done      => send_done,
-      send_start     => send_start,
-      error_out      => error_out,
-      send_data      => send_data,
-      store_address  => store_address,
-      store_data     => store_data,
-      rs232_rx       => rs232_rx,
-      rs232_tx       => rs232_tx
-    );
+        clock          => clock,
+        nreset         => nreset,
+        reader_running => reader_running,
+        sender_running => sender_running,
+        read_done      => read_done,
+        send_done      => send_done,
+        send_convert    => '0',
+        send_start     => send_start,
+        error_out      => error_out,
+        send_data      => send_data,
+        store_data     => store_data,
+        store_datatype => store_datatype,
+        store_checkout => store_checkout,
+        rs232_rx       => rs232_rx,
+        rs232_tx       => rs232_tx
+    );  
 
     clockdiv_inst: ClockDiv
     generic map (
-      div_frequency   => baud_rate,
+      div_frequency   => 2*baud_rate,
       clock_frequency => clock_frequency
     )
     port map (
@@ -92,20 +96,20 @@ begin
         variable bit10_v : std_logic_vector(9 downto 0);
     begin
         nreset <= '0';
-        wait for 5*clock_period;
+        wait for 2*clock_period;
         nreset <= '1';
-        wait for 100*clock_period;
+        wait for 0.5 sec/baud_rate;
 
         for char in uart_vector'length/10 downto 1 loop
             bit10_v := uart_vector(10*char - 1 downto 10*char - 10);
             for num in 9 downto 0 loop
-            if (num /= 9 and num /= 0) then
-                uart_tx <= bit10_v(9-num);
-            else
-                uart_tx <= bit10_v(num);
-            end if;
-            counter  <= counter + 1;
-            wait until bps_clock'event;
+                if (num /= 9 and num /= 0) then
+                    uart_tx <= bit10_v(9-num);
+                else
+                    uart_tx <= bit10_v(num);
+                end if;
+                counter  <= counter + 1;
+                wait until rising_edge(bps_clock);
             end loop;
         end loop;
 

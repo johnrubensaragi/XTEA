@@ -23,12 +23,9 @@ architecture sim of Tester is
     signal clock : std_logic := '0';
     signal nreset : std_logic := '1';
 
-    signal var_a : std_logic_vector(7 downto 0);
-    signal var_b : std_logic_vector(7 downto 0);
-    signal var_c : std_logic_vector(7 downto 0);
-    
-    signal counter : natural range 0 to 63 := 0;
-    signal ccounter_reset : std_logic := '0';
+    signal trigger_shift, max_shift : std_logic := '0';
+    signal data_in : std_logic_vector(3 downto 0);
+    signal data_out : std_logic_vector(63 downto 0);
 
     function to_rs232(str : string) return std_logic_vector is
         alias str_norm : string(str'length downto 1) is str;
@@ -42,18 +39,17 @@ architecture sim of Tester is
     end function;
 
 begin
-    clockcounter_inst: entity work.ClockCounter
+    custom64bitshifter_inst: entity work.Custom64BitShifter
     generic map (
-      count_max => 64
+      data_size => 4
     )
     port map (
-      clock  => clock,
-      nreset => nreset,
-      enable => '1',
-      creset => ccounter_reset,
-      count  => counter
+      clock         => clock,
+      trigger_shift => trigger_shift,
+      max_shift     => max_shift,
+      data_in       => data_in,
+      data_out      => data_out
     );
-
     clock <= not clock after clock_period/2;
 
     process
@@ -63,10 +59,106 @@ begin
       nreset <= '1';
       wait for 10*clock_period;
 
-      ccounter_reset <= not ccounter_reset;
-      wait for 15*clock_period;
-      ccounter_reset <= not ccounter_reset;
-      wait for 10*clock_period;
+      data_in <= x"B";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"A";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"4";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"1";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      max_shift <= '1';
+      wait for 5*clock_period;
+      max_shift <= '0';
+
+      data_in <= x"B";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"A";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"4";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"1";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      data_in <= x"B";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"A";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"4";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"1";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"B";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"A";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"4";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      data_in <= x"1";
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+      trigger_shift <= not trigger_shift;
+      wait for 20*clock_period;
+
+      max_shift <= '1';
 
       wait;
     end process;
