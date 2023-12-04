@@ -32,6 +32,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "keys[0]",
+					"strict" : false
+				},
+				{
 					"name" : "rs232_rx",
 					"strict" : false
 				}

@@ -551,6 +551,7 @@ begin
 
     read_convert <= convert_signal;
     send_convert <= cont_send_convert and convert_signal;
+    leds(0) <= not convert_signal;
 
     controller_inst: Controller
     port map (

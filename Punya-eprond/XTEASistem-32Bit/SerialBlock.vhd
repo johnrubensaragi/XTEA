@@ -100,6 +100,7 @@ architecture behavioral of SerialBlock is
     signal reader_data_out : std_logic_vector((data_length-1) downto 0);
     signal reader_data_type : std_logic_vector(1 downto 0);
     signal reader_data_checkout : std_logic;
+    signal checkout_buffer : std_logic;
 
     -- sender signals
     signal uart_send : std_logic_vector(7 downto 0);
@@ -169,14 +170,23 @@ begin
       pulse_out    => read_done
     );
 
-    store_checkout <= reader_data_checkout;
-    store_datatype <= reader_data_type when reader_data_checkout = '1' else "ZZ";
-    store_data <= reader_data_out;
+    store_checkout <= checkout_buffer;
 
     reader_start <= reader_trigger and not reader_finish;
 
     send_done <= sender_done;
     sender_start <= send_start;
+
+    checkout_checker : process(clock)
+    begin
+        if rising_edge(clock) then
+            checkout_buffer <= store_checkout;
+            if (store_checkout = '1') then
+                store_data <= reader_data_out;
+                store_datatype <= reader_data_type;
+            end if;
+        end if;
+    end process checkout_checker;
 
     pulse_signals : process(clock)
     begin

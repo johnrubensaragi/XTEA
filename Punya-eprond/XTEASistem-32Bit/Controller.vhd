@@ -9,7 +9,6 @@ entity Controller is
     clock : in std_logic;
     nreset : in std_logic;
     enable : in std_logic;
-    leds : out std_logic_vector(3 downto 0);
 
     -- serial block port
     reader_running, sender_running : in std_logic;
@@ -106,13 +105,6 @@ begin
         constant error_text3 : string := "Error type 3: System is still busy     " & LF;
     begin
         if rising_edge(clock) and (enable = '1') then
-
-        if (controller_cstate = idle) then leds <= "1110";
-        elsif (controller_cstate = reading_serial) then leds <= "1101";
-        elsif (controller_cstate = processing_xtea) then leds <= "1011";
-        elsif (controller_cstate = sending_results) then leds <= "0111";
-        else leds <= "1111";
-        end if;
 
         case controller_cstate is
         when idle =>

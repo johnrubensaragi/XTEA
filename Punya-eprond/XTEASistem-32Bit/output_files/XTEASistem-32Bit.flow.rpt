@@ -1,5 +1,5 @@
 Flow report for XTEASistem-32Bit
-Sun Dec  3 11:55:06 2023
+Mon Dec  4 18:37:15 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Sun Dec  3 11:55:00 2023          ;
+; Flow Status                        ; Successful - Mon Dec  4 18:37:09 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; XTEASistem-32Bit                               ;
 ; Top-level Entity Name              ; DummyTopLevel                                  ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE6E22C8                                    ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 2,320 / 6,272 ( 37 % )                         ;
-;     Total combinational functions  ; 2,108 / 6,272 ( 34 % )                         ;
-;     Dedicated logic registers      ; 1,042 / 6,272 ( 17 % )                         ;
-; Total registers                    ; 1042                                           ;
+; Total logic elements               ; 2,255 / 6,272 ( 36 % )                         ;
+;     Total combinational functions  ; 2,038 / 6,272 ( 32 % )                         ;
+;     Dedicated logic registers      ; 1,047 / 6,272 ( 17 % )                         ;
+; Total registers                    ; 1047                                           ;
 ; Total pins                         ; 16 / 92 ( 17 % )                               ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 65,536 / 276,480 ( 24 % )                      ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/03/2023 11:54:11 ;
+; Start date & time ; 12/04/2023 18:36:23 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; XTEASistem-32Bit    ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+----------------------------------------+------------------+---------------+-----------------------------------+
 ; Assignment Name                              ; Value                                  ; Default Value    ; Entity Name   ; Section Id                        ;
 +----------------------------------------------+----------------------------------------+------------------+---------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                        ; 1096959182856.170157925120428          ; --               ; --            ; --                                ;
+; COMPILER_SIGNATURE_ID                        ; 1096959182856.170168978220736          ; --               ; --            ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST              ; Off                                    ; --               ; --            ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST              ; Off                                    ; --               ; --            ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST              ; Off                                    ; --               ; --            ; eda_board_design_signal_integrity ;
@@ -102,11 +102,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:28     ; 1.0                     ; 4863 MB             ; 00:00:30                           ;
-; Fitter               ; 00:00:15     ; 1.2                     ; 6178 MB             ; 00:00:14                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4724 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:04     ; 1.6                     ; 4884 MB             ; 00:00:04                           ;
-; Total                ; 00:00:48     ; --                      ; --                  ; 00:00:49                           ;
+; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 4870 MB             ; 00:00:15                           ;
+; Fitter               ; 00:00:19     ; 1.2                     ; 6169 MB             ; 00:00:14                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4704 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.6                     ; 4884 MB             ; 00:00:04                           ;
+; Total                ; 00:00:46     ; --                      ; --                  ; 00:00:34                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
