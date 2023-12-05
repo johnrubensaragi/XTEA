@@ -1,6 +1,10 @@
 Assembler report for XTEASistem-32Bit
 <<<<<<< HEAD
+<<<<<<< HEAD
 Tue Dec  5 16:40:31 2023
+=======
+Tue Dec  5 17:40:39 2023
+>>>>>>> f5a5637726a268f104b471a3810454f63f64fd78
 =======
 Tue Dec  5 17:17:49 2023
 >>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
@@ -47,7 +51,11 @@ https://fpgasoftware.intel.com/eula.
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
 <<<<<<< HEAD
+<<<<<<< HEAD
 ; Assembler Status      ; Successful - Tue Dec  5 16:40:31 2023 ;
+=======
+; Assembler Status      ; Successful - Tue Dec  5 17:40:39 2023 ;
+>>>>>>> f5a5637726a268f104b471a3810454f63f64fd78
 =======
 ; Assembler Status      ; Successful - Tue Dec  5 17:17:49 2023 ;
 >>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
@@ -93,6 +101,16 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------------------------------------------------------+
 
 
+<<<<<<< HEAD
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/XTEASistem-32Bit.sof ;
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                                                                 ;
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x00208E59                                                                                                                                                              ;
+; Checksum       ; 0x00208E59                                                                                                                                                              ;
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+=======
 +----------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Assembler Device Options: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/XTEASistem-32Bit.sof ;
 +----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
@@ -111,7 +129,11 @@ Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 <<<<<<< HEAD
+<<<<<<< HEAD
     Info: Processing started: Tue Dec  5 16:40:30 2023
+=======
+    Info: Processing started: Tue Dec  5 17:40:37 2023
+>>>>>>> f5a5637726a268f104b471a3810454f63f64fd78
 =======
     Info: Processing started: Tue Dec  5 17:17:48 2023
 >>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
@@ -121,9 +143,15 @@ Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
 <<<<<<< HEAD
+<<<<<<< HEAD
     Info: Peak virtual memory: 4706 megabytes
     Info: Processing ended: Tue Dec  5 16:40:31 2023
     Info: Elapsed time: 00:00:01
+=======
+    Info: Peak virtual memory: 4705 megabytes
+    Info: Processing ended: Tue Dec  5 17:40:39 2023
+    Info: Elapsed time: 00:00:02
+>>>>>>> f5a5637726a268f104b471a3810454f63f64fd78
     Info: Total CPU time (on all processors): 00:00:01
 =======
     Info: Peak virtual memory: 4704 megabytes

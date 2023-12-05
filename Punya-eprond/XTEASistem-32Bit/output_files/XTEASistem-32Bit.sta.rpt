@@ -1,6 +1,10 @@
 Timing Analyzer report for XTEASistem-32Bit
 <<<<<<< HEAD
+<<<<<<< HEAD
 Tue Dec  5 16:40:35 2023
+=======
+Tue Dec  5 17:40:45 2023
+>>>>>>> f5a5637726a268f104b471a3810454f63f64fd78
 =======
 Tue Dec  5 17:17:52 2023
 >>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
@@ -108,6 +112,14 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
+<<<<<<< HEAD
+; Average used               ; 1.64        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-12        ;   5.8%      ;
+=======
 ; Average used               ; 1.50        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
@@ -124,7 +136,11 @@ https://fpgasoftware.intel.com/eula.
 ; SDC File Path        ; Status ; Read at                  ;
 +----------------------+--------+--------------------------+
 <<<<<<< HEAD
+<<<<<<< HEAD
 ; XTEASistem-32Bit.sdc ; OK     ; Tue Dec  5 16:40:33 2023 ;
+=======
+; XTEASistem-32Bit.sdc ; OK     ; Tue Dec  5 17:40:43 2023 ;
+>>>>>>> f5a5637726a268f104b471a3810454f63f64fd78
 =======
 ; XTEASistem-32Bit.sdc ; OK     ; Tue Dec  5 17:17:51 2023 ;
 >>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
@@ -384,9 +400,15 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 4     ; 4    ;
 ; Unconstrained Input Ports       ; 2     ; 2    ;
+<<<<<<< HEAD
+; Unconstrained Input Port Paths  ; 507   ; 507  ;
+; Unconstrained Output Ports      ; 3     ; 3    ;
+; Unconstrained Output Port Paths ; 4     ; 4    ;
+=======
 ; Unconstrained Input Port Paths  ; 356   ; 356  ;
 ; Unconstrained Output Ports      ; 2     ; 2    ;
 ; Unconstrained Output Port Paths ; 2     ; 2    ;
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 +---------------------------------+-------+------+
 
 
@@ -419,6 +441,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Output Port ; Comment                                                                               ;
 +-------------+---------------------------------------------------------------------------------------+
 ; leds[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+<<<<<<< HEAD
+; leds[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+=======
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 ; rs232_tx    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-------------+---------------------------------------------------------------------------------------+
 
@@ -439,6 +465,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Output Port ; Comment                                                                               ;
 +-------------+---------------------------------------------------------------------------------------+
 ; leds[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+<<<<<<< HEAD
+; leds[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+=======
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 ; rs232_tx    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-------------+---------------------------------------------------------------------------------------+
 
@@ -450,13 +480,18 @@ Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 <<<<<<< HEAD
+<<<<<<< HEAD
     Info: Processing started: Tue Dec  5 16:40:32 2023
 Info: Command: quartus_sta XTEASistem-32Bit -c XTEASistem-32Bit
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 =======
+    Info: Processing started: Tue Dec  5 17:40:41 2023
+>>>>>>> f5a5637726a268f104b471a3810454f63f64fd78
+=======
     Info: Processing started: Tue Dec  5 17:17:50 2023
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Info: Command: quartus_sta XTEASistem-32Bit -c XTEASistem-32Bit
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -469,7 +504,11 @@ Info (332151): Clock uncertainty is not calculated until you update the timing n
 Warning (332060): Node: clock was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register MemoryBlock:memoryblock_inst|SRAM:sram20_inst|altsyncram:ram_rtl_0|altsyncram_rd81:auto_generated|ram_block1a0~porta_we_reg is being clocked by clock
 Warning (332060): Node: SerialBlock:serialblock_inst|reader_trigger was determined to be a clock but was found without an associated clock assignment.
+<<<<<<< HEAD
+    Info (13166): Register SerialBlock:serialblock_inst|SerialReader:serialreader_inst|checkout_pulse_enable is being clocked by SerialBlock:serialblock_inst|reader_trigger
+=======
     Info (13166): Register SerialBlock:serialblock_inst|SerialReader:serialreader_inst|error_format is being clocked by SerialBlock:serialblock_inst|reader_trigger
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Warning (332060): Node: keys[0] was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register convert_signal is being clocked by keys[0]
 Warning (332060): Node: SerialBlock:serialblock_inst|sender_trigger was determined to be a clock but was found without an associated clock assignment.
@@ -490,7 +529,11 @@ Info (334004): Delay annotation completed successfully
 Warning (332060): Node: clock was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register MemoryBlock:memoryblock_inst|SRAM:sram20_inst|altsyncram:ram_rtl_0|altsyncram_rd81:auto_generated|ram_block1a0~porta_we_reg is being clocked by clock
 Warning (332060): Node: SerialBlock:serialblock_inst|reader_trigger was determined to be a clock but was found without an associated clock assignment.
+<<<<<<< HEAD
+    Info (13166): Register SerialBlock:serialblock_inst|SerialReader:serialreader_inst|checkout_pulse_enable is being clocked by SerialBlock:serialblock_inst|reader_trigger
+=======
     Info (13166): Register SerialBlock:serialblock_inst|SerialReader:serialreader_inst|error_format is being clocked by SerialBlock:serialblock_inst|reader_trigger
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Warning (332060): Node: keys[0] was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register convert_signal is being clocked by keys[0]
 Warning (332060): Node: SerialBlock:serialblock_inst|sender_trigger was determined to be a clock but was found without an associated clock assignment.
@@ -507,7 +550,11 @@ Info: Analyzing Fast 1200mV 0C Model
 Warning (332060): Node: clock was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register MemoryBlock:memoryblock_inst|SRAM:sram20_inst|altsyncram:ram_rtl_0|altsyncram_rd81:auto_generated|ram_block1a0~porta_we_reg is being clocked by clock
 Warning (332060): Node: SerialBlock:serialblock_inst|reader_trigger was determined to be a clock but was found without an associated clock assignment.
+<<<<<<< HEAD
+    Info (13166): Register SerialBlock:serialblock_inst|SerialReader:serialreader_inst|checkout_pulse_enable is being clocked by SerialBlock:serialblock_inst|reader_trigger
+=======
     Info (13166): Register SerialBlock:serialblock_inst|SerialReader:serialreader_inst|error_format is being clocked by SerialBlock:serialblock_inst|reader_trigger
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Warning (332060): Node: keys[0] was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register convert_signal is being clocked by keys[0]
 Warning (332060): Node: SerialBlock:serialblock_inst|sender_trigger was determined to be a clock but was found without an associated clock assignment.
@@ -523,14 +570,22 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 16 warnings
 <<<<<<< HEAD
+<<<<<<< HEAD
     Info: Peak virtual memory: 4777 megabytes
     Info: Processing ended: Tue Dec  5 16:40:35 2023
     Info: Elapsed time: 00:00:03
+=======
+    Info: Peak virtual memory: 4882 megabytes
+    Info: Processing ended: Tue Dec  5 17:40:45 2023
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
+>>>>>>> f5a5637726a268f104b471a3810454f63f64fd78
 =======
     Info: Peak virtual memory: 4953 megabytes
     Info: Processing ended: Tue Dec  5 17:17:52 2023
     Info: Elapsed time: 00:00:02
 >>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
     Info: Total CPU time (on all processors): 00:00:01
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 
 

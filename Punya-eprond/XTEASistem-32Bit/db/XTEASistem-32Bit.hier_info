@@ -268,6 +268,7 @@ clock => Reg:leftkey_reg.clock
 clock => Reg:rightkey_reg.clock
 clock => Reg:fullmode_reg.clock
 clock => Reg:dataxtea_reg.clock
+clock => ClockDiv:clockdiv_inst.clock_in
 clock => Controller:controller_inst.clock
 nreset => SerialBlock:serialblock_inst.nreset
 nreset => XTEA:xteablock_inst.nreset
@@ -292,10 +293,17 @@ switch[0] => ~NO_FANOUT~
 switch[1] => ~NO_FANOUT~
 switch[2] => ~NO_FANOUT~
 switch[3] => ~NO_FANOUT~
+<<<<<<< HEAD
+leds[0] <= convert_signal.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= <VCC>
+leds[3] <= <VCC>
+=======
 leds[0] << convert_signal.DB_MAX_OUTPUT_PORT_TYPE
 leds[1] << <GND>
 leds[2] << <GND>
 leds[3] << <GND>
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 
 
 |DummyTopLevel|SerialBlock:serialblock_inst
@@ -7209,6 +7217,42 @@ memory_read[30] <= temp_data[30].DB_MAX_OUTPUT_PORT_TYPE
 memory_read[31] <= temp_data[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
+|DummyTopLevel|ClockDiv:clockdiv_inst
+clock_in => internal_clock.CLK
+clock_in => count[0].CLK
+clock_in => count[1].CLK
+clock_in => count[2].CLK
+clock_in => count[3].CLK
+clock_in => count[4].CLK
+clock_in => count[5].CLK
+clock_in => count[6].CLK
+clock_in => count[7].CLK
+clock_in => count[8].CLK
+clock_in => count[9].CLK
+clock_in => count[10].CLK
+clock_in => count[11].CLK
+clock_in => count[12].CLK
+clock_in => count[13].CLK
+clock_in => count[14].CLK
+clock_in => count[15].CLK
+clock_in => count[16].CLK
+clock_in => count[17].CLK
+clock_in => count[18].CLK
+clock_in => count[19].CLK
+clock_in => count[20].CLK
+clock_in => count[21].CLK
+clock_in => count[22].CLK
+clock_in => count[23].CLK
+clock_in => count[24].CLK
+clock_in => count[25].CLK
+clock_in => count[26].CLK
+clock_in => count[27].CLK
+clock_in => count[28].CLK
+clock_in => count[29].CLK
+clock_in => count[30].CLK
+clock_out <= internal_clock.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |DummyTopLevel|Controller:controller_inst
 clock => xtea_done_buffer.CLK
 clock => dataxtea_enable~reg0.CLK
@@ -7248,10 +7292,6 @@ clock => i_countup_trigger.CLK
 clock => i_ccounter_reset.CLK
 clock => xtea_pulse_enable~reg0.CLK
 clock => sender_pulse_enable~reg0.CLK
-clock => leds[0]~reg0.CLK
-clock => leds[1]~reg0.CLK
-clock => leds[2]~reg0.CLK
-clock => leds[3]~reg0.CLK
 clock => controller_nstate~10.DATAIN
 clock => controller_cstate~1.DATAIN
 nreset => controller_cstate~3.DATAIN
@@ -7302,14 +7342,6 @@ enable => i_countup_trigger.ENA
 enable => i_ccounter_reset.ENA
 enable => xtea_pulse_enable~reg0.ENA
 enable => sender_pulse_enable~reg0.ENA
-enable => leds[0]~reg0.ENA
-enable => leds[1]~reg0.ENA
-enable => leds[2]~reg0.ENA
-enable => leds[3]~reg0.ENA
-leds[0] <= leds[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-leds[1] <= leds[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-leds[2] <= leds[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-leds[3] <= leds[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 reader_running => controller_nstate.DATAB
 reader_running => controller_nstate.DATAB
 sender_running => ~NO_FANOUT~
@@ -7328,9 +7360,8 @@ force_enable <= force_enable~reg0.DB_MAX_OUTPUT_PORT_TYPE
 force_address[0] <= force_address[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 force_address[1] <= force_address[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 address_atmax => controller_nstate.DATAB
+address_atmax => controller_nstate.DATAB
 address_atmax => i_countup_trigger.OUTPUTSELECT
-address_atmax => controller_nstate.OUTPUTSELECT
-address_atmax => controller_nstate.OUTPUTSELECT
 address_atmax => force_enable.OUTPUTSELECT
 address_atmax => force_address.OUTPUTSELECT
 address_atmax => force_address.OUTPUTSELECT
@@ -7395,7 +7426,6 @@ error_storage => max_textrom_index.OUTPUTSELECT
 error_storage => max_textrom_index.OUTPUTSELECT
 error_storage => fsm_controller.IN1
 error_busy <= <GND>
-convert_signal => controller_nstate.DATAA
-convert_signal => controller_nstate.DATAA
+convert_signal => ~NO_FANOUT~
 
 
