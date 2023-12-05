@@ -1,3 +1,4 @@
+vcom -work work C:/School/Kuliah/ITB/Matkul/Sisdig/Tubes/XTEA/Dummy_controller/top.vhd
 add wave -position insertpoint  \
 sim:/tb_dummytoplevel/dummytoplevel_inst/clk
 add wave -position insertpoint  \

@@ -1,5 +1,9 @@
 Timing Analyzer report for XTEASistem-32Bit
+<<<<<<< HEAD
 Tue Dec  5 16:40:35 2023
+=======
+Tue Dec  5 17:17:52 2023
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -90,6 +94,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
+<<<<<<< HEAD
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
@@ -99,6 +104,17 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   8.7%      ;
+=======
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.50        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   3.3%      ;
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 +----------------------------+-------------+
 
 
@@ -107,7 +123,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------+--------------------------+
 ; SDC File Path        ; Status ; Read at                  ;
 +----------------------+--------+--------------------------+
+<<<<<<< HEAD
 ; XTEASistem-32Bit.sdc ; OK     ; Tue Dec  5 16:40:33 2023 ;
+=======
+; XTEASistem-32Bit.sdc ; OK     ; Tue Dec  5 17:17:51 2023 ;
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 +----------------------+--------+--------------------------+
 
 
@@ -429,11 +449,19 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+<<<<<<< HEAD
     Info: Processing started: Tue Dec  5 16:40:32 2023
 Info: Command: quartus_sta XTEASistem-32Bit -c XTEASistem-32Bit
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+=======
+    Info: Processing started: Tue Dec  5 17:17:50 2023
+Info: Command: quartus_sta XTEASistem-32Bit -c XTEASistem-32Bit
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Info (332104): Reading SDC File: 'XTEASistem-32Bit.sdc'
@@ -494,9 +522,15 @@ Info (332140): No Minimum Pulse Width paths to report
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 16 warnings
+<<<<<<< HEAD
     Info: Peak virtual memory: 4777 megabytes
     Info: Processing ended: Tue Dec  5 16:40:35 2023
     Info: Elapsed time: 00:00:03
+=======
+    Info: Peak virtual memory: 4953 megabytes
+    Info: Processing ended: Tue Dec  5 17:17:52 2023
+    Info: Elapsed time: 00:00:02
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
     Info: Total CPU time (on all processors): 00:00:01
 
 

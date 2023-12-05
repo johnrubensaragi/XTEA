@@ -71,7 +71,7 @@ begin
         address_reset <= '0';
         dataIn_mux <= '0';
         update_last_address <= '0';
-        if (enable = '1') and (store_checkout = '1') then
+        if (enable = '1') and (reader_running = '1') and (store_checkout = '1') then
           next_state <= PrepareReceive;
         else
           next_state <= Idle;
@@ -311,18 +311,13 @@ begin
         enable_read <= '1';
         enable_write <= '0';
         xtea_start <= '0';
-        sender_start <= '0';
+        sender_start <= '1';
         address_reset <= '0';
         dataIn_mux <= '1';
         update_last_address <= '0';
         if (address /= last_address) then
-          if sender_done = '0' then
-            next_state <= Sending;
-            address_countup <= '0';
-          else
-            next_state <= SendToSerial;
-            address_countup <= '0';
-          end if;
+          next_state <= sending;
+          address_countup <= '0';
         else
           next_state <= Idle;
           address_countup <= '0';

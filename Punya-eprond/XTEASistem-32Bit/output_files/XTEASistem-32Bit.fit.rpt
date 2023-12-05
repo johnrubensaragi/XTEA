@@ -1,5 +1,9 @@
 Fitter report for XTEASistem-32Bit
+<<<<<<< HEAD
 Tue Dec  5 16:40:27 2023
+=======
+Tue Dec  5 17:17:45 2023
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -67,7 +71,11 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
+<<<<<<< HEAD
 ; Fitter Status                      ; Successful - Tue Dec  5 16:40:27 2023          ;
+=======
+; Fitter Status                      ; Successful - Tue Dec  5 17:17:45 2023          ;
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; XTEASistem-32Bit                               ;
 ; Top-level Entity Name              ; DummyTopLevel                                  ;
@@ -151,6 +159,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
+<<<<<<< HEAD
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
@@ -160,6 +169,24 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   4.3%      ;
+=======
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.20        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   1.4%      ;
+;     Processor 3            ;   1.4%      ;
+;     Processor 4            ;   1.3%      ;
+;     Processor 5            ;   1.3%      ;
+;     Processor 6            ;   1.3%      ;
+;     Processor 7            ;   1.3%      ;
+;     Processor 8            ;   1.3%      ;
+;     Processors 9-16        ;   1.3%      ;
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 +----------------------------+-------------+
 
 
@@ -201,7 +228,11 @@ https://fpgasoftware.intel.com/eula.
 +--------------+
 ; Pin-Out File ;
 +--------------+
+<<<<<<< HEAD
 The pin-out file can be found in C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/XTEASistem-32Bit.pin.
+=======
+The pin-out file can be found in C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/XTEASistem-32Bit.pin.
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 
 
 +-------------------------------------------------------------------------+
@@ -1108,7 +1139,11 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+<<<<<<< HEAD
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+=======
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Info (119006): Selected device EP4CE6E22C8 for design "XTEASistem-32Bit"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -1144,6 +1179,7 @@ Info (332111): Found 1 clocks
     Info (332111):   Period   Clock Name
     Info (332111): ======== ============
     Info (332111):   20.000        clock
+<<<<<<< HEAD
 Info (176353): Automatically promoted node clock~input (placed in PIN 23 (CLK1, DIFFCLK_0n)) File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 8
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G2
 Info (176353): Automatically promoted node SerialBlock:serialblock_inst|reader_trigger  File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd Line: 94
@@ -1172,6 +1208,36 @@ Info (176353): Automatically promoted node AddressCounter:addresscounter_inst|te
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node AddressCounter:addresscounter_inst|error_storage~1 File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd Line: 15
+=======
+Info (176353): Automatically promoted node clock~input (placed in PIN 23 (CLK1, DIFFCLK_0n)) File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 8
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G2
+Info (176353): Automatically promoted node SerialBlock:serialblock_inst|reader_trigger  File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd Line: 94
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
+        Info (176357): Destination node SerialBlock:serialblock_inst|reader_running~0 File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd Line: 11
+Info (176353): Automatically promoted node SerialBlock:serialblock_inst|sender_trigger  File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd Line: 108
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
+        Info (176357): Destination node SerialBlock:serialblock_inst|SerialSender:serialsender_inst|temp_done~1 File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialSender.vhd Line: 141
+Info (176353): Automatically promoted node nreset~input (placed in PIN 25 (CLK3, DIFFCLK_1n)) File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 9
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G0
+    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
+        Info (176357): Destination node AddressCounter:addresscounter_inst|temp_address[9]~0 File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd Line: 28
+        Info (176357): Destination node AddressCounter:addresscounter_inst|trigger_buffer~0 File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd Line: 21
+        Info (176357): Destination node SerialBlock:serialblock_inst|SerialReader:serialreader_inst|n_state.start File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 99
+        Info (176357): Destination node SerialBlock:serialblock_inst|SerialReader:serialreader_inst|n_state.read_kw File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 99
+        Info (176357): Destination node SerialBlock:serialblock_inst|SerialReader:serialreader_inst|n_state.idle File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 99
+        Info (176357): Destination node SerialBlock:serialblock_inst|SerialReader:serialreader_inst|done_mode~0 File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 103
+        Info (176357): Destination node ClockCounter:clockcounter_inst|creset1 File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/ClockCounter.vhd Line: 19
+        Info (176357): Destination node XTEA:xteablock_inst|xtea_cstate~12 File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/XTEA.vhd Line: 29
+        Info (176357): Destination node XTEA:xteablock_inst|counter[1]~9 File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/XTEA.vhd Line: 64
+        Info (176357): Destination node XTEA:xteablock_inst|counter[1]~10 File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/XTEA.vhd Line: 64
+        Info (176358): Non-global destination nodes limited to 10 nodes
+Info (176353): Automatically promoted node AddressCounter:addresscounter_inst|temp_address[9]~0  File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd Line: 28
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
+        Info (176357): Destination node AddressCounter:addresscounter_inst|error_storage~1 File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd Line: 15
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
@@ -1188,7 +1254,11 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 3 total pin(s) used --  7 pins available
         Info (176213): I/O bank number 7 does not use VREF pins and has 2.5V VCCIO pins. 2 total pin(s) used --  11 pins available
         Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  12 pins available
+<<<<<<< HEAD
 Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+=======
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -1201,12 +1271,18 @@ Info (170195): Router estimated average interconnect usage is 5% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
+<<<<<<< HEAD
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
 Info (11888): Total time spent on timing analysis during the Fitter is 0.10 seconds.
+=======
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
+Info (11888): Total time spent on timing analysis during the Fitter is 0.13 seconds.
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
+<<<<<<< HEAD
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Info (144001): Generated suppressed messages file C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/XTEASistem-32Bit.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 9 warnings
@@ -1214,11 +1290,24 @@ Info: Quartus Prime Fitter was successful. 0 errors, 9 warnings
     Info: Processing ended: Tue Dec  5 16:40:28 2023
     Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:04
+=======
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (144001): Generated suppressed messages file C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/XTEASistem-32Bit.fit.smsg
+Info: Quartus Prime Fitter was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 6516 megabytes
+    Info: Processing ended: Tue Dec  5 17:17:46 2023
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:03
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
+<<<<<<< HEAD
 The suppressed messages can be found in C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/XTEASistem-32Bit.fit.smsg.
+=======
+The suppressed messages can be found in C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/XTEASistem-32Bit.fit.smsg.
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 
 

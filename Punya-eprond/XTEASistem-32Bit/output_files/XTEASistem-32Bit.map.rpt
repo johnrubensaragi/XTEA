@@ -1,5 +1,9 @@
 Analysis & Synthesis report for XTEASistem-32Bit
+<<<<<<< HEAD
 Tue Dec  5 16:40:17 2023
+=======
+Tue Dec  5 17:17:35 2023
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -164,7 +168,11 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
+<<<<<<< HEAD
 ; Analysis & Synthesis Status        ; Successful - Tue Dec  5 16:40:17 2023          ;
+=======
+; Analysis & Synthesis Status        ; Successful - Tue Dec  5 17:17:35 2023          ;
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; XTEASistem-32Bit                               ;
 ; Top-level Entity Name              ; DummyTopLevel                                  ;
@@ -274,8 +282,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
+<<<<<<< HEAD
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
+=======
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 2           ;
@@ -286,6 +299,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
+<<<<<<< HEAD
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Source Files Read                                                                                                                                              ;
 +----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
@@ -324,6 +338,46 @@ https://fpgasoftware.intel.com/eula.
 ; altdpram.inc                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altdpram.inc                ;         ;
 ; db/altsyncram_rd81.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/db/altsyncram_rd81.tdf ;         ;
 +----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
+=======
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                            ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                        ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
+; XTEA.vhd                         ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/XTEA.vhd               ;         ;
+; uart_interpreter.vhd             ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd   ;         ;
+; SRAM.vhd                         ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd               ;         ;
+; SerialSender.vhd                 ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialSender.vhd       ;         ;
+; SerialReader.vhd                 ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd       ;         ;
+; SerialBlock.vhd                  ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd        ;         ;
+; Register.vhd                     ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Register.vhd           ;         ;
+; PulseGenerator.vhd               ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/PulseGenerator.vhd     ;         ;
+; MUX8Data.vhd                     ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX8Data.vhd           ;         ;
+; MUX4Data.vhd                     ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd           ;         ;
+; MUX2Data.vhd                     ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX2Data.vhd           ;         ;
+; MUX16Data.vhd                    ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX16Data.vhd          ;         ;
+; MemoryBlock.vhd                  ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd        ;         ;
+; hex2ascii.vhd                    ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/hex2ascii.vhd          ;         ;
+; DummyTopLevel.vhd                ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd      ;         ;
+; DEMUX4Data.vhd                   ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX4Data.vhd         ;         ;
+; DEMUX2Data.vhd                   ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd         ;         ;
+; Custom64BitShifter.vhd           ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Custom64BitShifter.vhd ;         ;
+; Controller.vhd                   ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd         ;         ;
+; ClockCounter.vhd                 ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/ClockCounter.vhd       ;         ;
+; ascii2hex.vhd                    ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/ascii2hex.vhd          ;         ;
+; AddressCounter.vhd               ; yes             ; User VHDL File               ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd     ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; e:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altsyncram.tdf                                            ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; e:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/stratix_ram_block.inc                                     ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; e:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_mux.inc                                               ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; e:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_decode.inc                                            ;         ;
+; aglobal221.inc                   ; yes             ; Megafunction                 ; e:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc                                            ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; e:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/a_rdenreg.inc                                             ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; e:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altrom.inc                                                ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; e:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altram.inc                                                ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; e:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altdpram.inc                                              ;         ;
+; db/altsyncram_rd81.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/db/altsyncram_rd81.tdf ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 
 
 +-----------------------------------------------------------+
@@ -2698,14 +2752,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+--------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Controller:controller_inst"                                                               ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; enable     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; error_busy ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Controller:controller_inst"                                                                                    ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                  ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; enable     ; Input  ; Info     ; Stuck at VCC                                                                                             ;
+; error_busy ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; leds       ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------+
@@ -2836,7 +2891,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
+<<<<<<< HEAD
 ; Top            ; 00:00:05     ;
+=======
+; Top            ; 00:00:03     ;
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 +----------------+--------------+
 
 
@@ -2846,6 +2905,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+<<<<<<< HEAD
     Info: Processing started: Tue Dec  5 16:39:56 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off XTEASistem-32Bit -c XTEASistem-32Bit
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -3118,6 +3178,280 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[61]" feeding internal logic into a wire File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
     Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[62]" feeding internal logic into a wire File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
     Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[63]" feeding internal logic into a wire File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+=======
+    Info: Processing started: Tue Dec  5 17:17:14 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off XTEASistem-32Bit -c XTEASistem-32Bit
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file xtea.vhd
+    Info (12022): Found design unit 1: XTEA-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/XTEA.vhd Line: 19
+    Info (12023): Found entity 1: XTEA File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/XTEA.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file uart_interpreter.vhd
+    Info (12022): Found design unit 1: uart_interpreter-arch File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 24
+    Info (12023): Found entity 1: uart_interpreter File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file sram.vhd
+    Info (12022): Found design unit 1: SRAM-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd Line: 17
+    Info (12023): Found entity 1: SRAM File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SRAM.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file serialsender.vhd
+    Info (12022): Found design unit 1: SerialSender-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialSender.vhd Line: 21
+    Info (12023): Found entity 1: SerialSender File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialSender.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file serialreader.vhd
+    Info (12022): Found design unit 1: SerialReader-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 24
+    Info (12023): Found entity 1: SerialReader File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file serialblock.vhd
+    Info (12022): Found design unit 1: SerialBlock-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd Line: 28
+    Info (12023): Found entity 1: SerialBlock File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file registerbank64bit.vhd
+    Info (12022): Found design unit 1: RegisterBank64Bit-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/RegisterBank64Bit.vhd Line: 18
+    Info (12023): Found entity 1: RegisterBank64Bit File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/RegisterBank64Bit.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file register.vhd
+    Info (12022): Found design unit 1: Reg-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Register.vhd Line: 17
+    Info (12023): Found entity 1: Reg File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Register.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file pulsegenerator.vhd
+    Info (12022): Found design unit 1: PulseGenerator-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/PulseGenerator.vhd Line: 17
+    Info (12023): Found entity 1: PulseGenerator File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/PulseGenerator.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file mux8data.vhd
+    Info (12022): Found design unit 1: MUX8Data-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX8Data.vhd Line: 24
+    Info (12023): Found entity 1: MUX8Data File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX8Data.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file mux4data.vhd
+    Info (12022): Found design unit 1: MUX4Data-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd Line: 20
+    Info (12023): Found entity 1: MUX4Data File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file mux2data.vhd
+    Info (12022): Found design unit 1: MUX2Data-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX2Data.vhd Line: 18
+    Info (12023): Found entity 1: MUX2Data File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX2Data.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file mux1bit.vhd
+    Info (12022): Found design unit 1: MUX1Bit-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX1Bit.vhd Line: 15
+    Info (12023): Found entity 1: MUX1Bit File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX1Bit.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file mux16data.vhd
+    Info (12022): Found design unit 1: MUX16Data-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX16Data.vhd Line: 32
+    Info (12023): Found entity 1: MUX16Data File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX16Data.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file memoryblock.vhd
+    Info (12022): Found design unit 1: MemoryBlock-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 16
+    Info (12023): Found entity 1: MemoryBlock File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file hex2ascii.vhd
+    Info (12022): Found design unit 1: hex2ascii-arc File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/hex2ascii.vhd Line: 11
+    Info (12023): Found entity 1: hex2ascii File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/hex2ascii.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file dummytoplevel.vhd
+    Info (12022): Found design unit 1: DummyTopLevel-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 18
+    Info (12023): Found entity 1: DummyTopLevel File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file demux4data.vhd
+    Info (12022): Found design unit 1: DEMUX4Data-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX4Data.vhd Line: 20
+    Info (12023): Found entity 1: DEMUX4Data File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX4Data.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file demux2data.vhd
+    Info (12022): Found design unit 1: DEMUX2Data-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 18
+    Info (12023): Found entity 1: DEMUX2Data File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file custom64bitshifter.vhd
+    Info (12022): Found design unit 1: Custom64BitShifter-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Custom64BitShifter.vhd Line: 17
+    Info (12023): Found entity 1: Custom64BitShifter File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Custom64BitShifter.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file controller.vhd
+    Info (12022): Found design unit 1: Controller-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd Line: 63
+    Info (12023): Found entity 1: Controller File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file clockdiv.vhd
+    Info (12022): Found design unit 1: ClockDiv-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/ClockDiv.vhd Line: 14
+    Info (12023): Found entity 1: ClockDiv File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/ClockDiv.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file clockcounter.vhd
+    Info (12022): Found design unit 1: ClockCounter-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/ClockCounter.vhd Line: 17
+    Info (12023): Found entity 1: ClockCounter File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/ClockCounter.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file ascii2hex.vhd
+    Info (12022): Found design unit 1: ascii2hex-arc File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/ascii2hex.vhd Line: 11
+    Info (12023): Found entity 1: ascii2hex File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/ascii2hex.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file addresscounter.vhd
+    Info (12022): Found design unit 1: AddressCounter-behavioral File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd Line: 19
+    Info (12023): Found entity 1: AddressCounter File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd Line: 6
+Info (12127): Elaborating entity "DummyTopLevel" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at DummyTopLevel.vhd(289): object "error_busy" assigned a value but never read File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 289
+Warning (10492): VHDL Process Statement warning at DummyTopLevel.vhd(547): signal "convert_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 547
+Warning (10873): Using initial value X (don't care) for net "leds[3..1]" at DummyTopLevel.vhd(14) File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 14
+Warning (10873): Using initial value X (don't care) for net "rom_text0[0]" at DummyTopLevel.vhd(285) File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 285
+Warning (10873): Using initial value X (don't care) for net "rom_text0[6..7]" at DummyTopLevel.vhd(285) File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 285
+Warning (10873): Using initial value X (don't care) for net "rom_text1[0]" at DummyTopLevel.vhd(285) File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 285
+Warning (10873): Using initial value X (don't care) for net "rom_text2[0]" at DummyTopLevel.vhd(285) File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 285
+Warning (10873): Using initial value X (don't care) for net "rom_text2[6..7]" at DummyTopLevel.vhd(285) File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 285
+Warning (10873): Using initial value X (don't care) for net "rom_text3[0]" at DummyTopLevel.vhd(285) File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 285
+Warning (10873): Using initial value X (don't care) for net "rom_text3[6..7]" at DummyTopLevel.vhd(285) File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 285
+Info (12128): Elaborating entity "SerialBlock" for hierarchy "SerialBlock:serialblock_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 309
+Warning (10036): Verilog HDL or VHDL warning at SerialBlock.vhd(102): object "reader_data_checkout" assigned a value but never read File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd Line: 102
+Info (12128): Elaborating entity "SerialReader" for hierarchy "SerialBlock:serialblock_inst|SerialReader:serialreader_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd Line: 114
+Warning (10492): VHDL Process Statement warning at SerialReader.vhd(152): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 152
+Info (12128): Elaborating entity "Custom64BitShifter" for hierarchy "SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Custom64BitShifter:shifter_8bit" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 114
+Warning (10036): Verilog HDL or VHDL warning at Custom64BitShifter.vhd(26): object "shift_remaining" assigned a value but never read File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Custom64BitShifter.vhd Line: 26
+Warning (10492): VHDL Process Statement warning at Custom64BitShifter.vhd(28): signal "shift_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Custom64BitShifter.vhd Line: 28
+Info (12128): Elaborating entity "Custom64BitShifter" for hierarchy "SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Custom64BitShifter:shifter_4bit" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 117
+Warning (10036): Verilog HDL or VHDL warning at Custom64BitShifter.vhd(26): object "shift_remaining" assigned a value but never read File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Custom64BitShifter.vhd Line: 26
+Warning (10492): VHDL Process Statement warning at Custom64BitShifter.vhd(28): signal "shift_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Custom64BitShifter.vhd Line: 28
+Info (12128): Elaborating entity "Reg" for hierarchy "SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Reg:regout" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 121
+Warning (10492): VHDL Process Statement warning at Register.vhd(23): signal "clear" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Register.vhd Line: 23
+Info (12128): Elaborating entity "MUX2Data" for hierarchy "SerialBlock:serialblock_inst|SerialReader:serialreader_inst|MUX2Data:dataout_mux" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 124
+Info (12128): Elaborating entity "ascii2hex" for hierarchy "SerialBlock:serialblock_inst|SerialReader:serialreader_inst|ascii2hex:asciitohex" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 127
+Info (12128): Elaborating entity "PulseGenerator" for hierarchy "SerialBlock:serialblock_inst|SerialReader:serialreader_inst|PulseGenerator:regout_pulse" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 130
+Warning (10492): VHDL Process Statement warning at PulseGenerator.vhd(31): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/PulseGenerator.vhd Line: 31
+Info (12128): Elaborating entity "PulseGenerator" for hierarchy "SerialBlock:serialblock_inst|SerialReader:serialreader_inst|PulseGenerator:checkout_pulse" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialReader.vhd Line: 132
+Warning (10492): VHDL Process Statement warning at PulseGenerator.vhd(31): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/PulseGenerator.vhd Line: 31
+Info (12128): Elaborating entity "SerialSender" for hierarchy "SerialBlock:serialblock_inst|SerialSender:serialsender_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd Line: 131
+Warning (10492): VHDL Process Statement warning at SerialSender.vhd(111): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialSender.vhd Line: 111
+Info (12128): Elaborating entity "hex2ascii" for hierarchy "SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:0:hextoascii" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialSender.vhd Line: 91
+Info (12128): Elaborating entity "MUX16Data" for hierarchy "SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialSender.vhd Line: 94
+Info (12128): Elaborating entity "MUX8Data" for hierarchy "SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX16Data.vhd Line: 66
+Info (12128): Elaborating entity "MUX4Data" for hierarchy "SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1|MUX4Data:mux1" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX8Data.vhd Line: 54
+Info (12128): Elaborating entity "MUX2Data" for hierarchy "SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1|MUX4Data:mux1|MUX2Data:mux1" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd Line: 36
+Info (12128): Elaborating entity "uart_interpreter" for hierarchy "SerialBlock:serialblock_inst|uart_interpreter:uart_interpreter_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd Line: 145
+Warning (10036): Verilog HDL or VHDL warning at uart_interpreter.vhd(28): object "count_bit_rx" assigned a value but never read File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 28
+Warning (10036): Verilog HDL or VHDL warning at uart_interpreter.vhd(29): object "count_bit_tx" assigned a value but never read File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 29
+Warning (10492): VHDL Process Statement warning at uart_interpreter.vhd(43): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 43
+Info (12128): Elaborating entity "PulseGenerator" for hierarchy "SerialBlock:serialblock_inst|PulseGenerator:pulsegenerator_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/SerialBlock.vhd Line: 159
+Warning (10492): VHDL Process Statement warning at PulseGenerator.vhd(31): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/PulseGenerator.vhd Line: 31
+Info (12128): Elaborating entity "XTEA" for hierarchy "XTEA:xteablock_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 333
+Info (12128): Elaborating entity "MemoryBlock" for hierarchy "MemoryBlock:memoryblock_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 345
+Info (12128): Elaborating entity "MUX4Data" for hierarchy "MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 67
+Info (12128): Elaborating entity "MUX2Data" for hierarchy "MemoryBlock:memoryblock_inst|MUX4Data:row_enable_mux|MUX2Data:mux1" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd Line: 36
+Info (12128): Elaborating entity "MUX4Data" for hierarchy "MemoryBlock:memoryblock_inst|MUX4Data:lmemory_read_mux" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 79
+Info (12128): Elaborating entity "MUX2Data" for hierarchy "MemoryBlock:memoryblock_inst|MUX4Data:lmemory_read_mux|MUX2Data:mux1" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MUX4Data.vhd Line: 36
+Info (12128): Elaborating entity "SRAM" for hierarchy "MemoryBlock:memoryblock_inst|SRAM:sram00_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/MemoryBlock.vhd Line: 82
+Info (12128): Elaborating entity "ClockCounter" for hierarchy "ClockCounter:clockcounter_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 354
+Warning (10492): VHDL Process Statement warning at ClockCounter.vhd(32): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/ClockCounter.vhd Line: 32
+Info (12128): Elaborating entity "PulseGenerator" for hierarchy "PulseGenerator:senderpulse_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 366
+Warning (10492): VHDL Process Statement warning at PulseGenerator.vhd(31): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/PulseGenerator.vhd Line: 31
+Info (12128): Elaborating entity "AddressCounter" for hierarchy "AddressCounter:addresscounter_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 409
+Warning (10492): VHDL Process Statement warning at AddressCounter.vhd(31): signal "force_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/AddressCounter.vhd Line: 31
+Info (12128): Elaborating entity "DEMUX2Data" for hierarchy "DEMUX2Data:dataread_demux_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 432
+Info (12128): Elaborating entity "DEMUX4Data" for hierarchy "DEMUX4Data:dataxtea_demux_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 441
+Info (12128): Elaborating entity "Reg" for hierarchy "Reg:maxadd_reg" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 453
+Warning (10492): VHDL Process Statement warning at Register.vhd(23): signal "clear" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Register.vhd Line: 23
+Info (12128): Elaborating entity "MUX4Data" for hierarchy "MUX4Data:datatext_mux_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 497
+Info (12128): Elaborating entity "Controller" for hierarchy "Controller:controller_inst" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 556
+Warning (10540): VHDL Signal Declaration warning at Controller.vhd(78): used explicit default value for signal "internal_error" because signal was never assigned a value File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd Line: 78
+Warning (10492): VHDL Process Statement warning at Controller.vhd(95): signal "nreset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd Line: 95
+Warning (10492): VHDL Process Statement warning at Controller.vhd(108): signal "enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/Controller.vhd Line: 108
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[0]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[1]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[2]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[3]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[4]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[5]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[6]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[7]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[8]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[9]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[10]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[11]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[12]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[13]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[14]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[15]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[16]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[17]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[18]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[19]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[20]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[21]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[22]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[23]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[24]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[25]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[26]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[27]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[28]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[29]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[30]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[31]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[32]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[33]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[34]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[35]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[36]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[37]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[38]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[39]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[40]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[41]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[42]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[43]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[44]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[45]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[46]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[47]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[48]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[49]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[50]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[51]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[52]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[53]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[54]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[55]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[56]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[57]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[58]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[59]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[60]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[61]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[62]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out2[63]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[0]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[1]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[2]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[3]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[4]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[5]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[6]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[7]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[8]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[9]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[10]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[11]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[12]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[13]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[14]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[15]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[16]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[17]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[18]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[19]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[20]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[21]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[22]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[23]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[24]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[25]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[26]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[27]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[28]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[29]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[30]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[31]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[32]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[33]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[34]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[35]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[36]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[37]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[38]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[39]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[40]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[41]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[42]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[43]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[44]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[45]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[46]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[47]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[48]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[49]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[50]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[51]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[52]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[53]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[54]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[55]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[56]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[57]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[58]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[59]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[60]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[61]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[62]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "DEMUX2Data:dataread_demux_inst|data_out1[63]" feeding internal logic into a wire File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 13
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Info (19000): Inferred 8 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "MemoryBlock:memoryblock_inst|SRAM:sram01_inst|ram_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
@@ -3220,6 +3554,7 @@ Info (12133): Instantiated megafunction "MemoryBlock:memoryblock_inst|SRAM:sram0
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_rd81.tdf
+<<<<<<< HEAD
     Info (12023): Found entity 1: altsyncram_rd81 File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/db/altsyncram_rd81.tdf Line: 28
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[47]" to the node "MUX2Data:datawrite_mux_inst|data_out[47]" into an OR gate File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
@@ -3299,10 +3634,93 @@ Critical Warning (18061): Ignored Power-Up Level option on the following registe
     Critical Warning (18010): Register SerialBlock:serialblock_inst|uart_interpreter:uart_interpreter_inst|t[8] will power up to High File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 59
     Critical Warning (18010): Register SerialBlock:serialblock_inst|uart_interpreter:uart_interpreter_inst|t[6] will power up to High File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 59
     Critical Warning (18010): Register SerialBlock:serialblock_inst|uart_interpreter:uart_interpreter_inst|t[5] will power up to High File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 59
+=======
+    Info (12023): Found entity 1: altsyncram_rd81 File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/db/altsyncram_rd81.tdf Line: 28
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[47]" to the node "MUX2Data:datawrite_mux_inst|data_out[47]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[55]" to the node "MUX2Data:datawrite_mux_inst|data_out[55]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[63]" to the node "MUX2Data:datawrite_mux_inst|data_out[63]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[39]" to the node "MUX2Data:datawrite_mux_inst|data_out[39]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[23]" to the node "MUX2Data:datawrite_mux_inst|data_out[23]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[15]" to the node "MUX2Data:datawrite_mux_inst|data_out[15]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[31]" to the node "MUX2Data:datawrite_mux_inst|data_out[31]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[7]" to the node "MUX2Data:datawrite_mux_inst|data_out[7]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[46]" to the node "MUX2Data:datawrite_mux_inst|data_out[46]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[54]" to the node "MUX2Data:datawrite_mux_inst|data_out[54]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[62]" to the node "MUX2Data:datawrite_mux_inst|data_out[62]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[38]" to the node "MUX2Data:datawrite_mux_inst|data_out[38]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[22]" to the node "MUX2Data:datawrite_mux_inst|data_out[22]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[14]" to the node "MUX2Data:datawrite_mux_inst|data_out[14]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[30]" to the node "MUX2Data:datawrite_mux_inst|data_out[30]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[6]" to the node "MUX2Data:datawrite_mux_inst|data_out[6]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[21]" to the node "MUX2Data:datawrite_mux_inst|data_out[21]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[20]" to the node "MUX2Data:datawrite_mux_inst|data_out[20]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[26]" to the node "MUX2Data:datawrite_mux_inst|data_out[26]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[27]" to the node "MUX2Data:datawrite_mux_inst|data_out[27]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[25]" to the node "MUX2Data:datawrite_mux_inst|data_out[25]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[24]" to the node "MUX2Data:datawrite_mux_inst|data_out[24]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[29]" to the node "MUX2Data:datawrite_mux_inst|data_out[29]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[28]" to the node "MUX2Data:datawrite_mux_inst|data_out[28]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[18]" to the node "MUX2Data:datawrite_mux_inst|data_out[18]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[19]" to the node "MUX2Data:datawrite_mux_inst|data_out[19]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[17]" to the node "MUX2Data:datawrite_mux_inst|data_out[17]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[16]" to the node "MUX2Data:datawrite_mux_inst|data_out[16]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[42]" to the node "MUX2Data:datawrite_mux_inst|data_out[42]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[43]" to the node "MUX2Data:datawrite_mux_inst|data_out[43]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[41]" to the node "MUX2Data:datawrite_mux_inst|data_out[41]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[40]" to the node "MUX2Data:datawrite_mux_inst|data_out[40]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[37]" to the node "MUX2Data:datawrite_mux_inst|data_out[37]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[36]" to the node "MUX2Data:datawrite_mux_inst|data_out[36]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[45]" to the node "MUX2Data:datawrite_mux_inst|data_out[45]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[44]" to the node "MUX2Data:datawrite_mux_inst|data_out[44]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[34]" to the node "MUX2Data:datawrite_mux_inst|data_out[34]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[35]" to the node "MUX2Data:datawrite_mux_inst|data_out[35]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[33]" to the node "MUX2Data:datawrite_mux_inst|data_out[33]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[32]" to the node "MUX2Data:datawrite_mux_inst|data_out[32]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[53]" to the node "MUX2Data:datawrite_mux_inst|data_out[53]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[52]" to the node "MUX2Data:datawrite_mux_inst|data_out[52]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[58]" to the node "MUX2Data:datawrite_mux_inst|data_out[58]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[59]" to the node "MUX2Data:datawrite_mux_inst|data_out[59]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[57]" to the node "MUX2Data:datawrite_mux_inst|data_out[57]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[56]" to the node "MUX2Data:datawrite_mux_inst|data_out[56]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[61]" to the node "MUX2Data:datawrite_mux_inst|data_out[61]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[60]" to the node "MUX2Data:datawrite_mux_inst|data_out[60]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[50]" to the node "MUX2Data:datawrite_mux_inst|data_out[50]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[51]" to the node "MUX2Data:datawrite_mux_inst|data_out[51]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[49]" to the node "MUX2Data:datawrite_mux_inst|data_out[49]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[48]" to the node "MUX2Data:datawrite_mux_inst|data_out[48]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[10]" to the node "MUX2Data:datawrite_mux_inst|data_out[10]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[11]" to the node "MUX2Data:datawrite_mux_inst|data_out[11]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[9]" to the node "MUX2Data:datawrite_mux_inst|data_out[9]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[8]" to the node "MUX2Data:datawrite_mux_inst|data_out[8]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[5]" to the node "MUX2Data:datawrite_mux_inst|data_out[5]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[4]" to the node "MUX2Data:datawrite_mux_inst|data_out[4]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[13]" to the node "MUX2Data:datawrite_mux_inst|data_out[13]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[12]" to the node "MUX2Data:datawrite_mux_inst|data_out[12]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[2]" to the node "MUX2Data:datawrite_mux_inst|data_out[2]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[3]" to the node "MUX2Data:datawrite_mux_inst|data_out[3]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[1]" to the node "MUX2Data:datawrite_mux_inst|data_out[1]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+    Warning (13047): Converted the fan-out from the tri-state buffer "DEMUX4Data:dataxtea_demux_inst|DEMUX2Data:demux3|data_out2[0]" to the node "MUX2Data:datawrite_mux_inst|data_out[0]" into an OR gate File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DEMUX2Data.vhd Line: 14
+Info (13000): Registers with preset signals will power-up high File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 15
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "leds[1]" is stuck at GND File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 14
+    Warning (13410): Pin "leds[2]" is stuck at GND File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 14
+    Warning (13410): Pin "leds[3]" is stuck at GND File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 14
+Info (286030): Timing-Driven Synthesis is running
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register SerialBlock:serialblock_inst|uart_interpreter:uart_interpreter_inst|t[2] will power up to High File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 59
+    Critical Warning (18010): Register SerialBlock:serialblock_inst|uart_interpreter:uart_interpreter_inst|t[9] will power up to High File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 59
+    Critical Warning (18010): Register SerialBlock:serialblock_inst|uart_interpreter:uart_interpreter_inst|t[8] will power up to High File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 59
+    Critical Warning (18010): Register SerialBlock:serialblock_inst|uart_interpreter:uart_interpreter_inst|t[6] will power up to High File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 59
+    Critical Warning (18010): Register SerialBlock:serialblock_inst|uart_interpreter:uart_interpreter_inst|t[5] will power up to High File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/uart_interpreter.vhd Line: 59
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Info (17049): 290 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 7 input pin(s) that do not drive logic
+<<<<<<< HEAD
     Warning (15610): No output dependent on input pin "keys[1]" File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 12
     Warning (15610): No output dependent on input pin "keys[2]" File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 12
     Warning (15610): No output dependent on input pin "keys[3]" File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 12
@@ -3310,15 +3728,32 @@ Warning (21074): Design contains 7 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "switch[1]" File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 13
     Warning (15610): No output dependent on input pin "switch[2]" File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 13
     Warning (15610): No output dependent on input pin "switch[3]" File: C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 13
+=======
+    Warning (15610): No output dependent on input pin "keys[1]" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 12
+    Warning (15610): No output dependent on input pin "keys[2]" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 12
+    Warning (15610): No output dependent on input pin "keys[3]" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 12
+    Warning (15610): No output dependent on input pin "switch[0]" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 13
+    Warning (15610): No output dependent on input pin "switch[1]" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 13
+    Warning (15610): No output dependent on input pin "switch[2]" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 13
+    Warning (15610): No output dependent on input pin "switch[3]" File: C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/DummyTopLevel.vhd Line: 13
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 Info (21057): Implemented 1957 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 5 output pins
     Info (21061): Implemented 1685 logic cells
     Info (21064): Implemented 256 RAM segments
+<<<<<<< HEAD
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 244 warnings
     Info: Peak virtual memory: 4829 megabytes
     Info: Processing ended: Tue Dec  5 16:40:17 2023
     Info: Elapsed time: 00:00:21
     Info: Total CPU time (on all processors): 00:00:13
+=======
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 245 warnings
+    Info: Peak virtual memory: 4858 megabytes
+    Info: Processing ended: Tue Dec  5 17:17:35 2023
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:10
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 
 
