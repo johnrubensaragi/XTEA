@@ -284,7 +284,7 @@ nreset => Reg:fullmode_reg.clear
 nreset => Reg:dataxtea_reg.clear
 nreset => Controller:controller_inst.nreset
 rs232_rx => SerialBlock:serialblock_inst.rs232_rx
-rs232_tx <= SerialBlock:serialblock_inst.rs232_tx
+rs232_tx << SerialBlock:serialblock_inst.rs232_tx
 keys[0] => convert_signal.CLK
 keys[1] => ~NO_FANOUT~
 keys[2] => ~NO_FANOUT~
@@ -293,10 +293,17 @@ switch[0] => ~NO_FANOUT~
 switch[1] => ~NO_FANOUT~
 switch[2] => ~NO_FANOUT~
 switch[3] => ~NO_FANOUT~
+<<<<<<< HEAD
 leds[0] <= convert_signal.DB_MAX_OUTPUT_PORT_TYPE
 leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
 leds[2] <= <VCC>
 leds[3] <= <VCC>
+=======
+leds[0] << convert_signal.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] << <GND>
+leds[2] << <GND>
+leds[3] << <GND>
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 
 
 |DummyTopLevel|SerialBlock:serialblock_inst

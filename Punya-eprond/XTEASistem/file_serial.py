@@ -1,27 +1,43 @@
 import serial
-import os
-import time
 from serial.tools import list_ports
+import time
+import os
 
 def get_port():
     portlist = list_ports.comports()
     for port in portlist:
         print(port)
+        
 
 def assign():
     print("insert port: ")
-    dock = "COM14"
+    dock = "COM17"
     print("insert baudrate: ")
-    baud = int(9600)
+    baud = int(115200)
     global ser
     ser = serial.Serial(
+
         port=dock,
         baudrate=baud,
         parity=serial.PARITY_NONE,
-        stopbits=serial.STOPBITS_TWO,
-        bytesize=serial.EIGHTBITS, timeout=0.1
+        stopbits=serial.STOPBITS_ONE,
+        bytesize=serial.EIGHTBITS, 
+        timeout= 0.1
         )
 
+def receive():
+    while 1:
+        if ser.in_waiting > 0:
+            x = ser.readline()
+            try:
+                print(x.decode())
+            except:
+                pass
+                ser.close()
+
+def send(msg):
+    ser.write(bytes(msg, 'utf-8'))
+    time.sleep(0.05)
 
 def write_read(x):
     ser.write(bytes(x, 'utf-8'))
@@ -29,17 +45,13 @@ def write_read(x):
     data = ser.readline()
     return data
 
-def rewrite(x):
-    file = open("XTEA/Serial Yoga/test.txt", "w")
-    file.write(x.decode())
-    file.close()
 
 get_port()
 assign()
-while True:
-    msg = open("XTEA/Serial Yoga/test.txt", 'r')
-    data = write_read(msg.read().encode())
-    msg.close()
-    rewrite(data)
-    print(data.decode())
 
+while True:
+    msg = input("insert message here: ")
+    send(msg)
+    print(ser.in_waiting)
+    receive()
+    ser.close()
