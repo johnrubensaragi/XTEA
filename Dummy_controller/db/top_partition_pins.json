@@ -1,0 +1,37 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "rs232_tx",
+					"strict" : false
+				},
+				{
+					"name" : "keys[1]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "nreset",
+					"strict" : false
+				},
+				{
+					"name" : "enable",
+					"strict" : false
+				},
+				{
+					"name" : "rs232_rx",
+					"strict" : false
+				},
+				{
+					"name" : "keys[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

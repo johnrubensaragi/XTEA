@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE6E22) Path("C:/Users/irfan/Documents/ITB/Kuliah/Semester3/Sistem-Digital/Tugas-Kelompok/Tugas-2/Codes/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/") File("XTEASistem-32Bit.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE6E22) Path("C:/Users/johnr/Desktop/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/") File("XTEASistem-32Bit.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
