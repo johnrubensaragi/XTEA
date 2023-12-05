@@ -3,111 +3,147 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -14.746
-TNS   : -4195.685
-
-Type  : Slow 1200mV 85C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : -8.620
-TNS   : -86.123
+Slack : -11.860
+TNS   : -6848.344
 
 Type  : Slow 1200mV 85C Model Setup 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : -6.812
-TNS   : -518.283
+Slack : -6.034
+TNS   : -102.567
+
+Type  : Slow 1200mV 85C Model Setup 'controlFSM:controlFSM0|current_state.PrepareReceive'
+Slack : -3.837
+TNS   : -3.837
+
+Type  : Slow 1200mV 85C Model Setup 'SerialBlock:serialblock_inst|sender_trigger'
+Slack : -1.792
+TNS   : -9.978
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : -0.169
-TNS   : -0.169
+Slack : -0.740
+TNS   : -63.116
 
 Type  : Slow 1200mV 85C Model Hold 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : 0.366
+Slack : 0.433
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : 0.432
+Type  : Slow 1200mV 85C Model Hold 'SerialBlock:serialblock_inst|sender_trigger'
+Slack : 0.434
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'controlFSM:controlFSM0|current_state.PrepareReceive'
+Slack : 2.867
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.201
-TNS   : -921.795
+TNS   : -2069.759
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|reader_trigger'
 Slack : -1.487
-TNS   : -129.369
+TNS   : -35.688
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|sender_trigger'
 Slack : -1.487
-TNS   : -25.279
+TNS   : -13.383
 
-Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -13.815
-TNS   : -3905.397
-
-Type  : Slow 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : -8.041
-TNS   : -80.293
-
-Type  : Slow 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : -6.271
-TNS   : -478.710
-
-Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : -0.158
-TNS   : -0.158
-
-Type  : Slow 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : 0.237
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'controlFSM:controlFSM0|current_state.PrepareReceive'
+Slack : 0.423
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -11.050
+TNS   : -6352.955
+
+Type  : Slow 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|reader_trigger'
+Slack : -5.643
+TNS   : -96.574
+
+Type  : Slow 1200mV 0C Model Setup 'controlFSM:controlFSM0|current_state.PrepareReceive'
+Slack : -3.431
+TNS   : -3.431
+
+Type  : Slow 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|sender_trigger'
+Slack : -1.537
+TNS   : -8.206
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : -0.655
+TNS   : -46.321
+
+Type  : Slow 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|reader_trigger'
 Slack : 0.382
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|sender_trigger'
+Slack : 0.383
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'controlFSM:controlFSM0|current_state.PrepareReceive'
+Slack : 2.648
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.201
-TNS   : -921.795
+TNS   : -2069.759
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|reader_trigger'
 Slack : -1.487
-TNS   : -129.369
+TNS   : -35.688
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|sender_trigger'
 Slack : -1.487
-TNS   : -25.279
+TNS   : -13.383
 
-Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -6.046
-TNS   : -1481.276
-
-Type  : Fast 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
-Slack : -3.057
-TNS   : -27.566
-
-Type  : Fast 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : -2.529
-TNS   : -189.129
-
-Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : -0.230
-TNS   : -0.230
-
-Type  : Fast 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|reader_trigger'
-Slack : 0.156
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'controlFSM:controlFSM0|current_state.PrepareReceive'
+Slack : 0.446
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -4.794
+TNS   : -2323.465
+
+Type  : Fast 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|reader_trigger'
+Slack : -2.062
+TNS   : -31.812
+
+Type  : Fast 1200mV 0C Model Setup 'controlFSM:controlFSM0|current_state.PrepareReceive'
+Slack : -1.155
+TNS   : -1.155
+
+Type  : Fast 1200mV 0C Model Setup 'SerialBlock:serialblock_inst|sender_trigger'
+Slack : -0.231
+TNS   : -0.555
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : -0.429
+TNS   : -62.977
+
+Type  : Fast 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|reader_trigger'
 Slack : 0.166
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SerialBlock:serialblock_inst|sender_trigger'
+Slack : 0.167
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'controlFSM:controlFSM0|current_state.PrepareReceive'
+Slack : 1.288
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -622.300
+TNS   : -1442.208
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|reader_trigger'
 Slack : -1.000
-TNS   : -87.000
+TNS   : -24.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst|internal_clock'
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SerialBlock:serialblock_inst|sender_trigger'
 Slack : -1.000
-TNS   : -17.000
+TNS   : -9.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'controlFSM:controlFSM0|current_state.PrepareReceive'
+Slack : 0.451
+TNS   : 0.000
 
 ------------------------------------------------------------

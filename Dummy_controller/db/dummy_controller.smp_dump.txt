@@ -1,29 +1,23 @@
 
 State Machine - |top|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|n_state
-Name n_state.read_data n_state.read_startdata n_state.read_key n_state.read_mode n_state.read_whitedata n_state.read_whitekey n_state.read_whitemode n_state.read_kw n_state.start n_state.idle 
-n_state.idle 0 0 0 0 0 0 0 0 0 0 
-n_state.start 0 0 0 0 0 0 0 0 1 1 
-n_state.read_kw 0 0 0 0 0 0 0 1 0 1 
-n_state.read_whitemode 0 0 0 0 0 0 1 0 0 1 
-n_state.read_whitekey 0 0 0 0 0 1 0 0 0 1 
-n_state.read_whitedata 0 0 0 0 1 0 0 0 0 1 
-n_state.read_mode 0 0 0 1 0 0 0 0 0 1 
-n_state.read_key 0 0 1 0 0 0 0 0 0 1 
-n_state.read_startdata 0 1 0 0 0 0 0 0 0 1 
-n_state.read_data 1 0 0 0 0 0 0 0 0 1 
+Name n_state.read_data n_state.read_startdata n_state.read_attributes n_state.read_whitespace n_state.read_kw n_state.start n_state.idle 
+n_state.idle 0 0 0 0 0 0 0 
+n_state.start 0 0 0 0 0 1 1 
+n_state.read_kw 0 0 0 0 1 0 1 
+n_state.read_whitespace 0 0 0 1 0 0 1 
+n_state.read_attributes 0 0 1 0 0 0 1 
+n_state.read_startdata 0 1 0 0 0 0 1 
+n_state.read_data 1 0 0 0 0 0 1 
 
 State Machine - |top|SerialBlock:serialblock_inst|SerialReader:serialreader_inst|c_state
-Name c_state.read_data c_state.read_startdata c_state.read_key c_state.read_mode c_state.read_whitedata c_state.read_whitekey c_state.read_whitemode c_state.read_kw c_state.start c_state.idle 
-c_state.idle 0 0 0 0 0 0 0 0 0 0 
-c_state.start 0 0 0 0 0 0 0 0 1 1 
-c_state.read_kw 0 0 0 0 0 0 0 1 0 1 
-c_state.read_whitemode 0 0 0 0 0 0 1 0 0 1 
-c_state.read_whitekey 0 0 0 0 0 1 0 0 0 1 
-c_state.read_whitedata 0 0 0 0 1 0 0 0 0 1 
-c_state.read_mode 0 0 0 1 0 0 0 0 0 1 
-c_state.read_key 0 0 1 0 0 0 0 0 0 1 
-c_state.read_startdata 0 1 0 0 0 0 0 0 0 1 
-c_state.read_data 1 0 0 0 0 0 0 0 0 1 
+Name c_state.read_data c_state.read_startdata c_state.read_attributes c_state.read_whitespace c_state.read_kw c_state.start c_state.idle 
+c_state.idle 0 0 0 0 0 0 0 
+c_state.start 0 0 0 0 0 1 1 
+c_state.read_kw 0 0 0 0 1 0 1 
+c_state.read_whitespace 0 0 0 1 0 0 1 
+c_state.read_attributes 0 0 1 0 0 0 1 
+c_state.read_startdata 0 1 0 0 0 0 1 
+c_state.read_data 1 0 0 0 0 0 1 
 
 State Machine - |top|xtea:xtea0|s
 Name s.s1 s.s0 s.init 

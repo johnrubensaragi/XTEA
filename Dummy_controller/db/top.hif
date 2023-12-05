@@ -2966,553 +2966,6 @@ db|dummy_controller.ram0_sram_4e0128d8.hdl.mif
 
 # end
 # entity
-PulseGenerator
-# storage
-db|top.(19).cnf
-db|top.(19).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-serial|pulsegenerator.vhd
-e3941993fa757825cda3e840eff356a
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-pulse_width
-10
-PARAMETER_SIGNED_DEC
-USR
-pulse_max
-16
-PARAMETER_SIGNED_DEC
-USR
-}
-# hierarchies {
-SerialBlock:serialblock_inst|SerialSender:serialsender_inst|PulseGenerator:pulsegenerator_inst
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-my_uart_top
-# storage
-db|top.(20).cnf
-db|top.(20).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-serial|my_uart_top.vhd
-14962665ca656450ab8e31f714244a38
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(send_data)
-7 downto 0
-PARAMETER_STRING
-USR
- constraint(receive_data)
-7 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-speed_select
-# storage
-db|top.(21).cnf
-db|top.(21).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-serial|speed_select.vhd
-82c4bb04ffd93db49b80ca40bcfa4b
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_rx
-SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|speed_select:speed_tx
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-my_uart_rx
-# storage
-db|top.(22).cnf
-db|top.(22).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-serial|my_uart_rx.vhd
-8498f93126b9e12f597aaee45b6e755
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(rx_data)
-7 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_rx:receiver
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-my_uart_tx
-# storage
-db|top.(23).cnf
-db|top.(23).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-serial|my_uart_tx.vhd
-d1dec454465bbc812b70be53243fb6
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(tx_data)
-7 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-SerialBlock:serialblock_inst|my_uart_top:my_uart_top_inst|my_uart_tx:transmitter
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-ClockDiv
-# storage
-db|top.(24).cnf
-db|top.(24).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-serial|clockdiv.vhd
-ce9815014a3b3987953559bcb461cf
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-div_frequency
-19200
-PARAMETER_SIGNED_DEC
-USR
-clock_frequency
-50000000
-PARAMETER_SIGNED_DEC
-USR
-}
-# hierarchies {
-SerialBlock:serialblock_inst|ClockDiv:sclockdiv_inst
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-SerialReader
-# storage
-db|top.(16).cnf
-db|top.(16).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-serial|serialreader.vhd
-3b644590db3bb05ef041f3b0f87bdd
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-data_length
-64
-PARAMETER_SIGNED_DEC
-USR
-address_length
-10
-PARAMETER_SIGNED_DEC
-USR
- constraint(error_out)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(reader_data_in)
-7 downto 0
-PARAMETER_STRING
-USR
- constraint(reader_data_out)
-63 downto 0
-PARAMETER_STRING
-USR
- constraint(reader_data_type)
-1 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-SerialBlock:serialblock_inst|SerialReader:serialreader_inst
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-SerialSender
-# storage
-db|top.(18).cnf
-db|top.(18).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-serial|serialsender.vhd
-1dcc733fd85e6558d4f13f159bf26
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-data_length
-64
-PARAMETER_SIGNED_DEC
-USR
-address_length
-10
-PARAMETER_SIGNED_DEC
-USR
- constraint(sender_data_in)
-63 downto 0
-PARAMETER_STRING
-USR
- constraint(sender_data_out)
-7 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-SerialBlock:serialblock_inst|SerialSender:serialsender_inst
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-PulseGenerator
-# storage
-db|top.(26).cnf
-db|top.(26).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-serial|pulsegenerator.vhd
-e3941993fa757825cda3e840eff356a
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-pulse_width
-5
-PARAMETER_SIGNED_DEC
-USR
-pulse_max
-8
-PARAMETER_SIGNED_DEC
-USR
-}
-# hierarchies {
-SerialBlock:serialblock_inst|PulseGenerator:checkoutpulse_inst
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-SerialBlock
-# storage
-db|top.(15).cnf
-db|top.(15).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-serial|serialblock.vhd
-e426ac7c46e5e8f4fb3d9ae5d12e38
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-data_length
-64
-PARAMETER_SIGNED_DEC
-USR
-address_length
-10
-PARAMETER_SIGNED_DEC
-USR
- constraint(error_out)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(send_data)
-63 downto 0
-PARAMETER_STRING
-USR
- constraint(store_data)
-63 downto 0
-PARAMETER_STRING
-USR
- constraint(store_datatype)
-1 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-SerialBlock:serialblock_inst
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-top
-# storage
-db|top.(0).cnf
-db|top.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-top.vhd
-1242b82f22e3a4cfe935ac7c859122f
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-bitSize
-64
-PARAMETER_SIGNED_DEC
-DEF
-addressSize
-10
-PARAMETER_SIGNED_DEC
-DEF
-}
-# hierarchies {
-|
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-controlFSM
-# storage
-db|top.(1).cnf
-db|top.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-utils|controlfsm.vhd
-3f738ddddff0424b63b5ee95bb2dddc
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-bitsize
-64
-PARAMETER_SIGNED_DEC
-USR
- constraint(memory)
-63 downto 0
-PARAMETER_STRING
-USR
- constraint(error_check)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(store_datatype)
-1 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-controlFSM:controlFSM0
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
 memory
 # storage
 db|top.(4).cnf
@@ -3560,53 +3013,6 @@ USR
 }
 # hierarchies {
 memory:memory0
-}
-# lmf
-|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
-counter
-# storage
-db|top.(9).cnf
-db|top.(9).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-utils|counter.vhd
-b9d70c3c2438673f95a237a7df46b0
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
-outputsize
-10
-PARAMETER_SIGNED_DEC
-USR
-max
-1024
-PARAMETER_SIGNED_DEC
-USR
- constraint(o_count)
-9 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-counter:addressCounter
 }
 # lmf
 |altera|91sp2|quartus|lmf|maxplus2.lmf
@@ -3876,6 +3282,1106 @@ address_a0
 db|dummy_controller.ram0_sram_4e0128d8.hdl.mif
 9d6c44139b6e6c5f18232caea9b587
 }
+# macro_sequence
+
+# end
+# entity
+controlFSM
+# storage
+db|top.(1).cnf
+db|top.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+utils|controlfsm.vhd
+48e5d7836df2ceb21da2782eb6b068
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+bitsize
+64
+PARAMETER_SIGNED_DEC
+USR
+addresssize
+10
+PARAMETER_SIGNED_DEC
+USR
+ constraint(last_address)
+9 downto 0
+PARAMETER_STRING
+USR
+ constraint(address)
+9 downto 0
+PARAMETER_STRING
+USR
+ constraint(store_datatype)
+1 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+controlFSM:controlFSM0
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+counter
+# storage
+db|top.(9).cnf
+db|top.(9).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+utils|counter.vhd
+d4bf9bbbf4cd9f9fa9f55f6edae0d1ca
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+outputsize
+10
+PARAMETER_SIGNED_DEC
+USR
+max
+1024
+PARAMETER_SIGNED_DEC
+USR
+ constraint(o_count)
+9 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+counter:addressCounter
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+SerialBlock
+# storage
+db|top.(15).cnf
+db|top.(15).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|serialblock.vhd
+ba8fbee67eb1c5104146e56554ba43
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+64
+PARAMETER_SIGNED_DEC
+USR
+address_length
+10
+PARAMETER_SIGNED_DEC
+USR
+ constraint(send_data)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(store_data)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(store_datatype)
+1 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+SerialReader
+# storage
+db|top.(16).cnf
+db|top.(16).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|serialreader.vhd
+60bdeb1c3da1db5820772777dd18da29
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(reader_data_in)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(reader_data_out)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(reader_data_type)
+1 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialReader:serialreader_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+Custom64BitShifter
+# storage
+db|top.(18).cnf
+db|top.(18).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|custom64bitshifter.vhd
+3377e7af132cdf140def2672f90c11e
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_size
+8
+PARAMETER_SIGNED_DEC
+USR
+ constraint(data_in)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_out)
+63 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Custom64BitShifter:shifter_8bit
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+Custom64BitShifter
+# storage
+db|top.(19).cnf
+db|top.(19).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|custom64bitshifter.vhd
+3377e7af132cdf140def2672f90c11e
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_size
+4
+PARAMETER_SIGNED_DEC
+USR
+ constraint(data_in)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_out)
+63 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Custom64BitShifter:shifter_4bit
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+Reg
+# storage
+db|top.(20).cnf
+db|top.(20).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|register.vhd
+341ccd98b7e9d179cd0c929d5e369
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+64
+PARAMETER_SIGNED_DEC
+USR
+ constraint(data_in)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_out)
+63 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialReader:serialreader_inst|Reg:regout
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+MUX2Data
+# storage
+db|top.(21).cnf
+db|top.(21).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|mux2data.vhd
+1c73266d0d1ecde2cdb9ba41943f4
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+64
+PARAMETER_SIGNED_DEC
+USR
+ constraint(data_in1)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in2)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_out)
+63 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialReader:serialreader_inst|MUX2Data:dataout_mux
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+ascii2hex
+# storage
+db|top.(22).cnf
+db|top.(22).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|ascii2hex.vhd
+245c8d988dd9c7e89db7afc627c9b91
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(hex)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(ascii)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialReader:serialreader_inst|ascii2hex:asciitohex
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+PulseGenerator
+# storage
+db|top.(23).cnf
+db|top.(23).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|pulsegenerator.vhd
+9a92ea84346e4fccb582e3afa159f2f5
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+pulse_width
+2
+PARAMETER_SIGNED_DEC
+USR
+pulse_max
+32
+PARAMETER_SIGNED_DEC
+USR
+pulse_offset
+20
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialReader:serialreader_inst|PulseGenerator:regout_pulse
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+PulseGenerator
+# storage
+db|top.(24).cnf
+db|top.(24).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|pulsegenerator.vhd
+9a92ea84346e4fccb582e3afa159f2f5
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+pulse_width
+5
+PARAMETER_SIGNED_DEC
+USR
+pulse_max
+32
+PARAMETER_SIGNED_DEC
+USR
+pulse_offset
+21
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialReader:serialreader_inst|PulseGenerator:checkout_pulse
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+SerialSender
+# storage
+db|top.(26).cnf
+db|top.(26).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|serialsender.vhd
+89f024259bb3c8ede7b1d48bb55212c2
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(sender_data_in)
+63 downto 0
+PARAMETER_STRING
+USR
+ constraint(sender_data_out)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+hex2ascii
+# storage
+db|top.(28).cnf
+db|top.(28).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|hex2ascii.vhd
+e7e6db3e433f6c6344c8bfdecdace8b7
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(hex)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(ascii)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:0:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:1:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:2:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:3:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:4:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:5:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:6:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:7:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:8:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:9:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:10:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:11:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:12:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:13:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:14:hextoascii
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|hex2ascii:\GEN_CONVERTER:15:hextoascii
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+MUX16Data
+# storage
+db|top.(29).cnf
+db|top.(29).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|mux16data.vhd
+5ef01b363dcb4bae831a41f481e0da1d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+8
+PARAMETER_SIGNED_DEC
+USR
+ constraint(selector)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in1)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in2)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in3)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in4)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in5)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in6)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in7)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in8)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in9)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in10)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in11)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in12)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in13)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in14)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in15)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in16)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_out)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+MUX8Data
+# storage
+db|top.(30).cnf
+db|top.(30).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|mux8data.vhd
+b31a5e8a13dd4a7f308e3586d7e5892
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+8
+PARAMETER_SIGNED_DEC
+USR
+ constraint(selector)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in1)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in2)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in3)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in4)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in5)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in6)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in7)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in8)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_out)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux2
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX8Data:mux_rawdata
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+MUX4Data
+# storage
+db|top.(31).cnf
+db|top.(31).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|mux4data.vhd
+779cdf31c2ed8112689d23774a7e189c
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+8
+PARAMETER_SIGNED_DEC
+USR
+ constraint(selector)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in1)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in2)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in3)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in4)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_out)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1|MUX4Data:mux1
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1|MUX4Data:mux2
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux2|MUX4Data:mux1
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux2|MUX4Data:mux2
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX8Data:mux_rawdata|MUX4Data:mux1
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX8Data:mux_rawdata|MUX4Data:mux2
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+MUX2Data
+# storage
+db|top.(32).cnf
+db|top.(32).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|mux2data.vhd
+1c73266d0d1ecde2cdb9ba41943f4
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+data_length
+8
+PARAMETER_SIGNED_DEC
+USR
+ constraint(data_in1)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_in2)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(data_out)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1|MUX4Data:mux1|MUX2Data:mux1
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1|MUX4Data:mux1|MUX2Data:mux2
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1|MUX4Data:mux1|MUX2Data:mux3
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1|MUX4Data:mux2|MUX2Data:mux1
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1|MUX4Data:mux2|MUX2Data:mux2
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1|MUX4Data:mux2|MUX2Data:mux3
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux1|MUX2Data:mux3
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux2|MUX4Data:mux1|MUX2Data:mux1
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux2|MUX4Data:mux1|MUX2Data:mux2
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux2|MUX4Data:mux1|MUX2Data:mux3
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux2|MUX4Data:mux2|MUX2Data:mux1
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux2|MUX4Data:mux2|MUX2Data:mux2
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux2|MUX4Data:mux2|MUX2Data:mux3
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX8Data:mux2|MUX2Data:mux3
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX16Data:mux_convdata|MUX2Data:mux3
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX8Data:mux_rawdata|MUX4Data:mux1|MUX2Data:mux1
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX8Data:mux_rawdata|MUX4Data:mux1|MUX2Data:mux2
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX8Data:mux_rawdata|MUX4Data:mux1|MUX2Data:mux3
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX8Data:mux_rawdata|MUX4Data:mux2|MUX2Data:mux1
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX8Data:mux_rawdata|MUX4Data:mux2|MUX2Data:mux2
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX8Data:mux_rawdata|MUX4Data:mux2|MUX2Data:mux3
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX8Data:mux_rawdata|MUX2Data:mux3
+SerialBlock:serialblock_inst|SerialSender:serialsender_inst|MUX2Data:mux_dataout
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+uart_interpreter
+# storage
+db|top.(33).cnf
+db|top.(33).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|uart_interpreter.vhd
+41466a58e5fa1ef45050a2f5d8cce012
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(d_out)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(d_in)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|uart_interpreter:uart_interpreter_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+PulseGenerator
+# storage
+db|top.(34).cnf
+db|top.(34).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+serial|pulsegenerator.vhd
+9a92ea84346e4fccb582e3afa159f2f5
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+pulse_width
+7
+PARAMETER_SIGNED_DEC
+USR
+pulse_max
+64
+PARAMETER_SIGNED_DEC
+USR
+pulse_offset
+48
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+SerialBlock:serialblock_inst|PulseGenerator:pulsegenerator_inst
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+top
+# storage
+db|top.(0).cnf
+db|top.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+top.vhd
+8a4d4d473bf372cf90361946622d92f
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+bitSize
+64
+PARAMETER_SIGNED_DEC
+DEF
+addressSize
+10
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+|
+}
+# lmf
+|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
 # macro_sequence
 
 # end
