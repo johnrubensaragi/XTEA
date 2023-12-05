@@ -71,7 +71,7 @@ begin
         address_reset <= '0';
         dataIn_mux <= '0';
         update_last_address <= '0';
-        if (enable = '1') and (reader_running = '1') and (store_checkout = '1') then
+        if (enable = '1') and (store_checkout = '1') then
           next_state <= PrepareReceive;
         else
           next_state <= Idle;
