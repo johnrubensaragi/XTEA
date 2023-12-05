@@ -116,7 +116,7 @@ begin
     begin
         wait for 5*clock_period;
         nreset <= '0';
-        keys(0) <= '0';
+        -- keys(0) <= '0';
         wait for 2*clock_period;
         nreset <= '1';
         keys(0) <= '1';

@@ -275,7 +275,8 @@ begin
                         ccounter_enable <= '0';
 
                         if (convert_signal = '1') then -- dont send results message if not toggled
-                            controller_nstate <= sending_message;
+                            -- controller_nstate <= sending_message;
+                            controller_nstate <= reading_results;
                         else
                             controller_nstate <= reading_results;
                         end if;

@@ -180,8 +180,8 @@ begin
     checkout_checker : process(clock)
     begin
         if rising_edge(clock) then
-            checkout_buffer <= store_checkout;
-            if (store_checkout = '1') then
+            checkout_buffer <= reader_data_checkout;
+            if (reader_data_checkout = '1') then
                 store_data <= reader_data_out;
                 store_datatype <= reader_data_type;
             end if;

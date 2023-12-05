@@ -11,7 +11,7 @@ entity DummyTopLevel is
         rs232_tx : out std_logic;
         keys : in std_logic_vector(3 downto 0);
         switch : in std_logic_vector(3 downto 0);
-        leds : out std_logic_vector(3 downto 0)
+        leds : out std_logic_vector(3 downto 0) := "1111"
     );
 end DummyTopLevel;
 
@@ -169,6 +169,14 @@ architecture behavioral of DummyTopLevel is
     );
     end component ClockCounter;
 
+    component ClockDiv
+	generic(div_frequency, clock_frequency : natural);
+	port(
+		clock_in: in std_logic;
+		clock_out: out std_logic
+	);
+    end component ClockDiv;
+
     component Controller is
     port (
         -- main clock and reset
@@ -287,6 +295,7 @@ architecture behavioral of DummyTopLevel is
 
     -- system errors
     signal error_format, error_storage, error_busy : std_logic;
+    signal led_error : std_logic;
 
     -- convert button
     signal convert_signal : std_logic := '1';
@@ -547,11 +556,21 @@ begin
             convert_signal <= convert_signal;
         end if;
     end process convert_toggle;
-
     
     read_convert <= convert_signal;
     send_convert <= cont_send_convert and convert_signal;
     leds(0) <= not convert_signal;
+    leds(1) <= led_error and error_format;
+
+    clockdiv_inst: ClockDiv
+    generic map (
+      div_frequency   => 2,
+      clock_frequency => 50e6
+    )
+    port map (
+      clock_in  => clock,
+      clock_out => led_error
+    );
 
     controller_inst: Controller
     port map (
