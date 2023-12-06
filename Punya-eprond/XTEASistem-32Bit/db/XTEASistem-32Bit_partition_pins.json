@@ -12,13 +12,10 @@
 					"strict" : false
 				},
 				{
-<<<<<<< HEAD
 					"name" : "leds[1]",
 					"strict" : false
 				},
 				{
-=======
->>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
 					"name" : "clock",
 					"strict" : false
 				},
