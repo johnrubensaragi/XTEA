@@ -1,3 +1,1 @@
-hello world
-
-hello universe
+-m 0 -k -d hello world!

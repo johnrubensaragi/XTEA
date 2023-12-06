@@ -4,7 +4,7 @@ xtea.exe
 Dummy_controller/**
 Dummy_controller/db
 Dummy_controller/incremental_db
-Dummy_controller/work
+Dummy_controller/**.wlf
 !Dummy_controller/*.vhd
 !Dummy_controller/*.qsf
 !Dummy_controller/*.qpf
@@ -12,4 +12,3 @@ Dummy_controller/work
 !Dummy_controller/Serial
 !Dummy_controller/Utils
 !Dummy_controller/XTEA
-/Dummy_controller/wlft44s172

@@ -1,6 +1,10 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="244fe6c77ecd5ac16849"/>
+<<<<<<< HEAD
+    <hash md5_digest_80b="3984144784e6327abd63"/>
+=======
+    <hash md5_digest_80b="71cb9528be005047a2de"/>
+>>>>>>> 2a5674e8479693f4062ea9a5ab90e91a80d0f9c8
   </project>
   <file_info>
     <file device="EP4CE6E22C8" path="XTEASistem-32Bit.sof" usercode="0xFFFFFFFF"/>
