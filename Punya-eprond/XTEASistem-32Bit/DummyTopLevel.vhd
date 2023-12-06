@@ -560,7 +560,7 @@ begin
     read_convert <= convert_signal;
     send_convert <= cont_send_convert and convert_signal;
     leds(0) <= not convert_signal;
-    leds(1) <= led_error and error_format;
+    leds(1) <= not (led_error and error_format);
 
     clockdiv_inst: ClockDiv
     generic map (
