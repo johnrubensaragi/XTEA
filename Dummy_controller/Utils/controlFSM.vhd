@@ -39,7 +39,8 @@ entity controlFSM is
     store_checkout      : in  std_logic;
 
     -- mux controls
-    dataIn_mux          : out std_logic
+    dataIn_mux          : out std_logic;
+    is_idle             : out std_logic
   );
 end entity;
 
@@ -59,10 +60,11 @@ begin
 
   process (current_state, enable, reader_running, reader_done, sender_done, store_datatype, store_checkout, error_format, last_address, address, xtea_done) -- Hybrid FSM (address controls are Mealy-typed, the rest is Moore-typed)
   begin
-
+    is_idle <= '0';
     case current_state is
 
       when Idle =>
+        is_idle <= '1';
         enable_read <= '0';
         enable_write <= '0';
         xtea_start <= '0';

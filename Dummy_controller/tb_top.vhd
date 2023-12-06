@@ -14,7 +14,7 @@ architecture sim of TB_DummyTopLevel is
 
   constant data_length    : natural := 64;
   constant address_length : natural := 10;
-  constant string1_input  : string  := "-m 0 -k passwordku -d halo tesset olah hihi";
+  constant string1_input  : string  := "-m 0 -k passwordku -d halo tes";
   constant string2_input  : string  := "-m 0 -k passwordku -d halo tes";
   constant string3_input  : string  := "-m 0 -k passwordku -d ini beda lagi loh";
   constant string4_input  : string  := "-m 0 -k passwordku -d nyoba doang";

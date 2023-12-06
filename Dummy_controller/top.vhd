@@ -64,6 +64,11 @@ architecture behavioral of top is
   signal r_key1             : std_logic_vector(bitSize - 1 downto 0);
   signal r_longkey          : std_logic_vector(2 * bitSize - 1 downto 0);
   signal r_mode             : std_logic;
+
+  signal r_convert_data : std_logic;
+  signal r_is_idle      : std_logic;
+  signal r_rs232_tx     : std_logic;
+
   component controlFSM is
     generic (
       bitSize     : integer := 8;
@@ -99,7 +104,8 @@ architecture behavioral of top is
       store_checkout      : in  std_logic;
 
       -- mux controls
-      dataIn_mux          : out std_logic
+      dataIn_mux          : out std_logic;
+      is_idle             : out std_logic
     );
   end component;
 
@@ -203,7 +209,8 @@ begin
       store_checkout      => r_store_checkout,
 
       -- mux controls
-      dataIn_mux          => r_dataIn_mux_sel
+      dataIn_mux          => r_dataIn_mux_sel,
+      is_idle             => r_is_idle
     );
 
   memory0: memory
@@ -264,7 +271,7 @@ begin
       store_datatype => r_store_datatype,
       store_checkout => r_store_checkout,
       rs232_rx       => rs232_rx,
-      rs232_tx       => rs232_tx
+      rs232_tx       => r_rs232_tx
     );
 
   attributes_reg: process (clk)
@@ -318,6 +325,19 @@ begin
     end if;
   end process;
 
+  convert_tff: process (keys)
+  begin
+    if falling_edge(keys(0)) then
+      r_convert_data <= not r_convert_data;
+    else
+      r_convert_data <= r_convert_data;
+    end if;
+  end process;
+
   r_longkey <= r_key0 & r_key1;
+  rs232_tx  <= r_rs232_tx or r_is_idle;
+
+  r_read_convert <= r_convert_data;
+  r_send_convert <= not r_mode and r_convert_data;
 
 end architecture;
