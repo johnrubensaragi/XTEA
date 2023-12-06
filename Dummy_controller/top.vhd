@@ -68,6 +68,7 @@ architecture behavioral of top is
   signal r_convert_data : std_logic;
   signal r_is_idle      : std_logic;
   signal r_rs232_tx     : std_logic;
+  signal r_led_blinker  : std_logic;
 
   component controlFSM is
     generic (
@@ -172,6 +173,14 @@ architecture behavioral of top is
     );
   end component;
 
+  component ClockDiv is
+    generic (div_frequency, clock_frequency : natural);
+    port (
+      clock_in  : in  std_logic;
+      clock_out : out std_logic
+    );
+  end component;
+
 begin
 
   controlFSM0: controlFSM
@@ -263,8 +272,8 @@ begin
       read_done      => r_serial_read_done,
       send_done      => r_serial_send_done,
       send_start     => r_serial_send_start,
-      read_convert   => keys(0),
-      send_convert   => keys(1),
+      read_convert   => r_read_convert,
+      send_convert   => r_send_convert,
       error_format   => r_error_format,
       send_data      => r_dataOut,
       store_data     => r_store_data,
@@ -273,6 +282,10 @@ begin
       rs232_rx       => rs232_rx,
       rs232_tx       => r_rs232_tx
     );
+
+  led_blinker: ClockDiv
+    generic map (2, 50e6)
+    port map (clk, r_led_blinker);
 
   attributes_reg: process (clk)
   begin
@@ -340,4 +353,6 @@ begin
   r_read_convert <= r_convert_data;
   r_send_convert <= not r_mode and r_convert_data;
 
+  leds(0) <= not r_convert_data;
+  leds(3) <= r_led_blinker and r_error_format;
 end architecture;
