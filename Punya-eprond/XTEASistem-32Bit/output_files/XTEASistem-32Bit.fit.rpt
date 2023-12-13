@@ -1,5 +1,5 @@
 Fitter report for XTEASistem-32Bit
-Tue Dec  5 17:39:45 2023
+Wed Dec 13 12:35:07 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Tue Dec  5 17:39:45 2023          ;
+; Fitter Status                      ; Successful - Wed Dec 13 12:35:07 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; XTEASistem-32Bit                               ;
 ; Top-level Entity Name              ; DummyTopLevel                                  ;
@@ -154,19 +154,19 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.20        ;
+; Average used               ; 1.21        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.4%      ;
+;     Processor 2            ;   1.5%      ;
 ;     Processor 3            ;   1.4%      ;
 ;     Processor 4            ;   1.4%      ;
 ;     Processor 5            ;   1.4%      ;
 ;     Processor 6            ;   1.4%      ;
 ;     Processor 7            ;   1.4%      ;
 ;     Processor 8            ;   1.4%      ;
-;     Processors 9-16        ;   1.3%      ;
+;     Processors 9-16        ;   1.4%      ;
 +----------------------------+-------------+
 
 
@@ -1217,9 +1217,9 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Info (144001): Generated suppressed messages file C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/XTEASistem-32Bit.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 6548 megabytes
-    Info: Processing ended: Tue Dec  5 17:39:45 2023
-    Info: Elapsed time: 00:00:05
+    Info: Peak virtual memory: 6524 megabytes
+    Info: Processing ended: Wed Dec 13 12:35:07 2023
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:04
 
 
