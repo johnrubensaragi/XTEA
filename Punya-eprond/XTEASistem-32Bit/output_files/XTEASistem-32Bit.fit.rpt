@@ -1,5 +1,5 @@
 Fitter report for XTEASistem-32Bit
-Tue Dec  5 17:17:45 2023
+Tue Dec  5 17:39:45 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Tue Dec  5 17:17:45 2023          ;
+; Fitter Status                      ; Successful - Tue Dec  5 17:39:45 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; XTEASistem-32Bit                               ;
 ; Top-level Entity Name              ; DummyTopLevel                                  ;
@@ -161,11 +161,11 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   1.4%      ;
 ;     Processor 3            ;   1.4%      ;
-;     Processor 4            ;   1.3%      ;
-;     Processor 5            ;   1.3%      ;
-;     Processor 6            ;   1.3%      ;
-;     Processor 7            ;   1.3%      ;
-;     Processor 8            ;   1.3%      ;
+;     Processor 4            ;   1.4%      ;
+;     Processor 5            ;   1.4%      ;
+;     Processor 6            ;   1.4%      ;
+;     Processor 7            ;   1.4%      ;
+;     Processor 8            ;   1.4%      ;
 ;     Processors 9-16        ;   1.3%      ;
 +----------------------------+-------------+
 
@@ -1195,7 +1195,7 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 3 total pin(s) used --  7 pins available
         Info (176213): I/O bank number 7 does not use VREF pins and has 2.5V VCCIO pins. 2 total pin(s) used --  11 pins available
         Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  12 pins available
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -1209,7 +1209,7 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.13 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.14 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1217,10 +1217,10 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Info (144001): Generated suppressed messages file C:/Users/crane/OneDrive - Institut Teknologi Bandung/XTEA/XTEA/Punya-eprond/XTEASistem-32Bit/output_files/XTEASistem-32Bit.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 6516 megabytes
-    Info: Processing ended: Tue Dec  5 17:17:46 2023
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 6548 megabytes
+    Info: Processing ended: Tue Dec  5 17:39:45 2023
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +----------------------------+

@@ -50,7 +50,7 @@ get_port()
 assign()
 
 while True:
-    msg = input("insert message here: ")
+    msg = open("")
     send(msg)
     print(ser.in_waiting)
     receive()
